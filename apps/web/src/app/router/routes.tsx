@@ -3,7 +3,8 @@ import { LoginPage } from '../../pages/login/ui/LoginPage'
 import { RegisterPage } from '../../pages/register/ui/RegisterPage'
 import { VerifyPage } from '../../pages/verify/ui/VerifyPage'
 import { DashboardPage } from '../../pages/dashboard/ui/DashboardPage'
-import { RoutePlaceholder } from '../../shared/ui/route-placeholder/RoutePlaceholder'
+import { DealsPage } from '../../pages/deals/ui/DealsPage'
+import { ProfilePage } from '../../pages/profile/ui/ProfilePage'
 import { routePaths } from '../../shared/config/routes'
 
 export type RouteAccess = 'public' | 'challenge' | 'private'
@@ -19,7 +20,6 @@ export const appRoutes: AppRoute[] = [
   { path: routePaths.register, element: <RegisterPage />, access: 'public' },
   { path: routePaths.verify, element: <VerifyPage />, access: 'challenge' },
   { path: routePaths.dashboard, element: <DashboardPage />, access: 'private' },
-  { path: routePaths.deals, element: <RoutePlaceholder title="Сделки" />, access: 'private' },
-  { path: routePaths.payments, element: <RoutePlaceholder title="Платежи" />, access: 'private' },
-  { path: routePaths.settings, element: <RoutePlaceholder title="Настройки" />, access: 'private' },
+  { path: routePaths.deals, element: <DealsPage />, access: 'private' },
+  { path: routePaths.profile, element: <ProfilePage />, access: 'private' },
 ]

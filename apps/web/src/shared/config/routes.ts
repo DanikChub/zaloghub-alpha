@@ -4,6 +4,5 @@ export const routePaths = {
   verify: '/verify',
   dashboard: '/dashboard',
   deals: '/deals',
-  payments: '/payments',
-  settings: '/settings',
+  profile: '/profile',
 } as const
