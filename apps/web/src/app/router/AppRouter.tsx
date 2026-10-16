@@ -1,20 +1,37 @@
+import type { ReactNode } from 'react'
 import { Navigate, Route, Routes } from 'react-router'
+import { useAppSelector } from '../store/hooks'
+import { selectAccessToken, selectAuthChallenge } from '../../features/auth/model/authSlice'
 import { routePaths } from '../../shared/config/routes'
-import { RoutePlaceholder } from '../../shared/ui/route-placeholder/RoutePlaceholder'
-import { LoginPage } from '../../pages/login/ui/LoginPage'
+import { appRoutes, type RouteAccess } from './routes'
+
+function RouteGate({ access, children }: { access: RouteAccess; children: ReactNode }) {
+  const token = useAppSelector(selectAccessToken)
+  const challenge = useAppSelector(selectAuthChallenge)
+
+  if (access === 'private' && !token) {
+    return <Navigate to={routePaths.login} replace />
+  }
+
+  if (access === 'challenge' && !challenge) {
+    return <Navigate to={token ? routePaths.dashboard : routePaths.login} replace />
+  }
+
+  if (access === 'public' && token) {
+    return <Navigate to={routePaths.dashboard} replace />
+  }
+
+  return children
+}
 
 export function AppRouter() {
   return (
     <Routes>
       <Route path="/" element={<Navigate to={routePaths.dashboard} replace />} />
-        <Route path={routePaths.login} element={<LoginPage />} />
-      <Route path={routePaths.register} element={<RoutePlaceholder title="Регистрация" />} />
-      <Route path={routePaths.verify} element={<RoutePlaceholder title="Подтверждение входа" />} />
-      <Route path={routePaths.dashboard} element={<RoutePlaceholder title="Обзор" />} />
-      <Route path={routePaths.deals} element={<RoutePlaceholder title="Сделки" />} />
-      <Route path={routePaths.payments} element={<RoutePlaceholder title="Платежи" />} />
-      <Route path={routePaths.settings} element={<RoutePlaceholder title="Настройки" />} />
-      <Route path="*" element={<RoutePlaceholder title="Страница не найдена" />} />
+      {appRoutes.map(({ path, element, access }) => (
+        <Route key={path} path={path} element={<RouteGate access={access}>{element}</RouteGate>} />
+      ))}
+      <Route path="*" element={<Navigate to={routePaths.dashboard} replace />} />
     </Routes>
   )
 }
