@@ -11,31 +11,7 @@ export interface AppThemeColors {
 }
 
 export const themeColors: Record<AppThemeName, AppThemeColors> = {
-  light: {
-    background: '#f5f7fb',
-    surface: '#ffffff',
-    sidebar: '#ffffff',
-    sidebarBorder: '#e8edf3',
-    text: '#17263b',
-    muted: '#76859a',
-    accent: '#2563eb',
-  },
-  dark: {
-    background: '#11151c',
-    surface: '#1b222d',
-    sidebar: '#181e28',
-    sidebarBorder: '#2a3543',
-    text: '#edf2f8',
-    muted: '#9cabbc',
-    accent: '#5798f7',
-  },
-  brand: {
-    background: '#000000',
-    surface: '#101410',
-    sidebar: '#090e0b',
-    sidebarBorder: '#213127',
-    text: '#f0f8f2',
-    muted: '#94a99b',
-    accent: '#34C759',
-  },
+  light: { background: '#f4f6f8', surface: '#ffffff', sidebar: '#ffffff', sidebarBorder: '#dfe4ea', text: '#1f2937', muted: '#64748b', accent: '#2563eb' },
+  dark: { background: '#11151c', surface: '#1b222d', sidebar: '#181e28', sidebarBorder: '#303947', text: '#e6edf5', muted: '#9ba9bb', accent: '#5798f7' },
+  brand: { background: '#000000', surface: '#101410', sidebar: '#090e0b', sidebarBorder: '#29382e', text: '#e8f5eb', muted: '#93a99a', accent: '#34c759' },
 }

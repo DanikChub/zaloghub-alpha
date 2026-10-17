@@ -1,17 +1,1 @@
-* {
-  box-sizing: border-box;
-}
-
-html,
-body,
-#root {
-  min-height: 100%;
-}
-
-body {
-  margin: 0;
-}
-
-#root {
-  min-height: 100vh;
-}
+*{box-sizing:border-box}html,body,#root{min-height:100%}body{margin:0;font-variant-numeric:tabular-nums}#root{min-height:100vh}html{background:var(--app-background)}:root,[data-theme='light']{--app-background:#f4f6f8;--app-surface:#fff;--app-sidebar:#fff;--app-border:#dfe4ea;--app-text:#1f2937;--app-muted:#64748b;--app-accent:#2563eb;--app-hover:#edf2f8}[data-theme='dark']{--app-background:#11151c;--app-surface:#1b222d;--app-sidebar:#181e28;--app-border:#303947;--app-text:#e6edf5;--app-muted:#9ba9bb;--app-accent:#5798f7;--app-hover:#273141}[data-theme='brand']{--app-background:#000;--app-surface:#101410;--app-sidebar:#090e0b;--app-border:#29382e;--app-text:#e8f5eb;--app-muted:#93a99a;--app-accent:#34c759;--app-hover:#1b3022}
