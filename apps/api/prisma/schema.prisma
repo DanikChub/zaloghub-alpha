@@ -1,4 +1,3 @@
-
 generator client {
   provider = "prisma-client"
   output   = "../src/generated/prisma"
@@ -9,38 +8,131 @@ datasource db {
 }
 
 model User {
-  id           String   @id @default(uuid())
-  email        String   @unique
+  id String @id @default(uuid())
+  email String @unique
   passwordHash String
-  firstName    String?
-  lastName     String?
-
-  isActive     Boolean  @default(true)
-
+  firstName String?
+  lastName String?
+  isActive Boolean @default(true)
   emailVerifiedAt DateTime?
-  authChallenges   AuthChallenge[]
-
-  createdAt    DateTime @default(now())
-  updatedAt    DateTime @updatedAt
-
+  authChallenges AuthChallenge[]
+  deals Deal[]
+  borrowers Borrower[]
+  collaterals Collateral[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
   @@map("users")
 }
 
-
 model AuthChallenge {
-  id         String    @id @default(uuid())
-  userId     String
-  codeHash   String
-  attempts   Int       @default(0)
-  expiresAt  DateTime
+  id String @id @default(uuid())
+  userId String
+  codeHash String
+  attempts Int @default(0)
+  expiresAt DateTime
   consumedAt DateTime?
-  createdAt  DateTime  @default(now())
-
+  createdAt DateTime @default(now())
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
-
   @@index([userId, createdAt])
   @@map("auth_challenges")
 }
 
+enum DealStatus {
+  DRAFT
+  ACTIVE
+  CLOSED
+}
 
+enum PaymentType {
+  INTEREST
+  PRINCIPAL
+  PENALTY
+  OTHER
+}
 
+model Borrower {
+  id String @id @default(uuid())
+  userId String
+  firstName String
+  lastName String
+  middleName String?
+  phone String?
+  email String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  user User @relation(fields: [userId], references: [id])
+  deals Deal[]
+  @@index([userId])
+  @@map("borrowers")
+}
+
+model Collateral {
+  id String @id @default(uuid())
+  userId String
+  type String
+  cadastralNumber String?
+  address String
+  estimatedValue Decimal? @db.Decimal(18, 2)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  user User @relation(fields: [userId], references: [id])
+  deals Deal[]
+  @@index([userId])
+  @@map("collaterals")
+}
+
+model Deal {
+  id String @id @default(uuid())
+  userId String
+  borrowerId String?
+  collateralId String?
+  contractNumber String?
+  signedAt DateTime?
+  contractCity String?
+  principalAmount Decimal @db.Decimal(18, 2)
+  preferentialRate Decimal @db.Decimal(8, 4)
+  standardRate Decimal @db.Decimal(8, 4)
+  moratoriumMonths Int
+  termMonths Int
+  penaltyRate Decimal @db.Decimal(8, 4)
+  increasedPenaltyRate Decimal @db.Decimal(8, 4)
+  paymentDay Int
+  status DealStatus @default(DRAFT)
+  deletedAt DateTime?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  user User @relation(fields: [userId], references: [id])
+  borrower Borrower? @relation(fields: [borrowerId], references: [id])
+  collateral Collateral? @relation(fields: [collateralId], references: [id])
+  disbursements Disbursement[]
+  payments Payment[]
+  @@index([userId, deletedAt])
+  @@index([borrowerId])
+  @@index([collateralId])
+  @@map("deals")
+}
+
+model Disbursement {
+  id String @id @default(uuid())
+  dealId String
+  amount Decimal @db.Decimal(18, 2)
+  issuedAt DateTime
+  comment String?
+  createdAt DateTime @default(now())
+  deal Deal @relation(fields: [dealId], references: [id])
+  @@index([dealId, issuedAt])
+  @@map("disbursements")
+}
+
+model Payment {
+  id String @id @default(uuid())
+  dealId String
+  amount Decimal @db.Decimal(18, 2)
+  type PaymentType
+  paidAt DateTime
+  comment String?
+  createdAt DateTime @default(now())
+  deal Deal @relation(fields: [dealId], references: [id])
+  @@index([dealId, paidAt])
+  @@map("payments")
+}
