@@ -2,6 +2,7 @@ import { BadRequestException, Injectable, NotFoundException } from '@nestjs/comm
 import { PrismaService } from '../prisma/prisma.service.js';
 import { CreateBorrowerDto, CreateCollateralDto, CreateDealDto, CreateOperationDto, CreatePaymentDto } from './dto.js';
 import { Prisma } from '../generated/prisma/client.js';
+import { DealStatus, PaymentType } from '../generated/prisma/enums.js';
 
 const dealInclude = { borrower: true, collateral: true, disbursements: { orderBy: { issuedAt: 'desc' as const } }, payments: { orderBy: { paidAt: 'desc' as const } } };
 
@@ -54,7 +55,7 @@ export class DealsService {
   async create(userId: string, dto: CreateDealDto) {
     await this.validateLinks(userId, dto);
     this.validateStatus(dto);
-    return this.prisma.deal.create({ data: { ...dto, signedAt: dto.signedAt ? new Date(dto.signedAt) : undefined, userId }, include: dealInclude });
+    return this.prisma.deal.create({ data: { ...dto, signedAt: dto.signedAt ? new Date(dto.signedAt) : undefined, status: dto.status as DealStatus | undefined, userId }, include: dealInclude });
   }
   list(userId: string) {
     return this.prisma.deal.findMany({ where: { userId, deletedAt: null }, include: { borrower: true, collateral: true, disbursements: true, payments: true }, orderBy: { createdAt: 'desc' } });
@@ -68,7 +69,7 @@ export class DealsService {
     const existing = await this.one(userId, id);
     await this.validateLinks(userId, dto);
     this.validateStatus({ ...dto, status: dto.status ?? existing.status }, existing);
-    return this.prisma.deal.update({ where: { id }, data: { ...dto, signedAt: dto.signedAt ? new Date(dto.signedAt) : undefined }, include: dealInclude });
+    return this.prisma.deal.update({ where: { id }, data: { ...dto, signedAt: dto.signedAt ? new Date(dto.signedAt) : undefined, status: dto.status as DealStatus | undefined }, include: dealInclude });
   }
   async remove(userId: string, id: string) {
     await this.one(userId, id);
@@ -80,7 +81,7 @@ export class DealsService {
   }
   async pay(userId: string, id: string, dto: CreatePaymentDto) {
     await this.one(userId, id);
-    return this.prisma.payment.create({ data: { dealId: id, amount: dto.amount, paidAt: new Date(dto.date), type: dto.type, comment: dto.comment } });
+    return this.prisma.payment.create({ data: { dealId: id, amount: dto.amount, paidAt: new Date(dto.date), type: dto.type as PaymentType, comment: dto.comment } });
   }
   async deleteDisbursement(userId: string, id: string, operationId: string) {
     await this.one(userId, id);

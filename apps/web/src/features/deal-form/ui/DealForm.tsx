@@ -16,8 +16,8 @@ export function DealForm({ open, onClose, onSaved, deal }: Props) {
   const [updateDeal, updateState] = useUpdateDealMutation()
   const [createBorrower] = useCreateBorrowerMutation()
   const [createCollateral] = useCreateCollateralMutation()
-  const [borrowerOpen, setBorrowerOpen] = Modal.useModal()
-  const [collateralOpen, setCollateralOpen] = Modal.useModal()
+  const [borrowerOpen, borrowerModalHolder] = Modal.useModal()
+  const [collateralOpen, collateralModalHolder] = Modal.useModal()
   const [notify, contextHolder] = message.useMessage()
 
   useEffect(() => {
@@ -49,7 +49,7 @@ export function DealForm({ open, onClose, onSaved, deal }: Props) {
       const result = deal ? await updateDeal({ id: deal.id, body }).unwrap() : await createDeal(body).unwrap()
       notify.success('Сделка сохранена')
       onSaved(result.id)
-    } catch (error) { notify.error(getApiErrorMessage(error)) }
+    } catch (error) { notify.error(getApiErrorMessage(error, 'Не удалось сохранить данные')) }
   }
 
   const addBorrower = () => {
@@ -63,7 +63,7 @@ export function DealForm({ open, onClose, onSaved, deal }: Props) {
       onOk: async () => {
         if (!firstName.trim() || !lastName.trim()) { notify.error('Укажите имя и фамилию'); return Promise.reject() }
         try { const borrower = await createBorrower({ firstName: firstName.trim(), lastName: lastName.trim() }).unwrap(); form.setFieldValue('borrowerId', borrower.id) }
-        catch (error) { notify.error(getApiErrorMessage(error)); return Promise.reject() }
+        catch (error) { notify.error(getApiErrorMessage(error, 'Не удалось сохранить данные')); return Promise.reject() }
       },
     })
   }
@@ -78,13 +78,15 @@ export function DealForm({ open, onClose, onSaved, deal }: Props) {
       onOk: async () => {
         if (!address.trim()) { notify.error('Укажите адрес'); return Promise.reject() }
         try { const collateral = await createCollateral({ type, address: address.trim() }).unwrap(); form.setFieldValue('collateralId', collateral.id) }
-        catch (error) { notify.error(getApiErrorMessage(error)); return Promise.reject() }
+        catch (error) { notify.error(getApiErrorMessage(error, 'Не удалось сохранить данные')); return Promise.reject() }
       },
     })
   }
 
   return <>
     {contextHolder}
+    {borrowerModalHolder}
+    {collateralModalHolder}
     <Modal title={deal ? 'Редактирование сделки' : 'Новая сделка'} open={open} onCancel={onClose} onOk={() => form.submit()} confirmLoading={createState.isLoading || updateState.isLoading} okText="Сохранить" width={760} destroyOnHidden>
       <Form form={form} layout="vertical" onFinish={save}>
         <Row gutter={12}>

@@ -21,7 +21,7 @@ export function OperationModal({ dealId, kind, open, onClose }: Props) {
       notify.success('Операция добавлена')
       form.resetFields()
       onClose()
-    } catch (error) { notify.error(getApiErrorMessage(error)) }
+    } catch (error) { notify.error(getApiErrorMessage(error, 'Не удалось сохранить операцию')) }
   }
   return <>
     {holder}

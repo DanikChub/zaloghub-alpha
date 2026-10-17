@@ -46,7 +46,7 @@ export function DealsPage() {
         { title: 'Выдано', key: 'issued', align: 'right' as const, render: (_, deal: Deal) => money(issuedTotal(deal)) },
         { title: 'Остаток капитала', key: 'balance', align: 'right' as const, render: (_, deal: Deal) => money(issuedTotal(deal) - principalReturned(deal)) },
         { title: 'Статус', dataIndex: 'status', render: (value: Deal['status']) => <Tag color={value === 'ACTIVE' ? 'green' : value === 'CLOSED' ? 'default' : 'gold'}>{dealStatuses[value]}</Tag> },
-        { title: '', key: 'actions', width: 90, render: (_, deal: Deal) => <span onClick={(event) => event.stopPropagation()}><Popconfirm title="Удалить сделку?" description="Сделка будет скрыта из реестра" onConfirm={async () => { try { await deleteDeal(deal.id).unwrap(); notify.success('Сделка удалена') } catch (error) { notify.error(getApiErrorMessage(error)) } }}><Button size="small" danger type="link">Удалить</Button></Popconfirm></span> },
+        { title: '', key: 'actions', width: 90, render: (_, deal: Deal) => <span onClick={(event) => event.stopPropagation()}><Popconfirm title="Удалить сделку?" description="Сделка будет скрыта из реестра" onConfirm={async () => { try { await deleteDeal(deal.id).unwrap(); notify.success('Сделка удалена') } catch (error) { notify.error(getApiErrorMessage(error, 'Не удалось удалить сделку')) } }}><Button size="small" danger type="link">Удалить</Button></Popconfirm></span> },
       ]} />}
     </Card>
     <DealForm open={createOpen} onClose={() => setCreateOpen(false)} onSaved={(id) => { setCreateOpen(false); navigate(routePaths.deal(id)) }} />

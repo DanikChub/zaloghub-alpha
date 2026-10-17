@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Alert, Button, Card, Descriptions, Empty, Popconfirm, Space, Spin, Statistic, Table, Tag, Typography, message } from 'antd'
 import { ArrowLeftOutlined, EditOutlined, PlusOutlined } from '@ant-design/icons'
-import { Link, useNavigate, useParams } from 'react-router'
+import { Link, useParams } from 'react-router'
 import { AppShell } from '../../../widgets/app-shell/ui/AppShell'
 import { useDeleteDisbursementMutation, useDeletePaymentMutation, useGetDealQuery } from '../../../entities/deal/api/dealsApi'
 import { borrowerName, date, dealStatuses, issuedTotal, money, paymentTypes, principalReturned } from '../../../entities/deal/lib/format'
@@ -14,7 +14,6 @@ import './deals.css'
 
 export function DealDetailPage() {
   const { id = '' } = useParams()
-  const navigate = useNavigate()
   const { data: deal, isLoading, error } = useGetDealQuery(id, { skip: !id })
   const [editOpen, setEditOpen] = useState(false)
   const [operation, setOperation] = useState<'payment' | 'disbursement' | null>(null)
@@ -27,7 +26,7 @@ export function DealDetailPage() {
       if (kind === 'payment') await deletePayment({ dealId: id, id: operationId }).unwrap()
       else await deleteDisbursement({ dealId: id, id: operationId }).unwrap()
       notify.success('Операция удалена')
-    } catch (e) { notify.error(getApiErrorMessage(e)) }
+    } catch (e) { notify.error(getApiErrorMessage(e, 'Не удалось удалить операцию')) }
   }
 
   return <AppShell title={deal ? `Сделка № ${deal.contractNumber || 'без номера'}` : 'Карточка сделки'} description="Условия договора и движение средств">
