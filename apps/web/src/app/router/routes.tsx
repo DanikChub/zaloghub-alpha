@@ -1,3 +1,4 @@
+import { MarketplacePage, MarketplaceDetailPage } from '../../pages/marketplace/MarketplacePage'
 import type { ReactNode } from 'react'
 import { LoginPage } from '../../pages/login/ui/LoginPage'
 import { RegisterPage } from '../../pages/register/ui/RegisterPage'
@@ -17,6 +18,8 @@ interface AppRoute {
 }
 
 export const appRoutes: AppRoute[] = [
+  { path: routePaths.marketplace, element: <MarketplacePage />, access: 'private' },
+  { path: routePaths.marketplaceDetail, element: <MarketplaceDetailPage />, access: 'private' },
   { path: routePaths.login, element: <LoginPage />, access: 'public' },
   { path: routePaths.register, element: <RegisterPage />, access: 'public' },
   { path: routePaths.verify, element: <VerifyPage />, access: 'challenge' },

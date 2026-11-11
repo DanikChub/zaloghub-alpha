@@ -51,3 +51,164 @@ export type User = Prisma.UserModel
  * 
  */
 export type AuthChallenge = Prisma.AuthChallengeModel
+/**
+ * Model Borrower
+ * 
+ */
+export type Borrower = Prisma.BorrowerModel
+/**
+ * Model Collateral
+ * 
+ */
+export type Collateral = Prisma.CollateralModel
+/**
+ * Model Deal
+ * 
+ */
+export type Deal = Prisma.DealModel
+/**
+ * Model Disbursement
+ * 
+ */
+export type Disbursement = Prisma.DisbursementModel
+/**
+ * Model Payment
+ * 
+ */
+export type Payment = Prisma.PaymentModel
+/**
+ * Model FinanceInstruction
+ * 
+ */
+export type FinanceInstruction = Prisma.FinanceInstructionModel
+/**
+ * Model Workspace
+ * 
+ */
+export type Workspace = Prisma.WorkspaceModel
+/**
+ * Model WorkspaceMember
+ * 
+ */
+export type WorkspaceMember = Prisma.WorkspaceMemberModel
+/**
+ * Model Party
+ * 
+ */
+export type Party = Prisma.PartyModel
+/**
+ * Model Contract
+ * 
+ */
+export type Contract = Prisma.ContractModel
+/**
+ * Model ContractParty
+ * 
+ */
+export type ContractParty = Prisma.ContractPartyModel
+/**
+ * Model Document
+ * 
+ */
+export type Document = Prisma.DocumentModel
+/**
+ * Model ContractDocument
+ * 
+ */
+export type ContractDocument = Prisma.ContractDocumentModel
+/**
+ * Model ContractCollateral
+ * 
+ */
+export type ContractCollateral = Prisma.ContractCollateralModel
+/**
+ * Model LoanAccount
+ * 
+ */
+export type LoanAccount = Prisma.LoanAccountModel
+/**
+ * Model CalendarVersion
+ * 
+ */
+export type CalendarVersion = Prisma.CalendarVersionModel
+/**
+ * Model CalendarDay
+ * 
+ */
+export type CalendarDay = Prisma.CalendarDayModel
+/**
+ * Model TermsVersion
+ * 
+ */
+export type TermsVersion = Prisma.TermsVersionModel
+/**
+ * Model TermRule
+ * 
+ */
+export type TermRule = Prisma.TermRuleModel
+/**
+ * Model FinancialEvent
+ * 
+ */
+export type FinancialEvent = Prisma.FinancialEventModel
+/**
+ * Model CalculationRun
+ * 
+ */
+export type CalculationRun = Prisma.CalculationRunModel
+/**
+ * Model CalculationInput
+ * 
+ */
+export type CalculationInput = Prisma.CalculationInputModel
+/**
+ * Model Obligation
+ * 
+ */
+export type Obligation = Prisma.ObligationModel
+/**
+ * Model AccrualLine
+ * 
+ */
+export type AccrualLine = Prisma.AccrualLineModel
+/**
+ * Model PaymentAllocation
+ * 
+ */
+export type PaymentAllocation = Prisma.PaymentAllocationModel
+/**
+ * Model LoanSnapshot
+ * 
+ */
+export type LoanSnapshot = Prisma.LoanSnapshotModel
+/**
+ * Model AuditEntry
+ * 
+ */
+export type AuditEntry = Prisma.AuditEntryModel
+/**
+ * Model DealFinanceJournalVersion
+ * Сохранённая версия расчёта: исходные данные и полученный результат.
+ * Создание новой версии не заменяет предыдущие.
+ */
+export type DealFinanceJournalVersion = Prisma.DealFinanceJournalVersionModel
+/**
+ * Model MarketplaceSource
+ * 
+ */
+export type MarketplaceSource = Prisma.MarketplaceSourceModel
+/**
+ * Model MarketplaceOffer
+ * 
+ */
+export type MarketplaceOffer = Prisma.MarketplaceOfferModel
+/**
+ * Model MarketplacePhoto
+ * 
+ */
+export type MarketplacePhoto = Prisma.MarketplacePhotoModel
+/**
+ * Model MarketplaceMark
+ * 
+ */
+export type MarketplaceMark = Prisma.MarketplaceMarkModel

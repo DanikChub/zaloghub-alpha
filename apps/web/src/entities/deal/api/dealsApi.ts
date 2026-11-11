@@ -1,5 +1,14 @@
 import { baseApi } from '../../../shared/api/baseApi'
-import type { Borrower, Collateral, Deal, DealInput, DealSummary, Disbursement, Payment, PaymentType } from '../model/types'
+import type {
+  Borrower,
+  Collateral,
+  Deal,
+  DealInput,
+  DealSummary,
+  DealFinance,
+  Disbursement,
+  Payment,
+} from '../model/types'
 
 export const dealsApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
@@ -9,6 +18,10 @@ export const dealsApi = baseApi.injectEndpoints({
     }),
     getDeal: builder.query<Deal, string>({
       query: (id) => `/deals/${id}`,
+      providesTags: (_result, _error, id) => [{ type: 'Deal', id }],
+    }),
+    getDealFinance: builder.query<DealFinance, string>({
+      query: (id) => `/deals/${id}/finance`,
       providesTags: (_result, _error, id) => [{ type: 'Deal', id }],
     }),
     getDealSummary: builder.query<DealSummary, void>({
@@ -31,7 +44,10 @@ export const dealsApi = baseApi.injectEndpoints({
       query: () => '/borrowers',
       providesTags: ['Deal'],
     }),
-    createBorrower: builder.mutation<Borrower, { firstName: string; lastName: string; middleName?: string; phone?: string; email?: string }>({
+    createBorrower: builder.mutation<
+      Borrower,
+      { firstName: string; lastName: string; middleName?: string; phone?: string; email?: string }
+    >({
       query: (body) => ({ url: '/borrowers', method: 'POST', body }),
       invalidatesTags: ['Deal'],
     }),
@@ -39,15 +55,24 @@ export const dealsApi = baseApi.injectEndpoints({
       query: () => '/collaterals',
       providesTags: ['Deal'],
     }),
-    createCollateral: builder.mutation<Collateral, { type: string; address: string; cadastralNumber?: string; estimatedValue?: number }>({
+    createCollateral: builder.mutation<
+      Collateral,
+      { type: string; address: string; cadastralNumber?: string; estimatedValue?: number }
+    >({
       query: (body) => ({ url: '/collaterals', method: 'POST', body }),
       invalidatesTags: ['Deal'],
     }),
-    addDisbursement: builder.mutation<Disbursement, { dealId: string; amount: number; date: string; comment?: string }>({
+    addDisbursement: builder.mutation<
+      Disbursement,
+      { dealId: string; amount: string; date: string; comment?: string; idempotencyKey?: string }
+    >({
       query: ({ dealId, ...body }) => ({ url: `/deals/${dealId}/disbursements`, method: 'POST', body }),
       invalidatesTags: ['Deal'],
     }),
-    addPayment: builder.mutation<Payment, { dealId: string; amount: number; date: string; type: PaymentType; comment?: string }>({
+    addPayment: builder.mutation<
+      Payment,
+      { dealId: string; amount: string; date: string; comment?: string; idempotencyKey?: string }
+    >({
       query: ({ dealId, ...body }) => ({ url: `/deals/${dealId}/payments`, method: 'POST', body }),
       invalidatesTags: ['Deal'],
     }),
@@ -63,8 +88,19 @@ export const dealsApi = baseApi.injectEndpoints({
 })
 
 export const {
-  useGetDealsQuery, useGetDealQuery, useGetDealSummaryQuery,
-  useCreateDealMutation, useUpdateDealMutation, useDeleteDealMutation,
-  useGetBorrowersQuery, useCreateBorrowerMutation, useGetCollateralsQuery, useCreateCollateralMutation,
-  useAddDisbursementMutation, useAddPaymentMutation, useDeletePaymentMutation, useDeleteDisbursementMutation,
+  useGetDealsQuery,
+  useGetDealQuery,
+  useGetDealFinanceQuery,
+  useGetDealSummaryQuery,
+  useCreateDealMutation,
+  useUpdateDealMutation,
+  useDeleteDealMutation,
+  useGetBorrowersQuery,
+  useCreateBorrowerMutation,
+  useGetCollateralsQuery,
+  useCreateCollateralMutation,
+  useAddDisbursementMutation,
+  useAddPaymentMutation,
+  useDeletePaymentMutation,
+  useDeleteDisbursementMutation,
 } = dealsApi

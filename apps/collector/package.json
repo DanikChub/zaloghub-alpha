@@ -1,0 +1,16 @@
+{
+  "name": "@zaloghub/collector",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node --env-file=.env src/index.mjs",
+    "history": "node --env-file=.env src/index.mjs history",
+    "retry": "node --env-file=.env src/index.mjs retry",
+    "test": "node --test src/*.test.mjs",
+    "check": "node --check src/index.mjs",
+    "diagnose": "node --env-file=.env src/diagnose.mjs"
+  },
+  "dependencies": {
+    "telegram": "2.26.22"
+  }
+}

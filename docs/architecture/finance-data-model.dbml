@@ -1,0 +1,508 @@
+// Logical draft v0.1. See finance-data-model.md for required invariants.
+// Solid refs are candidate FKs within a shared store; service boundary refs are comments.
+Project ZalogHubFinance {
+  database_type: "PostgreSQL"
+}
+
+// Owner: platform
+Table workspaces {
+  id uuid [pk]
+  name varchar [not null]
+}
+
+// Owner: platform
+Table users {
+  id uuid [pk]
+  email varchar [not null]
+  indexes {
+    email [unique]
+  }
+}
+
+// Owner: platform
+Table workspace_members {
+  id uuid [pk]
+  workspace_id uuid [not null]
+  user_id uuid [not null]
+  role varchar [not null]
+  indexes {
+    (workspace_id, user_id) [unique]
+  }
+}
+
+// Owner: platform
+Table parties {
+  id uuid [pk]
+  workspace_id uuid [not null]
+  kind varchar [not null]
+  display_name varchar [not null]
+  tax_id varchar [null]
+}
+
+// Owner: platform
+Table deals {
+  id uuid [pk]
+  workspace_id uuid [not null]
+  title varchar [not null]
+  status varchar [not null]
+}
+
+// Owner: platform
+Table contracts {
+  id uuid [pk]
+  workspace_id uuid [not null]
+  deal_id uuid [not null]
+  number varchar [not null]
+  kind varchar [not null]
+  signed_on date [null]
+  status varchar [not null]
+}
+
+// Owner: platform
+Table contract_parties {
+  id uuid [pk]
+  contract_id uuid [not null]
+  party_id uuid [not null]
+  role varchar [not null]
+  indexes {
+    (contract_id, party_id, role) [unique]
+  }
+}
+
+// Owner: platform
+Table documents {
+  id uuid [pk]
+  workspace_id uuid [not null]
+  storage_key varchar [not null]
+  sha256 varchar [not null]
+  mime_type varchar [not null]
+}
+
+// Owner: platform
+Table contract_documents {
+  id uuid [pk]
+  contract_id uuid [not null]
+  document_id uuid [not null]
+  role varchar [not null]
+  indexes {
+    (contract_id, document_id, role) [unique]
+  }
+}
+
+// Owner: platform
+Table collaterals {
+  id uuid [pk]
+  workspace_id uuid [not null]
+  kind varchar [not null]
+  cadastral_number varchar [null]
+  address varchar [null]
+}
+
+// Owner: platform
+Table contract_collaterals {
+  id uuid [pk]
+  contract_id uuid [not null]
+  collateral_id uuid [not null]
+  secured_amount decimal(20,2) [null]
+  currency char(3) [not null]
+  priority int [not null]
+  indexes {
+    (contract_id, collateral_id) [unique]
+  }
+}
+
+// Owner: banking
+Table bank_connections {
+  id uuid [pk]
+  workspace_id uuid [not null]
+  bank_code varchar [not null]
+  credential_ref varchar [not null]
+  status varchar [not null]
+}
+
+// Owner: banking
+Table bank_accounts {
+  id uuid [pk]
+  workspace_id uuid [not null]
+  connection_id uuid [not null]
+  owner_party_id uuid [not null]
+  external_id varchar [not null]
+  currency char(3) [not null]
+  indexes {
+    (connection_id, external_id) [unique]
+  }
+}
+
+// Owner: banking
+Table bank_sync_runs {
+  id uuid [pk]
+  connection_id uuid [not null]
+  account_id uuid [not null]
+  requested_from timestamptz [not null]
+  requested_to timestamptz [not null]
+  complete_through timestamptz [null]
+  cursor varchar [null]
+  status varchar [not null]
+  started_at timestamptz [not null]
+  finished_at timestamptz [null]
+}
+
+// Owner: banking
+Table bank_transactions {
+  id uuid [pk]
+  account_id uuid [not null]
+  external_id varchar [not null]
+  first_seen_at timestamptz [not null]
+  indexes {
+    (account_id, external_id) [unique]
+  }
+}
+
+// Owner: banking
+Table bank_transaction_revisions {
+  id uuid [pk]
+  transaction_id uuid [not null]
+  revision_no int [not null]
+  sync_run_id uuid [not null]
+  status varchar [not null]
+  observed_at timestamptz [not null]
+  direction varchar [not null]
+  amount decimal(20,2) [not null]
+  currency char(3) [not null]
+  booked_at timestamptz [not null]
+  value_on date [null]
+  purpose text [null]
+  counterparty_data jsonb [not null]
+  raw_payload jsonb [not null]
+  payload_hash varchar [not null]
+  indexes {
+    (transaction_id, revision_no) [unique]
+  }
+  Note: 'Append-only observations; status changes and corrections do not overwrite previous evidence. Raw payload contains sensitive bank data.'
+}
+
+// Owner: banking
+Table transaction_matches {
+  id uuid [pk]
+  transaction_revision_id uuid [not null]
+  contract_id uuid [not null]
+  amount decimal(20,2) [not null]
+  status varchar [not null]
+  method varchar [not null]
+  confirmed_by uuid [null]
+  confirmed_at timestamptz [null]
+  supersedes_id uuid [null]
+  Note: 'Bank allocation to contract, not allocation to principal/interest/penalty. Only confirmed matches generate finance events.'
+}
+
+// Owner: finance
+Table loan_accounts {
+  id uuid [pk]
+  workspace_id uuid [not null]
+  source_contract_id uuid [not null]
+  currency char(3) [not null]
+  status varchar [not null]
+  indexes {
+    (workspace_id, source_contract_id) [unique]
+  }
+  Note: 'Finance-owned identity. source_contract_id and workspace_id are external references when finance uses a separate database.'
+}
+
+// Owner: finance
+Table calendar_versions {
+  id uuid [pk]
+  calendar_code varchar [not null]
+  version varchar [not null]
+  timezone varchar [not null]
+  content_hash varchar [not null]
+  indexes {
+    (calendar_code, version) [unique]
+  }
+}
+
+// Owner: finance
+Table calendar_days {
+  id uuid [pk]
+  calendar_version_id uuid [not null]
+  day date [not null]
+  is_working boolean [not null]
+  indexes {
+    (calendar_version_id, day) [unique]
+  }
+}
+
+// Owner: finance
+Table terms_versions {
+  id uuid [pk]
+  loan_account_id uuid [not null]
+  version_no int [not null]
+  effective_on date [not null]
+  recorded_at timestamptz [not null]
+  schema_version varchar [not null]
+  contract_amount decimal(20,2) [not null]
+  maturity_on date [null]
+  calendar_version_id uuid [not null]
+  day_count_policy jsonb [not null]
+  rounding_policy jsonb [not null]
+  source_document_ref uuid [null]
+  source_clause text [null]
+  status varchar [not null]
+  content_hash varchar [not null]
+  indexes {
+    (loan_account_id, version_no) [unique]
+  }
+  Note: 'Full immutable ruleset snapshot. Drafts may change; published versions are immutable. Contract amount is a limit/term, not proof of disbursement.'
+}
+
+// Owner: finance
+Table term_rules {
+  id uuid [pk]
+  terms_version_id uuid [not null]
+  rule_key varchar [not null]
+  kind varchar [not null]
+  priority int [not null]
+  definition jsonb [not null]
+  source_clause text [not null]
+  indexes {
+    (terms_version_id, rule_key) [unique]
+  }
+  Note: 'Typed validated rules, never executable arbitrary code. Kinds: interest, schedule, penalty, allocation, prepayment, rate_transition.'
+}
+
+// Owner: finance
+Table financial_events {
+  id uuid [pk]
+  loan_account_id uuid [not null]
+  kind varchar [not null]
+  effective_on date [not null]
+  recorded_at timestamptz [not null]
+  sequence_no bigint [not null]
+  amount decimal(20,2) [null]
+  counterparty_ref uuid [null]
+  source_system varchar [not null]
+  source_ref varchar [not null]
+  source_revision varchar [not null]
+  idempotency_key varchar [not null]
+  reverses_event_id uuid [null]
+  payload jsonb [not null]
+  indexes {
+    (loan_account_id, idempotency_key) [unique]
+    (loan_account_id, effective_on, sequence_no)
+    (loan_account_id, sequence_no) [unique]
+  }
+  Note: 'Immutable accepted facts. Disbursement, receipt, reversal, expense, waiver, notice, settlement. Money is in loan account currency. source_ref is external identity, not FK.'
+}
+
+// Owner: finance
+Table calculation_runs {
+  id uuid [pk]
+  loan_account_id uuid [not null]
+  as_of_on date [not null]
+  knowledge_cutoff timestamptz [not null]
+  engine_version varchar [not null]
+  input_hash varchar [not null]
+  status varchar [not null]
+  created_at timestamptz [not null]
+  supersedes_run_id uuid [null]
+}
+
+// Owner: finance
+Table calculation_inputs {
+  id uuid [pk]
+  run_id uuid [not null]
+  input_kind varchar [not null]
+  input_ref uuid [not null]
+  content_hash varchar [not null]
+  indexes {
+    (run_id, input_kind, input_ref) [unique]
+  }
+  Note: 'Polymorphic immutable manifest: event, terms_version, calendar_version. References validated by service; input_ref is not a SQL FK.'
+}
+
+// Owner: finance
+Table obligations {
+  id uuid [pk]
+  run_id uuid [not null]
+  obligation_key varchar [not null]
+  component varchar [not null]
+  period_from date [null]
+  period_to date [null]
+  due_on date [not null]
+  amount decimal(20,2) [not null]
+  unpaid_amount decimal(20,2) [not null]
+  terms_version_id uuid [not null]
+  indexes {
+    (run_id, obligation_key) [unique]
+  }
+}
+
+// Owner: finance
+Table accrual_lines {
+  id uuid [pk]
+  run_id uuid [not null]
+  obligation_id uuid [null]
+  rule_id uuid [not null]
+  period_from date [not null]
+  period_to date [not null]
+  base_amount decimal(20,2) [not null]
+  rate decimal(18,10) [not null]
+  rate_unit varchar [not null]
+  day_count int [not null]
+  unrounded_amount decimal(30,12) [not null]
+  rounded_amount decimal(20,2) [not null]
+  explanation jsonb [not null]
+}
+
+// Owner: finance
+Table payment_allocations {
+  id uuid [pk]
+  run_id uuid [not null]
+  event_id uuid [not null]
+  obligation_id uuid [not null]
+  amount decimal(20,2) [not null]
+  order_no int [not null]
+  rule_id uuid [not null]
+  Note: 'Derived per calculation run. event must be an accepted receipt/credit; all linked records must belong to the same run and loan.'
+}
+
+// Owner: finance
+Table loan_snapshots {
+  id uuid [pk]
+  run_id uuid [not null]
+  principal_outstanding decimal(20,2) [not null]
+  interest_unpaid decimal(20,2) [not null]
+  penalty_unpaid decimal(20,2) [not null]
+  expenses_unpaid decimal(20,2) [not null]
+  unapplied_credit decimal(20,2) [not null]
+  due_total decimal(20,2) [not null]
+  overdue_total decimal(20,2) [not null]
+  days_past_due int [not null]
+  next_payment_on date [null]
+  next_payment_amount decimal(20,2) [null]
+  payoff_amount decimal(20,2) [null]
+  diagnostics jsonb [not null]
+  indexes {
+    run_id [unique]
+  }
+  Note: 'Derived state for one successful run. due_total includes overdue_total; never add these two amounts. Future principal is not automatically due.'
+}
+
+// Owner: platform
+Table audit_entries {
+  id uuid [pk]
+  workspace_id uuid [not null]
+  actor_id uuid [null]
+  action varchar [not null]
+  entity_type varchar [not null]
+  entity_id uuid [not null]
+  recorded_at timestamptz [not null]
+  details jsonb [not null]
+}
+
+// Owner: banking
+Table outbox_messages {
+  id uuid [pk]
+  workspace_id uuid [not null]
+  aggregate_id uuid [not null]
+  event_type varchar [not null]
+  payload jsonb [not null]
+  created_at timestamptz [not null]
+  published_at timestamptz [null]
+  idempotency_key varchar [not null]
+  indexes {
+    (workspace_id, idempotency_key) [unique]
+  }
+}
+
+Ref: workspace_members.workspace_id > workspaces.id
+Ref: workspace_members.user_id > users.id
+Ref: parties.workspace_id > workspaces.id
+Ref: deals.workspace_id > workspaces.id
+Ref: contracts.workspace_id > workspaces.id
+Ref: contracts.deal_id > deals.id
+Ref: contract_parties.contract_id > contracts.id
+Ref: contract_parties.party_id > parties.id
+Ref: documents.workspace_id > workspaces.id
+Ref: contract_documents.contract_id > contracts.id
+Ref: contract_documents.document_id > documents.id
+Ref: collaterals.workspace_id > workspaces.id
+Ref: contract_collaterals.contract_id > contracts.id
+Ref: contract_collaterals.collateral_id > collaterals.id
+Ref: bank_connections.workspace_id > workspaces.id
+Ref: bank_accounts.workspace_id > workspaces.id
+Ref: bank_accounts.connection_id > bank_connections.id
+Ref: bank_accounts.owner_party_id > parties.id
+Ref: bank_sync_runs.connection_id > bank_connections.id
+Ref: bank_sync_runs.account_id > bank_accounts.id
+Ref: bank_transactions.account_id > bank_accounts.id
+Ref: bank_transaction_revisions.transaction_id > bank_transactions.id
+Ref: bank_transaction_revisions.sync_run_id > bank_sync_runs.id
+Ref: transaction_matches.transaction_revision_id > bank_transaction_revisions.id
+Ref: transaction_matches.contract_id > contracts.id
+Ref: transaction_matches.confirmed_by > users.id
+Ref: transaction_matches.supersedes_id > transaction_matches.id
+Ref: calendar_days.calendar_version_id > calendar_versions.id
+Ref: terms_versions.loan_account_id > loan_accounts.id
+Ref: terms_versions.calendar_version_id > calendar_versions.id
+Ref: term_rules.terms_version_id > terms_versions.id
+Ref: financial_events.loan_account_id > loan_accounts.id
+Ref: financial_events.reverses_event_id > financial_events.id
+Ref: calculation_runs.loan_account_id > loan_accounts.id
+Ref: calculation_runs.supersedes_run_id > calculation_runs.id
+Ref: calculation_inputs.run_id > calculation_runs.id
+Ref: obligations.run_id > calculation_runs.id
+Ref: obligations.terms_version_id > terms_versions.id
+Ref: accrual_lines.run_id > calculation_runs.id
+Ref: accrual_lines.obligation_id > obligations.id
+Ref: accrual_lines.rule_id > term_rules.id
+Ref: payment_allocations.run_id > calculation_runs.id
+Ref: payment_allocations.event_id > financial_events.id
+Ref: payment_allocations.obligation_id > obligations.id
+Ref: payment_allocations.rule_id > term_rules.id
+Ref: loan_snapshots.run_id - calculation_runs.id
+Ref: audit_entries.workspace_id > workspaces.id
+Ref: audit_entries.actor_id > users.id
+Ref: outbox_messages.workspace_id > workspaces.id
+// External identity: loan_accounts.source_contract_id -> contracts.id (no cross-service FK)
+// External identity: terms_versions.source_document_ref -> documents.id (no cross-service FK)
+// External identity: financial_events.source_ref -> transaction_matches.id (no cross-service FK)
+
+TableGroup platform {
+  workspaces
+  users
+  workspace_members
+  parties
+  deals
+  contracts
+  contract_parties
+  documents
+  contract_documents
+  collaterals
+  contract_collaterals
+  audit_entries
+}
+
+TableGroup banking {
+  bank_connections
+  bank_accounts
+  bank_sync_runs
+  bank_transactions
+  bank_transaction_revisions
+  transaction_matches
+  outbox_messages
+}
+
+TableGroup finance {
+  loan_accounts
+  calendar_versions
+  calendar_days
+  terms_versions
+  term_rules
+  financial_events
+  calculation_runs
+  calculation_inputs
+  obligations
+  accrual_lines
+  payment_allocations
+  loan_snapshots
+}

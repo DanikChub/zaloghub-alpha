@@ -8,31 +8,39 @@ datasource db {
 }
 
 model User {
-  id String @id @default(uuid())
-  email String @unique
-  passwordHash String
-  firstName String?
-  lastName String?
-  isActive Boolean @default(true)
-  emailVerifiedAt DateTime?
-  authChallenges AuthChallenge[]
-  deals Deal[]
-  borrowers Borrower[]
-  collaterals Collateral[]
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  id                String            @id @default(uuid())
+  email             String            @unique
+  passwordHash      String
+  firstName         String?
+  lastName          String?
+  isActive          Boolean           @default(true)
+  emailVerifiedAt   DateTime?
+  marketplaceMarks  MarketplaceMark[]
+  authChallenges    AuthChallenge[]
+  deals             Deal[]
+  borrowers         Borrower[]
+  collaterals       Collateral[]
+  createdAt         DateTime          @default(now())
+  updatedAt         DateTime          @updatedAt
+  personalWorkspace Workspace?        @relation("PersonalWorkspace")
+  workspaceMembers  WorkspaceMember[] @relation("workspace_members_user_id")
+  parties           Party[]           @relation("parties_user_id")
+  auditEntries      AuditEntry[]      @relation("audit_entries_actor_id")
+  financeInstructions FinanceInstruction[] @relation("FinanceInstructionActor")
+
   @@map("users")
 }
 
 model AuthChallenge {
-  id String @id @default(uuid())
-  userId String
-  codeHash String
-  attempts Int @default(0)
-  expiresAt DateTime
+  id         String    @id @default(uuid())
+  userId     String
+  codeHash   String
+  attempts   Int       @default(0)
+  expiresAt  DateTime
   consumedAt DateTime?
-  createdAt DateTime @default(now())
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt  DateTime  @default(now())
+  user       User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+
   @@index([userId, createdAt])
   @@map("auth_challenges")
 }
@@ -51,88 +59,780 @@ enum PaymentType {
 }
 
 model Borrower {
-  id String @id @default(uuid())
-  userId String
-  firstName String
-  lastName String
-  middleName String?
-  phone String?
-  email String?
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  user User @relation(fields: [userId], references: [id])
-  deals Deal[]
+  id          String     @id @default(uuid())
+  /// Transitional: database trigger assigns the personal workspace for legacy API writes.
+  workspaceId String?
+  workspace   Workspace? @relation(fields: [workspaceId], references: [id], onDelete: Restrict)
+  userId      String
+  firstName   String
+  lastName    String
+  middleName  String?
+  phone       String?
+  email       String?
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+  user        User       @relation(fields: [userId], references: [id])
+  deals       Deal[]
+  party       Party?     @relation("parties_legacy_borrower_id")
+
+  @@unique([id, workspaceId])
   @@index([userId])
+  @@index([workspaceId])
   @@map("borrowers")
 }
 
 model Collateral {
-  id String @id @default(uuid())
-  userId String
-  type String
-  cadastralNumber String?
-  address String
-  estimatedValue Decimal? @db.Decimal(18, 2)
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  user User @relation(fields: [userId], references: [id])
-  deals Deal[]
+  id                  String               @id @default(uuid())
+  workspaceId         String?
+  workspace           Workspace?           @relation(fields: [workspaceId], references: [id], onDelete: Restrict)
+  userId              String
+  type                String
+  cadastralNumber     String?
+  address             String
+  estimatedValue      Decimal?             @db.Decimal(18, 2)
+  createdAt           DateTime             @default(now())
+  updatedAt           DateTime             @updatedAt
+  user                User                 @relation(fields: [userId], references: [id])
+  deals               Deal[]
+  contractCollaterals ContractCollateral[] @relation("contract_collaterals_collateral_id")
+
+  @@unique([id, workspaceId])
   @@index([userId])
+  @@index([workspaceId])
   @@map("collaterals")
 }
 
 model Deal {
-  id String @id @default(uuid())
-  userId String
-  borrowerId String?
-  collateralId String?
-  contractNumber String?
-  signedAt DateTime?
-  contractCity String?
-  principalAmount Decimal @db.Decimal(18, 2)
-  preferentialRate Decimal @db.Decimal(8, 4)
-  standardRate Decimal @db.Decimal(8, 4)
-  moratoriumMonths Int
-  termMonths Int
-  penaltyRate Decimal @db.Decimal(8, 4)
-  increasedPenaltyRate Decimal @db.Decimal(8, 4)
-  paymentDay Int
-  status DealStatus @default(DRAFT)
-  deletedAt DateTime?
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  user User @relation(fields: [userId], references: [id])
-  borrower Borrower? @relation(fields: [borrowerId], references: [id])
-  collateral Collateral? @relation(fields: [collateralId], references: [id])
-  disbursements Disbursement[]
-  payments Payment[]
+  id                   String         @id @default(uuid())
+  workspaceId          String?
+  workspace            Workspace?     @relation(fields: [workspaceId], references: [id], onDelete: Restrict)
+  userId               String
+  borrowerId           String?
+  collateralId         String?
+  contractNumber       String?
+  signedAt             DateTime?
+  contractCity         String?
+  principalAmount      Decimal        @db.Decimal(18, 2)
+  preferentialRate     Decimal        @db.Decimal(8, 4)
+  standardRate         Decimal        @db.Decimal(8, 4)
+  moratoriumMonths     Int
+  termMonths           Int
+  penaltyRate          Decimal        @db.Decimal(8, 4)
+  increasedPenaltyRate Decimal        @db.Decimal(8, 4)
+  paymentDay           Int
+  /// Standardized versioned terms for the pure loan calculator.
+  financeTerms         Json?
+  status               DealStatus     @default(DRAFT)
+  deletedAt            DateTime?
+  createdAt            DateTime       @default(now())
+  updatedAt            DateTime       @updatedAt
+  user                 User           @relation(fields: [userId], references: [id])
+  borrower             Borrower?      @relation(fields: [borrowerId], references: [id])
+  collateral           Collateral?    @relation(fields: [collateralId], references: [id])
+  disbursements        Disbursement[]
+  payments             Payment[]
+  financeInstructions  FinanceInstruction[]
+  contracts            Contract[]     @relation("contracts_deal_id")
+  financeJournalVersions DealFinanceJournalVersion[]
+
+  @@unique([id, workspaceId])
   @@index([userId, deletedAt])
   @@index([borrowerId])
   @@index([collateralId])
+  @@index([workspaceId])
   @@map("deals")
 }
 
+
 model Disbursement {
-  id String @id @default(uuid())
-  dealId String
-  amount Decimal @db.Decimal(18, 2)
-  issuedAt DateTime
-  comment String?
+  id        String   @id @default(uuid())
+  dealId    String
+  amount    Decimal  @db.Decimal(18, 2)
+  issuedAt  DateTime
+  comment   String?
+  idempotencyKey String?
+  voidedAt DateTime?
   createdAt DateTime @default(now())
-  deal Deal @relation(fields: [dealId], references: [id])
+  deal      Deal     @relation(fields: [dealId], references: [id])
+
   @@index([dealId, issuedAt])
+  @@unique([dealId, idempotencyKey])
   @@map("disbursements")
 }
 
 model Payment {
-  id String @id @default(uuid())
-  dealId String
-  amount Decimal @db.Decimal(18, 2)
-  type PaymentType
-  paidAt DateTime
-  comment String?
-  createdAt DateTime @default(now())
-  deal Deal @relation(fields: [dealId], references: [id])
+  id        String      @id @default(uuid())
+  dealId    String
+  amount    Decimal     @db.Decimal(18, 2)
+  type      PaymentType
+  paidAt    DateTime
+  comment   String?
+  idempotencyKey String?
+  voidedAt DateTime?
+  createdAt DateTime    @default(now())
+  deal      Deal        @relation(fields: [dealId], references: [id])
+
   @@index([dealId, paidAt])
+  @@unique([dealId, idempotencyKey])
   @@map("payments")
+}
+
+enum FinanceInstructionKind {
+  REFUND
+  CREDIT
+  SETTLEMENT
+}
+
+enum FinanceInstructionStatus {
+  AGREED
+  EXECUTED
+  CANCELLED
+}
+
+model FinanceInstruction {
+  id                String @id @default(uuid())
+  dealId            String
+  kind              FinanceInstructionKind
+  status            FinanceInstructionStatus @default(AGREED)
+  effectiveOn       DateTime @db.Date
+  executedOn        DateTime? @db.Date
+  executionReference String?
+  cancelledOn       DateTime? @db.Date
+  payload           Json
+  idempotencyKey    String
+  actorId           String
+  createdAt         DateTime @default(now())
+  deal              Deal @relation(fields: [dealId], references: [id], onDelete: Restrict, onUpdate: NoAction)
+  actor             User @relation("FinanceInstructionActor", fields: [actorId], references: [id], onDelete: Restrict, onUpdate: NoAction)
+
+  @@unique([dealId, idempotencyKey])
+  @@index([dealId, effectiveOn, createdAt])
+  @@map("finance_instructions")
+}
+
+// Financial foundation: one application, one database. Banking ingestion is a later migration.
+// SQL-only CHECK constraints and history guards live in 20261105000000_financial_foundation.
+// Published terms/calendars and accepted events are immutable; corrections append new records.
+
+enum WorkspaceRole {
+  OWNER
+  ADMIN
+  MANAGER
+  VIEWER
+}
+
+enum PartyKind {
+  PERSON
+  ENTREPRENEUR
+  COMPANY
+}
+
+enum ContractKind {
+  LOAN
+  PLEDGE
+  AGENCY
+  GUARANTEE
+  OTHER
+}
+
+enum ContractStatus {
+  DRAFT
+  ACTIVE
+  CLOSED
+  CANCELLED
+}
+
+enum ContractPartyRole {
+  LENDER
+  BORROWER
+  PLEDGOR
+  GUARANTOR
+  AGENT
+  OTHER
+}
+
+enum DocumentRole {
+  MAIN
+  AMENDMENT
+  NOTICE
+  PAYMENT_INSTRUCTION
+  EXPENSE_EVIDENCE
+  OTHER
+}
+
+enum LoanAccountStatus {
+  DRAFT
+  ACTIVE
+  CLOSED
+}
+
+enum PublicationStatus {
+  DRAFT
+  PUBLISHED
+}
+
+enum TermRuleKind {
+  INTEREST
+  SCHEDULE
+  PENALTY
+  ALLOCATION
+  PREPAYMENT
+  RATE_TRANSITION
+}
+
+enum FinancialEventKind {
+  DISBURSEMENT
+  RECEIPT
+  REVERSAL
+  EXPENSE
+  WAIVER
+  NOTICE
+  SETTLEMENT
+}
+
+enum CalculationStatus {
+  RUNNING
+  SUCCEEDED
+  FAILED
+}
+
+enum CalculationInputKind {
+  EVENT
+  TERMS_VERSION
+  CALENDAR_VERSION
+}
+
+enum DebtComponent {
+  PRINCIPAL
+  INTEREST
+  PENALTY
+  EXPENSE
+}
+
+enum RateUnit {
+  DAY
+  MONTH
+  YEAR
+}
+
+model Workspace {
+  id                String            @id @default(uuid())
+  name              String
+  personalOwnerId   String?           @map("personal_owner_id")
+  createdAt         DateTime          @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt         DateTime          @updatedAt @map("updated_at") @db.Timestamptz(3)
+  personalOwner     User?             @relation("PersonalWorkspace", fields: [personalOwnerId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+  workspaceMembers  WorkspaceMember[] @relation("workspace_members_workspace_id")
+  parties           Party[]           @relation("parties_workspace_id")
+  contracts         Contract[]        @relation("contracts_workspace_id")
+  documents         Document[]        @relation("documents_workspace_id")
+  auditEntries      AuditEntry[]      @relation("audit_entries_workspace_id")
+  legacyDeals       Deal[]
+  legacyBorrowers   Borrower[]
+  legacyCollaterals Collateral[]
+
+  @@unique([personalOwnerId])
+  @@map("workspaces")
+}
+
+model WorkspaceMember {
+  id          String        @id @default(uuid())
+  workspaceId String        @map("workspace_id")
+  userId      String        @map("user_id")
+  role        WorkspaceRole @default(VIEWER)
+  workspace   Workspace     @relation("workspace_members_workspace_id", fields: [workspaceId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+  user        User          @relation("workspace_members_user_id", fields: [userId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+
+  @@unique([workspaceId, userId])
+  @@index([userId])
+  @@map("workspace_members")
+}
+
+model Party {
+  id               String           @id @default(uuid())
+  workspaceId      String           @map("workspace_id")
+  kind             PartyKind
+  displayName      String           @map("display_name")
+  taxId            String?          @map("tax_id")
+  userId           String?          @map("user_id")
+  legacyBorrowerId String?          @map("legacy_borrower_id")
+  workspace        Workspace        @relation("parties_workspace_id", fields: [workspaceId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+  user             User?            @relation("parties_user_id", fields: [userId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+  legacyBorrower   Borrower?        @relation("parties_legacy_borrower_id", fields: [legacyBorrowerId, workspaceId], references: [id, workspaceId], onDelete: Restrict, onUpdate: Cascade)
+  contractParties  ContractParty[]  @relation("contract_parties_party_id")
+  financialEvents  FinancialEvent[] @relation("financial_events_counterparty_id")
+
+  @@unique([id, workspaceId])
+  @@unique([workspaceId, userId])
+  @@unique([legacyBorrowerId])
+  @@unique([legacyBorrowerId, workspaceId])
+  @@index([userId])
+  @@map("parties")
+}
+
+model Contract {
+  id                  String               @id @default(uuid())
+  workspaceId         String               @map("workspace_id")
+  dealId              String               @map("deal_id")
+  number              String
+  kind                ContractKind
+  signedOn            DateTime?            @map("signed_on") @db.Date
+  status              ContractStatus       @default(DRAFT)
+  workspace           Workspace            @relation("contracts_workspace_id", fields: [workspaceId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+  deal                Deal                 @relation("contracts_deal_id", fields: [dealId, workspaceId], references: [id, workspaceId], onDelete: Restrict, onUpdate: Cascade)
+  contractParties     ContractParty[]      @relation("contract_parties_contract_id")
+  contractDocuments   ContractDocument[]   @relation("contract_documents_contract_id")
+  contractCollaterals ContractCollateral[] @relation("contract_collaterals_contract_id")
+  loanAccount         LoanAccount?         @relation("loan_accounts_contract_id")
+
+  @@unique([id, workspaceId])
+  @@index([workspaceId])
+  @@index([dealId, workspaceId])
+  @@map("contracts")
+}
+
+model ContractParty {
+  id          String            @id @default(uuid())
+  contractId  String            @map("contract_id")
+  partyId     String            @map("party_id")
+  role        ContractPartyRole
+  workspaceId String            @map("workspace_id")
+  contract    Contract          @relation("contract_parties_contract_id", fields: [contractId, workspaceId], references: [id, workspaceId], onDelete: Restrict, onUpdate: Cascade)
+  party       Party             @relation("contract_parties_party_id", fields: [partyId, workspaceId], references: [id, workspaceId], onDelete: Restrict, onUpdate: Cascade)
+
+  @@unique([contractId, partyId, role])
+  @@index([contractId, workspaceId])
+  @@index([partyId, workspaceId])
+  @@map("contract_parties")
+}
+
+model Document {
+  id                String             @id @default(uuid())
+  workspaceId       String             @map("workspace_id")
+  storageKey        String             @map("storage_key")
+  sha256            String
+  mimeType          String             @map("mime_type")
+  workspace         Workspace          @relation("documents_workspace_id", fields: [workspaceId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+  contractDocuments ContractDocument[] @relation("contract_documents_document_id")
+  termsVersions     TermsVersion[]     @relation("terms_versions_source_document_id")
+
+  @@unique([id, workspaceId])
+  @@index([workspaceId])
+  @@map("documents")
+}
+
+model ContractDocument {
+  id          String       @id @default(uuid())
+  contractId  String       @map("contract_id")
+  documentId  String       @map("document_id")
+  role        DocumentRole
+  workspaceId String       @map("workspace_id")
+  contract    Contract     @relation("contract_documents_contract_id", fields: [contractId, workspaceId], references: [id, workspaceId], onDelete: Restrict, onUpdate: Cascade)
+  document    Document     @relation("contract_documents_document_id", fields: [documentId, workspaceId], references: [id, workspaceId], onDelete: Restrict, onUpdate: Cascade)
+
+  @@unique([contractId, documentId, role])
+  @@index([contractId, workspaceId])
+  @@index([documentId, workspaceId])
+  @@map("contract_documents")
+}
+
+model ContractCollateral {
+  id            String     @id @default(uuid())
+  contractId    String     @map("contract_id")
+  collateralId  String     @map("collateral_id")
+  securedAmount Decimal?   @map("secured_amount") @db.Decimal(20, 2)
+  currency      String     @db.Char(3)
+  priority      Int
+  workspaceId   String     @map("workspace_id")
+  contract      Contract   @relation("contract_collaterals_contract_id", fields: [contractId, workspaceId], references: [id, workspaceId], onDelete: Restrict, onUpdate: Cascade)
+  collateral    Collateral @relation("contract_collaterals_collateral_id", fields: [collateralId, workspaceId], references: [id, workspaceId], onDelete: Restrict, onUpdate: Cascade)
+
+  @@unique([contractId, collateralId])
+  @@index([contractId, workspaceId])
+  @@index([collateralId, workspaceId])
+  @@map("contract_collaterals")
+}
+
+model LoanAccount {
+  id              String            @id @default(uuid())
+  workspaceId     String            @map("workspace_id")
+  contractId      String            @map("contract_id")
+  currency        String            @db.Char(3)
+  status          LoanAccountStatus @default(DRAFT)
+  contract        Contract          @relation("loan_accounts_contract_id", fields: [contractId, workspaceId], references: [id, workspaceId], onDelete: Restrict, onUpdate: Cascade)
+  termsVersions   TermsVersion[]    @relation("terms_versions_loan_account_id")
+  financialEvents FinancialEvent[]  @relation("financial_events_loan_account_id")
+  calculationRuns CalculationRun[]  @relation("calculation_runs_loan_account_id")
+
+  @@unique([contractId])
+  @@unique([contractId, workspaceId])
+  @@unique([id, workspaceId])
+  @@map("loan_accounts")
+}
+
+model CalendarVersion {
+  id            String            @id @default(uuid())
+  calendarCode  String            @map("calendar_code")
+  version       String
+  timezone      String
+  contentHash   String            @map("content_hash")
+  status        PublicationStatus @default(DRAFT)
+  year          Int?
+  sourceUrl     String? @map("source_url")
+  importedAt    DateTime @default(now()) @map("imported_at") @db.Timestamptz(3)
+  calendarDays  CalendarDay[]     @relation("calendar_days_calendar_version_id")
+  termsVersions TermsVersion[]    @relation("terms_versions_calendar_version_id")
+
+  @@unique([calendarCode, version])
+  @@map("calendar_versions")
+}
+
+model CalendarDay {
+  id                String          @id @default(uuid())
+  calendarVersionId String          @map("calendar_version_id")
+  day               DateTime        @db.Date
+  isWorking         Boolean         @map("is_working")
+  kind              String?
+  calendarVersion   CalendarVersion @relation("calendar_days_calendar_version_id", fields: [calendarVersionId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+
+  @@unique([calendarVersionId, day])
+  @@map("calendar_days")
+}
+
+model TermsVersion {
+  id                String            @id @default(uuid())
+  loanAccountId     String            @map("loan_account_id")
+  versionNo         Int               @map("version_no")
+  effectiveOn       DateTime          @map("effective_on") @db.Date
+  recordedAt        DateTime          @default(now()) @map("recorded_at") @db.Timestamptz(3)
+  schemaVersion     String            @map("schema_version")
+  contractAmount    Decimal           @map("contract_amount") @db.Decimal(20, 2)
+  maturityOn        DateTime?         @map("maturity_on") @db.Date
+  calendarVersionId String            @map("calendar_version_id")
+  dayCountPolicy    Json              @default("{}") @map("day_count_policy")
+  roundingPolicy    Json              @default("{}") @map("rounding_policy")
+  sourceDocumentId  String?           @map("source_document_id")
+  sourceClause      String?           @map("source_clause")
+  status            PublicationStatus @default(DRAFT)
+  contentHash       String            @map("content_hash")
+  workspaceId       String            @map("workspace_id")
+  loanAccount       LoanAccount       @relation("terms_versions_loan_account_id", fields: [loanAccountId, workspaceId], references: [id, workspaceId], onDelete: Restrict, onUpdate: Cascade)
+  calendarVersion   CalendarVersion   @relation("terms_versions_calendar_version_id", fields: [calendarVersionId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+  sourceDocument    Document?         @relation("terms_versions_source_document_id", fields: [sourceDocumentId, workspaceId], references: [id, workspaceId], onDelete: Restrict, onUpdate: Cascade)
+  termRules         TermRule[]        @relation("term_rules_terms_version_id")
+  obligations       Obligation[]      @relation("obligations_terms_version_id")
+
+  @@unique([loanAccountId, versionNo])
+  @@unique([id, loanAccountId])
+  @@index([loanAccountId, workspaceId])
+  @@index([calendarVersionId])
+  @@index([sourceDocumentId, workspaceId])
+  @@map("terms_versions")
+}
+
+model TermRule {
+  id                 String              @id @default(uuid())
+  termsVersionId     String              @map("terms_version_id")
+  ruleKey            String              @map("rule_key")
+  kind               TermRuleKind
+  priority           Int
+  definition         Json                @default("{}")
+  sourceClause       String              @map("source_clause")
+  loanAccountId      String              @map("loan_account_id")
+  termsVersion       TermsVersion        @relation("term_rules_terms_version_id", fields: [termsVersionId, loanAccountId], references: [id, loanAccountId], onDelete: Restrict, onUpdate: Cascade)
+  accrualLines       AccrualLine[]       @relation("accrual_lines_rule_id")
+  paymentAllocations PaymentAllocation[] @relation("payment_allocations_rule_id")
+
+  @@unique([termsVersionId, ruleKey])
+  @@unique([id, termsVersionId, loanAccountId])
+  @@index([termsVersionId, loanAccountId])
+  @@map("term_rules")
+}
+
+model FinancialEvent {
+  id                 String              @id @default(uuid())
+  loanAccountId      String              @map("loan_account_id")
+  kind               FinancialEventKind
+  effectiveOn        DateTime            @map("effective_on") @db.Date
+  recordedAt         DateTime            @default(now()) @map("recorded_at") @db.Timestamptz(3)
+  sequenceNo         BigInt              @map("sequence_no")
+  amount             Decimal?            @db.Decimal(20, 2)
+  counterpartyId     String?             @map("counterparty_id")
+  sourceSystem       String              @map("source_system")
+  sourceRef          String              @map("source_ref")
+  sourceRevision     String              @map("source_revision")
+  idempotencyKey     String              @map("idempotency_key")
+  reversesEventId    String?             @map("reverses_event_id")
+  payload            Json                @default("{}")
+  workspaceId        String              @map("workspace_id")
+  loanAccount        LoanAccount         @relation("financial_events_loan_account_id", fields: [loanAccountId, workspaceId], references: [id, workspaceId], onDelete: Restrict, onUpdate: Cascade)
+  counterparty       Party?              @relation("financial_events_counterparty_id", fields: [counterpartyId, workspaceId], references: [id, workspaceId], onDelete: Restrict, onUpdate: Cascade)
+  reversedEvent      FinancialEvent?     @relation("EventReversal", fields: [reversesEventId, loanAccountId], references: [id, loanAccountId], onDelete: Restrict, onUpdate: Cascade)
+  reversal           FinancialEvent?     @relation("EventReversal")
+  paymentAllocations PaymentAllocation[] @relation("payment_allocations_event_id")
+
+  @@unique([loanAccountId, idempotencyKey])
+  @@unique([loanAccountId, sequenceNo])
+  @@unique([id, loanAccountId])
+  @@unique([reversesEventId])
+  @@unique([reversesEventId, loanAccountId])
+  @@index([loanAccountId, workspaceId])
+  @@index([counterpartyId, workspaceId])
+  @@index([loanAccountId, effectiveOn, sequenceNo])
+  @@map("financial_events")
+}
+
+model CalculationRun {
+  id                 String              @id @default(uuid())
+  loanAccountId      String              @map("loan_account_id")
+  asOfOn             DateTime            @map("as_of_on") @db.Date
+  knowledgeCutoff    DateTime            @map("knowledge_cutoff") @db.Timestamptz(3)
+  engineVersion      String              @map("engine_version")
+  inputHash          String              @map("input_hash")
+  status             CalculationStatus   @default(RUNNING)
+  createdAt          DateTime            @default(now()) @map("created_at") @db.Timestamptz(3)
+  supersedesRunId    String?             @map("supersedes_run_id")
+  loanAccount        LoanAccount         @relation("calculation_runs_loan_account_id", fields: [loanAccountId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+  supersedesRun      CalculationRun?     @relation("RunSupersession", fields: [supersedesRunId, loanAccountId], references: [id, loanAccountId], onDelete: Restrict, onUpdate: Cascade)
+  supersedingRuns    CalculationRun[]    @relation("RunSupersession")
+  calculationInputs  CalculationInput[]  @relation("calculation_inputs_run_id")
+  obligations        Obligation[]        @relation("obligations_run_id")
+  accrualLines       AccrualLine[]       @relation("accrual_lines_run_id")
+  paymentAllocations PaymentAllocation[] @relation("payment_allocations_run_id")
+  loanSnapshot       LoanSnapshot?       @relation("loan_snapshots_run_id")
+
+  @@unique([id, loanAccountId])
+  @@index([loanAccountId])
+  @@index([supersedesRunId, loanAccountId])
+  @@index([loanAccountId, asOfOn, createdAt])
+  @@map("calculation_runs")
+}
+
+model CalculationInput {
+  id            String               @id @default(uuid())
+  runId         String               @map("run_id")
+  inputKind     CalculationInputKind @map("input_kind")
+  inputRef      String               @map("input_ref")
+  contentHash   String               @map("content_hash")
+  loanAccountId String               @map("loan_account_id")
+  run           CalculationRun       @relation("calculation_inputs_run_id", fields: [runId, loanAccountId], references: [id, loanAccountId], onDelete: Restrict, onUpdate: Cascade)
+
+  @@unique([runId, inputKind, inputRef])
+  @@index([runId, loanAccountId])
+  @@map("calculation_inputs")
+}
+
+model Obligation {
+  id                 String              @id @default(uuid())
+  runId              String              @map("run_id")
+  obligationKey      String              @map("obligation_key")
+  component          DebtComponent
+  periodFrom         DateTime?           @map("period_from") @db.Date
+  periodTo           DateTime?           @map("period_to") @db.Date
+  dueOn              DateTime            @map("due_on") @db.Date
+  amount             Decimal             @db.Decimal(20, 2)
+  unpaidAmount       Decimal             @map("unpaid_amount") @db.Decimal(20, 2)
+  termsVersionId     String              @map("terms_version_id")
+  loanAccountId      String              @map("loan_account_id")
+  run                CalculationRun      @relation("obligations_run_id", fields: [runId, loanAccountId], references: [id, loanAccountId], onDelete: Restrict, onUpdate: Cascade)
+  termsVersion       TermsVersion        @relation("obligations_terms_version_id", fields: [termsVersionId, loanAccountId], references: [id, loanAccountId], onDelete: Restrict, onUpdate: Cascade)
+  accrualLines       AccrualLine[]       @relation("accrual_lines_obligation_id")
+  paymentAllocations PaymentAllocation[] @relation("payment_allocations_obligation_id")
+
+  @@unique([runId, obligationKey])
+  @@unique([id, runId, loanAccountId, termsVersionId])
+  @@index([runId, loanAccountId])
+  @@index([termsVersionId, loanAccountId])
+  @@map("obligations")
+}
+
+model AccrualLine {
+  id              String         @id @default(uuid())
+  runId           String         @map("run_id")
+  obligationId    String?        @map("obligation_id")
+  ruleId          String         @map("rule_id")
+  periodFrom      DateTime       @map("period_from") @db.Date
+  periodTo        DateTime       @map("period_to") @db.Date
+  baseAmount      Decimal        @map("base_amount") @db.Decimal(20, 2)
+  rate            Decimal        @db.Decimal(18, 10)
+  rateUnit        RateUnit       @map("rate_unit")
+  dayCount        Int            @map("day_count")
+  unroundedAmount Decimal        @map("unrounded_amount") @db.Decimal(30, 12)
+  roundedAmount   Decimal        @map("rounded_amount") @db.Decimal(20, 2)
+  explanation     Json           @default("{}")
+  loanAccountId   String         @map("loan_account_id")
+  termsVersionId  String         @map("terms_version_id")
+  run             CalculationRun @relation("accrual_lines_run_id", fields: [runId, loanAccountId], references: [id, loanAccountId], onDelete: Restrict, onUpdate: Cascade)
+  rule            TermRule       @relation("accrual_lines_rule_id", fields: [ruleId, termsVersionId, loanAccountId], references: [id, termsVersionId, loanAccountId], onDelete: Restrict, onUpdate: Cascade)
+  obligation      Obligation?    @relation("accrual_lines_obligation_id", fields: [obligationId, runId, loanAccountId, termsVersionId], references: [id, runId, loanAccountId, termsVersionId], onDelete: Restrict, onUpdate: Cascade)
+
+  @@index([runId, loanAccountId])
+  @@index([ruleId, termsVersionId, loanAccountId])
+  @@index([obligationId, runId, loanAccountId, termsVersionId])
+  @@map("accrual_lines")
+}
+
+model PaymentAllocation {
+  id             String         @id @default(uuid())
+  runId          String         @map("run_id")
+  eventId        String         @map("event_id")
+  obligationId   String         @map("obligation_id")
+  amount         Decimal        @db.Decimal(20, 2)
+  orderNo        Int            @map("order_no")
+  ruleId         String         @map("rule_id")
+  loanAccountId  String         @map("loan_account_id")
+  termsVersionId String         @map("terms_version_id")
+  run            CalculationRun @relation("payment_allocations_run_id", fields: [runId, loanAccountId], references: [id, loanAccountId], onDelete: Restrict, onUpdate: Cascade)
+  rule           TermRule       @relation("payment_allocations_rule_id", fields: [ruleId, termsVersionId, loanAccountId], references: [id, termsVersionId, loanAccountId], onDelete: Restrict, onUpdate: Cascade)
+  obligation     Obligation     @relation("payment_allocations_obligation_id", fields: [obligationId, runId, loanAccountId, termsVersionId], references: [id, runId, loanAccountId, termsVersionId], onDelete: Restrict, onUpdate: Cascade)
+  event          FinancialEvent @relation("payment_allocations_event_id", fields: [eventId, loanAccountId], references: [id, loanAccountId], onDelete: Restrict, onUpdate: Cascade)
+
+  @@unique([runId, eventId, orderNo])
+  @@index([runId, loanAccountId])
+  @@index([ruleId, termsVersionId, loanAccountId])
+  @@index([obligationId, runId, loanAccountId, termsVersionId])
+  @@index([eventId, loanAccountId])
+  @@map("payment_allocations")
+}
+
+model LoanSnapshot {
+  id                   String         @id @default(uuid())
+  runId                String         @map("run_id")
+  principalOutstanding Decimal        @map("principal_outstanding") @db.Decimal(20, 2)
+  interestUnpaid       Decimal        @map("interest_unpaid") @db.Decimal(20, 2)
+  penaltyUnpaid        Decimal        @map("penalty_unpaid") @db.Decimal(20, 2)
+  expensesUnpaid       Decimal        @map("expenses_unpaid") @db.Decimal(20, 2)
+  unappliedCredit      Decimal        @map("unapplied_credit") @db.Decimal(20, 2)
+  dueTotal             Decimal        @map("due_total") @db.Decimal(20, 2)
+  overdueTotal         Decimal        @map("overdue_total") @db.Decimal(20, 2)
+  daysPastDue          Int            @map("days_past_due")
+  nextPaymentOn        DateTime?      @map("next_payment_on") @db.Date
+  nextPaymentAmount    Decimal?       @map("next_payment_amount") @db.Decimal(20, 2)
+  payoffAmount         Decimal?       @map("payoff_amount") @db.Decimal(20, 2)
+  diagnostics          Json           @default("{}")
+  loanAccountId        String         @map("loan_account_id")
+  createdAt            DateTime       @default(now()) @map("created_at") @db.Timestamptz(3)
+  run                  CalculationRun @relation("loan_snapshots_run_id", fields: [runId, loanAccountId], references: [id, loanAccountId], onDelete: Restrict, onUpdate: Cascade)
+
+  @@unique([runId])
+  @@unique([runId, loanAccountId])
+  @@map("loan_snapshots")
+}
+
+model AuditEntry {
+  id          String    @id @default(uuid())
+  workspaceId String    @map("workspace_id")
+  actorId     String?   @map("actor_id")
+  action      String
+  entityType  String    @map("entity_type")
+  entityId    String    @map("entity_id")
+  recordedAt  DateTime  @default(now()) @map("recorded_at") @db.Timestamptz(3)
+  details     Json      @default("{}")
+  workspace   Workspace @relation("audit_entries_workspace_id", fields: [workspaceId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+  actor       User?     @relation("audit_entries_actor_id", fields: [actorId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+
+  @@index([workspaceId])
+  @@index([actorId])
+  @@index([workspaceId, recordedAt])
+  @@map("audit_entries")
+}
+
+
+
+
+/// Сохранённая версия расчёта: исходные данные и полученный результат.
+/// Создание новой версии не заменяет предыдущие.
+model DealFinanceJournalVersion {
+  id            String   @id @default(uuid())
+  dealId        String
+  asOfOn        DateTime @db.Date
+  recordedAt    DateTime @default(now())
+  engineVersion String
+  schemaVersion Int      @default(1)
+  contentHash   String
+  payload       Json
+  deal          Deal     @relation( fields: [dealId], references: [id], onDelete: Restrict)
+
+  @@index([dealId, contentHash])
+  @@index([dealId, asOfOn])
+  @@index([dealId, recordedAt, id])
+  @@map("deal_finance_journal_versions")
+}
+
+// Marketplace publications are independent of financial Deal / LoanAccount.
+model MarketplaceSource {
+  id String @id @default(uuid())
+  key String @unique
+  title String
+  channelId String @unique
+  channelUsername String?
+  contactUrl String?
+  enabled Boolean @default(true)
+  parseImages Boolean @default(true)
+  offers MarketplaceOffer[]
+  @@map("marketplace_sources")
+}
+
+model MarketplaceOffer {
+  id String @id @default(uuid())
+  sourceId String
+  externalMessageId String
+  albumId String?
+  messageIds Json @default("[]")
+  rawText String
+  publicationUrl String?
+  publishedAt DateTime @db.Timestamptz(3)
+  revisionAt DateTime @db.Timestamptz(3)
+  receivedAt DateTime @default(now()) @db.Timestamptz(3)
+  updatedAt DateTime @updatedAt @db.Timestamptz(3)
+  parseStatus String
+  parseError String?
+  parserVersion String
+  objectName String?
+  objectType String?
+  address String?
+  city String?
+  borrowerType String?
+  contactUrl String?
+  loanAmount Decimal? @db.Decimal(20,2)
+  collateralValue Decimal? @db.Decimal(20,2)
+  interestRateMonthly Decimal? @db.Decimal(18,8)
+  loanTermMonths Decimal? @db.Decimal(10,2)
+  ltv Decimal? @db.Decimal(18,8)
+  monthlyIncome Decimal? @db.Decimal(20,2)
+  totalIncome Decimal? @db.Decimal(20,2)
+  declared Json @default("{}")
+  calculated Json @default("{}")
+  inferred Json @default("{}")
+  source MarketplaceSource @relation(fields:[sourceId], references:[id], onDelete: Restrict)
+  photos MarketplacePhoto[]
+  marks MarketplaceMark[]
+  @@unique([sourceId,externalMessageId])
+  @@unique([sourceId,albumId])
+  @@index([publishedAt,id])
+  @@index([city,objectType])
+  @@map("marketplace_offers")
+}
+
+model MarketplacePhoto {
+  id String @id @default(uuid())
+  offerId String
+  externalMessageId String
+  mimeType String
+  content Bytes
+  offer MarketplaceOffer @relation(fields:[offerId], references:[id], onDelete: Cascade)
+  @@unique([offerId,externalMessageId])
+  @@map("marketplace_photos")
+}
+
+model MarketplaceMark {
+  userId String
+  offerId String
+  saved Boolean @default(false)
+  hidden Boolean @default(false)
+  updatedAt DateTime @updatedAt
+  user User @relation(fields:[userId], references:[id], onDelete: Cascade)
+  offer MarketplaceOffer @relation(fields:[offerId], references:[id], onDelete: Cascade)
+  @@id([userId,offerId])
+  @@map("marketplace_marks")
 }

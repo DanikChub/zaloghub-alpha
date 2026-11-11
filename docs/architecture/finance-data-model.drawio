@@ -1,0 +1,457 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mxfile host="app.diagrams.net" version="24.7.17">
+  <diagram id="page-0" name="01 Обзор">
+    <mxGraphModel dx="1800" dy="1500" grid="1" gridSize="10" page="0" pageWidth="2400" pageHeight="2200" arrows="1">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" value="01 Обзор — ZalogHub / логическая модель v0.1" style="text;html=1;fontSize=26;align=left;" vertex="1" parent="1">
+          <mxGeometry x="30" y="20" width="1700" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="legend" value="Синий: платформа · Зелёный: банки · Жёлтый: расчёты&lt;br&gt;Стрелка: дочерняя таблица → родитель (N:1); snapshots → runs: 0..1:1. Пунктир: внешний ID, без FK.&lt;br&gt;PK — первичный ключ; FK — ссылка; ? — допускает NULL. Это проект модели, не миграция. Детальные правила — в finance-data-model.md." style="text;html=1;fontSize=14;align=left;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="30" y="80" width="1770" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="workspaces" value="&lt;b&gt;workspaces&lt;/b&gt;&lt;hr&gt;PK id : uuid&lt;br&gt;name : varchar&lt;br&gt;… детали на следующих вкладках" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=12;fontSize=14;fillColor=#dae8fc;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="40" y="210" width="450" height="118" as="geometry" />
+        </mxCell>
+        <mxCell id="deals" value="&lt;b&gt;deals&lt;/b&gt;&lt;hr&gt;PK id : uuid&lt;br&gt;FK workspace_id : uuid&lt;br&gt;title : varchar&lt;br&gt;status : varchar&lt;br&gt;… детали на следующих вкладках" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=12;fontSize=14;fillColor=#dae8fc;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="660" y="210" width="450" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="contracts" value="&lt;b&gt;contracts&lt;/b&gt;&lt;hr&gt;PK id : uuid&lt;br&gt;FK workspace_id : uuid&lt;br&gt;FK deal_id : uuid&lt;br&gt;number : varchar&lt;br&gt;kind : varchar&lt;br&gt;… детали на следующих вкладках" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=12;fontSize=14;fillColor=#dae8fc;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="1280" y="210" width="450" height="181" as="geometry" />
+        </mxCell>
+        <mxCell id="bank_connections" value="&lt;b&gt;bank_connections&lt;/b&gt;&lt;hr&gt;PK id : uuid&lt;br&gt;FK workspace_id : uuid&lt;br&gt;bank_code : varchar&lt;br&gt;credential_ref : varchar&lt;br&gt;status : varchar&lt;br&gt;… детали на следующих вкладках" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=12;fontSize=14;fillColor=#d5e8d4;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="40" y="810" width="450" height="181" as="geometry" />
+        </mxCell>
+        <mxCell id="bank_accounts" value="&lt;b&gt;bank_accounts&lt;/b&gt;&lt;hr&gt;PK id : uuid&lt;br&gt;FK workspace_id : uuid&lt;br&gt;FK connection_id : uuid&lt;br&gt;FK owner_party_id : uuid&lt;br&gt;external_id : varchar&lt;br&gt;… детали на следующих вкладках" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=12;fontSize=14;fillColor=#d5e8d4;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="660" y="810" width="450" height="181" as="geometry" />
+        </mxCell>
+        <mxCell id="bank_transactions" value="&lt;b&gt;bank_transactions&lt;/b&gt;&lt;hr&gt;PK id : uuid&lt;br&gt;FK account_id : uuid&lt;br&gt;external_id : varchar&lt;br&gt;first_seen_at : timestamptz&lt;br&gt;… детали на следующих вкладках" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=12;fontSize=14;fillColor=#d5e8d4;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="1280" y="810" width="450" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="transaction_matches" value="&lt;b&gt;transaction_matches&lt;/b&gt;&lt;hr&gt;PK id : uuid&lt;br&gt;FK transaction_revision_id : uuid&lt;br&gt;FK contract_id : uuid&lt;br&gt;amount : decimal(20,2)&lt;br&gt;status : varchar&lt;br&gt;… детали на следующих вкладках" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=12;fontSize=14;fillColor=#d5e8d4;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="40" y="1410" width="450" height="181" as="geometry" />
+        </mxCell>
+        <mxCell id="loan_accounts" value="&lt;b&gt;loan_accounts&lt;/b&gt;&lt;hr&gt;PK id : uuid&lt;br&gt;workspace_id : uuid&lt;br&gt;source_contract_id : uuid&lt;br&gt;currency : char(3)&lt;br&gt;status : varchar&lt;br&gt;… детали на следующих вкладках" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=12;fontSize=14;fillColor=#fff2cc;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="660" y="1410" width="450" height="181" as="geometry" />
+        </mxCell>
+        <mxCell id="terms_versions" value="&lt;b&gt;terms_versions&lt;/b&gt;&lt;hr&gt;PK id : uuid&lt;br&gt;FK loan_account_id : uuid&lt;br&gt;version_no : int&lt;br&gt;effective_on : date&lt;br&gt;recorded_at : timestamptz&lt;br&gt;… детали на следующих вкладках" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=12;fontSize=14;fillColor=#fff2cc;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="1280" y="1410" width="450" height="181" as="geometry" />
+        </mxCell>
+        <mxCell id="financial_events" value="&lt;b&gt;financial_events&lt;/b&gt;&lt;hr&gt;PK id : uuid&lt;br&gt;FK loan_account_id : uuid&lt;br&gt;kind : varchar&lt;br&gt;effective_on : date&lt;br&gt;recorded_at : timestamptz&lt;br&gt;… детали на следующих вкладках" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=12;fontSize=14;fillColor=#fff2cc;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="40" y="2010" width="450" height="181" as="geometry" />
+        </mxCell>
+        <mxCell id="calculation_runs" value="&lt;b&gt;calculation_runs&lt;/b&gt;&lt;hr&gt;PK id : uuid&lt;br&gt;FK loan_account_id : uuid&lt;br&gt;as_of_on : date&lt;br&gt;knowledge_cutoff : timestamptz&lt;br&gt;engine_version : varchar&lt;br&gt;… детали на следующих вкладках" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=12;fontSize=14;fillColor=#fff2cc;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="660" y="2010" width="450" height="181" as="geometry" />
+        </mxCell>
+        <mxCell id="loan_snapshots" value="&lt;b&gt;loan_snapshots&lt;/b&gt;&lt;hr&gt;PK id : uuid&lt;br&gt;FK run_id : uuid&lt;br&gt;principal_outstanding : decimal(20,2)&lt;br&gt;interest_unpaid : decimal(20,2)&lt;br&gt;penalty_unpaid : decimal(20,2)&lt;br&gt;… детали на следующих вкладках" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=12;fontSize=14;fillColor=#fff2cc;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="1280" y="2010" width="450" height="181" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-3" value="workspace_id" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=open;labelBackgroundColor=#ffffff;fontSize=11;" edge="1" parent="1" source="deals" target="workspaces">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-4" value="workspace_id" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=open;labelBackgroundColor=#ffffff;fontSize=11;" edge="1" parent="1" source="contracts" target="workspaces">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-5" value="deal_id" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=open;labelBackgroundColor=#ffffff;fontSize=11;" edge="1" parent="1" source="contracts" target="deals">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-14" value="workspace_id" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=open;labelBackgroundColor=#ffffff;fontSize=11;" edge="1" parent="1" source="bank_connections" target="workspaces">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-15" value="workspace_id" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=open;labelBackgroundColor=#ffffff;fontSize=11;" edge="1" parent="1" source="bank_accounts" target="workspaces">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-16" value="connection_id" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=open;labelBackgroundColor=#ffffff;fontSize=11;" edge="1" parent="1" source="bank_accounts" target="bank_connections">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-20" value="account_id" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=open;labelBackgroundColor=#ffffff;fontSize=11;" edge="1" parent="1" source="bank_transactions" target="bank_accounts">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-24" value="contract_id" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=open;labelBackgroundColor=#ffffff;fontSize=11;" edge="1" parent="1" source="transaction_matches" target="contracts">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-26" value="supersedes_id" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=open;labelBackgroundColor=#ffffff;fontSize=11;" edge="1" parent="1" source="transaction_matches" target="transaction_matches">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-28" value="loan_account_id" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=open;labelBackgroundColor=#ffffff;fontSize=11;" edge="1" parent="1" source="terms_versions" target="loan_accounts">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-31" value="loan_account_id" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=open;labelBackgroundColor=#ffffff;fontSize=11;" edge="1" parent="1" source="financial_events" target="loan_accounts">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-32" value="reverses_event_id" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=open;labelBackgroundColor=#ffffff;fontSize=11;" edge="1" parent="1" source="financial_events" target="financial_events">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-33" value="loan_account_id" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=open;labelBackgroundColor=#ffffff;fontSize=11;" edge="1" parent="1" source="calculation_runs" target="loan_accounts">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-34" value="supersedes_run_id" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=open;labelBackgroundColor=#ffffff;fontSize=11;" edge="1" parent="1" source="calculation_runs" target="calculation_runs">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-45" value="run_id" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=open;labelBackgroundColor=#ffffff;fontSize=11;" edge="1" parent="1" source="loan_snapshots" target="calculation_runs">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-49" value="внешний ID: source_contract_id" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=open;labelBackgroundColor=#ffffff;fontSize=11;dashed=1;strokeColor=#a64d79;" edge="1" parent="1" source="loan_accounts" target="contracts">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-51" value="внешний ID: source_ref" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=open;labelBackgroundColor=#ffffff;fontSize=11;dashed=1;strokeColor=#a64d79;" edge="1" parent="1" source="financial_events" target="transaction_matches">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="page-1" name="02 Сделки и документы">
+    <mxGraphModel dx="1800" dy="1500" grid="1" gridSize="10" page="0" pageWidth="2400" pageHeight="2200" arrows="1">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" value="02 Сделки и документы — ZalogHub / логическая модель v0.1" style="text;html=1;fontSize=26;align=left;" vertex="1" parent="1">
+          <mxGeometry x="30" y="20" width="1700" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="legend" value="Синий: платформа · Зелёный: банки · Жёлтый: расчёты&lt;br&gt;Стрелка: дочерняя таблица → родитель (N:1); snapshots → runs: 0..1:1. Пунктир: внешний ID, без FK.&lt;br&gt;PK — первичный ключ; FK — ссылка; ? — допускает NULL. Это проект модели, не миграция. Детальные правила — в finance-data-model.md." style="text;html=1;fontSize=14;align=left;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="30" y="80" width="1770" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="workspaces" value="&lt;b&gt;workspaces&lt;/b&gt;&lt;hr&gt;PK id : uuid&lt;br&gt;name : varchar" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=12;fontSize=14;fillColor=#dae8fc;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="40" y="210" width="450" height="97" as="geometry" />
+        </mxCell>
+        <mxCell id="users" value="&lt;b&gt;users&lt;/b&gt;&lt;hr&gt;PK id : uuid&lt;br&gt;email : varchar" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=12;fontSize=14;fillColor=#dae8fc;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="660" y="210" width="450" height="97" as="geometry" />
+        </mxCell>
+        <mxCell id="workspace_members" value="&lt;b&gt;workspace_members&lt;/b&gt;&lt;hr&gt;PK id : uuid&lt;br&gt;FK workspace_id : uuid&lt;br&gt;FK user_id : uuid&lt;br&gt;role : varchar" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=12;fontSize=14;fillColor=#dae8fc;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="1280" y="210" width="450" height="139" as="geometry" />
+        </mxCell>
+        <mxCell id="parties" value="&lt;b&gt;parties&lt;/b&gt;&lt;hr&gt;PK id : uuid&lt;br&gt;FK workspace_id : uuid&lt;br&gt;kind : varchar&lt;br&gt;display_name : varchar&lt;br&gt;tax_id ? : varchar" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=12;fontSize=14;fillColor=#dae8fc;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="40" y="810" width="450" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="deals" value="&lt;b&gt;deals&lt;/b&gt;&lt;hr&gt;PK id : uuid&lt;br&gt;FK workspace_id : uuid&lt;br&gt;title : varchar&lt;br&gt;status : varchar" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=12;fontSize=14;fillColor=#dae8fc;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="660" y="810" width="450" height="139" as="geometry" />
+        </mxCell>
+        <mxCell id="contracts" value="&lt;b&gt;contracts&lt;/b&gt;&lt;hr&gt;PK id : uuid&lt;br&gt;FK workspace_id : uuid&lt;br&gt;FK deal_id : uuid&lt;br&gt;number : varchar&lt;br&gt;kind : varchar&lt;br&gt;signed_on ? : date&lt;br&gt;status : varchar" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=12;fontSize=14;fillColor=#dae8fc;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="1280" y="810" width="450" height="202" as="geometry" />
+        </mxCell>
+        <mxCell id="contract_parties" value="&lt;b&gt;contract_parties&lt;/b&gt;&lt;hr&gt;PK id : uuid&lt;br&gt;FK contract_id : uuid&lt;br&gt;FK party_id : uuid&lt;br&gt;role : varchar" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=12;fontSize=14;fillColor=#dae8fc;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="40" y="1410" width="450" height="139" as="geometry" />
+        </mxCell>
+        <mxCell id="documents" value="&lt;b&gt;documents&lt;/b&gt;&lt;hr&gt;PK id : uuid&lt;br&gt;FK workspace_id : uuid&lt;br&gt;storage_key : varchar&lt;br&gt;sha256 : varchar&lt;br&gt;mime_type : varchar" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=12;fontSize=14;fillColor=#dae8fc;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="660" y="1410" width="450" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="contract_documents" value="&lt;b&gt;contract_documents&lt;/b&gt;&lt;hr&gt;PK id : uuid&lt;br&gt;FK contract_id : uuid&lt;br&gt;FK document_id : uuid&lt;br&gt;role : varchar" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=12;fontSize=14;fillColor=#dae8fc;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="1280" y="1410" width="450" height="139" as="geometry" />
+        </mxCell>
+        <mxCell id="collaterals" value="&lt;b&gt;collaterals&lt;/b&gt;&lt;hr&gt;PK id : uuid&lt;br&gt;FK workspace_id : uuid&lt;br&gt;kind : varchar&lt;br&gt;cadastral_number ? : varchar&lt;br&gt;address ? : varchar" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=12;fontSize=14;fillColor=#dae8fc;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="40" y="2010" width="450" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="contract_collaterals" value="&lt;b&gt;contract_collaterals&lt;/b&gt;&lt;hr&gt;PK id : uuid&lt;br&gt;FK contract_id : uuid&lt;br&gt;FK collateral_id : uuid&lt;br&gt;secured_amount ? : decimal(20,2)&lt;br&gt;currency : char(3)&lt;br&gt;priority : int" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=12;fontSize=14;fillColor=#dae8fc;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="660" y="2010" width="450" height="181" as="geometry" />
+        </mxCell>
+        <mxCell id="audit_entries" value="&lt;b&gt;audit_entries&lt;/b&gt;&lt;hr&gt;PK id : uuid&lt;br&gt;FK workspace_id : uuid&lt;br&gt;FK actor_id ? : uuid&lt;br&gt;action : varchar&lt;br&gt;entity_type : varchar&lt;br&gt;entity_id : uuid&lt;br&gt;recorded_at : timestamptz&lt;br&gt;details : jsonb" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=12;fontSize=14;fillColor=#dae8fc;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="1280" y="2010" width="450" height="223" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-0" value="workspace_id" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=open;labelBackgroundColor=#ffffff;fontSize=11;" edge="1" parent="1" source="workspace_members" target="workspaces">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-1" value="user_id" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=open;labelBackgroundColor=#ffffff;fontSize=11;" edge="1" parent="1" source="workspace_members" target="users">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-2" value="workspace_id" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=open;labelBackgroundColor=#ffffff;fontSize=11;" edge="1" parent="1" source="parties" target="workspaces">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-3" value="workspace_id" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=open;labelBackgroundColor=#ffffff;fontSize=11;" edge="1" parent="1" source="deals" target="workspaces">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-4" value="workspace_id" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=open;labelBackgroundColor=#ffffff;fontSize=11;" edge="1" parent="1" source="contracts" target="workspaces">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-5" value="deal_id" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=open;labelBackgroundColor=#ffffff;fontSize=11;" edge="1" parent="1" source="contracts" target="deals">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-6" value="contract_id" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=open;labelBackgroundColor=#ffffff;fontSize=11;" edge="1" parent="1" source="contract_parties" target="contracts">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-7" value="party_id" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=open;labelBackgroundColor=#ffffff;fontSize=11;" edge="1" parent="1" source="contract_parties" target="parties">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-8" value="workspace_id" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=open;labelBackgroundColor=#ffffff;fontSize=11;" edge="1" parent="1" source="documents" target="workspaces">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-9" value="contract_id" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=open;labelBackgroundColor=#ffffff;fontSize=11;" edge="1" parent="1" source="contract_documents" target="contracts">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-10" value="document_id" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=open;labelBackgroundColor=#ffffff;fontSize=11;" edge="1" parent="1" source="contract_documents" target="documents">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-11" value="workspace_id" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=open;labelBackgroundColor=#ffffff;fontSize=11;" edge="1" parent="1" source="collaterals" target="workspaces">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-12" value="contract_id" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=open;labelBackgroundColor=#ffffff;fontSize=11;" edge="1" parent="1" source="contract_collaterals" target="contracts">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-13" value="collateral_id" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=open;labelBackgroundColor=#ffffff;fontSize=11;" edge="1" parent="1" source="contract_collaterals" target="collaterals">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-46" value="workspace_id" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=open;labelBackgroundColor=#ffffff;fontSize=11;" edge="1" parent="1" source="audit_entries" target="workspaces">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-47" value="actor_id" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=open;labelBackgroundColor=#ffffff;fontSize=11;" edge="1" parent="1" source="audit_entries" target="users">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="page-2" name="03 Банки и сверка">
+    <mxGraphModel dx="1800" dy="1500" grid="1" gridSize="10" page="0" pageWidth="2400" pageHeight="2200" arrows="1">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" value="03 Банки и сверка — ZalogHub / логическая модель v0.1" style="text;html=1;fontSize=26;align=left;" vertex="1" parent="1">
+          <mxGeometry x="30" y="20" width="1700" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="legend" value="Синий: платформа · Зелёный: банки · Жёлтый: расчёты&lt;br&gt;Стрелка: дочерняя таблица → родитель (N:1); snapshots → runs: 0..1:1. Пунктир: внешний ID, без FK.&lt;br&gt;PK — первичный ключ; FK — ссылка; ? — допускает NULL. Это проект модели, не миграция. Детальные правила — в finance-data-model.md." style="text;html=1;fontSize=14;align=left;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="30" y="80" width="1770" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="workspaces" value="&lt;b&gt;workspaces&lt;/b&gt;&lt;hr&gt;PK id : uuid&lt;br&gt;name : varchar" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=12;fontSize=14;fillColor=#dae8fc;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="40" y="210" width="450" height="97" as="geometry" />
+        </mxCell>
+        <mxCell id="parties" value="&lt;b&gt;parties&lt;/b&gt;&lt;hr&gt;PK id : uuid&lt;br&gt;FK workspace_id : uuid&lt;br&gt;kind : varchar&lt;br&gt;display_name : varchar&lt;br&gt;tax_id ? : varchar" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=12;fontSize=14;fillColor=#dae8fc;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="660" y="210" width="450" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="contracts" value="&lt;b&gt;contracts&lt;/b&gt;&lt;hr&gt;PK id : uuid&lt;br&gt;FK workspace_id : uuid&lt;br&gt;FK deal_id : uuid&lt;br&gt;number : varchar&lt;br&gt;kind : varchar&lt;br&gt;signed_on ? : date&lt;br&gt;status : varchar" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=12;fontSize=14;fillColor=#dae8fc;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="1280" y="210" width="450" height="202" as="geometry" />
+        </mxCell>
+        <mxCell id="bank_connections" value="&lt;b&gt;bank_connections&lt;/b&gt;&lt;hr&gt;PK id : uuid&lt;br&gt;FK workspace_id : uuid&lt;br&gt;bank_code : varchar&lt;br&gt;credential_ref : varchar&lt;br&gt;status : varchar" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=12;fontSize=14;fillColor=#d5e8d4;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="40" y="810" width="450" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="bank_accounts" value="&lt;b&gt;bank_accounts&lt;/b&gt;&lt;hr&gt;PK id : uuid&lt;br&gt;FK workspace_id : uuid&lt;br&gt;FK connection_id : uuid&lt;br&gt;FK owner_party_id : uuid&lt;br&gt;external_id : varchar&lt;br&gt;currency : char(3)" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=12;fontSize=14;fillColor=#d5e8d4;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="660" y="810" width="450" height="181" as="geometry" />
+        </mxCell>
+        <mxCell id="bank_sync_runs" value="&lt;b&gt;bank_sync_runs&lt;/b&gt;&lt;hr&gt;PK id : uuid&lt;br&gt;FK connection_id : uuid&lt;br&gt;FK account_id : uuid&lt;br&gt;requested_from : timestamptz&lt;br&gt;requested_to : timestamptz&lt;br&gt;complete_through ? : timestamptz&lt;br&gt;cursor ? : varchar&lt;br&gt;status : varchar&lt;br&gt;started_at : timestamptz&lt;br&gt;finished_at ? : timestamptz" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=12;fontSize=14;fillColor=#d5e8d4;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="1280" y="810" width="450" height="265" as="geometry" />
+        </mxCell>
+        <mxCell id="bank_transactions" value="&lt;b&gt;bank_transactions&lt;/b&gt;&lt;hr&gt;PK id : uuid&lt;br&gt;FK account_id : uuid&lt;br&gt;external_id : varchar&lt;br&gt;first_seen_at : timestamptz" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=12;fontSize=14;fillColor=#d5e8d4;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="40" y="1410" width="450" height="139" as="geometry" />
+        </mxCell>
+        <mxCell id="bank_transaction_revisions" value="&lt;b&gt;bank_transaction_revisions&lt;/b&gt;&lt;hr&gt;PK id : uuid&lt;br&gt;FK transaction_id : uuid&lt;br&gt;revision_no : int&lt;br&gt;FK sync_run_id : uuid&lt;br&gt;status : varchar&lt;br&gt;observed_at : timestamptz&lt;br&gt;direction : varchar&lt;br&gt;amount : decimal(20,2)&lt;br&gt;currency : char(3)&lt;br&gt;booked_at : timestamptz&lt;br&gt;value_on ? : date&lt;br&gt;purpose ? : text&lt;br&gt;counterparty_data : jsonb&lt;br&gt;raw_payload : jsonb&lt;br&gt;payload_hash : varchar" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=12;fontSize=14;fillColor=#d5e8d4;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="660" y="1410" width="450" height="370" as="geometry" />
+        </mxCell>
+        <mxCell id="transaction_matches" value="&lt;b&gt;transaction_matches&lt;/b&gt;&lt;hr&gt;PK id : uuid&lt;br&gt;FK transaction_revision_id : uuid&lt;br&gt;FK contract_id : uuid&lt;br&gt;amount : decimal(20,2)&lt;br&gt;status : varchar&lt;br&gt;method : varchar&lt;br&gt;FK confirmed_by ? : uuid&lt;br&gt;confirmed_at ? : timestamptz&lt;br&gt;FK supersedes_id ? : uuid" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=12;fontSize=14;fillColor=#d5e8d4;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="1280" y="1410" width="450" height="244" as="geometry" />
+        </mxCell>
+        <mxCell id="outbox_messages" value="&lt;b&gt;outbox_messages&lt;/b&gt;&lt;hr&gt;PK id : uuid&lt;br&gt;FK workspace_id : uuid&lt;br&gt;aggregate_id : uuid&lt;br&gt;event_type : varchar&lt;br&gt;payload : jsonb&lt;br&gt;created_at : timestamptz&lt;br&gt;published_at ? : timestamptz&lt;br&gt;idempotency_key : varchar" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=12;fontSize=14;fillColor=#d5e8d4;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="40" y="2010" width="450" height="223" as="geometry" />
+        </mxCell>
+        <mxCell id="financial_events" value="&lt;b&gt;financial_events&lt;/b&gt;&lt;hr&gt;PK id : uuid&lt;br&gt;FK loan_account_id : uuid&lt;br&gt;kind : varchar&lt;br&gt;effective_on : date&lt;br&gt;recorded_at : timestamptz&lt;br&gt;sequence_no : bigint&lt;br&gt;amount ? : decimal(20,2)&lt;br&gt;counterparty_ref ? : uuid&lt;br&gt;source_system : varchar&lt;br&gt;source_ref : varchar&lt;br&gt;source_revision : varchar&lt;br&gt;idempotency_key : varchar&lt;br&gt;FK reverses_event_id ? : uuid&lt;br&gt;payload : jsonb" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=12;fontSize=14;fillColor=#fff2cc;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="660" y="2010" width="450" height="349" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-2" value="workspace_id" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=open;labelBackgroundColor=#ffffff;fontSize=11;" edge="1" parent="1" source="parties" target="workspaces">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-4" value="workspace_id" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=open;labelBackgroundColor=#ffffff;fontSize=11;" edge="1" parent="1" source="contracts" target="workspaces">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-14" value="workspace_id" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=open;labelBackgroundColor=#ffffff;fontSize=11;" edge="1" parent="1" source="bank_connections" target="workspaces">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-15" value="workspace_id" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=open;labelBackgroundColor=#ffffff;fontSize=11;" edge="1" parent="1" source="bank_accounts" target="workspaces">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-16" value="connection_id" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=open;labelBackgroundColor=#ffffff;fontSize=11;" edge="1" parent="1" source="bank_accounts" target="bank_connections">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-17" value="owner_party_id" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=open;labelBackgroundColor=#ffffff;fontSize=11;" edge="1" parent="1" source="bank_accounts" target="parties">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-18" value="connection_id" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=open;labelBackgroundColor=#ffffff;fontSize=11;" edge="1" parent="1" source="bank_sync_runs" target="bank_connections">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-19" value="account_id" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=open;labelBackgroundColor=#ffffff;fontSize=11;" edge="1" parent="1" source="bank_sync_runs" target="bank_accounts">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-20" value="account_id" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=open;labelBackgroundColor=#ffffff;fontSize=11;" edge="1" parent="1" source="bank_transactions" target="bank_accounts">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-21" value="transaction_id" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=open;labelBackgroundColor=#ffffff;fontSize=11;" edge="1" parent="1" source="bank_transaction_revisions" target="bank_transactions">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-22" value="sync_run_id" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=open;labelBackgroundColor=#ffffff;fontSize=11;" edge="1" parent="1" source="bank_transaction_revisions" target="bank_sync_runs">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-23" value="transaction_revision_id" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=open;labelBackgroundColor=#ffffff;fontSize=11;" edge="1" parent="1" source="transaction_matches" target="bank_transaction_revisions">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-24" value="contract_id" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=open;labelBackgroundColor=#ffffff;fontSize=11;" edge="1" parent="1" source="transaction_matches" target="contracts">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-26" value="supersedes_id" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=open;labelBackgroundColor=#ffffff;fontSize=11;" edge="1" parent="1" source="transaction_matches" target="transaction_matches">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-32" value="reverses_event_id" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=open;labelBackgroundColor=#ffffff;fontSize=11;" edge="1" parent="1" source="financial_events" target="financial_events">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-48" value="workspace_id" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=open;labelBackgroundColor=#ffffff;fontSize=11;" edge="1" parent="1" source="outbox_messages" target="workspaces">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-51" value="внешний ID: source_ref" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=open;labelBackgroundColor=#ffffff;fontSize=11;dashed=1;strokeColor=#a64d79;" edge="1" parent="1" source="financial_events" target="transaction_matches">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="page-3" name="04 Условия и события">
+    <mxGraphModel dx="1800" dy="1500" grid="1" gridSize="10" page="0" pageWidth="2400" pageHeight="2200" arrows="1">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" value="04 Условия и события — ZalogHub / логическая модель v0.1" style="text;html=1;fontSize=26;align=left;" vertex="1" parent="1">
+          <mxGeometry x="30" y="20" width="1700" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="legend" value="Синий: платформа · Зелёный: банки · Жёлтый: расчёты&lt;br&gt;Стрелка: дочерняя таблица → родитель (N:1); snapshots → runs: 0..1:1. Пунктир: внешний ID, без FK.&lt;br&gt;PK — первичный ключ; FK — ссылка; ? — допускает NULL. Это проект модели, не миграция. Детальные правила — в finance-data-model.md." style="text;html=1;fontSize=14;align=left;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="30" y="80" width="1770" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="contracts" value="&lt;b&gt;contracts&lt;/b&gt;&lt;hr&gt;PK id : uuid&lt;br&gt;FK workspace_id : uuid&lt;br&gt;FK deal_id : uuid&lt;br&gt;number : varchar&lt;br&gt;kind : varchar&lt;br&gt;signed_on ? : date&lt;br&gt;status : varchar" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=12;fontSize=14;fillColor=#dae8fc;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="40" y="210" width="450" height="202" as="geometry" />
+        </mxCell>
+        <mxCell id="documents" value="&lt;b&gt;documents&lt;/b&gt;&lt;hr&gt;PK id : uuid&lt;br&gt;FK workspace_id : uuid&lt;br&gt;storage_key : varchar&lt;br&gt;sha256 : varchar&lt;br&gt;mime_type : varchar" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=12;fontSize=14;fillColor=#dae8fc;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="660" y="210" width="450" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="loan_accounts" value="&lt;b&gt;loan_accounts&lt;/b&gt;&lt;hr&gt;PK id : uuid&lt;br&gt;workspace_id : uuid&lt;br&gt;source_contract_id : uuid&lt;br&gt;currency : char(3)&lt;br&gt;status : varchar" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=12;fontSize=14;fillColor=#fff2cc;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="1280" y="210" width="450" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="calendar_versions" value="&lt;b&gt;calendar_versions&lt;/b&gt;&lt;hr&gt;PK id : uuid&lt;br&gt;calendar_code : varchar&lt;br&gt;version : varchar&lt;br&gt;timezone : varchar&lt;br&gt;content_hash : varchar" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=12;fontSize=14;fillColor=#fff2cc;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="40" y="810" width="450" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="calendar_days" value="&lt;b&gt;calendar_days&lt;/b&gt;&lt;hr&gt;PK id : uuid&lt;br&gt;FK calendar_version_id : uuid&lt;br&gt;day : date&lt;br&gt;is_working : boolean" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=12;fontSize=14;fillColor=#fff2cc;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="660" y="810" width="450" height="139" as="geometry" />
+        </mxCell>
+        <mxCell id="terms_versions" value="&lt;b&gt;terms_versions&lt;/b&gt;&lt;hr&gt;PK id : uuid&lt;br&gt;FK loan_account_id : uuid&lt;br&gt;version_no : int&lt;br&gt;effective_on : date&lt;br&gt;recorded_at : timestamptz&lt;br&gt;schema_version : varchar&lt;br&gt;contract_amount : decimal(20,2)&lt;br&gt;maturity_on ? : date&lt;br&gt;FK calendar_version_id : uuid&lt;br&gt;day_count_policy : jsonb&lt;br&gt;rounding_policy : jsonb&lt;br&gt;source_document_ref ? : uuid&lt;br&gt;source_clause ? : text&lt;br&gt;status : varchar&lt;br&gt;content_hash : varchar" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=12;fontSize=14;fillColor=#fff2cc;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="1280" y="810" width="450" height="370" as="geometry" />
+        </mxCell>
+        <mxCell id="term_rules" value="&lt;b&gt;term_rules&lt;/b&gt;&lt;hr&gt;PK id : uuid&lt;br&gt;FK terms_version_id : uuid&lt;br&gt;rule_key : varchar&lt;br&gt;kind : varchar&lt;br&gt;priority : int&lt;br&gt;definition : jsonb&lt;br&gt;source_clause : text" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=12;fontSize=14;fillColor=#fff2cc;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="40" y="1410" width="450" height="202" as="geometry" />
+        </mxCell>
+        <mxCell id="financial_events" value="&lt;b&gt;financial_events&lt;/b&gt;&lt;hr&gt;PK id : uuid&lt;br&gt;FK loan_account_id : uuid&lt;br&gt;kind : varchar&lt;br&gt;effective_on : date&lt;br&gt;recorded_at : timestamptz&lt;br&gt;sequence_no : bigint&lt;br&gt;amount ? : decimal(20,2)&lt;br&gt;counterparty_ref ? : uuid&lt;br&gt;source_system : varchar&lt;br&gt;source_ref : varchar&lt;br&gt;source_revision : varchar&lt;br&gt;idempotency_key : varchar&lt;br&gt;FK reverses_event_id ? : uuid&lt;br&gt;payload : jsonb" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=12;fontSize=14;fillColor=#fff2cc;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="660" y="1410" width="450" height="349" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-27" value="calendar_version_id" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=open;labelBackgroundColor=#ffffff;fontSize=11;" edge="1" parent="1" source="calendar_days" target="calendar_versions">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-28" value="loan_account_id" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=open;labelBackgroundColor=#ffffff;fontSize=11;" edge="1" parent="1" source="terms_versions" target="loan_accounts">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-29" value="calendar_version_id" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=open;labelBackgroundColor=#ffffff;fontSize=11;" edge="1" parent="1" source="terms_versions" target="calendar_versions">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-30" value="terms_version_id" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=open;labelBackgroundColor=#ffffff;fontSize=11;" edge="1" parent="1" source="term_rules" target="terms_versions">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-31" value="loan_account_id" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=open;labelBackgroundColor=#ffffff;fontSize=11;" edge="1" parent="1" source="financial_events" target="loan_accounts">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-32" value="reverses_event_id" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=open;labelBackgroundColor=#ffffff;fontSize=11;" edge="1" parent="1" source="financial_events" target="financial_events">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-49" value="внешний ID: source_contract_id" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=open;labelBackgroundColor=#ffffff;fontSize=11;dashed=1;strokeColor=#a64d79;" edge="1" parent="1" source="loan_accounts" target="contracts">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-50" value="внешний ID: source_document_ref" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=open;labelBackgroundColor=#ffffff;fontSize=11;dashed=1;strokeColor=#a64d79;" edge="1" parent="1" source="terms_versions" target="documents">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="page-4" name="05 Расчёт и результат">
+    <mxGraphModel dx="1800" dy="1500" grid="1" gridSize="10" page="0" pageWidth="2400" pageHeight="2200" arrows="1">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" value="05 Расчёт и результат — ZalogHub / логическая модель v0.1" style="text;html=1;fontSize=26;align=left;" vertex="1" parent="1">
+          <mxGeometry x="30" y="20" width="1700" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="legend" value="Синий: платформа · Зелёный: банки · Жёлтый: расчёты&lt;br&gt;Стрелка: дочерняя таблица → родитель (N:1); snapshots → runs: 0..1:1. Пунктир: внешний ID, без FK.&lt;br&gt;PK — первичный ключ; FK — ссылка; ? — допускает NULL. Это проект модели, не миграция. Детальные правила — в finance-data-model.md." style="text;html=1;fontSize=14;align=left;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="30" y="80" width="1770" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="loan_accounts" value="&lt;b&gt;loan_accounts&lt;/b&gt;&lt;hr&gt;PK id : uuid&lt;br&gt;workspace_id : uuid&lt;br&gt;source_contract_id : uuid&lt;br&gt;currency : char(3)&lt;br&gt;status : varchar" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=12;fontSize=14;fillColor=#fff2cc;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="40" y="210" width="450" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="terms_versions" value="&lt;b&gt;terms_versions&lt;/b&gt;&lt;hr&gt;PK id : uuid&lt;br&gt;FK loan_account_id : uuid&lt;br&gt;version_no : int&lt;br&gt;effective_on : date&lt;br&gt;recorded_at : timestamptz&lt;br&gt;schema_version : varchar&lt;br&gt;contract_amount : decimal(20,2)&lt;br&gt;maturity_on ? : date&lt;br&gt;FK calendar_version_id : uuid&lt;br&gt;day_count_policy : jsonb&lt;br&gt;rounding_policy : jsonb&lt;br&gt;source_document_ref ? : uuid&lt;br&gt;source_clause ? : text&lt;br&gt;status : varchar&lt;br&gt;content_hash : varchar" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=12;fontSize=14;fillColor=#fff2cc;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="660" y="210" width="450" height="370" as="geometry" />
+        </mxCell>
+        <mxCell id="term_rules" value="&lt;b&gt;term_rules&lt;/b&gt;&lt;hr&gt;PK id : uuid&lt;br&gt;FK terms_version_id : uuid&lt;br&gt;rule_key : varchar&lt;br&gt;kind : varchar&lt;br&gt;priority : int&lt;br&gt;definition : jsonb&lt;br&gt;source_clause : text" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=12;fontSize=14;fillColor=#fff2cc;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="1280" y="210" width="450" height="202" as="geometry" />
+        </mxCell>
+        <mxCell id="financial_events" value="&lt;b&gt;financial_events&lt;/b&gt;&lt;hr&gt;PK id : uuid&lt;br&gt;FK loan_account_id : uuid&lt;br&gt;kind : varchar&lt;br&gt;effective_on : date&lt;br&gt;recorded_at : timestamptz&lt;br&gt;sequence_no : bigint&lt;br&gt;amount ? : decimal(20,2)&lt;br&gt;counterparty_ref ? : uuid&lt;br&gt;source_system : varchar&lt;br&gt;source_ref : varchar&lt;br&gt;source_revision : varchar&lt;br&gt;idempotency_key : varchar&lt;br&gt;FK reverses_event_id ? : uuid&lt;br&gt;payload : jsonb" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=12;fontSize=14;fillColor=#fff2cc;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="40" y="810" width="450" height="349" as="geometry" />
+        </mxCell>
+        <mxCell id="calculation_runs" value="&lt;b&gt;calculation_runs&lt;/b&gt;&lt;hr&gt;PK id : uuid&lt;br&gt;FK loan_account_id : uuid&lt;br&gt;as_of_on : date&lt;br&gt;knowledge_cutoff : timestamptz&lt;br&gt;engine_version : varchar&lt;br&gt;input_hash : varchar&lt;br&gt;status : varchar&lt;br&gt;created_at : timestamptz&lt;br&gt;FK supersedes_run_id ? : uuid" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=12;fontSize=14;fillColor=#fff2cc;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="660" y="810" width="450" height="244" as="geometry" />
+        </mxCell>
+        <mxCell id="calculation_inputs" value="&lt;b&gt;calculation_inputs&lt;/b&gt;&lt;hr&gt;PK id : uuid&lt;br&gt;FK run_id : uuid&lt;br&gt;input_kind : varchar&lt;br&gt;input_ref : uuid&lt;br&gt;content_hash : varchar" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=12;fontSize=14;fillColor=#fff2cc;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="1280" y="810" width="450" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="obligations" value="&lt;b&gt;obligations&lt;/b&gt;&lt;hr&gt;PK id : uuid&lt;br&gt;FK run_id : uuid&lt;br&gt;obligation_key : varchar&lt;br&gt;component : varchar&lt;br&gt;period_from ? : date&lt;br&gt;period_to ? : date&lt;br&gt;due_on : date&lt;br&gt;amount : decimal(20,2)&lt;br&gt;unpaid_amount : decimal(20,2)&lt;br&gt;FK terms_version_id : uuid" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=12;fontSize=14;fillColor=#fff2cc;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="40" y="1410" width="450" height="265" as="geometry" />
+        </mxCell>
+        <mxCell id="accrual_lines" value="&lt;b&gt;accrual_lines&lt;/b&gt;&lt;hr&gt;PK id : uuid&lt;br&gt;FK run_id : uuid&lt;br&gt;FK obligation_id ? : uuid&lt;br&gt;FK rule_id : uuid&lt;br&gt;period_from : date&lt;br&gt;period_to : date&lt;br&gt;base_amount : decimal(20,2)&lt;br&gt;rate : decimal(18,10)&lt;br&gt;rate_unit : varchar&lt;br&gt;day_count : int&lt;br&gt;unrounded_amount : decimal(30,12)&lt;br&gt;rounded_amount : decimal(20,2)&lt;br&gt;explanation : jsonb" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=12;fontSize=14;fillColor=#fff2cc;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="660" y="1410" width="450" height="328" as="geometry" />
+        </mxCell>
+        <mxCell id="payment_allocations" value="&lt;b&gt;payment_allocations&lt;/b&gt;&lt;hr&gt;PK id : uuid&lt;br&gt;FK run_id : uuid&lt;br&gt;FK event_id : uuid&lt;br&gt;FK obligation_id : uuid&lt;br&gt;amount : decimal(20,2)&lt;br&gt;order_no : int&lt;br&gt;FK rule_id : uuid" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=12;fontSize=14;fillColor=#fff2cc;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="1280" y="1410" width="450" height="202" as="geometry" />
+        </mxCell>
+        <mxCell id="loan_snapshots" value="&lt;b&gt;loan_snapshots&lt;/b&gt;&lt;hr&gt;PK id : uuid&lt;br&gt;FK run_id : uuid&lt;br&gt;principal_outstanding : decimal(20,2)&lt;br&gt;interest_unpaid : decimal(20,2)&lt;br&gt;penalty_unpaid : decimal(20,2)&lt;br&gt;expenses_unpaid : decimal(20,2)&lt;br&gt;unapplied_credit : decimal(20,2)&lt;br&gt;due_total : decimal(20,2)&lt;br&gt;overdue_total : decimal(20,2)&lt;br&gt;days_past_due : int&lt;br&gt;next_payment_on ? : date&lt;br&gt;next_payment_amount ? : decimal(20,2)&lt;br&gt;payoff_amount ? : decimal(20,2)&lt;br&gt;diagnostics : jsonb" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=12;fontSize=14;fillColor=#fff2cc;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="40" y="2010" width="450" height="349" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-28" value="loan_account_id" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=open;labelBackgroundColor=#ffffff;fontSize=11;" edge="1" parent="1" source="terms_versions" target="loan_accounts">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-30" value="terms_version_id" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=open;labelBackgroundColor=#ffffff;fontSize=11;" edge="1" parent="1" source="term_rules" target="terms_versions">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-31" value="loan_account_id" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=open;labelBackgroundColor=#ffffff;fontSize=11;" edge="1" parent="1" source="financial_events" target="loan_accounts">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-32" value="reverses_event_id" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=open;labelBackgroundColor=#ffffff;fontSize=11;" edge="1" parent="1" source="financial_events" target="financial_events">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-33" value="loan_account_id" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=open;labelBackgroundColor=#ffffff;fontSize=11;" edge="1" parent="1" source="calculation_runs" target="loan_accounts">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-34" value="supersedes_run_id" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=open;labelBackgroundColor=#ffffff;fontSize=11;" edge="1" parent="1" source="calculation_runs" target="calculation_runs">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-35" value="run_id" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=open;labelBackgroundColor=#ffffff;fontSize=11;" edge="1" parent="1" source="calculation_inputs" target="calculation_runs">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-36" value="run_id" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=open;labelBackgroundColor=#ffffff;fontSize=11;" edge="1" parent="1" source="obligations" target="calculation_runs">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-37" value="terms_version_id" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=open;labelBackgroundColor=#ffffff;fontSize=11;" edge="1" parent="1" source="obligations" target="terms_versions">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-38" value="run_id" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=open;labelBackgroundColor=#ffffff;fontSize=11;" edge="1" parent="1" source="accrual_lines" target="calculation_runs">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-39" value="obligation_id" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=open;labelBackgroundColor=#ffffff;fontSize=11;" edge="1" parent="1" source="accrual_lines" target="obligations">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-40" value="rule_id" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=open;labelBackgroundColor=#ffffff;fontSize=11;" edge="1" parent="1" source="accrual_lines" target="term_rules">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-41" value="run_id" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=open;labelBackgroundColor=#ffffff;fontSize=11;" edge="1" parent="1" source="payment_allocations" target="calculation_runs">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-42" value="event_id" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=open;labelBackgroundColor=#ffffff;fontSize=11;" edge="1" parent="1" source="payment_allocations" target="financial_events">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-43" value="obligation_id" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=open;labelBackgroundColor=#ffffff;fontSize=11;" edge="1" parent="1" source="payment_allocations" target="obligations">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-44" value="rule_id" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=open;labelBackgroundColor=#ffffff;fontSize=11;" edge="1" parent="1" source="payment_allocations" target="term_rules">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-45" value="run_id" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=open;labelBackgroundColor=#ffffff;fontSize=11;" edge="1" parent="1" source="loan_snapshots" target="calculation_runs">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

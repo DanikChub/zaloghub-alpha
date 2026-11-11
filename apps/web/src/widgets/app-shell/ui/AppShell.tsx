@@ -9,6 +9,7 @@ import { routePaths } from '../../../shared/config/routes'
 import './app-shell.css'
 
 const navigation = [
+  { key: routePaths.marketplace, icon: <AppstoreOutlined />, label: <Link to={routePaths.marketplace}>Маркетплейс</Link> },
   { key: routePaths.dashboard, icon: <AppstoreOutlined />, label: <Link to={routePaths.dashboard}>Главная</Link> },
   { key: routePaths.deals, icon: <FileTextOutlined />, label: <Link to={routePaths.deals}>Сделки</Link> },
 ]

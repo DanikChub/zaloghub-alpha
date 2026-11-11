@@ -1,8 +1,4 @@
-
-import {
-  createApi,
-  fetchBaseQuery,
-} from '@reduxjs/toolkit/query/react'
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
 import { apiConfig } from '../config/api'
 
@@ -32,6 +28,6 @@ const baseQuery = fetchBaseQuery({
 export const baseApi = createApi({
   reducerPath: 'api',
   baseQuery,
-  tagTypes: ['User', 'Deal', 'Payment'],
+  tagTypes: ['User', 'Deal', 'Payment', 'Calendar', 'Marketplace'],
   endpoints: () => ({}),
 })

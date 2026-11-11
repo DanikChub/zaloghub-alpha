@@ -1,0 +1,56 @@
+[
+  {
+    "key": "zalog-doveriya",
+    "title": "Залог Доверия",
+    "channelId": "100000",
+    "channelUsername": null,
+    "contactUrl": null,
+    "enabled": false,
+    "parseImages": true
+  },
+  {
+    "key": "mosinvestfinance",
+    "title": "МосИнвестФинанс",
+    "channelId": "100001",
+    "channelUsername": null,
+    "contactUrl": null,
+    "enabled": false,
+    "parseImages": true
+  },
+  {
+    "key": "aktiv-kapital",
+    "title": "Актив Капитал",
+    "channelId": "100002",
+    "channelUsername": null,
+    "contactUrl": null,
+    "enabled": false,
+    "parseImages": true
+  },
+  {
+    "key": "fin-expert",
+    "title": "Фин Эксперт",
+    "channelId": "100003",
+    "channelUsername": null,
+    "contactUrl": null,
+    "enabled": false,
+    "parseImages": true
+  },
+  {
+    "key": "kredit-consult",
+    "title": "Кредит Консульт",
+    "channelId": "100004",
+    "channelUsername": null,
+    "contactUrl": null,
+    "enabled": false,
+    "parseImages": true
+  },
+  {
+    "key": "air-if",
+    "title": "AIR IF",
+    "channelId": "100005",
+    "channelUsername": null,
+    "contactUrl": null,
+    "enabled": false,
+    "parseImages": true
+  }
+]

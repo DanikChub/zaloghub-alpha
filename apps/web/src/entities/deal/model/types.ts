@@ -1,3 +1,4 @@
+import type { FinanceInstruction, LoanTerms } from './finance.types'
 export type DealStatus = 'DRAFT' | 'ACTIVE' | 'CLOSED'
 export type PaymentType = 'INTEREST' | 'PRINCIPAL' | 'PENALTY' | 'OTHER'
 
@@ -34,6 +35,8 @@ export interface Payment {
 }
 
 export interface Deal {
+  financeTerms?: LoanTerms | null
+  financeInstructions?: FinanceInstruction[]
   id: string
   contractNumber: string | null
   signedAt: string | null
@@ -81,3 +84,30 @@ export interface DealSummary {
   interestReceived: string
   penaltiesReceived: string
 }
+
+export type DealFinance =
+  | {
+      status: 'CONFIGURATION_REQUIRED'
+      message: string
+    }
+  | {
+      status: 'READY'
+      asOfOn: string
+      principalOutstanding: string
+      penaltyOutstanding: string
+      interestOutstanding: string
+      unappliedCredit: string
+      snapshot: {
+        dueNow: string
+        overdueTotal: string
+        daysPastDue: number
+        nextPaymentOn: string | null
+        nextPaymentAmount: string | null
+        obligations: { key: string; component: 'PENALTY' | 'INTEREST' | 'PRINCIPAL' | 'EXPENSE' }[]
+      }
+      payments: {
+        paymentId: string
+        unallocatedAmount: string
+        allocations: { obligationKey: string; amount: string }[]
+      }[]
+    }

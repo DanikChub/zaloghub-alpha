@@ -19,7 +19,17 @@
     "test:watch": "vitest",
     "test:cov": "vitest run --coverage",
     "test:debug": "vitest --inspect-brk --no-file-parallelism",
-    "test:e2e": "vitest run --config ./vitest.config.e2e.ts"
+    "test:e2e": "vitest run --config ./vitest.config.e2e.ts",
+    "db:generate": "prisma generate --config prisma7.config.ts",
+    "db:validate": "prisma validate --config prisma7.config.ts",
+    "db:migrate": "prisma migrate deploy --config prisma7.config.ts",
+    "db:status": "prisma migrate status --config prisma7.config.ts",
+    "test:db": "node scripts/test-financial-migration.mjs",
+    "test:finance": "vitest run src/finance src/deals",
+    "test:finance:db": "node scripts/test-manual-finance.mjs",
+    "test:marketplace": "vitest run src/marketplace",
+    "marketplace:sources": "node scripts/marketplace-sources.mjs",
+    "test:marketplace:http": "node scripts/test-marketplace-http.mjs"
   },
   "dependencies": {
     "@nestjs/common": "^12.0.1",
@@ -32,6 +42,7 @@
     "argon2": "^0.45.1",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.15.1",
+    "decimal.js": "^10.6.0",
     "nodemailer": "^10.1.1",
     "pg": "^8.23.1",
     "reflect-metadata": "^0.2.2",

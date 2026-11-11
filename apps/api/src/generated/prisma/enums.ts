@@ -9,7 +9,181 @@
 * 🟢 You can import this file directly.
 */
 
+export const DealStatus = {
+  DRAFT: 'DRAFT',
+  ACTIVE: 'ACTIVE',
+  CLOSED: 'CLOSED'
+} as const
+
+export type DealStatus = (typeof DealStatus)[keyof typeof DealStatus]
 
 
-// This file is empty because there are no enums in the schema.
-export {}
+export const PaymentType = {
+  INTEREST: 'INTEREST',
+  PRINCIPAL: 'PRINCIPAL',
+  PENALTY: 'PENALTY',
+  OTHER: 'OTHER'
+} as const
+
+export type PaymentType = (typeof PaymentType)[keyof typeof PaymentType]
+
+
+export const FinanceInstructionKind = {
+  REFUND: 'REFUND',
+  CREDIT: 'CREDIT',
+  SETTLEMENT: 'SETTLEMENT'
+} as const
+
+export type FinanceInstructionKind = (typeof FinanceInstructionKind)[keyof typeof FinanceInstructionKind]
+
+
+export const FinanceInstructionStatus = {
+  AGREED: 'AGREED',
+  EXECUTED: 'EXECUTED',
+  CANCELLED: 'CANCELLED'
+} as const
+
+export type FinanceInstructionStatus = (typeof FinanceInstructionStatus)[keyof typeof FinanceInstructionStatus]
+
+
+export const WorkspaceRole = {
+  OWNER: 'OWNER',
+  ADMIN: 'ADMIN',
+  MANAGER: 'MANAGER',
+  VIEWER: 'VIEWER'
+} as const
+
+export type WorkspaceRole = (typeof WorkspaceRole)[keyof typeof WorkspaceRole]
+
+
+export const PartyKind = {
+  PERSON: 'PERSON',
+  ENTREPRENEUR: 'ENTREPRENEUR',
+  COMPANY: 'COMPANY'
+} as const
+
+export type PartyKind = (typeof PartyKind)[keyof typeof PartyKind]
+
+
+export const ContractKind = {
+  LOAN: 'LOAN',
+  PLEDGE: 'PLEDGE',
+  AGENCY: 'AGENCY',
+  GUARANTEE: 'GUARANTEE',
+  OTHER: 'OTHER'
+} as const
+
+export type ContractKind = (typeof ContractKind)[keyof typeof ContractKind]
+
+
+export const ContractStatus = {
+  DRAFT: 'DRAFT',
+  ACTIVE: 'ACTIVE',
+  CLOSED: 'CLOSED',
+  CANCELLED: 'CANCELLED'
+} as const
+
+export type ContractStatus = (typeof ContractStatus)[keyof typeof ContractStatus]
+
+
+export const ContractPartyRole = {
+  LENDER: 'LENDER',
+  BORROWER: 'BORROWER',
+  PLEDGOR: 'PLEDGOR',
+  GUARANTOR: 'GUARANTOR',
+  AGENT: 'AGENT',
+  OTHER: 'OTHER'
+} as const
+
+export type ContractPartyRole = (typeof ContractPartyRole)[keyof typeof ContractPartyRole]
+
+
+export const DocumentRole = {
+  MAIN: 'MAIN',
+  AMENDMENT: 'AMENDMENT',
+  NOTICE: 'NOTICE',
+  PAYMENT_INSTRUCTION: 'PAYMENT_INSTRUCTION',
+  EXPENSE_EVIDENCE: 'EXPENSE_EVIDENCE',
+  OTHER: 'OTHER'
+} as const
+
+export type DocumentRole = (typeof DocumentRole)[keyof typeof DocumentRole]
+
+
+export const LoanAccountStatus = {
+  DRAFT: 'DRAFT',
+  ACTIVE: 'ACTIVE',
+  CLOSED: 'CLOSED'
+} as const
+
+export type LoanAccountStatus = (typeof LoanAccountStatus)[keyof typeof LoanAccountStatus]
+
+
+export const PublicationStatus = {
+  DRAFT: 'DRAFT',
+  PUBLISHED: 'PUBLISHED'
+} as const
+
+export type PublicationStatus = (typeof PublicationStatus)[keyof typeof PublicationStatus]
+
+
+export const TermRuleKind = {
+  INTEREST: 'INTEREST',
+  SCHEDULE: 'SCHEDULE',
+  PENALTY: 'PENALTY',
+  ALLOCATION: 'ALLOCATION',
+  PREPAYMENT: 'PREPAYMENT',
+  RATE_TRANSITION: 'RATE_TRANSITION'
+} as const
+
+export type TermRuleKind = (typeof TermRuleKind)[keyof typeof TermRuleKind]
+
+
+export const FinancialEventKind = {
+  DISBURSEMENT: 'DISBURSEMENT',
+  RECEIPT: 'RECEIPT',
+  REVERSAL: 'REVERSAL',
+  EXPENSE: 'EXPENSE',
+  WAIVER: 'WAIVER',
+  NOTICE: 'NOTICE',
+  SETTLEMENT: 'SETTLEMENT'
+} as const
+
+export type FinancialEventKind = (typeof FinancialEventKind)[keyof typeof FinancialEventKind]
+
+
+export const CalculationStatus = {
+  RUNNING: 'RUNNING',
+  SUCCEEDED: 'SUCCEEDED',
+  FAILED: 'FAILED'
+} as const
+
+export type CalculationStatus = (typeof CalculationStatus)[keyof typeof CalculationStatus]
+
+
+export const CalculationInputKind = {
+  EVENT: 'EVENT',
+  TERMS_VERSION: 'TERMS_VERSION',
+  CALENDAR_VERSION: 'CALENDAR_VERSION'
+} as const
+
+export type CalculationInputKind = (typeof CalculationInputKind)[keyof typeof CalculationInputKind]
+
+
+export const DebtComponent = {
+  PRINCIPAL: 'PRINCIPAL',
+  INTEREST: 'INTEREST',
+  PENALTY: 'PENALTY',
+  EXPENSE: 'EXPENSE'
+} as const
+
+export type DebtComponent = (typeof DebtComponent)[keyof typeof DebtComponent]
+
+
+export const RateUnit = {
+  DAY: 'DAY',
+  MONTH: 'MONTH',
+  YEAR: 'YEAR'
+} as const
+
+export type RateUnit = (typeof RateUnit)[keyof typeof RateUnit]

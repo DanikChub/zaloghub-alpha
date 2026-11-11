@@ -9,3 +9,17 @@ coverage/
 .idea/
 .vscode/
 *.log
+
+# Local database backups and runtime artifacts
+.local/
+
+# Local pnpm cache
+.pnpm-store/
+
+# Telegram credentials, local sessions and collector queues
+*.session
+*.session-*
+**/storage/
+
+!.env.marketplace.example
+marketplace-sources.local.json

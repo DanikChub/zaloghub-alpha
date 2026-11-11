@@ -214,7 +214,16 @@ export type UserWhereInput = {
   emailVerifiedAt?: Prisma.DateTimeNullableFilter<"User"> | Date | string | null
   createdAt?: Prisma.DateTimeFilter<"User"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"User"> | Date | string
+  marketplaceMarks?: Prisma.MarketplaceMarkListRelationFilter
   authChallenges?: Prisma.AuthChallengeListRelationFilter
+  deals?: Prisma.DealListRelationFilter
+  borrowers?: Prisma.BorrowerListRelationFilter
+  collaterals?: Prisma.CollateralListRelationFilter
+  personalWorkspace?: Prisma.XOR<Prisma.WorkspaceNullableScalarRelationFilter, Prisma.WorkspaceWhereInput> | null
+  workspaceMembers?: Prisma.WorkspaceMemberListRelationFilter
+  parties?: Prisma.PartyListRelationFilter
+  auditEntries?: Prisma.AuditEntryListRelationFilter
+  financeInstructions?: Prisma.FinanceInstructionListRelationFilter
 }
 
 export type UserOrderByWithRelationInput = {
@@ -227,7 +236,16 @@ export type UserOrderByWithRelationInput = {
   emailVerifiedAt?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
+  marketplaceMarks?: Prisma.MarketplaceMarkOrderByRelationAggregateInput
   authChallenges?: Prisma.AuthChallengeOrderByRelationAggregateInput
+  deals?: Prisma.DealOrderByRelationAggregateInput
+  borrowers?: Prisma.BorrowerOrderByRelationAggregateInput
+  collaterals?: Prisma.CollateralOrderByRelationAggregateInput
+  personalWorkspace?: Prisma.WorkspaceOrderByWithRelationInput
+  workspaceMembers?: Prisma.WorkspaceMemberOrderByRelationAggregateInput
+  parties?: Prisma.PartyOrderByRelationAggregateInput
+  auditEntries?: Prisma.AuditEntryOrderByRelationAggregateInput
+  financeInstructions?: Prisma.FinanceInstructionOrderByRelationAggregateInput
 }
 
 export type UserWhereUniqueInput = Prisma.AtLeast<{
@@ -243,7 +261,16 @@ export type UserWhereUniqueInput = Prisma.AtLeast<{
   emailVerifiedAt?: Prisma.DateTimeNullableFilter<"User"> | Date | string | null
   createdAt?: Prisma.DateTimeFilter<"User"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"User"> | Date | string
+  marketplaceMarks?: Prisma.MarketplaceMarkListRelationFilter
   authChallenges?: Prisma.AuthChallengeListRelationFilter
+  deals?: Prisma.DealListRelationFilter
+  borrowers?: Prisma.BorrowerListRelationFilter
+  collaterals?: Prisma.CollateralListRelationFilter
+  personalWorkspace?: Prisma.XOR<Prisma.WorkspaceNullableScalarRelationFilter, Prisma.WorkspaceWhereInput> | null
+  workspaceMembers?: Prisma.WorkspaceMemberListRelationFilter
+  parties?: Prisma.PartyListRelationFilter
+  auditEntries?: Prisma.AuditEntryListRelationFilter
+  financeInstructions?: Prisma.FinanceInstructionListRelationFilter
 }, "id" | "email">
 
 export type UserOrderByWithAggregationInput = {
@@ -286,7 +313,16 @@ export type UserCreateInput = {
   emailVerifiedAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  marketplaceMarks?: Prisma.MarketplaceMarkCreateNestedManyWithoutUserInput
   authChallenges?: Prisma.AuthChallengeCreateNestedManyWithoutUserInput
+  deals?: Prisma.DealCreateNestedManyWithoutUserInput
+  borrowers?: Prisma.BorrowerCreateNestedManyWithoutUserInput
+  collaterals?: Prisma.CollateralCreateNestedManyWithoutUserInput
+  personalWorkspace?: Prisma.WorkspaceCreateNestedOneWithoutPersonalOwnerInput
+  workspaceMembers?: Prisma.WorkspaceMemberCreateNestedManyWithoutUserInput
+  parties?: Prisma.PartyCreateNestedManyWithoutUserInput
+  auditEntries?: Prisma.AuditEntryCreateNestedManyWithoutActorInput
+  financeInstructions?: Prisma.FinanceInstructionCreateNestedManyWithoutActorInput
 }
 
 export type UserUncheckedCreateInput = {
@@ -299,7 +335,16 @@ export type UserUncheckedCreateInput = {
   emailVerifiedAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  marketplaceMarks?: Prisma.MarketplaceMarkUncheckedCreateNestedManyWithoutUserInput
   authChallenges?: Prisma.AuthChallengeUncheckedCreateNestedManyWithoutUserInput
+  deals?: Prisma.DealUncheckedCreateNestedManyWithoutUserInput
+  borrowers?: Prisma.BorrowerUncheckedCreateNestedManyWithoutUserInput
+  collaterals?: Prisma.CollateralUncheckedCreateNestedManyWithoutUserInput
+  personalWorkspace?: Prisma.WorkspaceUncheckedCreateNestedOneWithoutPersonalOwnerInput
+  workspaceMembers?: Prisma.WorkspaceMemberUncheckedCreateNestedManyWithoutUserInput
+  parties?: Prisma.PartyUncheckedCreateNestedManyWithoutUserInput
+  auditEntries?: Prisma.AuditEntryUncheckedCreateNestedManyWithoutActorInput
+  financeInstructions?: Prisma.FinanceInstructionUncheckedCreateNestedManyWithoutActorInput
 }
 
 export type UserUpdateInput = {
@@ -312,7 +357,16 @@ export type UserUpdateInput = {
   emailVerifiedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  marketplaceMarks?: Prisma.MarketplaceMarkUpdateManyWithoutUserNestedInput
   authChallenges?: Prisma.AuthChallengeUpdateManyWithoutUserNestedInput
+  deals?: Prisma.DealUpdateManyWithoutUserNestedInput
+  borrowers?: Prisma.BorrowerUpdateManyWithoutUserNestedInput
+  collaterals?: Prisma.CollateralUpdateManyWithoutUserNestedInput
+  personalWorkspace?: Prisma.WorkspaceUpdateOneWithoutPersonalOwnerNestedInput
+  workspaceMembers?: Prisma.WorkspaceMemberUpdateManyWithoutUserNestedInput
+  parties?: Prisma.PartyUpdateManyWithoutUserNestedInput
+  auditEntries?: Prisma.AuditEntryUpdateManyWithoutActorNestedInput
+  financeInstructions?: Prisma.FinanceInstructionUpdateManyWithoutActorNestedInput
 }
 
 export type UserUncheckedUpdateInput = {
@@ -325,7 +379,16 @@ export type UserUncheckedUpdateInput = {
   emailVerifiedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  marketplaceMarks?: Prisma.MarketplaceMarkUncheckedUpdateManyWithoutUserNestedInput
   authChallenges?: Prisma.AuthChallengeUncheckedUpdateManyWithoutUserNestedInput
+  deals?: Prisma.DealUncheckedUpdateManyWithoutUserNestedInput
+  borrowers?: Prisma.BorrowerUncheckedUpdateManyWithoutUserNestedInput
+  collaterals?: Prisma.CollateralUncheckedUpdateManyWithoutUserNestedInput
+  personalWorkspace?: Prisma.WorkspaceUncheckedUpdateOneWithoutPersonalOwnerNestedInput
+  workspaceMembers?: Prisma.WorkspaceMemberUncheckedUpdateManyWithoutUserNestedInput
+  parties?: Prisma.PartyUncheckedUpdateManyWithoutUserNestedInput
+  auditEntries?: Prisma.AuditEntryUncheckedUpdateManyWithoutActorNestedInput
+  financeInstructions?: Prisma.FinanceInstructionUncheckedUpdateManyWithoutActorNestedInput
 }
 
 export type UserCreateManyInput = {
@@ -405,6 +468,11 @@ export type UserScalarRelationFilter = {
   isNot?: Prisma.UserWhereInput
 }
 
+export type UserNullableScalarRelationFilter = {
+  is?: Prisma.UserWhereInput | null
+  isNot?: Prisma.UserWhereInput | null
+}
+
 export type StringFieldUpdateOperationsInput = {
   set?: string
 }
@@ -439,6 +507,138 @@ export type UserUpdateOneRequiredWithoutAuthChallengesNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutAuthChallengesInput, Prisma.UserUpdateWithoutAuthChallengesInput>, Prisma.UserUncheckedUpdateWithoutAuthChallengesInput>
 }
 
+export type UserCreateNestedOneWithoutBorrowersInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutBorrowersInput, Prisma.UserUncheckedCreateWithoutBorrowersInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutBorrowersInput
+  connect?: Prisma.UserWhereUniqueInput
+}
+
+export type UserUpdateOneRequiredWithoutBorrowersNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutBorrowersInput, Prisma.UserUncheckedCreateWithoutBorrowersInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutBorrowersInput
+  upsert?: Prisma.UserUpsertWithoutBorrowersInput
+  connect?: Prisma.UserWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutBorrowersInput, Prisma.UserUpdateWithoutBorrowersInput>, Prisma.UserUncheckedUpdateWithoutBorrowersInput>
+}
+
+export type UserCreateNestedOneWithoutCollateralsInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutCollateralsInput, Prisma.UserUncheckedCreateWithoutCollateralsInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutCollateralsInput
+  connect?: Prisma.UserWhereUniqueInput
+}
+
+export type UserUpdateOneRequiredWithoutCollateralsNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutCollateralsInput, Prisma.UserUncheckedCreateWithoutCollateralsInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutCollateralsInput
+  upsert?: Prisma.UserUpsertWithoutCollateralsInput
+  connect?: Prisma.UserWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutCollateralsInput, Prisma.UserUpdateWithoutCollateralsInput>, Prisma.UserUncheckedUpdateWithoutCollateralsInput>
+}
+
+export type UserCreateNestedOneWithoutDealsInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutDealsInput, Prisma.UserUncheckedCreateWithoutDealsInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutDealsInput
+  connect?: Prisma.UserWhereUniqueInput
+}
+
+export type UserUpdateOneRequiredWithoutDealsNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutDealsInput, Prisma.UserUncheckedCreateWithoutDealsInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutDealsInput
+  upsert?: Prisma.UserUpsertWithoutDealsInput
+  connect?: Prisma.UserWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutDealsInput, Prisma.UserUpdateWithoutDealsInput>, Prisma.UserUncheckedUpdateWithoutDealsInput>
+}
+
+export type UserCreateNestedOneWithoutFinanceInstructionsInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutFinanceInstructionsInput, Prisma.UserUncheckedCreateWithoutFinanceInstructionsInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutFinanceInstructionsInput
+  connect?: Prisma.UserWhereUniqueInput
+}
+
+export type UserUpdateOneRequiredWithoutFinanceInstructionsNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutFinanceInstructionsInput, Prisma.UserUncheckedCreateWithoutFinanceInstructionsInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutFinanceInstructionsInput
+  upsert?: Prisma.UserUpsertWithoutFinanceInstructionsInput
+  connect?: Prisma.UserWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutFinanceInstructionsInput, Prisma.UserUpdateWithoutFinanceInstructionsInput>, Prisma.UserUncheckedUpdateWithoutFinanceInstructionsInput>
+}
+
+export type UserCreateNestedOneWithoutPersonalWorkspaceInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutPersonalWorkspaceInput, Prisma.UserUncheckedCreateWithoutPersonalWorkspaceInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutPersonalWorkspaceInput
+  connect?: Prisma.UserWhereUniqueInput
+}
+
+export type UserUpdateOneWithoutPersonalWorkspaceNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutPersonalWorkspaceInput, Prisma.UserUncheckedCreateWithoutPersonalWorkspaceInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutPersonalWorkspaceInput
+  upsert?: Prisma.UserUpsertWithoutPersonalWorkspaceInput
+  disconnect?: Prisma.UserWhereInput | boolean
+  delete?: Prisma.UserWhereInput | boolean
+  connect?: Prisma.UserWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutPersonalWorkspaceInput, Prisma.UserUpdateWithoutPersonalWorkspaceInput>, Prisma.UserUncheckedUpdateWithoutPersonalWorkspaceInput>
+}
+
+export type UserCreateNestedOneWithoutWorkspaceMembersInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutWorkspaceMembersInput, Prisma.UserUncheckedCreateWithoutWorkspaceMembersInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutWorkspaceMembersInput
+  connect?: Prisma.UserWhereUniqueInput
+}
+
+export type UserUpdateOneRequiredWithoutWorkspaceMembersNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutWorkspaceMembersInput, Prisma.UserUncheckedCreateWithoutWorkspaceMembersInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutWorkspaceMembersInput
+  upsert?: Prisma.UserUpsertWithoutWorkspaceMembersInput
+  connect?: Prisma.UserWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutWorkspaceMembersInput, Prisma.UserUpdateWithoutWorkspaceMembersInput>, Prisma.UserUncheckedUpdateWithoutWorkspaceMembersInput>
+}
+
+export type UserCreateNestedOneWithoutPartiesInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutPartiesInput, Prisma.UserUncheckedCreateWithoutPartiesInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutPartiesInput
+  connect?: Prisma.UserWhereUniqueInput
+}
+
+export type UserUpdateOneWithoutPartiesNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutPartiesInput, Prisma.UserUncheckedCreateWithoutPartiesInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutPartiesInput
+  upsert?: Prisma.UserUpsertWithoutPartiesInput
+  disconnect?: Prisma.UserWhereInput | boolean
+  delete?: Prisma.UserWhereInput | boolean
+  connect?: Prisma.UserWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutPartiesInput, Prisma.UserUpdateWithoutPartiesInput>, Prisma.UserUncheckedUpdateWithoutPartiesInput>
+}
+
+export type UserCreateNestedOneWithoutAuditEntriesInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutAuditEntriesInput, Prisma.UserUncheckedCreateWithoutAuditEntriesInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutAuditEntriesInput
+  connect?: Prisma.UserWhereUniqueInput
+}
+
+export type UserUpdateOneWithoutAuditEntriesNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutAuditEntriesInput, Prisma.UserUncheckedCreateWithoutAuditEntriesInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutAuditEntriesInput
+  upsert?: Prisma.UserUpsertWithoutAuditEntriesInput
+  disconnect?: Prisma.UserWhereInput | boolean
+  delete?: Prisma.UserWhereInput | boolean
+  connect?: Prisma.UserWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutAuditEntriesInput, Prisma.UserUpdateWithoutAuditEntriesInput>, Prisma.UserUncheckedUpdateWithoutAuditEntriesInput>
+}
+
+export type UserCreateNestedOneWithoutMarketplaceMarksInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutMarketplaceMarksInput, Prisma.UserUncheckedCreateWithoutMarketplaceMarksInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutMarketplaceMarksInput
+  connect?: Prisma.UserWhereUniqueInput
+}
+
+export type UserUpdateOneRequiredWithoutMarketplaceMarksNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutMarketplaceMarksInput, Prisma.UserUncheckedCreateWithoutMarketplaceMarksInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutMarketplaceMarksInput
+  upsert?: Prisma.UserUpsertWithoutMarketplaceMarksInput
+  connect?: Prisma.UserWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutMarketplaceMarksInput, Prisma.UserUpdateWithoutMarketplaceMarksInput>, Prisma.UserUncheckedUpdateWithoutMarketplaceMarksInput>
+}
+
 export type UserCreateWithoutAuthChallengesInput = {
   id?: string
   email: string
@@ -449,6 +649,15 @@ export type UserCreateWithoutAuthChallengesInput = {
   emailVerifiedAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  marketplaceMarks?: Prisma.MarketplaceMarkCreateNestedManyWithoutUserInput
+  deals?: Prisma.DealCreateNestedManyWithoutUserInput
+  borrowers?: Prisma.BorrowerCreateNestedManyWithoutUserInput
+  collaterals?: Prisma.CollateralCreateNestedManyWithoutUserInput
+  personalWorkspace?: Prisma.WorkspaceCreateNestedOneWithoutPersonalOwnerInput
+  workspaceMembers?: Prisma.WorkspaceMemberCreateNestedManyWithoutUserInput
+  parties?: Prisma.PartyCreateNestedManyWithoutUserInput
+  auditEntries?: Prisma.AuditEntryCreateNestedManyWithoutActorInput
+  financeInstructions?: Prisma.FinanceInstructionCreateNestedManyWithoutActorInput
 }
 
 export type UserUncheckedCreateWithoutAuthChallengesInput = {
@@ -461,6 +670,15 @@ export type UserUncheckedCreateWithoutAuthChallengesInput = {
   emailVerifiedAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  marketplaceMarks?: Prisma.MarketplaceMarkUncheckedCreateNestedManyWithoutUserInput
+  deals?: Prisma.DealUncheckedCreateNestedManyWithoutUserInput
+  borrowers?: Prisma.BorrowerUncheckedCreateNestedManyWithoutUserInput
+  collaterals?: Prisma.CollateralUncheckedCreateNestedManyWithoutUserInput
+  personalWorkspace?: Prisma.WorkspaceUncheckedCreateNestedOneWithoutPersonalOwnerInput
+  workspaceMembers?: Prisma.WorkspaceMemberUncheckedCreateNestedManyWithoutUserInput
+  parties?: Prisma.PartyUncheckedCreateNestedManyWithoutUserInput
+  auditEntries?: Prisma.AuditEntryUncheckedCreateNestedManyWithoutActorInput
+  financeInstructions?: Prisma.FinanceInstructionUncheckedCreateNestedManyWithoutActorInput
 }
 
 export type UserCreateOrConnectWithoutAuthChallengesInput = {
@@ -489,6 +707,15 @@ export type UserUpdateWithoutAuthChallengesInput = {
   emailVerifiedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  marketplaceMarks?: Prisma.MarketplaceMarkUpdateManyWithoutUserNestedInput
+  deals?: Prisma.DealUpdateManyWithoutUserNestedInput
+  borrowers?: Prisma.BorrowerUpdateManyWithoutUserNestedInput
+  collaterals?: Prisma.CollateralUpdateManyWithoutUserNestedInput
+  personalWorkspace?: Prisma.WorkspaceUpdateOneWithoutPersonalOwnerNestedInput
+  workspaceMembers?: Prisma.WorkspaceMemberUpdateManyWithoutUserNestedInput
+  parties?: Prisma.PartyUpdateManyWithoutUserNestedInput
+  auditEntries?: Prisma.AuditEntryUpdateManyWithoutActorNestedInput
+  financeInstructions?: Prisma.FinanceInstructionUpdateManyWithoutActorNestedInput
 }
 
 export type UserUncheckedUpdateWithoutAuthChallengesInput = {
@@ -501,6 +728,915 @@ export type UserUncheckedUpdateWithoutAuthChallengesInput = {
   emailVerifiedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  marketplaceMarks?: Prisma.MarketplaceMarkUncheckedUpdateManyWithoutUserNestedInput
+  deals?: Prisma.DealUncheckedUpdateManyWithoutUserNestedInput
+  borrowers?: Prisma.BorrowerUncheckedUpdateManyWithoutUserNestedInput
+  collaterals?: Prisma.CollateralUncheckedUpdateManyWithoutUserNestedInput
+  personalWorkspace?: Prisma.WorkspaceUncheckedUpdateOneWithoutPersonalOwnerNestedInput
+  workspaceMembers?: Prisma.WorkspaceMemberUncheckedUpdateManyWithoutUserNestedInput
+  parties?: Prisma.PartyUncheckedUpdateManyWithoutUserNestedInput
+  auditEntries?: Prisma.AuditEntryUncheckedUpdateManyWithoutActorNestedInput
+  financeInstructions?: Prisma.FinanceInstructionUncheckedUpdateManyWithoutActorNestedInput
+}
+
+export type UserCreateWithoutBorrowersInput = {
+  id?: string
+  email: string
+  passwordHash: string
+  firstName?: string | null
+  lastName?: string | null
+  isActive?: boolean
+  emailVerifiedAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  marketplaceMarks?: Prisma.MarketplaceMarkCreateNestedManyWithoutUserInput
+  authChallenges?: Prisma.AuthChallengeCreateNestedManyWithoutUserInput
+  deals?: Prisma.DealCreateNestedManyWithoutUserInput
+  collaterals?: Prisma.CollateralCreateNestedManyWithoutUserInput
+  personalWorkspace?: Prisma.WorkspaceCreateNestedOneWithoutPersonalOwnerInput
+  workspaceMembers?: Prisma.WorkspaceMemberCreateNestedManyWithoutUserInput
+  parties?: Prisma.PartyCreateNestedManyWithoutUserInput
+  auditEntries?: Prisma.AuditEntryCreateNestedManyWithoutActorInput
+  financeInstructions?: Prisma.FinanceInstructionCreateNestedManyWithoutActorInput
+}
+
+export type UserUncheckedCreateWithoutBorrowersInput = {
+  id?: string
+  email: string
+  passwordHash: string
+  firstName?: string | null
+  lastName?: string | null
+  isActive?: boolean
+  emailVerifiedAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  marketplaceMarks?: Prisma.MarketplaceMarkUncheckedCreateNestedManyWithoutUserInput
+  authChallenges?: Prisma.AuthChallengeUncheckedCreateNestedManyWithoutUserInput
+  deals?: Prisma.DealUncheckedCreateNestedManyWithoutUserInput
+  collaterals?: Prisma.CollateralUncheckedCreateNestedManyWithoutUserInput
+  personalWorkspace?: Prisma.WorkspaceUncheckedCreateNestedOneWithoutPersonalOwnerInput
+  workspaceMembers?: Prisma.WorkspaceMemberUncheckedCreateNestedManyWithoutUserInput
+  parties?: Prisma.PartyUncheckedCreateNestedManyWithoutUserInput
+  auditEntries?: Prisma.AuditEntryUncheckedCreateNestedManyWithoutActorInput
+  financeInstructions?: Prisma.FinanceInstructionUncheckedCreateNestedManyWithoutActorInput
+}
+
+export type UserCreateOrConnectWithoutBorrowersInput = {
+  where: Prisma.UserWhereUniqueInput
+  create: Prisma.XOR<Prisma.UserCreateWithoutBorrowersInput, Prisma.UserUncheckedCreateWithoutBorrowersInput>
+}
+
+export type UserUpsertWithoutBorrowersInput = {
+  update: Prisma.XOR<Prisma.UserUpdateWithoutBorrowersInput, Prisma.UserUncheckedUpdateWithoutBorrowersInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutBorrowersInput, Prisma.UserUncheckedCreateWithoutBorrowersInput>
+  where?: Prisma.UserWhereInput
+}
+
+export type UserUpdateToOneWithWhereWithoutBorrowersInput = {
+  where?: Prisma.UserWhereInput
+  data: Prisma.XOR<Prisma.UserUpdateWithoutBorrowersInput, Prisma.UserUncheckedUpdateWithoutBorrowersInput>
+}
+
+export type UserUpdateWithoutBorrowersInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  firstName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lastName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  emailVerifiedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  marketplaceMarks?: Prisma.MarketplaceMarkUpdateManyWithoutUserNestedInput
+  authChallenges?: Prisma.AuthChallengeUpdateManyWithoutUserNestedInput
+  deals?: Prisma.DealUpdateManyWithoutUserNestedInput
+  collaterals?: Prisma.CollateralUpdateManyWithoutUserNestedInput
+  personalWorkspace?: Prisma.WorkspaceUpdateOneWithoutPersonalOwnerNestedInput
+  workspaceMembers?: Prisma.WorkspaceMemberUpdateManyWithoutUserNestedInput
+  parties?: Prisma.PartyUpdateManyWithoutUserNestedInput
+  auditEntries?: Prisma.AuditEntryUpdateManyWithoutActorNestedInput
+  financeInstructions?: Prisma.FinanceInstructionUpdateManyWithoutActorNestedInput
+}
+
+export type UserUncheckedUpdateWithoutBorrowersInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  firstName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lastName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  emailVerifiedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  marketplaceMarks?: Prisma.MarketplaceMarkUncheckedUpdateManyWithoutUserNestedInput
+  authChallenges?: Prisma.AuthChallengeUncheckedUpdateManyWithoutUserNestedInput
+  deals?: Prisma.DealUncheckedUpdateManyWithoutUserNestedInput
+  collaterals?: Prisma.CollateralUncheckedUpdateManyWithoutUserNestedInput
+  personalWorkspace?: Prisma.WorkspaceUncheckedUpdateOneWithoutPersonalOwnerNestedInput
+  workspaceMembers?: Prisma.WorkspaceMemberUncheckedUpdateManyWithoutUserNestedInput
+  parties?: Prisma.PartyUncheckedUpdateManyWithoutUserNestedInput
+  auditEntries?: Prisma.AuditEntryUncheckedUpdateManyWithoutActorNestedInput
+  financeInstructions?: Prisma.FinanceInstructionUncheckedUpdateManyWithoutActorNestedInput
+}
+
+export type UserCreateWithoutCollateralsInput = {
+  id?: string
+  email: string
+  passwordHash: string
+  firstName?: string | null
+  lastName?: string | null
+  isActive?: boolean
+  emailVerifiedAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  marketplaceMarks?: Prisma.MarketplaceMarkCreateNestedManyWithoutUserInput
+  authChallenges?: Prisma.AuthChallengeCreateNestedManyWithoutUserInput
+  deals?: Prisma.DealCreateNestedManyWithoutUserInput
+  borrowers?: Prisma.BorrowerCreateNestedManyWithoutUserInput
+  personalWorkspace?: Prisma.WorkspaceCreateNestedOneWithoutPersonalOwnerInput
+  workspaceMembers?: Prisma.WorkspaceMemberCreateNestedManyWithoutUserInput
+  parties?: Prisma.PartyCreateNestedManyWithoutUserInput
+  auditEntries?: Prisma.AuditEntryCreateNestedManyWithoutActorInput
+  financeInstructions?: Prisma.FinanceInstructionCreateNestedManyWithoutActorInput
+}
+
+export type UserUncheckedCreateWithoutCollateralsInput = {
+  id?: string
+  email: string
+  passwordHash: string
+  firstName?: string | null
+  lastName?: string | null
+  isActive?: boolean
+  emailVerifiedAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  marketplaceMarks?: Prisma.MarketplaceMarkUncheckedCreateNestedManyWithoutUserInput
+  authChallenges?: Prisma.AuthChallengeUncheckedCreateNestedManyWithoutUserInput
+  deals?: Prisma.DealUncheckedCreateNestedManyWithoutUserInput
+  borrowers?: Prisma.BorrowerUncheckedCreateNestedManyWithoutUserInput
+  personalWorkspace?: Prisma.WorkspaceUncheckedCreateNestedOneWithoutPersonalOwnerInput
+  workspaceMembers?: Prisma.WorkspaceMemberUncheckedCreateNestedManyWithoutUserInput
+  parties?: Prisma.PartyUncheckedCreateNestedManyWithoutUserInput
+  auditEntries?: Prisma.AuditEntryUncheckedCreateNestedManyWithoutActorInput
+  financeInstructions?: Prisma.FinanceInstructionUncheckedCreateNestedManyWithoutActorInput
+}
+
+export type UserCreateOrConnectWithoutCollateralsInput = {
+  where: Prisma.UserWhereUniqueInput
+  create: Prisma.XOR<Prisma.UserCreateWithoutCollateralsInput, Prisma.UserUncheckedCreateWithoutCollateralsInput>
+}
+
+export type UserUpsertWithoutCollateralsInput = {
+  update: Prisma.XOR<Prisma.UserUpdateWithoutCollateralsInput, Prisma.UserUncheckedUpdateWithoutCollateralsInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutCollateralsInput, Prisma.UserUncheckedCreateWithoutCollateralsInput>
+  where?: Prisma.UserWhereInput
+}
+
+export type UserUpdateToOneWithWhereWithoutCollateralsInput = {
+  where?: Prisma.UserWhereInput
+  data: Prisma.XOR<Prisma.UserUpdateWithoutCollateralsInput, Prisma.UserUncheckedUpdateWithoutCollateralsInput>
+}
+
+export type UserUpdateWithoutCollateralsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  firstName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lastName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  emailVerifiedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  marketplaceMarks?: Prisma.MarketplaceMarkUpdateManyWithoutUserNestedInput
+  authChallenges?: Prisma.AuthChallengeUpdateManyWithoutUserNestedInput
+  deals?: Prisma.DealUpdateManyWithoutUserNestedInput
+  borrowers?: Prisma.BorrowerUpdateManyWithoutUserNestedInput
+  personalWorkspace?: Prisma.WorkspaceUpdateOneWithoutPersonalOwnerNestedInput
+  workspaceMembers?: Prisma.WorkspaceMemberUpdateManyWithoutUserNestedInput
+  parties?: Prisma.PartyUpdateManyWithoutUserNestedInput
+  auditEntries?: Prisma.AuditEntryUpdateManyWithoutActorNestedInput
+  financeInstructions?: Prisma.FinanceInstructionUpdateManyWithoutActorNestedInput
+}
+
+export type UserUncheckedUpdateWithoutCollateralsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  firstName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lastName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  emailVerifiedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  marketplaceMarks?: Prisma.MarketplaceMarkUncheckedUpdateManyWithoutUserNestedInput
+  authChallenges?: Prisma.AuthChallengeUncheckedUpdateManyWithoutUserNestedInput
+  deals?: Prisma.DealUncheckedUpdateManyWithoutUserNestedInput
+  borrowers?: Prisma.BorrowerUncheckedUpdateManyWithoutUserNestedInput
+  personalWorkspace?: Prisma.WorkspaceUncheckedUpdateOneWithoutPersonalOwnerNestedInput
+  workspaceMembers?: Prisma.WorkspaceMemberUncheckedUpdateManyWithoutUserNestedInput
+  parties?: Prisma.PartyUncheckedUpdateManyWithoutUserNestedInput
+  auditEntries?: Prisma.AuditEntryUncheckedUpdateManyWithoutActorNestedInput
+  financeInstructions?: Prisma.FinanceInstructionUncheckedUpdateManyWithoutActorNestedInput
+}
+
+export type UserCreateWithoutDealsInput = {
+  id?: string
+  email: string
+  passwordHash: string
+  firstName?: string | null
+  lastName?: string | null
+  isActive?: boolean
+  emailVerifiedAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  marketplaceMarks?: Prisma.MarketplaceMarkCreateNestedManyWithoutUserInput
+  authChallenges?: Prisma.AuthChallengeCreateNestedManyWithoutUserInput
+  borrowers?: Prisma.BorrowerCreateNestedManyWithoutUserInput
+  collaterals?: Prisma.CollateralCreateNestedManyWithoutUserInput
+  personalWorkspace?: Prisma.WorkspaceCreateNestedOneWithoutPersonalOwnerInput
+  workspaceMembers?: Prisma.WorkspaceMemberCreateNestedManyWithoutUserInput
+  parties?: Prisma.PartyCreateNestedManyWithoutUserInput
+  auditEntries?: Prisma.AuditEntryCreateNestedManyWithoutActorInput
+  financeInstructions?: Prisma.FinanceInstructionCreateNestedManyWithoutActorInput
+}
+
+export type UserUncheckedCreateWithoutDealsInput = {
+  id?: string
+  email: string
+  passwordHash: string
+  firstName?: string | null
+  lastName?: string | null
+  isActive?: boolean
+  emailVerifiedAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  marketplaceMarks?: Prisma.MarketplaceMarkUncheckedCreateNestedManyWithoutUserInput
+  authChallenges?: Prisma.AuthChallengeUncheckedCreateNestedManyWithoutUserInput
+  borrowers?: Prisma.BorrowerUncheckedCreateNestedManyWithoutUserInput
+  collaterals?: Prisma.CollateralUncheckedCreateNestedManyWithoutUserInput
+  personalWorkspace?: Prisma.WorkspaceUncheckedCreateNestedOneWithoutPersonalOwnerInput
+  workspaceMembers?: Prisma.WorkspaceMemberUncheckedCreateNestedManyWithoutUserInput
+  parties?: Prisma.PartyUncheckedCreateNestedManyWithoutUserInput
+  auditEntries?: Prisma.AuditEntryUncheckedCreateNestedManyWithoutActorInput
+  financeInstructions?: Prisma.FinanceInstructionUncheckedCreateNestedManyWithoutActorInput
+}
+
+export type UserCreateOrConnectWithoutDealsInput = {
+  where: Prisma.UserWhereUniqueInput
+  create: Prisma.XOR<Prisma.UserCreateWithoutDealsInput, Prisma.UserUncheckedCreateWithoutDealsInput>
+}
+
+export type UserUpsertWithoutDealsInput = {
+  update: Prisma.XOR<Prisma.UserUpdateWithoutDealsInput, Prisma.UserUncheckedUpdateWithoutDealsInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutDealsInput, Prisma.UserUncheckedCreateWithoutDealsInput>
+  where?: Prisma.UserWhereInput
+}
+
+export type UserUpdateToOneWithWhereWithoutDealsInput = {
+  where?: Prisma.UserWhereInput
+  data: Prisma.XOR<Prisma.UserUpdateWithoutDealsInput, Prisma.UserUncheckedUpdateWithoutDealsInput>
+}
+
+export type UserUpdateWithoutDealsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  firstName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lastName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  emailVerifiedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  marketplaceMarks?: Prisma.MarketplaceMarkUpdateManyWithoutUserNestedInput
+  authChallenges?: Prisma.AuthChallengeUpdateManyWithoutUserNestedInput
+  borrowers?: Prisma.BorrowerUpdateManyWithoutUserNestedInput
+  collaterals?: Prisma.CollateralUpdateManyWithoutUserNestedInput
+  personalWorkspace?: Prisma.WorkspaceUpdateOneWithoutPersonalOwnerNestedInput
+  workspaceMembers?: Prisma.WorkspaceMemberUpdateManyWithoutUserNestedInput
+  parties?: Prisma.PartyUpdateManyWithoutUserNestedInput
+  auditEntries?: Prisma.AuditEntryUpdateManyWithoutActorNestedInput
+  financeInstructions?: Prisma.FinanceInstructionUpdateManyWithoutActorNestedInput
+}
+
+export type UserUncheckedUpdateWithoutDealsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  firstName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lastName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  emailVerifiedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  marketplaceMarks?: Prisma.MarketplaceMarkUncheckedUpdateManyWithoutUserNestedInput
+  authChallenges?: Prisma.AuthChallengeUncheckedUpdateManyWithoutUserNestedInput
+  borrowers?: Prisma.BorrowerUncheckedUpdateManyWithoutUserNestedInput
+  collaterals?: Prisma.CollateralUncheckedUpdateManyWithoutUserNestedInput
+  personalWorkspace?: Prisma.WorkspaceUncheckedUpdateOneWithoutPersonalOwnerNestedInput
+  workspaceMembers?: Prisma.WorkspaceMemberUncheckedUpdateManyWithoutUserNestedInput
+  parties?: Prisma.PartyUncheckedUpdateManyWithoutUserNestedInput
+  auditEntries?: Prisma.AuditEntryUncheckedUpdateManyWithoutActorNestedInput
+  financeInstructions?: Prisma.FinanceInstructionUncheckedUpdateManyWithoutActorNestedInput
+}
+
+export type UserCreateWithoutFinanceInstructionsInput = {
+  id?: string
+  email: string
+  passwordHash: string
+  firstName?: string | null
+  lastName?: string | null
+  isActive?: boolean
+  emailVerifiedAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  marketplaceMarks?: Prisma.MarketplaceMarkCreateNestedManyWithoutUserInput
+  authChallenges?: Prisma.AuthChallengeCreateNestedManyWithoutUserInput
+  deals?: Prisma.DealCreateNestedManyWithoutUserInput
+  borrowers?: Prisma.BorrowerCreateNestedManyWithoutUserInput
+  collaterals?: Prisma.CollateralCreateNestedManyWithoutUserInput
+  personalWorkspace?: Prisma.WorkspaceCreateNestedOneWithoutPersonalOwnerInput
+  workspaceMembers?: Prisma.WorkspaceMemberCreateNestedManyWithoutUserInput
+  parties?: Prisma.PartyCreateNestedManyWithoutUserInput
+  auditEntries?: Prisma.AuditEntryCreateNestedManyWithoutActorInput
+}
+
+export type UserUncheckedCreateWithoutFinanceInstructionsInput = {
+  id?: string
+  email: string
+  passwordHash: string
+  firstName?: string | null
+  lastName?: string | null
+  isActive?: boolean
+  emailVerifiedAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  marketplaceMarks?: Prisma.MarketplaceMarkUncheckedCreateNestedManyWithoutUserInput
+  authChallenges?: Prisma.AuthChallengeUncheckedCreateNestedManyWithoutUserInput
+  deals?: Prisma.DealUncheckedCreateNestedManyWithoutUserInput
+  borrowers?: Prisma.BorrowerUncheckedCreateNestedManyWithoutUserInput
+  collaterals?: Prisma.CollateralUncheckedCreateNestedManyWithoutUserInput
+  personalWorkspace?: Prisma.WorkspaceUncheckedCreateNestedOneWithoutPersonalOwnerInput
+  workspaceMembers?: Prisma.WorkspaceMemberUncheckedCreateNestedManyWithoutUserInput
+  parties?: Prisma.PartyUncheckedCreateNestedManyWithoutUserInput
+  auditEntries?: Prisma.AuditEntryUncheckedCreateNestedManyWithoutActorInput
+}
+
+export type UserCreateOrConnectWithoutFinanceInstructionsInput = {
+  where: Prisma.UserWhereUniqueInput
+  create: Prisma.XOR<Prisma.UserCreateWithoutFinanceInstructionsInput, Prisma.UserUncheckedCreateWithoutFinanceInstructionsInput>
+}
+
+export type UserUpsertWithoutFinanceInstructionsInput = {
+  update: Prisma.XOR<Prisma.UserUpdateWithoutFinanceInstructionsInput, Prisma.UserUncheckedUpdateWithoutFinanceInstructionsInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutFinanceInstructionsInput, Prisma.UserUncheckedCreateWithoutFinanceInstructionsInput>
+  where?: Prisma.UserWhereInput
+}
+
+export type UserUpdateToOneWithWhereWithoutFinanceInstructionsInput = {
+  where?: Prisma.UserWhereInput
+  data: Prisma.XOR<Prisma.UserUpdateWithoutFinanceInstructionsInput, Prisma.UserUncheckedUpdateWithoutFinanceInstructionsInput>
+}
+
+export type UserUpdateWithoutFinanceInstructionsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  firstName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lastName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  emailVerifiedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  marketplaceMarks?: Prisma.MarketplaceMarkUpdateManyWithoutUserNestedInput
+  authChallenges?: Prisma.AuthChallengeUpdateManyWithoutUserNestedInput
+  deals?: Prisma.DealUpdateManyWithoutUserNestedInput
+  borrowers?: Prisma.BorrowerUpdateManyWithoutUserNestedInput
+  collaterals?: Prisma.CollateralUpdateManyWithoutUserNestedInput
+  personalWorkspace?: Prisma.WorkspaceUpdateOneWithoutPersonalOwnerNestedInput
+  workspaceMembers?: Prisma.WorkspaceMemberUpdateManyWithoutUserNestedInput
+  parties?: Prisma.PartyUpdateManyWithoutUserNestedInput
+  auditEntries?: Prisma.AuditEntryUpdateManyWithoutActorNestedInput
+}
+
+export type UserUncheckedUpdateWithoutFinanceInstructionsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  firstName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lastName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  emailVerifiedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  marketplaceMarks?: Prisma.MarketplaceMarkUncheckedUpdateManyWithoutUserNestedInput
+  authChallenges?: Prisma.AuthChallengeUncheckedUpdateManyWithoutUserNestedInput
+  deals?: Prisma.DealUncheckedUpdateManyWithoutUserNestedInput
+  borrowers?: Prisma.BorrowerUncheckedUpdateManyWithoutUserNestedInput
+  collaterals?: Prisma.CollateralUncheckedUpdateManyWithoutUserNestedInput
+  personalWorkspace?: Prisma.WorkspaceUncheckedUpdateOneWithoutPersonalOwnerNestedInput
+  workspaceMembers?: Prisma.WorkspaceMemberUncheckedUpdateManyWithoutUserNestedInput
+  parties?: Prisma.PartyUncheckedUpdateManyWithoutUserNestedInput
+  auditEntries?: Prisma.AuditEntryUncheckedUpdateManyWithoutActorNestedInput
+}
+
+export type UserCreateWithoutPersonalWorkspaceInput = {
+  id?: string
+  email: string
+  passwordHash: string
+  firstName?: string | null
+  lastName?: string | null
+  isActive?: boolean
+  emailVerifiedAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  marketplaceMarks?: Prisma.MarketplaceMarkCreateNestedManyWithoutUserInput
+  authChallenges?: Prisma.AuthChallengeCreateNestedManyWithoutUserInput
+  deals?: Prisma.DealCreateNestedManyWithoutUserInput
+  borrowers?: Prisma.BorrowerCreateNestedManyWithoutUserInput
+  collaterals?: Prisma.CollateralCreateNestedManyWithoutUserInput
+  workspaceMembers?: Prisma.WorkspaceMemberCreateNestedManyWithoutUserInput
+  parties?: Prisma.PartyCreateNestedManyWithoutUserInput
+  auditEntries?: Prisma.AuditEntryCreateNestedManyWithoutActorInput
+  financeInstructions?: Prisma.FinanceInstructionCreateNestedManyWithoutActorInput
+}
+
+export type UserUncheckedCreateWithoutPersonalWorkspaceInput = {
+  id?: string
+  email: string
+  passwordHash: string
+  firstName?: string | null
+  lastName?: string | null
+  isActive?: boolean
+  emailVerifiedAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  marketplaceMarks?: Prisma.MarketplaceMarkUncheckedCreateNestedManyWithoutUserInput
+  authChallenges?: Prisma.AuthChallengeUncheckedCreateNestedManyWithoutUserInput
+  deals?: Prisma.DealUncheckedCreateNestedManyWithoutUserInput
+  borrowers?: Prisma.BorrowerUncheckedCreateNestedManyWithoutUserInput
+  collaterals?: Prisma.CollateralUncheckedCreateNestedManyWithoutUserInput
+  workspaceMembers?: Prisma.WorkspaceMemberUncheckedCreateNestedManyWithoutUserInput
+  parties?: Prisma.PartyUncheckedCreateNestedManyWithoutUserInput
+  auditEntries?: Prisma.AuditEntryUncheckedCreateNestedManyWithoutActorInput
+  financeInstructions?: Prisma.FinanceInstructionUncheckedCreateNestedManyWithoutActorInput
+}
+
+export type UserCreateOrConnectWithoutPersonalWorkspaceInput = {
+  where: Prisma.UserWhereUniqueInput
+  create: Prisma.XOR<Prisma.UserCreateWithoutPersonalWorkspaceInput, Prisma.UserUncheckedCreateWithoutPersonalWorkspaceInput>
+}
+
+export type UserUpsertWithoutPersonalWorkspaceInput = {
+  update: Prisma.XOR<Prisma.UserUpdateWithoutPersonalWorkspaceInput, Prisma.UserUncheckedUpdateWithoutPersonalWorkspaceInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutPersonalWorkspaceInput, Prisma.UserUncheckedCreateWithoutPersonalWorkspaceInput>
+  where?: Prisma.UserWhereInput
+}
+
+export type UserUpdateToOneWithWhereWithoutPersonalWorkspaceInput = {
+  where?: Prisma.UserWhereInput
+  data: Prisma.XOR<Prisma.UserUpdateWithoutPersonalWorkspaceInput, Prisma.UserUncheckedUpdateWithoutPersonalWorkspaceInput>
+}
+
+export type UserUpdateWithoutPersonalWorkspaceInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  firstName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lastName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  emailVerifiedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  marketplaceMarks?: Prisma.MarketplaceMarkUpdateManyWithoutUserNestedInput
+  authChallenges?: Prisma.AuthChallengeUpdateManyWithoutUserNestedInput
+  deals?: Prisma.DealUpdateManyWithoutUserNestedInput
+  borrowers?: Prisma.BorrowerUpdateManyWithoutUserNestedInput
+  collaterals?: Prisma.CollateralUpdateManyWithoutUserNestedInput
+  workspaceMembers?: Prisma.WorkspaceMemberUpdateManyWithoutUserNestedInput
+  parties?: Prisma.PartyUpdateManyWithoutUserNestedInput
+  auditEntries?: Prisma.AuditEntryUpdateManyWithoutActorNestedInput
+  financeInstructions?: Prisma.FinanceInstructionUpdateManyWithoutActorNestedInput
+}
+
+export type UserUncheckedUpdateWithoutPersonalWorkspaceInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  firstName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lastName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  emailVerifiedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  marketplaceMarks?: Prisma.MarketplaceMarkUncheckedUpdateManyWithoutUserNestedInput
+  authChallenges?: Prisma.AuthChallengeUncheckedUpdateManyWithoutUserNestedInput
+  deals?: Prisma.DealUncheckedUpdateManyWithoutUserNestedInput
+  borrowers?: Prisma.BorrowerUncheckedUpdateManyWithoutUserNestedInput
+  collaterals?: Prisma.CollateralUncheckedUpdateManyWithoutUserNestedInput
+  workspaceMembers?: Prisma.WorkspaceMemberUncheckedUpdateManyWithoutUserNestedInput
+  parties?: Prisma.PartyUncheckedUpdateManyWithoutUserNestedInput
+  auditEntries?: Prisma.AuditEntryUncheckedUpdateManyWithoutActorNestedInput
+  financeInstructions?: Prisma.FinanceInstructionUncheckedUpdateManyWithoutActorNestedInput
+}
+
+export type UserCreateWithoutWorkspaceMembersInput = {
+  id?: string
+  email: string
+  passwordHash: string
+  firstName?: string | null
+  lastName?: string | null
+  isActive?: boolean
+  emailVerifiedAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  marketplaceMarks?: Prisma.MarketplaceMarkCreateNestedManyWithoutUserInput
+  authChallenges?: Prisma.AuthChallengeCreateNestedManyWithoutUserInput
+  deals?: Prisma.DealCreateNestedManyWithoutUserInput
+  borrowers?: Prisma.BorrowerCreateNestedManyWithoutUserInput
+  collaterals?: Prisma.CollateralCreateNestedManyWithoutUserInput
+  personalWorkspace?: Prisma.WorkspaceCreateNestedOneWithoutPersonalOwnerInput
+  parties?: Prisma.PartyCreateNestedManyWithoutUserInput
+  auditEntries?: Prisma.AuditEntryCreateNestedManyWithoutActorInput
+  financeInstructions?: Prisma.FinanceInstructionCreateNestedManyWithoutActorInput
+}
+
+export type UserUncheckedCreateWithoutWorkspaceMembersInput = {
+  id?: string
+  email: string
+  passwordHash: string
+  firstName?: string | null
+  lastName?: string | null
+  isActive?: boolean
+  emailVerifiedAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  marketplaceMarks?: Prisma.MarketplaceMarkUncheckedCreateNestedManyWithoutUserInput
+  authChallenges?: Prisma.AuthChallengeUncheckedCreateNestedManyWithoutUserInput
+  deals?: Prisma.DealUncheckedCreateNestedManyWithoutUserInput
+  borrowers?: Prisma.BorrowerUncheckedCreateNestedManyWithoutUserInput
+  collaterals?: Prisma.CollateralUncheckedCreateNestedManyWithoutUserInput
+  personalWorkspace?: Prisma.WorkspaceUncheckedCreateNestedOneWithoutPersonalOwnerInput
+  parties?: Prisma.PartyUncheckedCreateNestedManyWithoutUserInput
+  auditEntries?: Prisma.AuditEntryUncheckedCreateNestedManyWithoutActorInput
+  financeInstructions?: Prisma.FinanceInstructionUncheckedCreateNestedManyWithoutActorInput
+}
+
+export type UserCreateOrConnectWithoutWorkspaceMembersInput = {
+  where: Prisma.UserWhereUniqueInput
+  create: Prisma.XOR<Prisma.UserCreateWithoutWorkspaceMembersInput, Prisma.UserUncheckedCreateWithoutWorkspaceMembersInput>
+}
+
+export type UserUpsertWithoutWorkspaceMembersInput = {
+  update: Prisma.XOR<Prisma.UserUpdateWithoutWorkspaceMembersInput, Prisma.UserUncheckedUpdateWithoutWorkspaceMembersInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutWorkspaceMembersInput, Prisma.UserUncheckedCreateWithoutWorkspaceMembersInput>
+  where?: Prisma.UserWhereInput
+}
+
+export type UserUpdateToOneWithWhereWithoutWorkspaceMembersInput = {
+  where?: Prisma.UserWhereInput
+  data: Prisma.XOR<Prisma.UserUpdateWithoutWorkspaceMembersInput, Prisma.UserUncheckedUpdateWithoutWorkspaceMembersInput>
+}
+
+export type UserUpdateWithoutWorkspaceMembersInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  firstName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lastName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  emailVerifiedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  marketplaceMarks?: Prisma.MarketplaceMarkUpdateManyWithoutUserNestedInput
+  authChallenges?: Prisma.AuthChallengeUpdateManyWithoutUserNestedInput
+  deals?: Prisma.DealUpdateManyWithoutUserNestedInput
+  borrowers?: Prisma.BorrowerUpdateManyWithoutUserNestedInput
+  collaterals?: Prisma.CollateralUpdateManyWithoutUserNestedInput
+  personalWorkspace?: Prisma.WorkspaceUpdateOneWithoutPersonalOwnerNestedInput
+  parties?: Prisma.PartyUpdateManyWithoutUserNestedInput
+  auditEntries?: Prisma.AuditEntryUpdateManyWithoutActorNestedInput
+  financeInstructions?: Prisma.FinanceInstructionUpdateManyWithoutActorNestedInput
+}
+
+export type UserUncheckedUpdateWithoutWorkspaceMembersInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  firstName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lastName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  emailVerifiedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  marketplaceMarks?: Prisma.MarketplaceMarkUncheckedUpdateManyWithoutUserNestedInput
+  authChallenges?: Prisma.AuthChallengeUncheckedUpdateManyWithoutUserNestedInput
+  deals?: Prisma.DealUncheckedUpdateManyWithoutUserNestedInput
+  borrowers?: Prisma.BorrowerUncheckedUpdateManyWithoutUserNestedInput
+  collaterals?: Prisma.CollateralUncheckedUpdateManyWithoutUserNestedInput
+  personalWorkspace?: Prisma.WorkspaceUncheckedUpdateOneWithoutPersonalOwnerNestedInput
+  parties?: Prisma.PartyUncheckedUpdateManyWithoutUserNestedInput
+  auditEntries?: Prisma.AuditEntryUncheckedUpdateManyWithoutActorNestedInput
+  financeInstructions?: Prisma.FinanceInstructionUncheckedUpdateManyWithoutActorNestedInput
+}
+
+export type UserCreateWithoutPartiesInput = {
+  id?: string
+  email: string
+  passwordHash: string
+  firstName?: string | null
+  lastName?: string | null
+  isActive?: boolean
+  emailVerifiedAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  marketplaceMarks?: Prisma.MarketplaceMarkCreateNestedManyWithoutUserInput
+  authChallenges?: Prisma.AuthChallengeCreateNestedManyWithoutUserInput
+  deals?: Prisma.DealCreateNestedManyWithoutUserInput
+  borrowers?: Prisma.BorrowerCreateNestedManyWithoutUserInput
+  collaterals?: Prisma.CollateralCreateNestedManyWithoutUserInput
+  personalWorkspace?: Prisma.WorkspaceCreateNestedOneWithoutPersonalOwnerInput
+  workspaceMembers?: Prisma.WorkspaceMemberCreateNestedManyWithoutUserInput
+  auditEntries?: Prisma.AuditEntryCreateNestedManyWithoutActorInput
+  financeInstructions?: Prisma.FinanceInstructionCreateNestedManyWithoutActorInput
+}
+
+export type UserUncheckedCreateWithoutPartiesInput = {
+  id?: string
+  email: string
+  passwordHash: string
+  firstName?: string | null
+  lastName?: string | null
+  isActive?: boolean
+  emailVerifiedAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  marketplaceMarks?: Prisma.MarketplaceMarkUncheckedCreateNestedManyWithoutUserInput
+  authChallenges?: Prisma.AuthChallengeUncheckedCreateNestedManyWithoutUserInput
+  deals?: Prisma.DealUncheckedCreateNestedManyWithoutUserInput
+  borrowers?: Prisma.BorrowerUncheckedCreateNestedManyWithoutUserInput
+  collaterals?: Prisma.CollateralUncheckedCreateNestedManyWithoutUserInput
+  personalWorkspace?: Prisma.WorkspaceUncheckedCreateNestedOneWithoutPersonalOwnerInput
+  workspaceMembers?: Prisma.WorkspaceMemberUncheckedCreateNestedManyWithoutUserInput
+  auditEntries?: Prisma.AuditEntryUncheckedCreateNestedManyWithoutActorInput
+  financeInstructions?: Prisma.FinanceInstructionUncheckedCreateNestedManyWithoutActorInput
+}
+
+export type UserCreateOrConnectWithoutPartiesInput = {
+  where: Prisma.UserWhereUniqueInput
+  create: Prisma.XOR<Prisma.UserCreateWithoutPartiesInput, Prisma.UserUncheckedCreateWithoutPartiesInput>
+}
+
+export type UserUpsertWithoutPartiesInput = {
+  update: Prisma.XOR<Prisma.UserUpdateWithoutPartiesInput, Prisma.UserUncheckedUpdateWithoutPartiesInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutPartiesInput, Prisma.UserUncheckedCreateWithoutPartiesInput>
+  where?: Prisma.UserWhereInput
+}
+
+export type UserUpdateToOneWithWhereWithoutPartiesInput = {
+  where?: Prisma.UserWhereInput
+  data: Prisma.XOR<Prisma.UserUpdateWithoutPartiesInput, Prisma.UserUncheckedUpdateWithoutPartiesInput>
+}
+
+export type UserUpdateWithoutPartiesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  firstName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lastName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  emailVerifiedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  marketplaceMarks?: Prisma.MarketplaceMarkUpdateManyWithoutUserNestedInput
+  authChallenges?: Prisma.AuthChallengeUpdateManyWithoutUserNestedInput
+  deals?: Prisma.DealUpdateManyWithoutUserNestedInput
+  borrowers?: Prisma.BorrowerUpdateManyWithoutUserNestedInput
+  collaterals?: Prisma.CollateralUpdateManyWithoutUserNestedInput
+  personalWorkspace?: Prisma.WorkspaceUpdateOneWithoutPersonalOwnerNestedInput
+  workspaceMembers?: Prisma.WorkspaceMemberUpdateManyWithoutUserNestedInput
+  auditEntries?: Prisma.AuditEntryUpdateManyWithoutActorNestedInput
+  financeInstructions?: Prisma.FinanceInstructionUpdateManyWithoutActorNestedInput
+}
+
+export type UserUncheckedUpdateWithoutPartiesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  firstName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lastName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  emailVerifiedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  marketplaceMarks?: Prisma.MarketplaceMarkUncheckedUpdateManyWithoutUserNestedInput
+  authChallenges?: Prisma.AuthChallengeUncheckedUpdateManyWithoutUserNestedInput
+  deals?: Prisma.DealUncheckedUpdateManyWithoutUserNestedInput
+  borrowers?: Prisma.BorrowerUncheckedUpdateManyWithoutUserNestedInput
+  collaterals?: Prisma.CollateralUncheckedUpdateManyWithoutUserNestedInput
+  personalWorkspace?: Prisma.WorkspaceUncheckedUpdateOneWithoutPersonalOwnerNestedInput
+  workspaceMembers?: Prisma.WorkspaceMemberUncheckedUpdateManyWithoutUserNestedInput
+  auditEntries?: Prisma.AuditEntryUncheckedUpdateManyWithoutActorNestedInput
+  financeInstructions?: Prisma.FinanceInstructionUncheckedUpdateManyWithoutActorNestedInput
+}
+
+export type UserCreateWithoutAuditEntriesInput = {
+  id?: string
+  email: string
+  passwordHash: string
+  firstName?: string | null
+  lastName?: string | null
+  isActive?: boolean
+  emailVerifiedAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  marketplaceMarks?: Prisma.MarketplaceMarkCreateNestedManyWithoutUserInput
+  authChallenges?: Prisma.AuthChallengeCreateNestedManyWithoutUserInput
+  deals?: Prisma.DealCreateNestedManyWithoutUserInput
+  borrowers?: Prisma.BorrowerCreateNestedManyWithoutUserInput
+  collaterals?: Prisma.CollateralCreateNestedManyWithoutUserInput
+  personalWorkspace?: Prisma.WorkspaceCreateNestedOneWithoutPersonalOwnerInput
+  workspaceMembers?: Prisma.WorkspaceMemberCreateNestedManyWithoutUserInput
+  parties?: Prisma.PartyCreateNestedManyWithoutUserInput
+  financeInstructions?: Prisma.FinanceInstructionCreateNestedManyWithoutActorInput
+}
+
+export type UserUncheckedCreateWithoutAuditEntriesInput = {
+  id?: string
+  email: string
+  passwordHash: string
+  firstName?: string | null
+  lastName?: string | null
+  isActive?: boolean
+  emailVerifiedAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  marketplaceMarks?: Prisma.MarketplaceMarkUncheckedCreateNestedManyWithoutUserInput
+  authChallenges?: Prisma.AuthChallengeUncheckedCreateNestedManyWithoutUserInput
+  deals?: Prisma.DealUncheckedCreateNestedManyWithoutUserInput
+  borrowers?: Prisma.BorrowerUncheckedCreateNestedManyWithoutUserInput
+  collaterals?: Prisma.CollateralUncheckedCreateNestedManyWithoutUserInput
+  personalWorkspace?: Prisma.WorkspaceUncheckedCreateNestedOneWithoutPersonalOwnerInput
+  workspaceMembers?: Prisma.WorkspaceMemberUncheckedCreateNestedManyWithoutUserInput
+  parties?: Prisma.PartyUncheckedCreateNestedManyWithoutUserInput
+  financeInstructions?: Prisma.FinanceInstructionUncheckedCreateNestedManyWithoutActorInput
+}
+
+export type UserCreateOrConnectWithoutAuditEntriesInput = {
+  where: Prisma.UserWhereUniqueInput
+  create: Prisma.XOR<Prisma.UserCreateWithoutAuditEntriesInput, Prisma.UserUncheckedCreateWithoutAuditEntriesInput>
+}
+
+export type UserUpsertWithoutAuditEntriesInput = {
+  update: Prisma.XOR<Prisma.UserUpdateWithoutAuditEntriesInput, Prisma.UserUncheckedUpdateWithoutAuditEntriesInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutAuditEntriesInput, Prisma.UserUncheckedCreateWithoutAuditEntriesInput>
+  where?: Prisma.UserWhereInput
+}
+
+export type UserUpdateToOneWithWhereWithoutAuditEntriesInput = {
+  where?: Prisma.UserWhereInput
+  data: Prisma.XOR<Prisma.UserUpdateWithoutAuditEntriesInput, Prisma.UserUncheckedUpdateWithoutAuditEntriesInput>
+}
+
+export type UserUpdateWithoutAuditEntriesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  firstName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lastName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  emailVerifiedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  marketplaceMarks?: Prisma.MarketplaceMarkUpdateManyWithoutUserNestedInput
+  authChallenges?: Prisma.AuthChallengeUpdateManyWithoutUserNestedInput
+  deals?: Prisma.DealUpdateManyWithoutUserNestedInput
+  borrowers?: Prisma.BorrowerUpdateManyWithoutUserNestedInput
+  collaterals?: Prisma.CollateralUpdateManyWithoutUserNestedInput
+  personalWorkspace?: Prisma.WorkspaceUpdateOneWithoutPersonalOwnerNestedInput
+  workspaceMembers?: Prisma.WorkspaceMemberUpdateManyWithoutUserNestedInput
+  parties?: Prisma.PartyUpdateManyWithoutUserNestedInput
+  financeInstructions?: Prisma.FinanceInstructionUpdateManyWithoutActorNestedInput
+}
+
+export type UserUncheckedUpdateWithoutAuditEntriesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  firstName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lastName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  emailVerifiedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  marketplaceMarks?: Prisma.MarketplaceMarkUncheckedUpdateManyWithoutUserNestedInput
+  authChallenges?: Prisma.AuthChallengeUncheckedUpdateManyWithoutUserNestedInput
+  deals?: Prisma.DealUncheckedUpdateManyWithoutUserNestedInput
+  borrowers?: Prisma.BorrowerUncheckedUpdateManyWithoutUserNestedInput
+  collaterals?: Prisma.CollateralUncheckedUpdateManyWithoutUserNestedInput
+  personalWorkspace?: Prisma.WorkspaceUncheckedUpdateOneWithoutPersonalOwnerNestedInput
+  workspaceMembers?: Prisma.WorkspaceMemberUncheckedUpdateManyWithoutUserNestedInput
+  parties?: Prisma.PartyUncheckedUpdateManyWithoutUserNestedInput
+  financeInstructions?: Prisma.FinanceInstructionUncheckedUpdateManyWithoutActorNestedInput
+}
+
+export type UserCreateWithoutMarketplaceMarksInput = {
+  id?: string
+  email: string
+  passwordHash: string
+  firstName?: string | null
+  lastName?: string | null
+  isActive?: boolean
+  emailVerifiedAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  authChallenges?: Prisma.AuthChallengeCreateNestedManyWithoutUserInput
+  deals?: Prisma.DealCreateNestedManyWithoutUserInput
+  borrowers?: Prisma.BorrowerCreateNestedManyWithoutUserInput
+  collaterals?: Prisma.CollateralCreateNestedManyWithoutUserInput
+  personalWorkspace?: Prisma.WorkspaceCreateNestedOneWithoutPersonalOwnerInput
+  workspaceMembers?: Prisma.WorkspaceMemberCreateNestedManyWithoutUserInput
+  parties?: Prisma.PartyCreateNestedManyWithoutUserInput
+  auditEntries?: Prisma.AuditEntryCreateNestedManyWithoutActorInput
+  financeInstructions?: Prisma.FinanceInstructionCreateNestedManyWithoutActorInput
+}
+
+export type UserUncheckedCreateWithoutMarketplaceMarksInput = {
+  id?: string
+  email: string
+  passwordHash: string
+  firstName?: string | null
+  lastName?: string | null
+  isActive?: boolean
+  emailVerifiedAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  authChallenges?: Prisma.AuthChallengeUncheckedCreateNestedManyWithoutUserInput
+  deals?: Prisma.DealUncheckedCreateNestedManyWithoutUserInput
+  borrowers?: Prisma.BorrowerUncheckedCreateNestedManyWithoutUserInput
+  collaterals?: Prisma.CollateralUncheckedCreateNestedManyWithoutUserInput
+  personalWorkspace?: Prisma.WorkspaceUncheckedCreateNestedOneWithoutPersonalOwnerInput
+  workspaceMembers?: Prisma.WorkspaceMemberUncheckedCreateNestedManyWithoutUserInput
+  parties?: Prisma.PartyUncheckedCreateNestedManyWithoutUserInput
+  auditEntries?: Prisma.AuditEntryUncheckedCreateNestedManyWithoutActorInput
+  financeInstructions?: Prisma.FinanceInstructionUncheckedCreateNestedManyWithoutActorInput
+}
+
+export type UserCreateOrConnectWithoutMarketplaceMarksInput = {
+  where: Prisma.UserWhereUniqueInput
+  create: Prisma.XOR<Prisma.UserCreateWithoutMarketplaceMarksInput, Prisma.UserUncheckedCreateWithoutMarketplaceMarksInput>
+}
+
+export type UserUpsertWithoutMarketplaceMarksInput = {
+  update: Prisma.XOR<Prisma.UserUpdateWithoutMarketplaceMarksInput, Prisma.UserUncheckedUpdateWithoutMarketplaceMarksInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutMarketplaceMarksInput, Prisma.UserUncheckedCreateWithoutMarketplaceMarksInput>
+  where?: Prisma.UserWhereInput
+}
+
+export type UserUpdateToOneWithWhereWithoutMarketplaceMarksInput = {
+  where?: Prisma.UserWhereInput
+  data: Prisma.XOR<Prisma.UserUpdateWithoutMarketplaceMarksInput, Prisma.UserUncheckedUpdateWithoutMarketplaceMarksInput>
+}
+
+export type UserUpdateWithoutMarketplaceMarksInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  firstName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lastName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  emailVerifiedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  authChallenges?: Prisma.AuthChallengeUpdateManyWithoutUserNestedInput
+  deals?: Prisma.DealUpdateManyWithoutUserNestedInput
+  borrowers?: Prisma.BorrowerUpdateManyWithoutUserNestedInput
+  collaterals?: Prisma.CollateralUpdateManyWithoutUserNestedInput
+  personalWorkspace?: Prisma.WorkspaceUpdateOneWithoutPersonalOwnerNestedInput
+  workspaceMembers?: Prisma.WorkspaceMemberUpdateManyWithoutUserNestedInput
+  parties?: Prisma.PartyUpdateManyWithoutUserNestedInput
+  auditEntries?: Prisma.AuditEntryUpdateManyWithoutActorNestedInput
+  financeInstructions?: Prisma.FinanceInstructionUpdateManyWithoutActorNestedInput
+}
+
+export type UserUncheckedUpdateWithoutMarketplaceMarksInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  firstName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lastName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  emailVerifiedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  authChallenges?: Prisma.AuthChallengeUncheckedUpdateManyWithoutUserNestedInput
+  deals?: Prisma.DealUncheckedUpdateManyWithoutUserNestedInput
+  borrowers?: Prisma.BorrowerUncheckedUpdateManyWithoutUserNestedInput
+  collaterals?: Prisma.CollateralUncheckedUpdateManyWithoutUserNestedInput
+  personalWorkspace?: Prisma.WorkspaceUncheckedUpdateOneWithoutPersonalOwnerNestedInput
+  workspaceMembers?: Prisma.WorkspaceMemberUncheckedUpdateManyWithoutUserNestedInput
+  parties?: Prisma.PartyUncheckedUpdateManyWithoutUserNestedInput
+  auditEntries?: Prisma.AuditEntryUncheckedUpdateManyWithoutActorNestedInput
+  financeInstructions?: Prisma.FinanceInstructionUncheckedUpdateManyWithoutActorNestedInput
 }
 
 
@@ -509,11 +1645,27 @@ export type UserUncheckedUpdateWithoutAuthChallengesInput = {
  */
 
 export type UserCountOutputType = {
+  marketplaceMarks: number
   authChallenges: number
+  deals: number
+  borrowers: number
+  collaterals: number
+  workspaceMembers: number
+  parties: number
+  auditEntries: number
+  financeInstructions: number
 }
 
 export type UserCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  marketplaceMarks?: boolean | UserCountOutputTypeCountMarketplaceMarksArgs
   authChallenges?: boolean | UserCountOutputTypeCountAuthChallengesArgs
+  deals?: boolean | UserCountOutputTypeCountDealsArgs
+  borrowers?: boolean | UserCountOutputTypeCountBorrowersArgs
+  collaterals?: boolean | UserCountOutputTypeCountCollateralsArgs
+  workspaceMembers?: boolean | UserCountOutputTypeCountWorkspaceMembersArgs
+  parties?: boolean | UserCountOutputTypeCountPartiesArgs
+  auditEntries?: boolean | UserCountOutputTypeCountAuditEntriesArgs
+  financeInstructions?: boolean | UserCountOutputTypeCountFinanceInstructionsArgs
 }
 
 /**
@@ -529,8 +1681,64 @@ export type UserCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types.Extensi
 /**
  * UserCountOutputType without action
  */
+export type UserCountOutputTypeCountMarketplaceMarksArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.MarketplaceMarkWhereInput
+}
+
+/**
+ * UserCountOutputType without action
+ */
 export type UserCountOutputTypeCountAuthChallengesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   where?: Prisma.AuthChallengeWhereInput
+}
+
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeCountDealsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.DealWhereInput
+}
+
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeCountBorrowersArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.BorrowerWhereInput
+}
+
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeCountCollateralsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.CollateralWhereInput
+}
+
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeCountWorkspaceMembersArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.WorkspaceMemberWhereInput
+}
+
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeCountPartiesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.PartyWhereInput
+}
+
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeCountAuditEntriesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.AuditEntryWhereInput
+}
+
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeCountFinanceInstructionsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.FinanceInstructionWhereInput
 }
 
 
@@ -544,7 +1752,16 @@ export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
   emailVerifiedAt?: boolean
   createdAt?: boolean
   updatedAt?: boolean
+  marketplaceMarks?: boolean | Prisma.User$marketplaceMarksArgs<ExtArgs>
   authChallenges?: boolean | Prisma.User$authChallengesArgs<ExtArgs>
+  deals?: boolean | Prisma.User$dealsArgs<ExtArgs>
+  borrowers?: boolean | Prisma.User$borrowersArgs<ExtArgs>
+  collaterals?: boolean | Prisma.User$collateralsArgs<ExtArgs>
+  personalWorkspace?: boolean | Prisma.User$personalWorkspaceArgs<ExtArgs>
+  workspaceMembers?: boolean | Prisma.User$workspaceMembersArgs<ExtArgs>
+  parties?: boolean | Prisma.User$partiesArgs<ExtArgs>
+  auditEntries?: boolean | Prisma.User$auditEntriesArgs<ExtArgs>
+  financeInstructions?: boolean | Prisma.User$financeInstructionsArgs<ExtArgs>
   _count?: boolean | Prisma.UserCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["user"]>
 
@@ -586,7 +1803,16 @@ export type UserSelectScalar = {
 
 export type UserOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "email" | "passwordHash" | "firstName" | "lastName" | "isActive" | "emailVerifiedAt" | "createdAt" | "updatedAt", ExtArgs["result"]["user"]>
 export type UserInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  marketplaceMarks?: boolean | Prisma.User$marketplaceMarksArgs<ExtArgs>
   authChallenges?: boolean | Prisma.User$authChallengesArgs<ExtArgs>
+  deals?: boolean | Prisma.User$dealsArgs<ExtArgs>
+  borrowers?: boolean | Prisma.User$borrowersArgs<ExtArgs>
+  collaterals?: boolean | Prisma.User$collateralsArgs<ExtArgs>
+  personalWorkspace?: boolean | Prisma.User$personalWorkspaceArgs<ExtArgs>
+  workspaceMembers?: boolean | Prisma.User$workspaceMembersArgs<ExtArgs>
+  parties?: boolean | Prisma.User$partiesArgs<ExtArgs>
+  auditEntries?: boolean | Prisma.User$auditEntriesArgs<ExtArgs>
+  financeInstructions?: boolean | Prisma.User$financeInstructionsArgs<ExtArgs>
   _count?: boolean | Prisma.UserCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type UserIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
@@ -595,7 +1821,16 @@ export type UserIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensi
 export type $UserPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "User"
   objects: {
+    marketplaceMarks: Prisma.$MarketplaceMarkPayload<ExtArgs>[]
     authChallenges: Prisma.$AuthChallengePayload<ExtArgs>[]
+    deals: Prisma.$DealPayload<ExtArgs>[]
+    borrowers: Prisma.$BorrowerPayload<ExtArgs>[]
+    collaterals: Prisma.$CollateralPayload<ExtArgs>[]
+    personalWorkspace: Prisma.$WorkspacePayload<ExtArgs> | null
+    workspaceMembers: Prisma.$WorkspaceMemberPayload<ExtArgs>[]
+    parties: Prisma.$PartyPayload<ExtArgs>[]
+    auditEntries: Prisma.$AuditEntryPayload<ExtArgs>[]
+    financeInstructions: Prisma.$FinanceInstructionPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -1001,7 +2236,16 @@ readonly fields: UserFieldRefs;
  */
 export interface Prisma__UserClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
+  marketplaceMarks<T extends Prisma.User$marketplaceMarksArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$marketplaceMarksArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$MarketplaceMarkPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   authChallenges<T extends Prisma.User$authChallengesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$authChallengesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$AuthChallengePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  deals<T extends Prisma.User$dealsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$dealsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$DealPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  borrowers<T extends Prisma.User$borrowersArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$borrowersArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$BorrowerPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  collaterals<T extends Prisma.User$collateralsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$collateralsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$CollateralPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  personalWorkspace<T extends Prisma.User$personalWorkspaceArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$personalWorkspaceArgs<ExtArgs>>): Prisma.Prisma__WorkspaceClient<runtime.Types.Result.GetResult<Prisma.$WorkspacePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  workspaceMembers<T extends Prisma.User$workspaceMembersArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$workspaceMembersArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$WorkspaceMemberPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  parties<T extends Prisma.User$partiesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$partiesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$PartyPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  auditEntries<T extends Prisma.User$auditEntriesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$auditEntriesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$AuditEntryPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  financeInstructions<T extends Prisma.User$financeInstructionsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$financeInstructionsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$FinanceInstructionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1433,6 +2677,30 @@ export type UserDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.Internal
 }
 
 /**
+ * User.marketplaceMarks
+ */
+export type User$marketplaceMarksArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the MarketplaceMark
+   */
+  select?: Prisma.MarketplaceMarkSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the MarketplaceMark
+   */
+  omit?: Prisma.MarketplaceMarkOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.MarketplaceMarkInclude<ExtArgs> | null
+  where?: Prisma.MarketplaceMarkWhereInput
+  orderBy?: Prisma.MarketplaceMarkOrderByWithRelationInput | Prisma.MarketplaceMarkOrderByWithRelationInput[]
+  cursor?: Prisma.MarketplaceMarkWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.MarketplaceMarkScalarFieldEnum | Prisma.MarketplaceMarkScalarFieldEnum[]
+}
+
+/**
  * User.authChallenges
  */
 export type User$authChallengesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -1454,6 +2722,193 @@ export type User$authChallengesArgs<ExtArgs extends runtime.Types.Extensions.Int
   take?: number
   skip?: number
   distinct?: Prisma.AuthChallengeScalarFieldEnum | Prisma.AuthChallengeScalarFieldEnum[]
+}
+
+/**
+ * User.deals
+ */
+export type User$dealsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Deal
+   */
+  select?: Prisma.DealSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Deal
+   */
+  omit?: Prisma.DealOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.DealInclude<ExtArgs> | null
+  where?: Prisma.DealWhereInput
+  orderBy?: Prisma.DealOrderByWithRelationInput | Prisma.DealOrderByWithRelationInput[]
+  cursor?: Prisma.DealWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.DealScalarFieldEnum | Prisma.DealScalarFieldEnum[]
+}
+
+/**
+ * User.borrowers
+ */
+export type User$borrowersArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Borrower
+   */
+  select?: Prisma.BorrowerSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Borrower
+   */
+  omit?: Prisma.BorrowerOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.BorrowerInclude<ExtArgs> | null
+  where?: Prisma.BorrowerWhereInput
+  orderBy?: Prisma.BorrowerOrderByWithRelationInput | Prisma.BorrowerOrderByWithRelationInput[]
+  cursor?: Prisma.BorrowerWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.BorrowerScalarFieldEnum | Prisma.BorrowerScalarFieldEnum[]
+}
+
+/**
+ * User.collaterals
+ */
+export type User$collateralsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Collateral
+   */
+  select?: Prisma.CollateralSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Collateral
+   */
+  omit?: Prisma.CollateralOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.CollateralInclude<ExtArgs> | null
+  where?: Prisma.CollateralWhereInput
+  orderBy?: Prisma.CollateralOrderByWithRelationInput | Prisma.CollateralOrderByWithRelationInput[]
+  cursor?: Prisma.CollateralWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.CollateralScalarFieldEnum | Prisma.CollateralScalarFieldEnum[]
+}
+
+/**
+ * User.personalWorkspace
+ */
+export type User$personalWorkspaceArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Workspace
+   */
+  select?: Prisma.WorkspaceSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Workspace
+   */
+  omit?: Prisma.WorkspaceOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.WorkspaceInclude<ExtArgs> | null
+  where?: Prisma.WorkspaceWhereInput
+}
+
+/**
+ * User.workspaceMembers
+ */
+export type User$workspaceMembersArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the WorkspaceMember
+   */
+  select?: Prisma.WorkspaceMemberSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the WorkspaceMember
+   */
+  omit?: Prisma.WorkspaceMemberOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.WorkspaceMemberInclude<ExtArgs> | null
+  where?: Prisma.WorkspaceMemberWhereInput
+  orderBy?: Prisma.WorkspaceMemberOrderByWithRelationInput | Prisma.WorkspaceMemberOrderByWithRelationInput[]
+  cursor?: Prisma.WorkspaceMemberWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.WorkspaceMemberScalarFieldEnum | Prisma.WorkspaceMemberScalarFieldEnum[]
+}
+
+/**
+ * User.parties
+ */
+export type User$partiesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Party
+   */
+  select?: Prisma.PartySelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Party
+   */
+  omit?: Prisma.PartyOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.PartyInclude<ExtArgs> | null
+  where?: Prisma.PartyWhereInput
+  orderBy?: Prisma.PartyOrderByWithRelationInput | Prisma.PartyOrderByWithRelationInput[]
+  cursor?: Prisma.PartyWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.PartyScalarFieldEnum | Prisma.PartyScalarFieldEnum[]
+}
+
+/**
+ * User.auditEntries
+ */
+export type User$auditEntriesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the AuditEntry
+   */
+  select?: Prisma.AuditEntrySelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the AuditEntry
+   */
+  omit?: Prisma.AuditEntryOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.AuditEntryInclude<ExtArgs> | null
+  where?: Prisma.AuditEntryWhereInput
+  orderBy?: Prisma.AuditEntryOrderByWithRelationInput | Prisma.AuditEntryOrderByWithRelationInput[]
+  cursor?: Prisma.AuditEntryWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.AuditEntryScalarFieldEnum | Prisma.AuditEntryScalarFieldEnum[]
+}
+
+/**
+ * User.financeInstructions
+ */
+export type User$financeInstructionsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the FinanceInstruction
+   */
+  select?: Prisma.FinanceInstructionSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the FinanceInstruction
+   */
+  omit?: Prisma.FinanceInstructionOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.FinanceInstructionInclude<ExtArgs> | null
+  where?: Prisma.FinanceInstructionWhereInput
+  orderBy?: Prisma.FinanceInstructionOrderByWithRelationInput | Prisma.FinanceInstructionOrderByWithRelationInput[]
+  cursor?: Prisma.FinanceInstructionWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.FinanceInstructionScalarFieldEnum | Prisma.FinanceInstructionScalarFieldEnum[]
 }
 
 /**
