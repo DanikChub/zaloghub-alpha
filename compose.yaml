@@ -1,0 +1,105 @@
+name: zaloghub-alpha
+x-logging: &logging
+  driver: json-file
+  options: { max-size: "10m", max-file: "3" }
+services:
+  db:
+    image: postgres:17-bookworm
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: zaloghub_alpha
+      POSTGRES_USER: zaloghub
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD}
+    command: [postgres, -c, shared_buffers=32MB, -c, max_connections=30, -c, work_mem=2MB]
+    volumes: [postgres_data:/var/lib/postgresql/data]
+    healthcheck:
+      test: [CMD-SHELL, 'pg_isready -U zaloghub -d zaloghub_alpha']
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    mem_limit: 192m
+    logging: *logging
+  migrate:
+    image: ${IMAGE_PREFIX:-zaloghub}-api:${IMAGE_TAG:-local}
+    build: { context: ., target: api }
+    env_file: [./deploy/secrets/api.env]
+    command: [pnpm, db:migrate]
+    depends_on:
+      db: { condition: service_healthy }
+    mem_limit: 256m
+    logging: *logging
+  api:
+    image: ${IMAGE_PREFIX:-zaloghub}-api:${IMAGE_TAG:-local}
+    build: { context: ., target: api }
+    restart: unless-stopped
+    env_file: [./deploy/secrets/api.env]
+    depends_on:
+      migrate: { condition: service_completed_successfully }
+    healthcheck:
+      test: [CMD, node, -e, "fetch('http://127.0.0.1:3000/health/db').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"]
+      interval: 30s
+      timeout: 10s
+      start_period: 30s
+      retries: 5
+    mem_limit: 256m
+    logging: *logging
+  web:
+    image: ${IMAGE_PREFIX:-zaloghub}-web:${IMAGE_TAG:-local}
+    build: { context: ., target: web }
+    restart: unless-stopped
+    ports: ['127.0.0.1:${WEB_PORT:-8080}:80']
+    depends_on:
+      api: { condition: service_healthy }
+    healthcheck:
+      test: [CMD, wget, -q, -O, /dev/null, http://127.0.0.1/health]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+    mem_limit: 48m
+    logging: *logging
+  collector:
+    profiles: [collector]
+    image: ${IMAGE_PREFIX:-zaloghub}-collector:${IMAGE_TAG:-local}
+    build: { context: ., target: collector }
+    restart: unless-stopped
+    init: true
+    env_file: [./deploy/secrets/collector.env]
+    environment:
+      MARKETPLACE_API_URL: http://api:3000
+      COLLECTOR_ALLOW_INTERNAL_HTTP: 'true'
+    volumes: [collector_data:/var/lib/collector]
+    depends_on:
+      api: { condition: service_healthy }
+    stop_grace_period: 60s
+    mem_limit: 192m
+    logging: *logging
+  backup:
+    profiles: [backup]
+    image: ${IMAGE_PREFIX:-zaloghub}-backup:${IMAGE_TAG:-local}
+    build: { context: ., dockerfile: deploy/backup/Dockerfile }
+    restart: unless-stopped
+    init: true
+    env_file: [./deploy/secrets/backup.env]
+    environment:
+      PGHOST: db
+      PGPORT: '5432'
+      PGUSER: zaloghub
+      PGDATABASE: zaloghub_alpha
+      PGPASSWORD: ${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD}
+      RCLONE_CONFIG: /config/rclone/rclone.conf
+    volumes:
+      - backup_data:/backups
+      - ./deploy/secrets/rclone:/config/rclone
+    depends_on:
+      db: { condition: service_healthy }
+    healthcheck:
+      test: [CMD-SHELL, 'test -f /backups/last-success && test $$(find /backups/last-success -mmin -1560 | wc -l) -eq 1']
+      interval: 30s
+      start_period: 10m
+      retries: 1
+    mem_limit: 160m
+    logging: *logging
+volumes:
+  postgres_data:
+  collector_data:
+  backup_data:

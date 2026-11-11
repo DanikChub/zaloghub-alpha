@@ -23,3 +23,4 @@ coverage/
 
 !.env.marketplace.example
 marketplace-sources.local.json
+deploy/secrets/

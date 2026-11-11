@@ -1,0 +1,14 @@
+**/node_modules
+**/dist
+**/*.tsbuildinfo
+**/.env
+**/.env.*
+.git
+.idea
+.local
+.pnpm-store
+docs
+**/coverage
+**/storage
+**/*.session*
+deploy/secrets
