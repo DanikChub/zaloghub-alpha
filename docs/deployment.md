@@ -69,6 +69,10 @@ documented in docs/marketplace.md, never an unbounded history import.
 
 Check `docker compose logs --tail 100 collector` after restart and confirm a real
 new publication arrives. A running process alone does not prove collection works.
+The collector health check requires a recent successful source synchronization,
+an active Telegram connection and at least one subscribed source. Startup loads
+dialog access hashes, resolves channels by their stable ID and rejects a username
+that points to a different channel. A failed startup exits so Docker can retry.
 
 ## Encrypted Google Drive backups
 
