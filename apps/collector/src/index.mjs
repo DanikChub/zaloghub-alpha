@@ -173,7 +173,10 @@ if (mode === "retry") {
           handler,
           new Event({ chats: [ref] }),
         ]);
-        for (const [fn, event] of handlers) client.addEventHandler(fn, event);
+        for (const [fn, event] of handlers) {
+          await event.resolve(client);
+          client.addEventHandler(fn, event);
+        }
         active.set(source.id, { source, handlers });
       }
     await mkdir(resolve(process.env.COLLECTOR_STORAGE ?? '.local/collector'), { recursive: true });
