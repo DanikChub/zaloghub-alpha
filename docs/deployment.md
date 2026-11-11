@@ -61,6 +61,10 @@ user data. Database volumes survive container replacement; never use down -v.
 
 Start with --profile collector. It runs one GramJS session and one persistent
 outbox in collector_data. Do not run two live collectors using the same session.
+For a revoked session, run `node apps/collector/src/authorize.mjs` in your own
+interactive terminal on the workstation. Phone, login code and 2FA password are
+hidden; only TG_SESSION in deploy/secrets/collector.env is updated. Transfer that
+file over SSH and recreate the collector. Never paste the session into chat or CI.
 Compose explicitly permits plain HTTP only to api:3000 on the internal network;
 remote addresses still require HTTPS. Source metadata is polled every 30 seconds.
 New messages and edits are collected while connected. Historical gap catch-up is

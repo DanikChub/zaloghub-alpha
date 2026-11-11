@@ -14,6 +14,6 @@ export async function withDeadline(operation, milliseconds, stage) {
 }
 export function startupFailure(error, stage) {
   if (error instanceof OperationTimeout) return `${error.message}. Проверьте доступ к Telegram и настройки прокси.`;
-  if (/AUTH_KEY|SESSION_REVOKED|SESSION_EXPIRED|UNAUTHORIZED/i.test(error?.message ?? '')) return 'Telegram-сессия недействительна. Нужна действующая TG_SESSION; автоматическая авторизация не запускается.';
+  if (/AUTH_KEY|SESSION_REVOKED|SESSION_EXPIRED|UNAUTHORIZED|Сессия Telegram недействительна/i.test(error?.message ?? '')) return 'Telegram-сессия недействительна. Нужна действующая TG_SESSION; автоматическая авторизация не запускается.';
   return `Ошибка этапа «${stage}». Проверьте доступ к Telegram, сессию и настройки прокси. Секреты и детали ответа не выводятся.`;
 }
