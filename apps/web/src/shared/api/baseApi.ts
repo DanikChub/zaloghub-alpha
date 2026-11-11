@@ -12,6 +12,7 @@ interface ApiState {
 
 const baseQuery = fetchBaseQuery({
   baseUrl: apiConfig.baseUrl,
+  timeout: 45000,
 
   prepareHeaders: (headers, { getState }) => {
     const state = getState() as ApiState
