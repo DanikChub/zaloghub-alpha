@@ -7,6 +7,7 @@ import * as argon2 from 'argon2';
 import { AuthService } from './auth.service.js';
 import { UsersService } from '../users/users.service.js';
 import { JwtService } from '@nestjs/jwt';
+import { AuthChallengeService } from './auth-challenge.service.js';
 
 describe('AuthService', () => {
     let service: AuthService;
@@ -19,6 +20,8 @@ describe('AuthService', () => {
     const jwtMock = {
         signAsync: vi.fn(),
     };
+    const challenge = { challengeId: 'challenge-123', email: 'test@example.com' };
+    const challengesMock = { issue: vi.fn(), verify: vi.fn() };
 
     const registerDto = {
         email: 'Test@Example.com',
@@ -28,10 +31,12 @@ describe('AuthService', () => {
 
     beforeEach(() => {
         vi.resetAllMocks();
+        challengesMock.issue.mockResolvedValue(challenge);
 
         service = new AuthService(
             usersMock as unknown as UsersService,
             jwtMock as unknown as JwtService,
+            challengesMock as unknown as AuthChallengeService,
         );
     });
 
@@ -53,11 +58,9 @@ describe('AuthService', () => {
 
         expect(usersMock.create).toHaveBeenCalledOnce();
 
-        expect(result).toMatchObject({
-            id: 'user-123',
-            email: 'test@example.com',
-            firstName: 'Test',
-        });
+        expect(challengesMock.issue).toHaveBeenCalledWith('user-123', 'test@example.com');
+        expect(jwtMock.signAsync).not.toHaveBeenCalled();
+        expect(result).toEqual(challenge);
     });
 
     it('should reject duplicate emails', async () => {
@@ -140,7 +143,7 @@ describe('AuthService', () => {
             password,
         };
 
-        it('should return access token for valid credentials', async () => {
+        it('should require an email challenge before issuing a token', async () => {
             const passwordHash = await argon2.hash(password);
 
             usersMock.findByEmail.mockResolvedValue({
@@ -158,15 +161,9 @@ describe('AuthService', () => {
                 'test@example.com',
             );
 
-            expect(jwtMock.signAsync).toHaveBeenCalledWith({
-                sub: 'user-123',
-            });
-
-            expect(result).toEqual({
-                accessToken: 'signed-jwt',
-                tokenType: 'Bearer',
-                expiresIn: 900,
-            });
+            expect(challengesMock.issue).toHaveBeenCalledWith('user-123', 'test@example.com');
+            expect(jwtMock.signAsync).not.toHaveBeenCalled();
+            expect(result).toEqual(challenge);
         });
 
         it('should reject an unknown email', async () => {
@@ -210,6 +207,22 @@ describe('AuthService', () => {
 
             expect(jwtMock.signAsync).not.toHaveBeenCalled();
         });
+    });
+
+    it('issues a token only after successful code verification', async () => {
+        challengesMock.verify.mockResolvedValue({ id: 'user-123' });
+        jwtMock.signAsync.mockResolvedValue('signed-jwt');
+        expect(await service.verify('challenge-123', '123456')).toEqual({
+            accessToken: 'signed-jwt', tokenType: 'Bearer', expiresIn: 604800,
+        });
+        expect(challengesMock.verify).toHaveBeenCalledWith('challenge-123', '123456');
+        expect(jwtMock.signAsync).toHaveBeenCalledWith({ sub: 'user-123' });
+    });
+
+    it('never issues a token when code verification fails', async () => {
+        challengesMock.verify.mockRejectedValue(new UnauthorizedException());
+        await expect(service.verify('challenge-123', 'wrong')).rejects.toThrow(UnauthorizedException);
+        expect(jwtMock.signAsync).not.toHaveBeenCalled();
     });
 
 });

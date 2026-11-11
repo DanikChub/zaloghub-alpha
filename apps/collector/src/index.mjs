@@ -2,19 +2,13 @@ import { proxyOptions, telegramTransport, requireConnected } from "./telegram-tr
 import { withDeadline, startupFailure } from "./deadline.mjs";
 import { resolve } from "node:path";
 import { Outbox, groupMessages } from "./outbox.mjs";
-const url = process.env.MARKETPLACE_API_URL ?? "http://localhost:3000";
+import { apiUrl } from './api-url.mjs';
+const url = apiUrl(process.env);
 const token = process.env.MARKETPLACE_COLLECTOR_TOKEN;
 if (!token || token.length < 32)
   throw new Error(
     "Задайте MARKETPLACE_COLLECTOR_TOKEN длиной не менее 32 символов",
   );
-if (!/^https?:\/\//.test(url))
-  throw new Error("Некорректный MARKETPLACE_API_URL");
-if (
-  !url.startsWith("https://") &&
-  !["localhost", "127.0.0.1", "[::1]"].includes(new URL(url).hostname)
-)
-  throw new Error("Для удалённого API нужен HTTPS");
 async function request(path, options = {}) {
   const response = await fetch(`${url.replace(/\/$/, "")}${path}`, {
     ...options,

@@ -1,0 +1,120 @@
+name: Checks, images and deployment
+on:
+  pull_request:
+  push:
+    branches: [main, 'codex/**']
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: pipeline-${{ github.ref }}
+  cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    services:
+      postgres:
+        image: postgres:17-bookworm
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: test-only-password
+          POSTGRES_DB: zaloghub_migration_test
+        ports: ['5432:5432']
+        options: >-
+          --health-cmd "pg_isready -U postgres"
+          --health-interval 10s --health-timeout 5s --health-retries 10
+    env:
+      DATABASE_URL: postgresql://postgres:test-only-password@127.0.0.1:5432/zaloghub_migration_test
+      TEST_DATABASE_URL: postgresql://postgres:test-only-password@127.0.0.1:5432/zaloghub_migration_test
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with: { node-version: '24' }
+      - run: npm install -g pnpm@10.34.9
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm --dir apps/api db:generate && pnpm --dir apps/api db:validate
+      - run: pnpm build:api && pnpm build:web
+      - run: pnpm --dir apps/api test
+      - run: pnpm --dir apps/collector test
+      - run: pnpm --dir apps/api test:db
+      - run: pnpm --dir apps/api test:finance:db
+      - run: pnpm --dir apps/api test:marketplace:http
+      - name: Validate deployment scripts and Compose
+        run: |
+          sh -n deploy/backup/backup.sh deploy/backup/schedule.sh
+          bash -n deploy/deploy.sh deploy/bootstrap.sh
+          mkdir -p deploy/secrets/rclone
+          cp deploy/api.env.example deploy/secrets/api.env
+          cp deploy/backup.env.example deploy/secrets/backup.env
+          cp apps/collector/.env.example deploy/secrets/collector.env
+          POSTGRES_PASSWORD=ci-only docker compose --profile collector --profile backup config --quiet
+  images:
+    needs: check
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: read
+      packages: write
+    strategy:
+      fail-fast: false
+      matrix:
+        service: [api, web, collector, backup]
+    steps:
+      - uses: actions/checkout@v6
+      - uses: docker/setup-buildx-action@v4
+      - uses: docker/login-action@v4
+        if: github.event_name != 'pull_request'
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Choose Dockerfile and target
+        id: build
+        env: { SERVICE: '${{ matrix.service }}' }
+        run: |
+          if [ "$SERVICE" = backup ]; then
+            echo 'file=deploy/backup/Dockerfile' >> "$GITHUB_OUTPUT"
+            echo 'target=' >> "$GITHUB_OUTPUT"
+          else
+            echo 'file=Dockerfile' >> "$GITHUB_OUTPUT"
+            echo "target=$SERVICE" >> "$GITHUB_OUTPUT"
+          fi
+          echo "prefix=ghcr.io/${GITHUB_REPOSITORY,,}" >> "$GITHUB_OUTPUT"
+      - uses: docker/build-push-action@v7
+        with:
+          context: .
+          file: ${{ steps.build.outputs.file }}
+          target: ${{ steps.build.outputs.target }}
+          push: ${{ github.event_name != 'pull_request' }}
+          tags: ${{ steps.build.outputs.prefix }}-${{ matrix.service }}:${{ github.sha }}
+          labels: org.opencontainers.image.source=https://github.com/${{ github.repository }}
+          cache-from: type=gha,scope=${{ matrix.service }}
+          cache-to: type=gha,mode=max,scope=${{ matrix.service }}
+  deploy:
+    needs: images
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request' && vars.DEPLOY_ENABLED == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    environment: production
+    permissions:
+      contents: read
+      packages: read
+    concurrency: { group: production-deploy, cancel-in-progress: false }
+    steps:
+      - name: Deploy immutable commit through restricted SSH command
+        env:
+          DEPLOY_KEY: ${{ secrets.DEPLOY_SSH_KEY }}
+          KNOWN_HOSTS: ${{ secrets.DEPLOY_KNOWN_HOSTS }}
+          DEPLOY_HOST: ${{ vars.DEPLOY_HOST }}
+          DEPLOY_USER: ${{ vars.DEPLOY_USER }}
+          RELEASE: ${{ github.sha }}
+          REGISTRY_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -eu
+          install -d -m 700 ~/.ssh
+          printf '%s\n' "$DEPLOY_KEY" > ~/.ssh/deploy
+          chmod 600 ~/.ssh/deploy
+          printf '%s\n' "$KNOWN_HOSTS" > ~/.ssh/known_hosts
+          printf '%s\n' "$REGISTRY_TOKEN" | ssh -i ~/.ssh/deploy -o IdentitiesOnly=yes -o BatchMode=yes -o StrictHostKeyChecking=yes \
+            "${DEPLOY_USER}@${DEPLOY_HOST}" "deploy ${RELEASE}"
