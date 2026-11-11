@@ -37,7 +37,7 @@ fi
 "${compose[@]}" rm -f migrate
 "${compose[@]}" up -d db
 "${compose[@]}" run --rm migrate
-"${compose[@]}" "${profiles[@]}" up -d --wait --wait-timeout 240
+"${compose[@]}" "${profiles[@]}" up -d --wait --wait-timeout 600
 curl --fail --silent http://127.0.0.1:8080/api/health/db >/dev/null
 if test -f .release; then cp .release .previous-release; fi
 printf '%s\n' "$tag" > .release

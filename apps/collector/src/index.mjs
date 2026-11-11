@@ -2,6 +2,8 @@ import { proxyOptions, telegramTransport, requireConnected } from "./telegram-tr
 import { withDeadline, startupFailure } from "./deadline.mjs";
 import { resolve } from "node:path";
 import { Outbox, groupMessages } from "./outbox.mjs";
+import { mkdir, rm, writeFile } from 'node:fs/promises';
+import { resolveChannel } from './channel.mjs';
 import { apiUrl } from './api-url.mjs';
 const url = apiUrl(process.env);
 const token = process.env.MARKETPLACE_COLLECTOR_TOKEN;
@@ -36,6 +38,8 @@ const outbox = new Outbox(
   },
 );
 const mode = process.argv[2] ?? "live";
+const healthPath = resolve(process.env.COLLECTOR_STORAGE ?? '.local/collector', 'health.json');
+if (mode === 'live') await rm(healthPath, { force: true });
 if (!["live", "history", "retry"].includes(mode))
   throw new Error("Режим: live, history или retry");
 if (mode === "retry") {
@@ -157,12 +161,7 @@ if (mode === "retry") {
       }
     for (const source of sources)
       if (!active.has(source.id)) {
-        const ref =
-          source.channelUsername ||
-          (source.channelId.startsWith("-100")
-            ? source.channelId
-            : `-100${source.channelId}`);
-        await client.getEntity(ref);
+        const ref = await resolveChannel(client, source);
         const handler = (event) =>
           receive(source, event.message).catch(() => {
             failed = true;
@@ -177,6 +176,8 @@ if (mode === "retry") {
         for (const [fn, event] of handlers) client.addEventHandler(fn, event);
         active.set(source.id, { source, handlers });
       }
+    await mkdir(resolve(process.env.COLLECTOR_STORAGE ?? '.local/collector'), { recursive: true });
+    await writeFile(healthPath, JSON.stringify({ at: Date.now(), connected: client.connected, sources: active.size }));
   }
   let timer, retryTimer;
   async function shutdown() {
@@ -197,6 +198,8 @@ if (mode === "retry") {
     startupStage = "Проверка Telegram-сессии";
     if (!(await withDeadline(() => client.checkAuthorization(), 20000, startupStage)))
       throw new Error("Сессия Telegram недействительна");
+    startupStage = 'Получение доступа к каналам';
+    await withDeadline(() => client.getDialogs({ limit: 500 }), 60000, startupStage);
     await outbox.drain();
     if (mode === "history") {
       const sourceId = process.argv[3],
@@ -213,7 +216,7 @@ if (mode === "retry") {
         throw new Error("history <sourceId> <YYYY-MM-DD> <limit 1..10000>");
       const source = sources.find((s) => s.id === sourceId);
       if (!source) throw new Error("Активный источник не найден");
-      const ref = source.channelUsername || (source.channelId.startsWith("-100") ? source.channelId : `-100${source.channelId}`);
+      const ref = await resolveChannel(client, source);
       const collected = [];
       for await (const message of client.iterMessages(ref, { limit })) {
         if (message.date * 1000 < Date.parse(from)) break;
@@ -284,5 +287,8 @@ if (mode === "retry") {
       "Сборщик остановлен: проверьте API, параметры запуска, доступ к каналам и Telegram-сессию. Очередь сохранена.",
     );
     process.exitCode = 1;
+    // A timed-out GramJS connection can retain socket/retry handles after destroy.
+    // Bound shutdown so Docker can restart a collector that never connected.
+    setTimeout(() => process.exit(1), 1000).unref();
   }
 }

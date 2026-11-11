@@ -61,6 +61,14 @@ user data. Database volumes survive container replacement; never use down -v.
 
 Start with --profile collector. It runs one GramJS session and one persistent
 outbox in collector_data. Do not run two live collectors using the same session.
+For a revoked session, run `node apps/collector/src/authorize.mjs` in your own
+interactive terminal on the workstation. Phone, login code and 2FA password are
+hidden; only TG_SESSION in deploy/secrets/collector.env is updated. Transfer that
+file over SSH and recreate the collector. Never paste the session into chat or CI.
+If no login code arrives, use `node apps/collector/src/authorize.mjs --qr`.
+It opens a local auto-refreshing QR page. Scan through Telegram Settings →
+Devices → Link Desktop Device; enter the 2FA password in the terminal if needed.
+The page's temporary login token is removed after authorization ends.
 Compose explicitly permits plain HTTP only to api:3000 on the internal network;
 remote addresses still require HTTPS. Source metadata is polled every 30 seconds.
 New messages and edits are collected while connected. Historical gap catch-up is
@@ -69,6 +77,10 @@ documented in docs/marketplace.md, never an unbounded history import.
 
 Check `docker compose logs --tail 100 collector` after restart and confirm a real
 new publication arrives. A running process alone does not prove collection works.
+The collector health check requires a recent successful source synchronization,
+an active Telegram connection and at least one subscribed source. Startup loads
+dialog access hashes, resolves channels by their stable ID and rejects a username
+that points to a different channel. A failed startup exits so Docker can retry.
 
 ## Encrypted Google Drive backups
 
