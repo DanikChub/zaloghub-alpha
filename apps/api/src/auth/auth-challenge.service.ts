@@ -63,7 +63,12 @@ export class AuthChallengeService {
             },
         });
 
-        await this.email.sendAuthCode(email, code);
+        try {
+            await this.email.sendAuthCode(email, code);
+        } catch (error) {
+            await this.prisma.authChallenge.deleteMany({ where: { id: challenge.id } });
+            throw error;
+        }
 
         return {
             challengeId: challenge.id,

@@ -17,6 +17,10 @@ the server administrator; never commit or upload them as Actions artifacts.
 The production API requires SMTP. REG.RU mail uses mail.hosting.reg.ru:465,
 full mailbox name as username and the mailbox password. SPF/DKIM/MX records
 must match the mail provider's panel. Do not change the website A records.
+Outgoing SMTP ports must be allowed by the VPS provider; verify SMTP from the VPS,
+not only the workstation. Connection/greeting/socket waits are bounded;
+failed delivery returns 503 and
+removes only the undelivered challenge so retry is not blocked by its cooldown.
 
 ## Releases and CI
 

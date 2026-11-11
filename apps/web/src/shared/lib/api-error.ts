@@ -6,6 +6,9 @@ export function getApiErrorMessage(error: unknown, fallback: string): string {
   if (error.status === 'FETCH_ERROR') {
     return 'Не удалось подключиться к серверу. Проверьте соединение.'
   }
+  if (error.status === 'TIMEOUT_ERROR') {
+    return 'Сервер не ответил вовремя. Попробуйте ещё раз.'
+  }
 
   if (error.status === 429) {
     return 'Слишком много попыток. Попробуйте немного позже.'

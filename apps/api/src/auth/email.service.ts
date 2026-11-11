@@ -1,5 +1,5 @@
 
-import { Injectable, Logger } from '@nestjs/common';
+import { Injectable, Logger, ServiceUnavailableException } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import nodemailer, { type Transporter } from 'nodemailer';
 
@@ -24,6 +24,9 @@ export class EmailService {
             host: this.config.getOrThrow<string>('SMTP_HOST'),
             port,
             secure: port === 465,
+            connectionTimeout: 10000,
+            greetingTimeout: 10000,
+            socketTimeout: 15000,
             auth: {
                 user: this.config.getOrThrow<string>('SMTP_USER'),
                 pass: this.config.getOrThrow<string>('SMTP_PASSWORD'),
@@ -43,13 +46,18 @@ export class EmailService {
             throw new Error('SMTP transporter is not configured');
         }
 
-        await this.transporter.sendMail({
+        try {
+          await this.transporter.sendMail({
             from: this.config.getOrThrow<string>('SMTP_FROM'),
             to: email,
             subject: 'Код подтверждения — ЗалогХаб',
             text:
                 `Ваш код подтверждения: ${code}\n` +
                 'Код действует 10 минут.',
-        });
+          });
+        } catch {
+            this.logger.error('SMTP delivery failed; check mail connection and credentials');
+            throw new ServiceUnavailableException('Не удалось отправить код на почту. Попробуйте ещё раз позже.');
+        }
     }
 }
