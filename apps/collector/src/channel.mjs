@@ -8,5 +8,7 @@ export async function resolveChannel(client, source) {
   }
   const expected = source.channelId.replace(/^-100/, '');
   if (entity?.id?.toString() !== expected) throw new Error('SOURCE_CHANNEL_ID_MISMATCH');
-  return entity;
+  // GramJS EventBuilder stringifies chat arguments; Channel.toString() is not an ID.
+  // Keep the marked numeric reference for both events and history queries.
+  return source.channelId;
 }
