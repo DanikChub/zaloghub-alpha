@@ -61,6 +61,12 @@ describe('JwtAuthGuard', () => {
         );
     });
 
+    it('rejects a device proof used as an access token', async () => {
+        const { context } = createContext('Bearer device-proof');
+        jwtMock.verifyAsync.mockResolvedValue({ sub: 'user-123', purpose: 'trusted-device' });
+        await expect(guard.canActivate(context)).rejects.toThrow(UnauthorizedException);
+    });
+
     it('should reject a missing token', async () => {
         const { context } = createContext();
 

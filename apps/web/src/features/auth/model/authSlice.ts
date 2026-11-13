@@ -1,9 +1,10 @@
 
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit'
+import { readToken } from './sessionStorage'
 import type { AuthChallenge, AuthState } from './types'
 
 const initialState: AuthState = {
-    accessToken: null,
+    accessToken: readToken(),
     challenge: null,
 }
 

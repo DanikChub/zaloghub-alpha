@@ -5,6 +5,7 @@ import { useAppDispatch, useAppSelector } from '../../../app/store/hooks'
 import { routePaths } from '../../../shared/config/routes'
 import { getApiErrorMessage } from '../../../shared/lib/api-error'
 import { useVerifyCodeMutation } from '../api/authApi'
+import { rememberDevice } from '../model/sessionStorage'
 import { clearChallenge, selectAuthChallenge, setAccessToken } from '../model/authSlice'
 
 interface VerifyValues {
@@ -24,6 +25,7 @@ export function VerifyCodeForm() {
     setError(null)
     try {
       const tokens = await verifyCode({ challengeId: challenge.challengeId, code }).unwrap()
+      if (tokens.trustedDeviceToken) rememberDevice(tokens.trustedDeviceToken)
       dispatch(setAccessToken(tokens.accessToken))
       navigate(routePaths.dashboard, { replace: true })
     } catch (cause) {

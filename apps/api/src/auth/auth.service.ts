@@ -87,10 +87,26 @@ export class AuthService {
             );
         }
 
+        if (dto.trustedDeviceToken) {
+            try {
+                const trusted = await this.jwtService.verifyAsync<{ sub: string; purpose: string }>(dto.trustedDeviceToken);
+                if (trusted.sub === user.id && trusted.purpose === 'trusted-device') {
+                    return this.issueTokens(user.id, false);
+                }
+            } catch {
+                // An expired or invalid device proof falls back to email verification.
+            }
+        }
         return this.challenges.issue(user.id, user.email);
     }
 
-
+    private async issueTokens(userId: string, rememberDevice: boolean) {
+        const accessToken = await this.jwtService.signAsync({ sub: userId });
+        const trustedDeviceToken = rememberDevice
+            ? await this.jwtService.signAsync({ sub: userId, purpose: 'trusted-device' }, { expiresIn: '7d' })
+            : undefined;
+        return { accessToken, tokenType: 'Bearer', expiresIn: 604800, ...(trustedDeviceToken ? { trustedDeviceToken } : {}) };
+    }
 
     async verify(challengeId: string, code: string) {
         const user = await this.challenges.verify(
@@ -98,15 +114,7 @@ export class AuthService {
             code,
         );
 
-        const accessToken = await this.jwtService.signAsync({
-            sub: user.id,
-        });
-
-        return {
-            accessToken,
-            tokenType: 'Bearer',
-            expiresIn: 604800,
-        };
+        return this.issueTokens(user.id, true);
     }
 
 }

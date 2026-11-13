@@ -19,6 +19,7 @@ describe('AuthService', () => {
 
     const jwtMock = {
         signAsync: vi.fn(),
+        verifyAsync: vi.fn(),
     };
     const challenge = { challengeId: 'challenge-123', email: 'test@example.com' };
     const challengesMock = { issue: vi.fn(), verify: vi.fn() };
@@ -166,6 +167,28 @@ describe('AuthService', () => {
             expect(result).toEqual(challenge);
         });
 
+        it.each(['valid', 'expired', 'wrong-user', 'access-token'])('handles %s device proof', async (kind) => {
+            usersMock.findByEmail.mockResolvedValue({
+                id: 'user-123', email: 'test@example.com',
+                passwordHash: await argon2.hash(password), isActive: true,
+            });
+            jwtMock.signAsync.mockResolvedValue('new-access');
+            if (kind === 'expired') jwtMock.verifyAsync.mockRejectedValue(new Error('expired'));
+            else jwtMock.verifyAsync.mockResolvedValue({
+                sub: kind === 'wrong-user' ? 'someone-else' : 'user-123',
+                purpose: kind === 'access-token' ? undefined : 'trusted-device',
+            });
+            const result = await service.login({ ...loginDto, trustedDeviceToken: 'proof' });
+            if (kind === 'valid') {
+                expect(result).toEqual({ accessToken: 'new-access', tokenType: 'Bearer', expiresIn: 604800 });
+                expect(challengesMock.issue).not.toHaveBeenCalled();
+                expect(jwtMock.signAsync).toHaveBeenCalledTimes(1);
+            } else {
+                expect(result).toEqual(challenge);
+                expect(jwtMock.signAsync).not.toHaveBeenCalled();
+            }
+        });
+
         it('should reject an unknown email', async () => {
             usersMock.findByEmail.mockResolvedValue(null);
 
@@ -213,7 +236,7 @@ describe('AuthService', () => {
         challengesMock.verify.mockResolvedValue({ id: 'user-123' });
         jwtMock.signAsync.mockResolvedValue('signed-jwt');
         expect(await service.verify('challenge-123', '123456')).toEqual({
-            accessToken: 'signed-jwt', tokenType: 'Bearer', expiresIn: 604800,
+            accessToken: 'signed-jwt', tokenType: 'Bearer', expiresIn: 604800, trustedDeviceToken: 'signed-jwt',
         });
         expect(challengesMock.verify).toHaveBeenCalledWith('challenge-123', '123456');
         expect(jwtMock.signAsync).toHaveBeenCalledWith({ sub: 'user-123' });

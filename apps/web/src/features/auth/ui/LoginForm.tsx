@@ -5,7 +5,8 @@ import { useAppDispatch } from '../../../app/store/hooks'
 import { routePaths } from '../../../shared/config/routes'
 import { getApiErrorMessage } from '../../../shared/lib/api-error'
 import { useLoginMutation } from '../api/authApi'
-import { setChallenge } from '../model/authSlice'
+import { readTrustedDevice } from '../model/sessionStorage'
+import { setAccessToken, setChallenge } from '../model/authSlice'
 import type { LoginRequest } from '../model/types'
 
 export function LoginForm() {
@@ -17,7 +18,12 @@ export function LoginForm() {
   const handleSubmit = async (values: LoginRequest) => {
     setError(null)
     try {
-      const challenge = await login({ ...values, email: values.email.trim().toLowerCase() }).unwrap()
+      const challenge = await login({ ...values, trustedDeviceToken: readTrustedDevice() ?? undefined, email: values.email.trim().toLowerCase() }).unwrap()
+      if ('accessToken' in challenge) {
+        dispatch(setAccessToken(challenge.accessToken))
+        navigate(routePaths.dashboard, { replace: true })
+        return
+      }
       dispatch(setChallenge(challenge))
       navigate(routePaths.verify)
     } catch (cause) {

@@ -10,6 +10,7 @@ import { Request } from 'express';
 
 interface JwtPayload {
     sub: string;
+    purpose?: string;
 }
 
 export interface AuthenticatedRequest extends Request {
@@ -44,6 +45,7 @@ export class JwtAuthGuard implements CanActivate {
                 await this.jwtService.verifyAsync<JwtPayload>(token);
 
             if (
+                payload.purpose !== undefined ||
                 typeof payload.sub !== 'string' ||
                 !payload.sub
             ) {

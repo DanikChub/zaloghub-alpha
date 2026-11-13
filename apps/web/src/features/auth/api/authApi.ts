@@ -20,7 +20,7 @@ export const authApi = baseApi.injectEndpoints({
             }),
         }),
 
-        login: builder.mutation<AuthChallenge, LoginRequest>({
+        login: builder.mutation<AuthChallenge | AuthTokens, LoginRequest>({
             query: (body) => ({
                 url: '/auth/login',
                 method: 'POST',

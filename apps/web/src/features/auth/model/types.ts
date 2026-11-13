@@ -7,6 +7,7 @@ export interface RegisterRequest {
 }
 
 export interface LoginRequest {
+    trustedDeviceToken?: string
     email: string
     password: string
 }
@@ -22,6 +23,7 @@ export interface VerifyCodeRequest {
 }
 
 export interface AuthTokens {
+    trustedDeviceToken?: string
     accessToken: string
     tokenType: 'Bearer'
     expiresIn: number
