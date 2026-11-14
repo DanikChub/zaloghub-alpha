@@ -1,0 +1,178 @@
+.market-card {
+  height: 100%;
+  overflow: hidden;
+  cursor: pointer;
+  transition: box-shadow 180ms ease;
+}
+
+.market-card .ant-card-body {
+  padding: 20px 24px 28px;
+}
+
+@media (hover: hover) {
+  .market-card:hover {
+    box-shadow: 0 8px 24px rgb(0 0 0 / 10%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .market-card {
+    transition: none;
+  }
+}
+
+/* Изображение */
+
+.market-photo {
+  display: block;
+  width: 100%;
+  height: 300px !important;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.market-card .ant-card-cover > .market-photo-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 300px;
+  background: linear-gradient(135deg, #e8edf3, #dbe3ed);
+  color: #64748b;
+  border-radius: 0;
+}
+.market-card .ant-card-cover .ant-image {
+  display: block;
+  width: 100%;
+}
+
+.market-card .ant-card-cover .market-photo,
+.market-card .ant-card-cover .market-photo-placeholder {
+  border-radius: 0;
+}
+
+/* Заголовок и действия */
+
+.market-card-heading {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.market-card-heading .market-card-title {
+  flex: 1;
+  min-width: 0;
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.market-card-actions {
+  flex-shrink: 0;
+}
+
+.market-card .ant-alert {
+  margin-top: 8px;
+}
+
+/* Основные параметры */
+
+.offer-parameters {
+  margin-block: 10px;
+  color: var(--ant-color-text, #1f1f1f);
+  font-variant-numeric: tabular-nums;
+}
+
+.offer-parameters__main {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px 24px;
+}
+
+.offer-parameters__label,
+.offer-parameters__details dt {
+  color: var(--ant-color-text-secondary, #737373);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.offer-parameters__amount {
+  margin-top: 4px;
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.5px;
+}
+
+.offer-parameters__rate {
+  margin-top: 4px;
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.offer-parameters__ltv {
+  margin: 0;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.4;
+  white-space: nowrap;
+}
+
+/* Дополнительные параметры */
+
+.offer-parameters__details {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 16px;
+  margin: 18px 0 0;
+  padding-top: 16px;
+  border-top: 1px solid var(--ant-color-border-secondary, #ededed);
+}
+
+.offer-parameters__details dd {
+  margin: 4px 0 0;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+/* Источник и дата */
+
+.market-card-meta {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px 16px;
+  margin-top: 16px;
+}
+
+.market-card-meta > :first-child {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.market-card-meta .market-card-date {
+  flex-shrink: 0;
+  font-weight: 500;
+  text-align: right;
+}
+
+/* Узкие экраны */
+
+@media (max-width: 575px) {
+  .market-card .ant-card-body {
+    padding: 16px 16px 24px;
+  }
+
+  .market-card-meta {
+    flex-wrap: wrap;
+  }
+
+  .market-card-meta .market-card-date {
+    margin-left: auto;
+  }
+}

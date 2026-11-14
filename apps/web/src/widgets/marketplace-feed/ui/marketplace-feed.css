@@ -1,0 +1,10 @@
+.market-feed-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80px;
+  margin-top: 24px;
+}
+.market-feed-footer > .ant-alert {
+  width: 100%;
+}

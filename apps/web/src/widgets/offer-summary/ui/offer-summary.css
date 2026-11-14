@@ -1,0 +1,50 @@
+.offer-summary .ant-card-body {
+  padding: 26px;
+}
+.offer-summary__amount {
+  margin: 6px 0 14px;
+  font-size: clamp(28px, 2.8vw, 38px);
+  font-weight: 750;
+  line-height: 1.2;
+  letter-spacing: -0.8px;
+  overflow-wrap: anywhere;
+  font-variant-numeric: tabular-nums;
+}
+.offer-summary__ltv .ant-tag {
+  margin: 0;
+  padding: 5px 10px;
+  font-size: 15px;
+  font-weight: 650;
+  border-radius: 8px;
+}
+.offer-summary__terms {
+  margin: 24px 0 0;
+  display: grid;
+  gap: 16px;
+}
+.offer-summary__terms > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+}
+.offer-summary__terms dt {
+  color: var(--app-muted, #737373);
+}
+.offer-summary__terms dd {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 650;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+.offer-summary__contact {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+@media (max-width: 575px) {
+  .offer-summary .ant-card-body {
+    padding: 20px;
+  }
+}

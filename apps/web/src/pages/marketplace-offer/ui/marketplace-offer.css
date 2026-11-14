@@ -1,0 +1,126 @@
+.offer-detail {
+  width: 100%;
+  max-width: 1320px;
+  margin-inline: auto;
+}
+.offer-detail__back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+.offer-detail__heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 24px;
+}
+.offer-detail__heading > :first-child {
+  min-width: 0;
+}
+.offer-detail__heading .ant-typography h2,
+.offer-detail__heading h2.ant-typography {
+  margin: 0 0 10px;
+  font-size: clamp(24px, 2.4vw, 32px);
+  line-height: 1.25;
+  overflow-wrap: anywhere;
+}
+.offer-detail__location-link {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+}
+.offer-detail__published {
+  display: block;
+  margin-top: 10px;
+  font-size: 12px;
+}
+.offer-detail__actions {
+  flex-shrink: 0;
+}
+.offer-detail__layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 390px);
+  align-items: start;
+  gap: 28px;
+}
+.offer-detail__main {
+  display: grid;
+  gap: 24px;
+  min-width: 0;
+}
+.offer-detail__main > .ant-card,
+.offer-detail__sidebar > .ant-card,
+.offer-detail__location > .ant-card {
+  border-radius: 16px;
+}
+.offer-detail__sidebar {
+  position: sticky;
+  top: 24px;
+  min-width: 0;
+}
+.offer-detail__warning {
+  margin-bottom: 20px;
+}
+.offer-detail__raw {
+  margin: 0 !important;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font-size: 15px;
+  line-height: 1.8;
+}
+.offer-detail__location {
+  scroll-margin-top: 24px;
+}
+.offer-detail__income {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  margin: 0 0 16px;
+}
+.offer-detail__income dt {
+  color: var(--app-muted, #737373);
+  font-size: 13px;
+}
+.offer-detail__income dd {
+  margin: 6px 0 0;
+  font-size: 22px;
+  font-weight: 650;
+  font-variant-numeric: tabular-nums;
+}
+.offer-detail__received {
+  display: block;
+  margin-top: 12px;
+  font-size: 12px;
+}
+@media (max-width: 1000px) {
+  .offer-detail__layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
+  }
+  .offer-detail__sidebar {
+    position: static;
+    grid-row: 1;
+  }
+}
+@media (max-width: 575px) {
+  .offer-detail__heading {
+    gap: 8px;
+  }
+  .offer-detail__actions .ant-space {
+    gap: 0 !important;
+  }
+  .offer-detail__back {
+    margin-bottom: 18px;
+  }
+  .offer-detail__income {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .offer-detail__main {
+    gap: 16px;
+  }
+  .offer-detail .ant-card-body {
+    padding: 20px;
+  }
+}
