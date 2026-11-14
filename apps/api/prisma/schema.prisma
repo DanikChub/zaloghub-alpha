@@ -8,25 +8,36 @@ datasource db {
 }
 
 model User {
-  id                String            @id @default(uuid())
-  email             String            @unique
-  passwordHash      String
-  firstName         String?
-  lastName          String?
-  isActive          Boolean           @default(true)
-  emailVerifiedAt   DateTime?
-  marketplaceMarks  MarketplaceMark[]
-  authChallenges    AuthChallenge[]
-  deals             Deal[]
-  borrowers         Borrower[]
-  collaterals       Collateral[]
-  createdAt         DateTime          @default(now())
-  updatedAt         DateTime          @updatedAt
-  personalWorkspace Workspace?        @relation("PersonalWorkspace")
-  workspaceMembers  WorkspaceMember[] @relation("workspace_members_user_id")
-  parties           Party[]           @relation("parties_user_id")
-  auditEntries      AuditEntry[]      @relation("audit_entries_actor_id")
-  financeInstructions FinanceInstruction[] @relation("FinanceInstructionActor")
+  id                            String                         @id @default(uuid())
+  email                         String                         @unique
+  passwordHash                  String
+  firstName                     String?
+  lastName                      String?
+  isActive                      Boolean                        @default(true)
+  emailVerifiedAt               DateTime?
+  marketplaceMarks              MarketplaceMark[]
+  authChallenges                AuthChallenge[]
+  deals                         Deal[]
+  borrowers                     Borrower[]
+  collaterals                   Collateral[]
+  createdAt                     DateTime                       @default(now())
+  updatedAt                     DateTime                       @updatedAt
+  personalWorkspace             Workspace?                     @relation("PersonalWorkspace")
+  workspaceMembers              WorkspaceMember[]              @relation("workspace_members_user_id")
+  parties                       Party[]                        @relation("parties_user_id")
+  auditEntries                  AuditEntry[]                   @relation("audit_entries_actor_id")
+  financeInstructions           FinanceInstruction[]           @relation("FinanceInstructionActor")
+  confirmedIdentityVersions     PartyIdentityVersion[]         @relation("PartyIdentityVersion_confirmedBy")
+  assignedBorrowerVerifications BorrowerVerification[]         @relation("BorrowerVerification_assignedTo")
+  createdBorrowerVerifications  BorrowerVerification[]         @relation("BorrowerVerification_createdBy")
+  decidedBorrowerVerifications  BorrowerVerification[]         @relation("BorrowerVerification_decidedBy")
+  performedBorrowerCheckRuns    BorrowerCheckRun[]             @relation("BorrowerCheckRun_performedBy")
+  reviewedBorrowerCheckRuns     BorrowerCheckRun[]             @relation("BorrowerCheckRun_reviewedBy")
+  reviewedBorrowerFindings      BorrowerCheckFinding[]         @relation("BorrowerCheckFinding_matchReviewedBy")
+  reviewedBorrowerEvidence      BorrowerVerificationEvidence[] @relation("BorrowerVerificationEvidence_reviewedBy")
+  uploadedBorrowerEvidence      BorrowerVerificationEvidence[] @relation("BorrowerVerificationEvidence_uploadedBy")
+  assignedBorrowerRisks         BorrowerVerificationRisk[]     @relation("BorrowerVerificationRisk_assignedTo")
+  resolvedBorrowerRisks         BorrowerVerificationRisk[]     @relation("BorrowerVerificationRisk_resolvedBy")
 
   @@map("users")
 }
@@ -103,37 +114,38 @@ model Collateral {
 }
 
 model Deal {
-  id                   String         @id @default(uuid())
-  workspaceId          String?
-  workspace            Workspace?     @relation(fields: [workspaceId], references: [id], onDelete: Restrict)
-  userId               String
-  borrowerId           String?
-  collateralId         String?
-  contractNumber       String?
-  signedAt             DateTime?
-  contractCity         String?
-  principalAmount      Decimal        @db.Decimal(18, 2)
-  preferentialRate     Decimal        @db.Decimal(8, 4)
-  standardRate         Decimal        @db.Decimal(8, 4)
-  moratoriumMonths     Int
-  termMonths           Int
-  penaltyRate          Decimal        @db.Decimal(8, 4)
-  increasedPenaltyRate Decimal        @db.Decimal(8, 4)
-  paymentDay           Int
+  id                     String                      @id @default(uuid())
+  workspaceId            String?
+  workspace              Workspace?                  @relation(fields: [workspaceId], references: [id], onDelete: Restrict)
+  userId                 String
+  borrowerId             String?
+  collateralId           String?
+  contractNumber         String?
+  signedAt               DateTime?
+  contractCity           String?
+  principalAmount        Decimal                     @db.Decimal(18, 2)
+  preferentialRate       Decimal                     @db.Decimal(8, 4)
+  standardRate           Decimal                     @db.Decimal(8, 4)
+  moratoriumMonths       Int
+  termMonths             Int
+  penaltyRate            Decimal                     @db.Decimal(8, 4)
+  increasedPenaltyRate   Decimal                     @db.Decimal(8, 4)
+  paymentDay             Int
   /// Standardized versioned terms for the pure loan calculator.
-  financeTerms         Json?
-  status               DealStatus     @default(DRAFT)
-  deletedAt            DateTime?
-  createdAt            DateTime       @default(now())
-  updatedAt            DateTime       @updatedAt
-  user                 User           @relation(fields: [userId], references: [id])
-  borrower             Borrower?      @relation(fields: [borrowerId], references: [id])
-  collateral           Collateral?    @relation(fields: [collateralId], references: [id])
-  disbursements        Disbursement[]
-  payments             Payment[]
-  financeInstructions  FinanceInstruction[]
-  contracts            Contract[]     @relation("contracts_deal_id")
+  financeTerms           Json?
+  status                 DealStatus                  @default(DRAFT)
+  deletedAt              DateTime?
+  createdAt              DateTime                    @default(now())
+  updatedAt              DateTime                    @updatedAt
+  user                   User                        @relation(fields: [userId], references: [id])
+  borrower               Borrower?                   @relation(fields: [borrowerId], references: [id])
+  collateral             Collateral?                 @relation(fields: [collateralId], references: [id])
+  disbursements          Disbursement[]
+  payments               Payment[]
+  financeInstructions    FinanceInstruction[]
+  contracts              Contract[]                  @relation("contracts_deal_id")
   financeJournalVersions DealFinanceJournalVersion[]
+  borrowerVerifications  BorrowerVerification[]      @relation("BorrowerVerification_deal")
 
   @@unique([id, workspaceId])
   @@index([userId, deletedAt])
@@ -316,20 +328,27 @@ enum RateUnit {
 }
 
 model Workspace {
-  id                String            @id @default(uuid())
-  name              String
-  personalOwnerId   String?           @map("personal_owner_id")
-  createdAt         DateTime          @default(now()) @map("created_at") @db.Timestamptz(3)
-  updatedAt         DateTime          @updatedAt @map("updated_at") @db.Timestamptz(3)
-  personalOwner     User?             @relation("PersonalWorkspace", fields: [personalOwnerId], references: [id], onDelete: Restrict, onUpdate: Cascade)
-  workspaceMembers  WorkspaceMember[] @relation("workspace_members_workspace_id")
-  parties           Party[]           @relation("parties_workspace_id")
-  contracts         Contract[]        @relation("contracts_workspace_id")
-  documents         Document[]        @relation("documents_workspace_id")
-  auditEntries      AuditEntry[]      @relation("audit_entries_workspace_id")
-  legacyDeals       Deal[]
-  legacyBorrowers   Borrower[]
-  legacyCollaterals Collateral[]
+  id                           String                         @id @default(uuid())
+  name                         String
+  personalOwnerId              String?                        @map("personal_owner_id")
+  createdAt                    DateTime                       @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt                    DateTime                       @updatedAt @map("updated_at") @db.Timestamptz(3)
+  personalOwner                User?                          @relation("PersonalWorkspace", fields: [personalOwnerId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+  workspaceMembers             WorkspaceMember[]              @relation("workspace_members_workspace_id")
+  parties                      Party[]                        @relation("parties_workspace_id")
+  contracts                    Contract[]                     @relation("contracts_workspace_id")
+  documents                    Document[]                     @relation("documents_workspace_id")
+  auditEntries                 AuditEntry[]                   @relation("audit_entries_workspace_id")
+  legacyDeals                  Deal[]
+  legacyBorrowers              Borrower[]
+  legacyCollaterals            Collateral[]
+  identityVersions             PartyIdentityVersion[]         @relation("PartyIdentityVersion_workspace")
+  borrowerVerifications        BorrowerVerification[]         @relation("BorrowerVerification_workspace")
+  borrowerVerificationItems    BorrowerVerificationItem[]     @relation("BorrowerVerificationItem_workspace")
+  borrowerCheckRuns            BorrowerCheckRun[]             @relation("BorrowerCheckRun_workspace")
+  borrowerCheckFindings        BorrowerCheckFinding[]         @relation("BorrowerCheckFinding_workspace")
+  borrowerVerificationEvidence BorrowerVerificationEvidence[] @relation("BorrowerVerificationEvidence_workspace")
+  borrowerVerificationRisks    BorrowerVerificationRisk[]     @relation("BorrowerVerificationRisk_workspace")
 
   @@unique([personalOwnerId])
   @@map("workspaces")
@@ -349,18 +368,20 @@ model WorkspaceMember {
 }
 
 model Party {
-  id               String           @id @default(uuid())
-  workspaceId      String           @map("workspace_id")
-  kind             PartyKind
-  displayName      String           @map("display_name")
-  taxId            String?          @map("tax_id")
-  userId           String?          @map("user_id")
-  legacyBorrowerId String?          @map("legacy_borrower_id")
-  workspace        Workspace        @relation("parties_workspace_id", fields: [workspaceId], references: [id], onDelete: Restrict, onUpdate: Cascade)
-  user             User?            @relation("parties_user_id", fields: [userId], references: [id], onDelete: Restrict, onUpdate: Cascade)
-  legacyBorrower   Borrower?        @relation("parties_legacy_borrower_id", fields: [legacyBorrowerId, workspaceId], references: [id, workspaceId], onDelete: Restrict, onUpdate: Cascade)
-  contractParties  ContractParty[]  @relation("contract_parties_party_id")
-  financialEvents  FinancialEvent[] @relation("financial_events_counterparty_id")
+  id                    String                 @id @default(uuid())
+  workspaceId           String                 @map("workspace_id")
+  kind                  PartyKind
+  displayName           String                 @map("display_name")
+  taxId                 String?                @map("tax_id")
+  userId                String?                @map("user_id")
+  legacyBorrowerId      String?                @map("legacy_borrower_id")
+  workspace             Workspace              @relation("parties_workspace_id", fields: [workspaceId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+  user                  User?                  @relation("parties_user_id", fields: [userId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+  legacyBorrower        Borrower?              @relation("parties_legacy_borrower_id", fields: [legacyBorrowerId, workspaceId], references: [id, workspaceId], onDelete: Restrict, onUpdate: Cascade)
+  contractParties       ContractParty[]        @relation("contract_parties_party_id")
+  financialEvents       FinancialEvent[]       @relation("financial_events_counterparty_id")
+  identityVersions      PartyIdentityVersion[] @relation("PartyIdentityVersion_party")
+  borrowerVerifications BorrowerVerification[] @relation("BorrowerVerification_party")
 
   @@unique([id, workspaceId])
   @@unique([workspaceId, userId])
@@ -407,14 +428,19 @@ model ContractParty {
 }
 
 model Document {
-  id                String             @id @default(uuid())
-  workspaceId       String             @map("workspace_id")
-  storageKey        String             @map("storage_key")
-  sha256            String
-  mimeType          String             @map("mime_type")
-  workspace         Workspace          @relation("documents_workspace_id", fields: [workspaceId], references: [id], onDelete: Restrict, onUpdate: Cascade)
-  contractDocuments ContractDocument[] @relation("contract_documents_document_id")
-  termsVersions     TermsVersion[]     @relation("terms_versions_source_document_id")
+  id                   String                         @id @default(uuid())
+  workspaceId          String                         @map("workspace_id")
+  storageKey           String                         @map("storage_key")
+  sha256               String
+  mimeType             String                         @map("mime_type")
+  workspace            Workspace                      @relation("documents_workspace_id", fields: [workspaceId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+  contractDocuments    ContractDocument[]             @relation("contract_documents_document_id")
+  termsVersions        TermsVersion[]                 @relation("terms_versions_source_document_id")
+  identityVersions     PartyIdentityVersion[]         @relation("PartyIdentityVersion_sourceDocument")
+  verificationEvidence BorrowerVerificationEvidence[] @relation("BorrowerVerificationEvidence_document")
+  originalFilename     String?                        @map("original_filename")
+  sizeBytes            BigInt?                        @map("size_bytes")
+  createdAt            DateTime                       @default(now()) @map("created_at") @db.Timestamptz(3)
 
   @@unique([id, workspaceId])
   @@index([workspaceId])
@@ -835,4 +861,430 @@ model MarketplaceMark {
   offer MarketplaceOffer @relation(fields:[offerId], references:[id], onDelete: Cascade)
   @@id([userId,offerId])
   @@map("marketplace_marks")
+}
+
+// Borrower due diligence: independent of deals; scoped history and evidence.
+// SQL-only guards, CHECKs and risk deduplication live in 20261113000000_borrower_verifications.
+
+enum BorrowerVerificationStatus {
+  DRAFT
+  IN_PROGRESS
+  AWAITING_DOCUMENTS
+  READY_FOR_REVIEW
+  COMPLETED
+  CANCELLED
+}
+
+enum BorrowerRiskAssessment {
+  NOT_ASSESSED
+  NOT_IDENTIFIED
+  NEEDS_REVIEW
+  IDENTIFIED
+}
+
+enum BorrowerVerificationDecision {
+  PENDING
+  APPROVED
+  APPROVED_WITH_CONDITIONS
+  REJECTED
+}
+
+enum BorrowerCheckResultType {
+  BOOLEAN
+  CATEGORY
+  MONEY
+  DOCUMENT
+  RECORD_LIST
+}
+
+enum BorrowerCheckExecutionMode {
+  MANUAL
+  AUTOMATIC
+  HYBRID
+}
+
+enum BorrowerCheckRunMode {
+  MANUAL
+  AUTOMATIC
+}
+
+enum BorrowerCheckItemStatus {
+  NOT_STARTED
+  MISSING_DATA
+  QUEUED
+  RUNNING
+  COMPLETED
+  ERROR
+  UNAVAILABLE
+  NOT_APPLICABLE
+  AWAITING_REVIEW
+  STALE
+}
+
+enum BorrowerCheckRunStatus {
+  QUEUED
+  RUNNING
+  SUCCEEDED
+  FAILED
+  CANCELLED
+}
+
+enum BorrowerFindingType {
+  COURT_CASE
+  ENFORCEMENT
+  BANKRUPTCY
+  LIST_MATCH
+  OTHER
+}
+
+enum BorrowerIdentityMatch {
+  CONFIRMED
+  POSSIBLE
+  REJECTED
+  UNKNOWN
+}
+
+enum BorrowerEvidenceKind {
+  PASSPORT
+  SNILS
+  CERTIFICATE
+  EXTRACT
+  SCREENSHOT
+  PROVIDER_RESPONSE
+  OTHER
+}
+
+enum BorrowerEvidenceAuthenticity {
+  NOT_CHECKED
+  CONFIRMED
+  DOUBTFUL
+  REJECTED
+}
+
+enum BorrowerOcrStatus {
+  NOT_REQUIRED
+  PENDING
+  RUNNING
+  SUCCEEDED
+  FAILED
+}
+
+enum BorrowerRiskSeverity {
+  LOW
+  MEDIUM
+  HIGH
+  CRITICAL
+}
+
+enum BorrowerRiskRemediability {
+  REMEDIABLE
+  NON_REMEDIABLE
+  UNKNOWN
+}
+
+enum BorrowerRiskStatus {
+  OPEN
+  IN_PROGRESS
+  RESOLVED
+  DISMISSED
+}
+
+model PartyIdentityVersion {
+  id                     String                 @id @default(uuid())
+  workspaceId            String                 @map("workspace_id")
+  partyId                String                 @map("party_id")
+  versionNo              Int                    @map("version_no")
+  supersedesId           String?                @map("supersedes_id")
+  lastName               String                 @map("last_name")
+  firstName              String                 @map("first_name")
+  middleName             String?                @map("middle_name")
+  hasNoMiddleName        Boolean                @default(false) @map("has_no_middle_name")
+  birthDate              DateTime?              @map("birth_date") @db.Date
+  birthPlace             String?                @map("birth_place")
+  passportSeries         String?                @map("passport_series") @db.VarChar(4)
+  passportNumber         String?                @map("passport_number") @db.VarChar(6)
+  passportIssuedOn       DateTime?              @map("passport_issued_on") @db.Date
+  passportIssuedBy       String?                @map("passport_issued_by")
+  passportDepartmentCode String?                @map("passport_department_code") @db.VarChar(7)
+  registrationAddress    Json?                  @map("registration_address")
+  residentialAddress     Json?                  @map("residential_address")
+  previousNames          Json                   @default("[]") @map("previous_names")
+  previousRegions        Json                   @default("[]") @map("previous_regions")
+  inn                    String?                @db.VarChar(12)
+  snils                  String?                @db.VarChar(11)
+  ogrnip                 String?                @db.VarChar(15)
+  sourceDocumentId       String?                @map("source_document_id")
+  confirmedById          String                 @map("confirmed_by_id")
+  confirmedAt            DateTime               @default(now()) @map("confirmed_at") @db.Timestamptz(3)
+  workspace              Workspace              @relation("PartyIdentityVersion_workspace", fields: [workspaceId], references: [id], onDelete: Restrict, onUpdate: NoAction)
+  party                  Party                  @relation("PartyIdentityVersion_party", fields: [partyId, workspaceId], references: [id, workspaceId], onDelete: Restrict, onUpdate: NoAction)
+  supersedes             PartyIdentityVersion?  @relation("PartyIdentityVersion_supersedes", fields: [supersedesId, partyId, workspaceId], references: [id, partyId, workspaceId], onDelete: Restrict, onUpdate: NoAction)
+  sourceDocument         Document?              @relation("PartyIdentityVersion_sourceDocument", fields: [sourceDocumentId, workspaceId], references: [id, workspaceId], onDelete: Restrict, onUpdate: NoAction)
+  confirmedBy            User                   @relation("PartyIdentityVersion_confirmedBy", fields: [confirmedById], references: [id], onDelete: Restrict, onUpdate: NoAction)
+  supersedingVersions    PartyIdentityVersion[] @relation("PartyIdentityVersion_supersedes")
+  verifications          BorrowerVerification[] @relation("BorrowerVerification_identityVersion")
+  checkRuns              BorrowerCheckRun[]     @relation("CheckRunIdentity")
+
+  @@unique([id, workspaceId], map: "party_identity_versions_scope_key")
+  @@unique([id, partyId, workspaceId], map: "identity_party_scope_key")
+  @@unique([partyId, versionNo], map: "identity_party_version_key")
+  @@index([workspaceId], map: "party_identity_versions_workspace_idx")
+  @@map("party_identity_versions")
+}
+
+model BorrowerVerification {
+  id                      String                         @id @default(uuid())
+  workspaceId             String                         @map("workspace_id")
+  partyId                 String                         @map("party_id")
+  identityVersionId       String?                        @map("identity_version_id")
+  dealId                  String?                        @map("deal_id")
+  previousVerificationId  String?                        @map("previous_verification_id")
+  checklistVersion        String                         @map("checklist_version")
+  riskRulesVersion        String                         @map("risk_rules_version")
+  status                  BorrowerVerificationStatus     @default(DRAFT)
+  overallRisk             BorrowerRiskAssessment         @default(NOT_ASSESSED) @map("overall_risk")
+  decision                BorrowerVerificationDecision   @default(PENDING)
+  decisionComment         String?                        @map("decision_comment")
+  decisionConditions      String?                        @map("decision_conditions")
+  assignedToId            String?                        @map("assigned_to_id")
+  createdById             String                         @map("created_by_id")
+  decidedById             String?                        @map("decided_by_id")
+  decidedAt               DateTime?                      @map("decided_at") @db.Timestamptz(3)
+  completedAt             DateTime?                      @map("completed_at") @db.Timestamptz(3)
+  validUntil              DateTime?                      @map("valid_until") @db.Timestamptz(3)
+  createdAt               DateTime                       @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt               DateTime                       @updatedAt @map("updated_at") @db.Timestamptz(3)
+  workspace               Workspace                      @relation("BorrowerVerification_workspace", fields: [workspaceId], references: [id], onDelete: Restrict, onUpdate: NoAction)
+  party                   Party                          @relation("BorrowerVerification_party", fields: [partyId, workspaceId], references: [id, workspaceId], onDelete: Restrict, onUpdate: NoAction)
+  identityVersion         PartyIdentityVersion?          @relation("BorrowerVerification_identityVersion", fields: [identityVersionId, partyId, workspaceId], references: [id, partyId, workspaceId], onDelete: Restrict, onUpdate: NoAction)
+  deal                    Deal?                          @relation("BorrowerVerification_deal", fields: [dealId, workspaceId], references: [id, workspaceId], onDelete: Restrict, onUpdate: NoAction)
+  previousVerification    BorrowerVerification?          @relation("BorrowerVerification_previousVerification", fields: [previousVerificationId, partyId, workspaceId], references: [id, partyId, workspaceId], onDelete: Restrict, onUpdate: NoAction)
+  assignedTo              User?                          @relation("BorrowerVerification_assignedTo", fields: [assignedToId], references: [id], onDelete: Restrict, onUpdate: NoAction)
+  createdBy               User                           @relation("BorrowerVerification_createdBy", fields: [createdById], references: [id], onDelete: Restrict, onUpdate: NoAction)
+  decidedBy               User?                          @relation("BorrowerVerification_decidedBy", fields: [decidedById], references: [id], onDelete: Restrict, onUpdate: NoAction)
+  subsequentVerifications BorrowerVerification[]         @relation("BorrowerVerification_previousVerification")
+  items                   BorrowerVerificationItem[]     @relation("BorrowerVerificationItem_verification")
+  evidence                BorrowerVerificationEvidence[] @relation("BorrowerVerificationEvidence_verification")
+
+  @@unique([id, workspaceId], map: "borrower_verifications_scope_key")
+  @@unique([id, partyId, workspaceId], map: "verification_party_scope_key")
+  @@index([workspaceId], map: "borrower_verifications_workspace_idx")
+  @@index([workspaceId, partyId, createdAt], map: "verification_party_created_idx")
+  @@index([workspaceId, status, createdAt], map: "verification_status_created_idx")
+  @@index([workspaceId, overallRisk, createdAt], map: "verification_risk_created_idx")
+  @@map("borrower_verifications")
+}
+
+model BorrowerVerificationItem {
+  id                  String                         @id @default(uuid())
+  workspaceId         String                         @map("workspace_id")
+  verificationId      String                         @map("verification_id")
+  checkCode           String                         @map("check_code")
+  definitionVersion   String                         @map("definition_version")
+  title               String
+  sortOrder           Int                            @default(0) @map("sort_order")
+  isRequired          Boolean                        @default(true) @map("is_required")
+  resultType          BorrowerCheckResultType        @map("result_type")
+  inputSchema         Json                           @default("{}") @map("input_schema")
+  resultSchema        Json                           @default("{}") @map("result_schema")
+  sourceCode          String?                        @map("source_code")
+  sourceUrl           String?                        @map("source_url")
+  instructions        String?
+  executionMode       BorrowerCheckExecutionMode     @default(MANUAL) @map("execution_mode")
+  status              BorrowerCheckItemStatus        @default(NOT_STARTED)
+  acceptedRunId       String?                        @map("accepted_run_id")
+  notApplicableReason String?                        @map("not_applicable_reason")
+  createdAt           DateTime                       @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt           DateTime                       @updatedAt @map("updated_at") @db.Timestamptz(3)
+  workspace           Workspace                      @relation("BorrowerVerificationItem_workspace", fields: [workspaceId], references: [id], onDelete: Restrict, onUpdate: NoAction)
+  verification        BorrowerVerification           @relation("BorrowerVerificationItem_verification", fields: [verificationId, workspaceId], references: [id, workspaceId], onDelete: Restrict, onUpdate: NoAction)
+  acceptedRun         BorrowerCheckRun?              @relation("BorrowerVerificationItem_acceptedRun", fields: [acceptedRunId, id, verificationId, workspaceId], references: [id, itemId, verificationId, workspaceId], onDelete: Restrict, onUpdate: NoAction)
+  runs                BorrowerCheckRun[]             @relation("BorrowerCheckRun_item")
+  evidence            BorrowerVerificationEvidence[] @relation("BorrowerVerificationEvidence_item")
+
+  @@unique([id, workspaceId], map: "borrower_verification_items_scope_key")
+  @@unique([id, verificationId, workspaceId], map: "item_verification_scope_key")
+  @@unique([verificationId, checkCode], map: "item_check_code_key")
+  @@index([workspaceId], map: "borrower_verification_items_workspace_idx")
+  @@index([verificationId, status], map: "item_status_idx")
+  @@map("borrower_verification_items")
+}
+
+model BorrowerCheckRun {
+  id                     String                         @id @default(uuid())
+  workspaceId            String                         @map("workspace_id")
+  verificationId         String                         @map("verification_id")
+  itemId                 String                         @map("item_id")
+  attemptNo              Int                            @map("attempt_no")
+  mode                   BorrowerCheckRunMode
+  providerCode           String?                        @map("provider_code")
+  providerRequestId      String?                        @map("provider_request_id")
+  idempotencyKey         String                         @map("idempotency_key")
+  inputSnapshot          Json                           @map("input_snapshot")
+  inputHash              String                         @map("input_hash")
+  adapterVersion         String?                        @map("adapter_version")
+  status                 BorrowerCheckRunStatus         @default(QUEUED)
+  resultBoolean          Boolean?                       @map("result_boolean")
+  resultCode             String?                        @map("result_code")
+  resultAmount           Decimal?                       @map("result_amount") @db.Decimal(20, 2)
+  currency               String?                        @db.Char(3)
+  resultData             Json                           @default("{}") @map("result_data")
+  summary                String?
+  riskAssessment         BorrowerRiskAssessment         @default(NOT_ASSESSED) @map("risk_assessment")
+  assessmentRulesVersion String                         @map("assessment_rules_version")
+  coverage               Json                           @default("{}")
+  sourceAsOfAt           DateTime?                      @map("source_as_of_at") @db.Timestamptz(3)
+  validUntil             DateTime?                      @map("valid_until") @db.Timestamptz(3)
+  errorCode              String?                        @map("error_code")
+  errorMessage           String?                        @map("error_message")
+  performedById          String?                        @map("performed_by_id")
+  reviewedById           String?                        @map("reviewed_by_id")
+  reviewedAt             DateTime?                      @map("reviewed_at") @db.Timestamptz(3)
+  createdAt              DateTime                       @default(now()) @map("created_at") @db.Timestamptz(3)
+  startedAt              DateTime?                      @map("started_at") @db.Timestamptz(3)
+  finishedAt             DateTime?                      @map("finished_at") @db.Timestamptz(3)
+  availableAt            DateTime                       @default(now()) @map("available_at") @db.Timestamptz(3)
+  leaseOwner             String?                        @map("lease_owner")
+  leaseExpiresAt         DateTime?                      @map("lease_expires_at") @db.Timestamptz(3)
+  heartbeatAt            DateTime?                      @map("heartbeat_at") @db.Timestamptz(3)
+  workspace              Workspace                      @relation("BorrowerCheckRun_workspace", fields: [workspaceId], references: [id], onDelete: Restrict, onUpdate: NoAction)
+  item                   BorrowerVerificationItem       @relation("BorrowerCheckRun_item", fields: [itemId, verificationId, workspaceId], references: [id, verificationId, workspaceId], onDelete: Restrict, onUpdate: NoAction)
+  performedBy            User?                          @relation("BorrowerCheckRun_performedBy", fields: [performedById], references: [id], onDelete: Restrict, onUpdate: NoAction)
+  reviewedBy             User?                          @relation("BorrowerCheckRun_reviewedBy", fields: [reviewedById], references: [id], onDelete: Restrict, onUpdate: NoAction)
+  acceptedByItems        BorrowerVerificationItem[]     @relation("BorrowerVerificationItem_acceptedRun")
+  findings               BorrowerCheckFinding[]         @relation("BorrowerCheckFinding_run")
+  evidence               BorrowerVerificationEvidence[] @relation("BorrowerVerificationEvidence_run")
+  risks                  BorrowerVerificationRisk[]     @relation("BorrowerVerificationRisk_run")
+  identityVersionId      String                         @map("identity_version_id")
+  identityVersion        PartyIdentityVersion           @relation("CheckRunIdentity", fields: [identityVersionId, workspaceId], references: [id, workspaceId], onDelete: Restrict, onUpdate: NoAction)
+
+  @@unique([id, workspaceId], map: "borrower_check_runs_scope_key")
+  @@unique([id, itemId, verificationId, workspaceId], map: "run_item_scope_key")
+  @@unique([id, verificationId, workspaceId], map: "run_verification_scope_key")
+  @@unique([itemId, attemptNo], map: "run_attempt_key")
+  @@unique([itemId, idempotencyKey], map: "run_idempotency_key")
+  @@index([workspaceId], map: "borrower_check_runs_workspace_idx")
+  @@index([itemId, createdAt], map: "run_item_created_idx")
+  @@index([status, availableAt], map: "run_queue_idx")
+  @@map("borrower_check_runs")
+}
+
+model BorrowerCheckFinding {
+  id                String                         @id @default(uuid())
+  workspaceId       String                         @map("workspace_id")
+  verificationId    String                         @map("verification_id")
+  runId             String                         @map("run_id")
+  findingType       BorrowerFindingType            @map("finding_type")
+  externalId        String?                        @map("external_id")
+  recordKey         String                         @map("record_key")
+  referenceNumber   String?                        @map("reference_number")
+  title             String
+  categoryCode      String?                        @map("category_code")
+  personRole        String?                        @map("person_role")
+  recordStatus      String?                        @map("record_status")
+  openedOn          DateTime?                      @map("opened_on") @db.Date
+  closedOn          DateTime?                      @map("closed_on") @db.Date
+  claimAmount       Decimal?                       @map("claim_amount") @db.Decimal(20, 2)
+  outstandingAmount Decimal?                       @map("outstanding_amount") @db.Decimal(20, 2)
+  currency          String?                        @db.Char(3)
+  authorityName     String?                        @map("authority_name")
+  sourceUrl         String?                        @map("source_url")
+  identityMatch     BorrowerIdentityMatch          @default(UNKNOWN) @map("identity_match")
+  matchBasis        Json                           @default("{}") @map("match_basis")
+  matchComment      String?                        @map("match_comment")
+  matchReviewedById String?                        @map("match_reviewed_by_id")
+  matchReviewedAt   DateTime?                      @map("match_reviewed_at") @db.Timestamptz(3)
+  details           Json                           @default("{}")
+  createdAt         DateTime                       @default(now()) @map("created_at") @db.Timestamptz(3)
+  workspace         Workspace                      @relation("BorrowerCheckFinding_workspace", fields: [workspaceId], references: [id], onDelete: Restrict, onUpdate: NoAction)
+  run               BorrowerCheckRun               @relation("BorrowerCheckFinding_run", fields: [runId, verificationId, workspaceId], references: [id, verificationId, workspaceId], onDelete: Restrict, onUpdate: NoAction)
+  matchReviewedBy   User?                          @relation("BorrowerCheckFinding_matchReviewedBy", fields: [matchReviewedById], references: [id], onDelete: Restrict, onUpdate: NoAction)
+  evidence          BorrowerVerificationEvidence[] @relation("BorrowerVerificationEvidence_finding")
+  risks             BorrowerVerificationRisk[]     @relation("BorrowerVerificationRisk_finding")
+
+  @@unique([id, workspaceId], map: "borrower_check_findings_scope_key")
+  @@unique([id, runId, verificationId, workspaceId], map: "finding_run_scope_key")
+  @@unique([runId, recordKey], map: "finding_record_key")
+  @@index([workspaceId], map: "borrower_check_findings_workspace_idx")
+  @@index([workspaceId, findingType, identityMatch], map: "finding_match_idx")
+  @@map("borrower_check_findings")
+}
+
+model BorrowerVerificationEvidence {
+  id                 String                       @id @default(uuid())
+  workspaceId        String                       @map("workspace_id")
+  verificationId     String                       @map("verification_id")
+  itemId             String?                      @map("item_id")
+  runId              String?                      @map("run_id")
+  findingId          String?                      @map("finding_id")
+  documentId         String?                      @map("document_id")
+  kind               BorrowerEvidenceKind
+  title              String
+  sourceUrl          String?                      @map("source_url")
+  issuedOn           DateTime?                    @map("issued_on") @db.Date
+  capturedAt         DateTime?                    @map("captured_at") @db.Timestamptz(3)
+  validUntil         DateTime?                    @map("valid_until") @db.Timestamptz(3)
+  authenticityStatus BorrowerEvidenceAuthenticity @default(NOT_CHECKED) @map("authenticity_status")
+  ocrStatus          BorrowerOcrStatus            @default(NOT_REQUIRED) @map("ocr_status")
+  ocrEngineVersion   String?                      @map("ocr_engine_version")
+  ocrResult          Json?                        @map("ocr_result")
+  ocrError           String?                      @map("ocr_error")
+  reviewComment      String?                      @map("review_comment")
+  reviewedById       String?                      @map("reviewed_by_id")
+  reviewedAt         DateTime?                    @map("reviewed_at") @db.Timestamptz(3)
+  uploadedById       String                       @map("uploaded_by_id")
+  createdAt          DateTime                     @default(now()) @map("created_at") @db.Timestamptz(3)
+  workspace          Workspace                    @relation("BorrowerVerificationEvidence_workspace", fields: [workspaceId], references: [id], onDelete: Restrict, onUpdate: NoAction)
+  verification       BorrowerVerification         @relation("BorrowerVerificationEvidence_verification", fields: [verificationId, workspaceId], references: [id, workspaceId], onDelete: Restrict, onUpdate: NoAction)
+  item               BorrowerVerificationItem?    @relation("BorrowerVerificationEvidence_item", fields: [itemId, verificationId, workspaceId], references: [id, verificationId, workspaceId], onDelete: Restrict, onUpdate: NoAction)
+  run                BorrowerCheckRun?            @relation("BorrowerVerificationEvidence_run", fields: [runId, itemId, verificationId, workspaceId], references: [id, itemId, verificationId, workspaceId], onDelete: Restrict, onUpdate: NoAction)
+  finding            BorrowerCheckFinding?        @relation("BorrowerVerificationEvidence_finding", fields: [findingId, runId, verificationId, workspaceId], references: [id, runId, verificationId, workspaceId], onDelete: Restrict, onUpdate: NoAction)
+  document           Document?                    @relation("BorrowerVerificationEvidence_document", fields: [documentId, workspaceId], references: [id, workspaceId], onDelete: Restrict, onUpdate: NoAction)
+  reviewedBy         User?                        @relation("BorrowerVerificationEvidence_reviewedBy", fields: [reviewedById], references: [id], onDelete: Restrict, onUpdate: NoAction)
+  uploadedBy         User                         @relation("BorrowerVerificationEvidence_uploadedBy", fields: [uploadedById], references: [id], onDelete: Restrict, onUpdate: NoAction)
+  resolvedRisks      BorrowerVerificationRisk[]   @relation("BorrowerVerificationRisk_resolutionEvidence")
+
+  @@unique([id, workspaceId], map: "borrower_verification_evidence_scope_key")
+  @@unique([id, verificationId, workspaceId], map: "evidence_verification_scope_key")
+  @@index([workspaceId], map: "borrower_verification_evidence_workspace_idx")
+  @@index([verificationId, kind], map: "evidence_kind_idx")
+  @@index([documentId, workspaceId], map: "evidence_document_idx")
+  @@map("borrower_verification_evidence")
+}
+
+model BorrowerVerificationRisk {
+  id                   String                        @id @default(uuid())
+  workspaceId          String                        @map("workspace_id")
+  verificationId       String                        @map("verification_id")
+  itemId               String                        @map("item_id")
+  runId                String                        @map("run_id")
+  findingId            String?                       @map("finding_id")
+  riskCode             String                        @map("risk_code")
+  ruleVersion          String                        @map("rule_version")
+  title                String
+  description          String
+  severity             BorrowerRiskSeverity
+  remediability        BorrowerRiskRemediability     @default(UNKNOWN)
+  status               BorrowerRiskStatus            @default(OPEN)
+  requiredAction       String?                       @map("required_action")
+  assignedToId         String?                       @map("assigned_to_id")
+  dueAt                DateTime?                     @map("due_at") @db.Timestamptz(3)
+  resolutionComment    String?                       @map("resolution_comment")
+  resolutionEvidenceId String?                       @map("resolution_evidence_id")
+  resolvedById         String?                       @map("resolved_by_id")
+  resolvedAt           DateTime?                     @map("resolved_at") @db.Timestamptz(3)
+  createdAt            DateTime                      @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt            DateTime                      @updatedAt @map("updated_at") @db.Timestamptz(3)
+  workspace            Workspace                     @relation("BorrowerVerificationRisk_workspace", fields: [workspaceId], references: [id], onDelete: Restrict, onUpdate: NoAction)
+  run                  BorrowerCheckRun              @relation("BorrowerVerificationRisk_run", fields: [runId, itemId, verificationId, workspaceId], references: [id, itemId, verificationId, workspaceId], onDelete: Restrict, onUpdate: NoAction)
+  finding              BorrowerCheckFinding?         @relation("BorrowerVerificationRisk_finding", fields: [findingId, runId, verificationId, workspaceId], references: [id, runId, verificationId, workspaceId], onDelete: Restrict, onUpdate: NoAction)
+  resolutionEvidence   BorrowerVerificationEvidence? @relation("BorrowerVerificationRisk_resolutionEvidence", fields: [resolutionEvidenceId, verificationId, workspaceId], references: [id, verificationId, workspaceId], onDelete: Restrict, onUpdate: NoAction)
+  assignedTo           User?                         @relation("BorrowerVerificationRisk_assignedTo", fields: [assignedToId], references: [id], onDelete: Restrict, onUpdate: NoAction)
+  resolvedBy           User?                         @relation("BorrowerVerificationRisk_resolvedBy", fields: [resolvedById], references: [id], onDelete: Restrict, onUpdate: NoAction)
+
+  @@unique([id, workspaceId], map: "borrower_verification_risks_scope_key")
+  @@index([workspaceId], map: "borrower_verification_risks_workspace_idx")
+  @@index([workspaceId, status, severity], map: "risk_status_severity_idx")
+  @@index([verificationId, status], map: "risk_verification_status_idx")
+  @@map("borrower_verification_risks")
 }

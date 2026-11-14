@@ -224,6 +224,17 @@ export type UserWhereInput = {
   parties?: Prisma.PartyListRelationFilter
   auditEntries?: Prisma.AuditEntryListRelationFilter
   financeInstructions?: Prisma.FinanceInstructionListRelationFilter
+  confirmedIdentityVersions?: Prisma.PartyIdentityVersionListRelationFilter
+  assignedBorrowerVerifications?: Prisma.BorrowerVerificationListRelationFilter
+  createdBorrowerVerifications?: Prisma.BorrowerVerificationListRelationFilter
+  decidedBorrowerVerifications?: Prisma.BorrowerVerificationListRelationFilter
+  performedBorrowerCheckRuns?: Prisma.BorrowerCheckRunListRelationFilter
+  reviewedBorrowerCheckRuns?: Prisma.BorrowerCheckRunListRelationFilter
+  reviewedBorrowerFindings?: Prisma.BorrowerCheckFindingListRelationFilter
+  reviewedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceListRelationFilter
+  uploadedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceListRelationFilter
+  assignedBorrowerRisks?: Prisma.BorrowerVerificationRiskListRelationFilter
+  resolvedBorrowerRisks?: Prisma.BorrowerVerificationRiskListRelationFilter
 }
 
 export type UserOrderByWithRelationInput = {
@@ -246,6 +257,17 @@ export type UserOrderByWithRelationInput = {
   parties?: Prisma.PartyOrderByRelationAggregateInput
   auditEntries?: Prisma.AuditEntryOrderByRelationAggregateInput
   financeInstructions?: Prisma.FinanceInstructionOrderByRelationAggregateInput
+  confirmedIdentityVersions?: Prisma.PartyIdentityVersionOrderByRelationAggregateInput
+  assignedBorrowerVerifications?: Prisma.BorrowerVerificationOrderByRelationAggregateInput
+  createdBorrowerVerifications?: Prisma.BorrowerVerificationOrderByRelationAggregateInput
+  decidedBorrowerVerifications?: Prisma.BorrowerVerificationOrderByRelationAggregateInput
+  performedBorrowerCheckRuns?: Prisma.BorrowerCheckRunOrderByRelationAggregateInput
+  reviewedBorrowerCheckRuns?: Prisma.BorrowerCheckRunOrderByRelationAggregateInput
+  reviewedBorrowerFindings?: Prisma.BorrowerCheckFindingOrderByRelationAggregateInput
+  reviewedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceOrderByRelationAggregateInput
+  uploadedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceOrderByRelationAggregateInput
+  assignedBorrowerRisks?: Prisma.BorrowerVerificationRiskOrderByRelationAggregateInput
+  resolvedBorrowerRisks?: Prisma.BorrowerVerificationRiskOrderByRelationAggregateInput
 }
 
 export type UserWhereUniqueInput = Prisma.AtLeast<{
@@ -271,6 +293,17 @@ export type UserWhereUniqueInput = Prisma.AtLeast<{
   parties?: Prisma.PartyListRelationFilter
   auditEntries?: Prisma.AuditEntryListRelationFilter
   financeInstructions?: Prisma.FinanceInstructionListRelationFilter
+  confirmedIdentityVersions?: Prisma.PartyIdentityVersionListRelationFilter
+  assignedBorrowerVerifications?: Prisma.BorrowerVerificationListRelationFilter
+  createdBorrowerVerifications?: Prisma.BorrowerVerificationListRelationFilter
+  decidedBorrowerVerifications?: Prisma.BorrowerVerificationListRelationFilter
+  performedBorrowerCheckRuns?: Prisma.BorrowerCheckRunListRelationFilter
+  reviewedBorrowerCheckRuns?: Prisma.BorrowerCheckRunListRelationFilter
+  reviewedBorrowerFindings?: Prisma.BorrowerCheckFindingListRelationFilter
+  reviewedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceListRelationFilter
+  uploadedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceListRelationFilter
+  assignedBorrowerRisks?: Prisma.BorrowerVerificationRiskListRelationFilter
+  resolvedBorrowerRisks?: Prisma.BorrowerVerificationRiskListRelationFilter
 }, "id" | "email">
 
 export type UserOrderByWithAggregationInput = {
@@ -323,6 +356,17 @@ export type UserCreateInput = {
   parties?: Prisma.PartyCreateNestedManyWithoutUserInput
   auditEntries?: Prisma.AuditEntryCreateNestedManyWithoutActorInput
   financeInstructions?: Prisma.FinanceInstructionCreateNestedManyWithoutActorInput
+  confirmedIdentityVersions?: Prisma.PartyIdentityVersionCreateNestedManyWithoutConfirmedByInput
+  assignedBorrowerVerifications?: Prisma.BorrowerVerificationCreateNestedManyWithoutAssignedToInput
+  createdBorrowerVerifications?: Prisma.BorrowerVerificationCreateNestedManyWithoutCreatedByInput
+  decidedBorrowerVerifications?: Prisma.BorrowerVerificationCreateNestedManyWithoutDecidedByInput
+  performedBorrowerCheckRuns?: Prisma.BorrowerCheckRunCreateNestedManyWithoutPerformedByInput
+  reviewedBorrowerCheckRuns?: Prisma.BorrowerCheckRunCreateNestedManyWithoutReviewedByInput
+  reviewedBorrowerFindings?: Prisma.BorrowerCheckFindingCreateNestedManyWithoutMatchReviewedByInput
+  reviewedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceCreateNestedManyWithoutReviewedByInput
+  uploadedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceCreateNestedManyWithoutUploadedByInput
+  assignedBorrowerRisks?: Prisma.BorrowerVerificationRiskCreateNestedManyWithoutAssignedToInput
+  resolvedBorrowerRisks?: Prisma.BorrowerVerificationRiskCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserUncheckedCreateInput = {
@@ -345,6 +389,17 @@ export type UserUncheckedCreateInput = {
   parties?: Prisma.PartyUncheckedCreateNestedManyWithoutUserInput
   auditEntries?: Prisma.AuditEntryUncheckedCreateNestedManyWithoutActorInput
   financeInstructions?: Prisma.FinanceInstructionUncheckedCreateNestedManyWithoutActorInput
+  confirmedIdentityVersions?: Prisma.PartyIdentityVersionUncheckedCreateNestedManyWithoutConfirmedByInput
+  assignedBorrowerVerifications?: Prisma.BorrowerVerificationUncheckedCreateNestedManyWithoutAssignedToInput
+  createdBorrowerVerifications?: Prisma.BorrowerVerificationUncheckedCreateNestedManyWithoutCreatedByInput
+  decidedBorrowerVerifications?: Prisma.BorrowerVerificationUncheckedCreateNestedManyWithoutDecidedByInput
+  performedBorrowerCheckRuns?: Prisma.BorrowerCheckRunUncheckedCreateNestedManyWithoutPerformedByInput
+  reviewedBorrowerCheckRuns?: Prisma.BorrowerCheckRunUncheckedCreateNestedManyWithoutReviewedByInput
+  reviewedBorrowerFindings?: Prisma.BorrowerCheckFindingUncheckedCreateNestedManyWithoutMatchReviewedByInput
+  reviewedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceUncheckedCreateNestedManyWithoutReviewedByInput
+  uploadedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceUncheckedCreateNestedManyWithoutUploadedByInput
+  assignedBorrowerRisks?: Prisma.BorrowerVerificationRiskUncheckedCreateNestedManyWithoutAssignedToInput
+  resolvedBorrowerRisks?: Prisma.BorrowerVerificationRiskUncheckedCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserUpdateInput = {
@@ -367,6 +422,17 @@ export type UserUpdateInput = {
   parties?: Prisma.PartyUpdateManyWithoutUserNestedInput
   auditEntries?: Prisma.AuditEntryUpdateManyWithoutActorNestedInput
   financeInstructions?: Prisma.FinanceInstructionUpdateManyWithoutActorNestedInput
+  confirmedIdentityVersions?: Prisma.PartyIdentityVersionUpdateManyWithoutConfirmedByNestedInput
+  assignedBorrowerVerifications?: Prisma.BorrowerVerificationUpdateManyWithoutAssignedToNestedInput
+  createdBorrowerVerifications?: Prisma.BorrowerVerificationUpdateManyWithoutCreatedByNestedInput
+  decidedBorrowerVerifications?: Prisma.BorrowerVerificationUpdateManyWithoutDecidedByNestedInput
+  performedBorrowerCheckRuns?: Prisma.BorrowerCheckRunUpdateManyWithoutPerformedByNestedInput
+  reviewedBorrowerCheckRuns?: Prisma.BorrowerCheckRunUpdateManyWithoutReviewedByNestedInput
+  reviewedBorrowerFindings?: Prisma.BorrowerCheckFindingUpdateManyWithoutMatchReviewedByNestedInput
+  reviewedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceUpdateManyWithoutReviewedByNestedInput
+  uploadedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceUpdateManyWithoutUploadedByNestedInput
+  assignedBorrowerRisks?: Prisma.BorrowerVerificationRiskUpdateManyWithoutAssignedToNestedInput
+  resolvedBorrowerRisks?: Prisma.BorrowerVerificationRiskUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserUncheckedUpdateInput = {
@@ -389,6 +455,17 @@ export type UserUncheckedUpdateInput = {
   parties?: Prisma.PartyUncheckedUpdateManyWithoutUserNestedInput
   auditEntries?: Prisma.AuditEntryUncheckedUpdateManyWithoutActorNestedInput
   financeInstructions?: Prisma.FinanceInstructionUncheckedUpdateManyWithoutActorNestedInput
+  confirmedIdentityVersions?: Prisma.PartyIdentityVersionUncheckedUpdateManyWithoutConfirmedByNestedInput
+  assignedBorrowerVerifications?: Prisma.BorrowerVerificationUncheckedUpdateManyWithoutAssignedToNestedInput
+  createdBorrowerVerifications?: Prisma.BorrowerVerificationUncheckedUpdateManyWithoutCreatedByNestedInput
+  decidedBorrowerVerifications?: Prisma.BorrowerVerificationUncheckedUpdateManyWithoutDecidedByNestedInput
+  performedBorrowerCheckRuns?: Prisma.BorrowerCheckRunUncheckedUpdateManyWithoutPerformedByNestedInput
+  reviewedBorrowerCheckRuns?: Prisma.BorrowerCheckRunUncheckedUpdateManyWithoutReviewedByNestedInput
+  reviewedBorrowerFindings?: Prisma.BorrowerCheckFindingUncheckedUpdateManyWithoutMatchReviewedByNestedInput
+  reviewedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceUncheckedUpdateManyWithoutReviewedByNestedInput
+  uploadedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceUncheckedUpdateManyWithoutUploadedByNestedInput
+  assignedBorrowerRisks?: Prisma.BorrowerVerificationRiskUncheckedUpdateManyWithoutAssignedToNestedInput
+  resolvedBorrowerRisks?: Prisma.BorrowerVerificationRiskUncheckedUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserCreateManyInput = {
@@ -639,6 +716,176 @@ export type UserUpdateOneRequiredWithoutMarketplaceMarksNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutMarketplaceMarksInput, Prisma.UserUpdateWithoutMarketplaceMarksInput>, Prisma.UserUncheckedUpdateWithoutMarketplaceMarksInput>
 }
 
+export type UserCreateNestedOneWithoutConfirmedIdentityVersionsInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutConfirmedIdentityVersionsInput, Prisma.UserUncheckedCreateWithoutConfirmedIdentityVersionsInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutConfirmedIdentityVersionsInput
+  connect?: Prisma.UserWhereUniqueInput
+}
+
+export type UserUpdateOneRequiredWithoutConfirmedIdentityVersionsNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutConfirmedIdentityVersionsInput, Prisma.UserUncheckedCreateWithoutConfirmedIdentityVersionsInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutConfirmedIdentityVersionsInput
+  upsert?: Prisma.UserUpsertWithoutConfirmedIdentityVersionsInput
+  connect?: Prisma.UserWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutConfirmedIdentityVersionsInput, Prisma.UserUpdateWithoutConfirmedIdentityVersionsInput>, Prisma.UserUncheckedUpdateWithoutConfirmedIdentityVersionsInput>
+}
+
+export type UserCreateNestedOneWithoutAssignedBorrowerVerificationsInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutAssignedBorrowerVerificationsInput, Prisma.UserUncheckedCreateWithoutAssignedBorrowerVerificationsInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutAssignedBorrowerVerificationsInput
+  connect?: Prisma.UserWhereUniqueInput
+}
+
+export type UserCreateNestedOneWithoutCreatedBorrowerVerificationsInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutCreatedBorrowerVerificationsInput, Prisma.UserUncheckedCreateWithoutCreatedBorrowerVerificationsInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutCreatedBorrowerVerificationsInput
+  connect?: Prisma.UserWhereUniqueInput
+}
+
+export type UserCreateNestedOneWithoutDecidedBorrowerVerificationsInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutDecidedBorrowerVerificationsInput, Prisma.UserUncheckedCreateWithoutDecidedBorrowerVerificationsInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutDecidedBorrowerVerificationsInput
+  connect?: Prisma.UserWhereUniqueInput
+}
+
+export type UserUpdateOneWithoutAssignedBorrowerVerificationsNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutAssignedBorrowerVerificationsInput, Prisma.UserUncheckedCreateWithoutAssignedBorrowerVerificationsInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutAssignedBorrowerVerificationsInput
+  upsert?: Prisma.UserUpsertWithoutAssignedBorrowerVerificationsInput
+  disconnect?: Prisma.UserWhereInput | boolean
+  delete?: Prisma.UserWhereInput | boolean
+  connect?: Prisma.UserWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutAssignedBorrowerVerificationsInput, Prisma.UserUpdateWithoutAssignedBorrowerVerificationsInput>, Prisma.UserUncheckedUpdateWithoutAssignedBorrowerVerificationsInput>
+}
+
+export type UserUpdateOneRequiredWithoutCreatedBorrowerVerificationsNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutCreatedBorrowerVerificationsInput, Prisma.UserUncheckedCreateWithoutCreatedBorrowerVerificationsInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutCreatedBorrowerVerificationsInput
+  upsert?: Prisma.UserUpsertWithoutCreatedBorrowerVerificationsInput
+  connect?: Prisma.UserWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutCreatedBorrowerVerificationsInput, Prisma.UserUpdateWithoutCreatedBorrowerVerificationsInput>, Prisma.UserUncheckedUpdateWithoutCreatedBorrowerVerificationsInput>
+}
+
+export type UserUpdateOneWithoutDecidedBorrowerVerificationsNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutDecidedBorrowerVerificationsInput, Prisma.UserUncheckedCreateWithoutDecidedBorrowerVerificationsInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutDecidedBorrowerVerificationsInput
+  upsert?: Prisma.UserUpsertWithoutDecidedBorrowerVerificationsInput
+  disconnect?: Prisma.UserWhereInput | boolean
+  delete?: Prisma.UserWhereInput | boolean
+  connect?: Prisma.UserWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutDecidedBorrowerVerificationsInput, Prisma.UserUpdateWithoutDecidedBorrowerVerificationsInput>, Prisma.UserUncheckedUpdateWithoutDecidedBorrowerVerificationsInput>
+}
+
+export type UserCreateNestedOneWithoutPerformedBorrowerCheckRunsInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutPerformedBorrowerCheckRunsInput, Prisma.UserUncheckedCreateWithoutPerformedBorrowerCheckRunsInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutPerformedBorrowerCheckRunsInput
+  connect?: Prisma.UserWhereUniqueInput
+}
+
+export type UserCreateNestedOneWithoutReviewedBorrowerCheckRunsInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutReviewedBorrowerCheckRunsInput, Prisma.UserUncheckedCreateWithoutReviewedBorrowerCheckRunsInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutReviewedBorrowerCheckRunsInput
+  connect?: Prisma.UserWhereUniqueInput
+}
+
+export type UserUpdateOneWithoutPerformedBorrowerCheckRunsNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutPerformedBorrowerCheckRunsInput, Prisma.UserUncheckedCreateWithoutPerformedBorrowerCheckRunsInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutPerformedBorrowerCheckRunsInput
+  upsert?: Prisma.UserUpsertWithoutPerformedBorrowerCheckRunsInput
+  disconnect?: Prisma.UserWhereInput | boolean
+  delete?: Prisma.UserWhereInput | boolean
+  connect?: Prisma.UserWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutPerformedBorrowerCheckRunsInput, Prisma.UserUpdateWithoutPerformedBorrowerCheckRunsInput>, Prisma.UserUncheckedUpdateWithoutPerformedBorrowerCheckRunsInput>
+}
+
+export type UserUpdateOneWithoutReviewedBorrowerCheckRunsNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutReviewedBorrowerCheckRunsInput, Prisma.UserUncheckedCreateWithoutReviewedBorrowerCheckRunsInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutReviewedBorrowerCheckRunsInput
+  upsert?: Prisma.UserUpsertWithoutReviewedBorrowerCheckRunsInput
+  disconnect?: Prisma.UserWhereInput | boolean
+  delete?: Prisma.UserWhereInput | boolean
+  connect?: Prisma.UserWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutReviewedBorrowerCheckRunsInput, Prisma.UserUpdateWithoutReviewedBorrowerCheckRunsInput>, Prisma.UserUncheckedUpdateWithoutReviewedBorrowerCheckRunsInput>
+}
+
+export type UserCreateNestedOneWithoutReviewedBorrowerFindingsInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutReviewedBorrowerFindingsInput, Prisma.UserUncheckedCreateWithoutReviewedBorrowerFindingsInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutReviewedBorrowerFindingsInput
+  connect?: Prisma.UserWhereUniqueInput
+}
+
+export type UserUpdateOneWithoutReviewedBorrowerFindingsNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutReviewedBorrowerFindingsInput, Prisma.UserUncheckedCreateWithoutReviewedBorrowerFindingsInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutReviewedBorrowerFindingsInput
+  upsert?: Prisma.UserUpsertWithoutReviewedBorrowerFindingsInput
+  disconnect?: Prisma.UserWhereInput | boolean
+  delete?: Prisma.UserWhereInput | boolean
+  connect?: Prisma.UserWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutReviewedBorrowerFindingsInput, Prisma.UserUpdateWithoutReviewedBorrowerFindingsInput>, Prisma.UserUncheckedUpdateWithoutReviewedBorrowerFindingsInput>
+}
+
+export type UserCreateNestedOneWithoutReviewedBorrowerEvidenceInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutReviewedBorrowerEvidenceInput, Prisma.UserUncheckedCreateWithoutReviewedBorrowerEvidenceInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutReviewedBorrowerEvidenceInput
+  connect?: Prisma.UserWhereUniqueInput
+}
+
+export type UserCreateNestedOneWithoutUploadedBorrowerEvidenceInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutUploadedBorrowerEvidenceInput, Prisma.UserUncheckedCreateWithoutUploadedBorrowerEvidenceInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutUploadedBorrowerEvidenceInput
+  connect?: Prisma.UserWhereUniqueInput
+}
+
+export type UserUpdateOneWithoutReviewedBorrowerEvidenceNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutReviewedBorrowerEvidenceInput, Prisma.UserUncheckedCreateWithoutReviewedBorrowerEvidenceInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutReviewedBorrowerEvidenceInput
+  upsert?: Prisma.UserUpsertWithoutReviewedBorrowerEvidenceInput
+  disconnect?: Prisma.UserWhereInput | boolean
+  delete?: Prisma.UserWhereInput | boolean
+  connect?: Prisma.UserWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutReviewedBorrowerEvidenceInput, Prisma.UserUpdateWithoutReviewedBorrowerEvidenceInput>, Prisma.UserUncheckedUpdateWithoutReviewedBorrowerEvidenceInput>
+}
+
+export type UserUpdateOneRequiredWithoutUploadedBorrowerEvidenceNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutUploadedBorrowerEvidenceInput, Prisma.UserUncheckedCreateWithoutUploadedBorrowerEvidenceInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutUploadedBorrowerEvidenceInput
+  upsert?: Prisma.UserUpsertWithoutUploadedBorrowerEvidenceInput
+  connect?: Prisma.UserWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutUploadedBorrowerEvidenceInput, Prisma.UserUpdateWithoutUploadedBorrowerEvidenceInput>, Prisma.UserUncheckedUpdateWithoutUploadedBorrowerEvidenceInput>
+}
+
+export type UserCreateNestedOneWithoutAssignedBorrowerRisksInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutAssignedBorrowerRisksInput, Prisma.UserUncheckedCreateWithoutAssignedBorrowerRisksInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutAssignedBorrowerRisksInput
+  connect?: Prisma.UserWhereUniqueInput
+}
+
+export type UserCreateNestedOneWithoutResolvedBorrowerRisksInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutResolvedBorrowerRisksInput, Prisma.UserUncheckedCreateWithoutResolvedBorrowerRisksInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutResolvedBorrowerRisksInput
+  connect?: Prisma.UserWhereUniqueInput
+}
+
+export type UserUpdateOneWithoutAssignedBorrowerRisksNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutAssignedBorrowerRisksInput, Prisma.UserUncheckedCreateWithoutAssignedBorrowerRisksInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutAssignedBorrowerRisksInput
+  upsert?: Prisma.UserUpsertWithoutAssignedBorrowerRisksInput
+  disconnect?: Prisma.UserWhereInput | boolean
+  delete?: Prisma.UserWhereInput | boolean
+  connect?: Prisma.UserWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutAssignedBorrowerRisksInput, Prisma.UserUpdateWithoutAssignedBorrowerRisksInput>, Prisma.UserUncheckedUpdateWithoutAssignedBorrowerRisksInput>
+}
+
+export type UserUpdateOneWithoutResolvedBorrowerRisksNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutResolvedBorrowerRisksInput, Prisma.UserUncheckedCreateWithoutResolvedBorrowerRisksInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutResolvedBorrowerRisksInput
+  upsert?: Prisma.UserUpsertWithoutResolvedBorrowerRisksInput
+  disconnect?: Prisma.UserWhereInput | boolean
+  delete?: Prisma.UserWhereInput | boolean
+  connect?: Prisma.UserWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutResolvedBorrowerRisksInput, Prisma.UserUpdateWithoutResolvedBorrowerRisksInput>, Prisma.UserUncheckedUpdateWithoutResolvedBorrowerRisksInput>
+}
+
 export type UserCreateWithoutAuthChallengesInput = {
   id?: string
   email: string
@@ -658,6 +905,17 @@ export type UserCreateWithoutAuthChallengesInput = {
   parties?: Prisma.PartyCreateNestedManyWithoutUserInput
   auditEntries?: Prisma.AuditEntryCreateNestedManyWithoutActorInput
   financeInstructions?: Prisma.FinanceInstructionCreateNestedManyWithoutActorInput
+  confirmedIdentityVersions?: Prisma.PartyIdentityVersionCreateNestedManyWithoutConfirmedByInput
+  assignedBorrowerVerifications?: Prisma.BorrowerVerificationCreateNestedManyWithoutAssignedToInput
+  createdBorrowerVerifications?: Prisma.BorrowerVerificationCreateNestedManyWithoutCreatedByInput
+  decidedBorrowerVerifications?: Prisma.BorrowerVerificationCreateNestedManyWithoutDecidedByInput
+  performedBorrowerCheckRuns?: Prisma.BorrowerCheckRunCreateNestedManyWithoutPerformedByInput
+  reviewedBorrowerCheckRuns?: Prisma.BorrowerCheckRunCreateNestedManyWithoutReviewedByInput
+  reviewedBorrowerFindings?: Prisma.BorrowerCheckFindingCreateNestedManyWithoutMatchReviewedByInput
+  reviewedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceCreateNestedManyWithoutReviewedByInput
+  uploadedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceCreateNestedManyWithoutUploadedByInput
+  assignedBorrowerRisks?: Prisma.BorrowerVerificationRiskCreateNestedManyWithoutAssignedToInput
+  resolvedBorrowerRisks?: Prisma.BorrowerVerificationRiskCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserUncheckedCreateWithoutAuthChallengesInput = {
@@ -679,6 +937,17 @@ export type UserUncheckedCreateWithoutAuthChallengesInput = {
   parties?: Prisma.PartyUncheckedCreateNestedManyWithoutUserInput
   auditEntries?: Prisma.AuditEntryUncheckedCreateNestedManyWithoutActorInput
   financeInstructions?: Prisma.FinanceInstructionUncheckedCreateNestedManyWithoutActorInput
+  confirmedIdentityVersions?: Prisma.PartyIdentityVersionUncheckedCreateNestedManyWithoutConfirmedByInput
+  assignedBorrowerVerifications?: Prisma.BorrowerVerificationUncheckedCreateNestedManyWithoutAssignedToInput
+  createdBorrowerVerifications?: Prisma.BorrowerVerificationUncheckedCreateNestedManyWithoutCreatedByInput
+  decidedBorrowerVerifications?: Prisma.BorrowerVerificationUncheckedCreateNestedManyWithoutDecidedByInput
+  performedBorrowerCheckRuns?: Prisma.BorrowerCheckRunUncheckedCreateNestedManyWithoutPerformedByInput
+  reviewedBorrowerCheckRuns?: Prisma.BorrowerCheckRunUncheckedCreateNestedManyWithoutReviewedByInput
+  reviewedBorrowerFindings?: Prisma.BorrowerCheckFindingUncheckedCreateNestedManyWithoutMatchReviewedByInput
+  reviewedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceUncheckedCreateNestedManyWithoutReviewedByInput
+  uploadedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceUncheckedCreateNestedManyWithoutUploadedByInput
+  assignedBorrowerRisks?: Prisma.BorrowerVerificationRiskUncheckedCreateNestedManyWithoutAssignedToInput
+  resolvedBorrowerRisks?: Prisma.BorrowerVerificationRiskUncheckedCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserCreateOrConnectWithoutAuthChallengesInput = {
@@ -716,6 +985,17 @@ export type UserUpdateWithoutAuthChallengesInput = {
   parties?: Prisma.PartyUpdateManyWithoutUserNestedInput
   auditEntries?: Prisma.AuditEntryUpdateManyWithoutActorNestedInput
   financeInstructions?: Prisma.FinanceInstructionUpdateManyWithoutActorNestedInput
+  confirmedIdentityVersions?: Prisma.PartyIdentityVersionUpdateManyWithoutConfirmedByNestedInput
+  assignedBorrowerVerifications?: Prisma.BorrowerVerificationUpdateManyWithoutAssignedToNestedInput
+  createdBorrowerVerifications?: Prisma.BorrowerVerificationUpdateManyWithoutCreatedByNestedInput
+  decidedBorrowerVerifications?: Prisma.BorrowerVerificationUpdateManyWithoutDecidedByNestedInput
+  performedBorrowerCheckRuns?: Prisma.BorrowerCheckRunUpdateManyWithoutPerformedByNestedInput
+  reviewedBorrowerCheckRuns?: Prisma.BorrowerCheckRunUpdateManyWithoutReviewedByNestedInput
+  reviewedBorrowerFindings?: Prisma.BorrowerCheckFindingUpdateManyWithoutMatchReviewedByNestedInput
+  reviewedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceUpdateManyWithoutReviewedByNestedInput
+  uploadedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceUpdateManyWithoutUploadedByNestedInput
+  assignedBorrowerRisks?: Prisma.BorrowerVerificationRiskUpdateManyWithoutAssignedToNestedInput
+  resolvedBorrowerRisks?: Prisma.BorrowerVerificationRiskUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserUncheckedUpdateWithoutAuthChallengesInput = {
@@ -737,6 +1017,17 @@ export type UserUncheckedUpdateWithoutAuthChallengesInput = {
   parties?: Prisma.PartyUncheckedUpdateManyWithoutUserNestedInput
   auditEntries?: Prisma.AuditEntryUncheckedUpdateManyWithoutActorNestedInput
   financeInstructions?: Prisma.FinanceInstructionUncheckedUpdateManyWithoutActorNestedInput
+  confirmedIdentityVersions?: Prisma.PartyIdentityVersionUncheckedUpdateManyWithoutConfirmedByNestedInput
+  assignedBorrowerVerifications?: Prisma.BorrowerVerificationUncheckedUpdateManyWithoutAssignedToNestedInput
+  createdBorrowerVerifications?: Prisma.BorrowerVerificationUncheckedUpdateManyWithoutCreatedByNestedInput
+  decidedBorrowerVerifications?: Prisma.BorrowerVerificationUncheckedUpdateManyWithoutDecidedByNestedInput
+  performedBorrowerCheckRuns?: Prisma.BorrowerCheckRunUncheckedUpdateManyWithoutPerformedByNestedInput
+  reviewedBorrowerCheckRuns?: Prisma.BorrowerCheckRunUncheckedUpdateManyWithoutReviewedByNestedInput
+  reviewedBorrowerFindings?: Prisma.BorrowerCheckFindingUncheckedUpdateManyWithoutMatchReviewedByNestedInput
+  reviewedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceUncheckedUpdateManyWithoutReviewedByNestedInput
+  uploadedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceUncheckedUpdateManyWithoutUploadedByNestedInput
+  assignedBorrowerRisks?: Prisma.BorrowerVerificationRiskUncheckedUpdateManyWithoutAssignedToNestedInput
+  resolvedBorrowerRisks?: Prisma.BorrowerVerificationRiskUncheckedUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserCreateWithoutBorrowersInput = {
@@ -758,6 +1049,17 @@ export type UserCreateWithoutBorrowersInput = {
   parties?: Prisma.PartyCreateNestedManyWithoutUserInput
   auditEntries?: Prisma.AuditEntryCreateNestedManyWithoutActorInput
   financeInstructions?: Prisma.FinanceInstructionCreateNestedManyWithoutActorInput
+  confirmedIdentityVersions?: Prisma.PartyIdentityVersionCreateNestedManyWithoutConfirmedByInput
+  assignedBorrowerVerifications?: Prisma.BorrowerVerificationCreateNestedManyWithoutAssignedToInput
+  createdBorrowerVerifications?: Prisma.BorrowerVerificationCreateNestedManyWithoutCreatedByInput
+  decidedBorrowerVerifications?: Prisma.BorrowerVerificationCreateNestedManyWithoutDecidedByInput
+  performedBorrowerCheckRuns?: Prisma.BorrowerCheckRunCreateNestedManyWithoutPerformedByInput
+  reviewedBorrowerCheckRuns?: Prisma.BorrowerCheckRunCreateNestedManyWithoutReviewedByInput
+  reviewedBorrowerFindings?: Prisma.BorrowerCheckFindingCreateNestedManyWithoutMatchReviewedByInput
+  reviewedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceCreateNestedManyWithoutReviewedByInput
+  uploadedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceCreateNestedManyWithoutUploadedByInput
+  assignedBorrowerRisks?: Prisma.BorrowerVerificationRiskCreateNestedManyWithoutAssignedToInput
+  resolvedBorrowerRisks?: Prisma.BorrowerVerificationRiskCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserUncheckedCreateWithoutBorrowersInput = {
@@ -779,6 +1081,17 @@ export type UserUncheckedCreateWithoutBorrowersInput = {
   parties?: Prisma.PartyUncheckedCreateNestedManyWithoutUserInput
   auditEntries?: Prisma.AuditEntryUncheckedCreateNestedManyWithoutActorInput
   financeInstructions?: Prisma.FinanceInstructionUncheckedCreateNestedManyWithoutActorInput
+  confirmedIdentityVersions?: Prisma.PartyIdentityVersionUncheckedCreateNestedManyWithoutConfirmedByInput
+  assignedBorrowerVerifications?: Prisma.BorrowerVerificationUncheckedCreateNestedManyWithoutAssignedToInput
+  createdBorrowerVerifications?: Prisma.BorrowerVerificationUncheckedCreateNestedManyWithoutCreatedByInput
+  decidedBorrowerVerifications?: Prisma.BorrowerVerificationUncheckedCreateNestedManyWithoutDecidedByInput
+  performedBorrowerCheckRuns?: Prisma.BorrowerCheckRunUncheckedCreateNestedManyWithoutPerformedByInput
+  reviewedBorrowerCheckRuns?: Prisma.BorrowerCheckRunUncheckedCreateNestedManyWithoutReviewedByInput
+  reviewedBorrowerFindings?: Prisma.BorrowerCheckFindingUncheckedCreateNestedManyWithoutMatchReviewedByInput
+  reviewedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceUncheckedCreateNestedManyWithoutReviewedByInput
+  uploadedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceUncheckedCreateNestedManyWithoutUploadedByInput
+  assignedBorrowerRisks?: Prisma.BorrowerVerificationRiskUncheckedCreateNestedManyWithoutAssignedToInput
+  resolvedBorrowerRisks?: Prisma.BorrowerVerificationRiskUncheckedCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserCreateOrConnectWithoutBorrowersInput = {
@@ -816,6 +1129,17 @@ export type UserUpdateWithoutBorrowersInput = {
   parties?: Prisma.PartyUpdateManyWithoutUserNestedInput
   auditEntries?: Prisma.AuditEntryUpdateManyWithoutActorNestedInput
   financeInstructions?: Prisma.FinanceInstructionUpdateManyWithoutActorNestedInput
+  confirmedIdentityVersions?: Prisma.PartyIdentityVersionUpdateManyWithoutConfirmedByNestedInput
+  assignedBorrowerVerifications?: Prisma.BorrowerVerificationUpdateManyWithoutAssignedToNestedInput
+  createdBorrowerVerifications?: Prisma.BorrowerVerificationUpdateManyWithoutCreatedByNestedInput
+  decidedBorrowerVerifications?: Prisma.BorrowerVerificationUpdateManyWithoutDecidedByNestedInput
+  performedBorrowerCheckRuns?: Prisma.BorrowerCheckRunUpdateManyWithoutPerformedByNestedInput
+  reviewedBorrowerCheckRuns?: Prisma.BorrowerCheckRunUpdateManyWithoutReviewedByNestedInput
+  reviewedBorrowerFindings?: Prisma.BorrowerCheckFindingUpdateManyWithoutMatchReviewedByNestedInput
+  reviewedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceUpdateManyWithoutReviewedByNestedInput
+  uploadedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceUpdateManyWithoutUploadedByNestedInput
+  assignedBorrowerRisks?: Prisma.BorrowerVerificationRiskUpdateManyWithoutAssignedToNestedInput
+  resolvedBorrowerRisks?: Prisma.BorrowerVerificationRiskUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserUncheckedUpdateWithoutBorrowersInput = {
@@ -837,6 +1161,17 @@ export type UserUncheckedUpdateWithoutBorrowersInput = {
   parties?: Prisma.PartyUncheckedUpdateManyWithoutUserNestedInput
   auditEntries?: Prisma.AuditEntryUncheckedUpdateManyWithoutActorNestedInput
   financeInstructions?: Prisma.FinanceInstructionUncheckedUpdateManyWithoutActorNestedInput
+  confirmedIdentityVersions?: Prisma.PartyIdentityVersionUncheckedUpdateManyWithoutConfirmedByNestedInput
+  assignedBorrowerVerifications?: Prisma.BorrowerVerificationUncheckedUpdateManyWithoutAssignedToNestedInput
+  createdBorrowerVerifications?: Prisma.BorrowerVerificationUncheckedUpdateManyWithoutCreatedByNestedInput
+  decidedBorrowerVerifications?: Prisma.BorrowerVerificationUncheckedUpdateManyWithoutDecidedByNestedInput
+  performedBorrowerCheckRuns?: Prisma.BorrowerCheckRunUncheckedUpdateManyWithoutPerformedByNestedInput
+  reviewedBorrowerCheckRuns?: Prisma.BorrowerCheckRunUncheckedUpdateManyWithoutReviewedByNestedInput
+  reviewedBorrowerFindings?: Prisma.BorrowerCheckFindingUncheckedUpdateManyWithoutMatchReviewedByNestedInput
+  reviewedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceUncheckedUpdateManyWithoutReviewedByNestedInput
+  uploadedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceUncheckedUpdateManyWithoutUploadedByNestedInput
+  assignedBorrowerRisks?: Prisma.BorrowerVerificationRiskUncheckedUpdateManyWithoutAssignedToNestedInput
+  resolvedBorrowerRisks?: Prisma.BorrowerVerificationRiskUncheckedUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserCreateWithoutCollateralsInput = {
@@ -858,6 +1193,17 @@ export type UserCreateWithoutCollateralsInput = {
   parties?: Prisma.PartyCreateNestedManyWithoutUserInput
   auditEntries?: Prisma.AuditEntryCreateNestedManyWithoutActorInput
   financeInstructions?: Prisma.FinanceInstructionCreateNestedManyWithoutActorInput
+  confirmedIdentityVersions?: Prisma.PartyIdentityVersionCreateNestedManyWithoutConfirmedByInput
+  assignedBorrowerVerifications?: Prisma.BorrowerVerificationCreateNestedManyWithoutAssignedToInput
+  createdBorrowerVerifications?: Prisma.BorrowerVerificationCreateNestedManyWithoutCreatedByInput
+  decidedBorrowerVerifications?: Prisma.BorrowerVerificationCreateNestedManyWithoutDecidedByInput
+  performedBorrowerCheckRuns?: Prisma.BorrowerCheckRunCreateNestedManyWithoutPerformedByInput
+  reviewedBorrowerCheckRuns?: Prisma.BorrowerCheckRunCreateNestedManyWithoutReviewedByInput
+  reviewedBorrowerFindings?: Prisma.BorrowerCheckFindingCreateNestedManyWithoutMatchReviewedByInput
+  reviewedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceCreateNestedManyWithoutReviewedByInput
+  uploadedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceCreateNestedManyWithoutUploadedByInput
+  assignedBorrowerRisks?: Prisma.BorrowerVerificationRiskCreateNestedManyWithoutAssignedToInput
+  resolvedBorrowerRisks?: Prisma.BorrowerVerificationRiskCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserUncheckedCreateWithoutCollateralsInput = {
@@ -879,6 +1225,17 @@ export type UserUncheckedCreateWithoutCollateralsInput = {
   parties?: Prisma.PartyUncheckedCreateNestedManyWithoutUserInput
   auditEntries?: Prisma.AuditEntryUncheckedCreateNestedManyWithoutActorInput
   financeInstructions?: Prisma.FinanceInstructionUncheckedCreateNestedManyWithoutActorInput
+  confirmedIdentityVersions?: Prisma.PartyIdentityVersionUncheckedCreateNestedManyWithoutConfirmedByInput
+  assignedBorrowerVerifications?: Prisma.BorrowerVerificationUncheckedCreateNestedManyWithoutAssignedToInput
+  createdBorrowerVerifications?: Prisma.BorrowerVerificationUncheckedCreateNestedManyWithoutCreatedByInput
+  decidedBorrowerVerifications?: Prisma.BorrowerVerificationUncheckedCreateNestedManyWithoutDecidedByInput
+  performedBorrowerCheckRuns?: Prisma.BorrowerCheckRunUncheckedCreateNestedManyWithoutPerformedByInput
+  reviewedBorrowerCheckRuns?: Prisma.BorrowerCheckRunUncheckedCreateNestedManyWithoutReviewedByInput
+  reviewedBorrowerFindings?: Prisma.BorrowerCheckFindingUncheckedCreateNestedManyWithoutMatchReviewedByInput
+  reviewedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceUncheckedCreateNestedManyWithoutReviewedByInput
+  uploadedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceUncheckedCreateNestedManyWithoutUploadedByInput
+  assignedBorrowerRisks?: Prisma.BorrowerVerificationRiskUncheckedCreateNestedManyWithoutAssignedToInput
+  resolvedBorrowerRisks?: Prisma.BorrowerVerificationRiskUncheckedCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserCreateOrConnectWithoutCollateralsInput = {
@@ -916,6 +1273,17 @@ export type UserUpdateWithoutCollateralsInput = {
   parties?: Prisma.PartyUpdateManyWithoutUserNestedInput
   auditEntries?: Prisma.AuditEntryUpdateManyWithoutActorNestedInput
   financeInstructions?: Prisma.FinanceInstructionUpdateManyWithoutActorNestedInput
+  confirmedIdentityVersions?: Prisma.PartyIdentityVersionUpdateManyWithoutConfirmedByNestedInput
+  assignedBorrowerVerifications?: Prisma.BorrowerVerificationUpdateManyWithoutAssignedToNestedInput
+  createdBorrowerVerifications?: Prisma.BorrowerVerificationUpdateManyWithoutCreatedByNestedInput
+  decidedBorrowerVerifications?: Prisma.BorrowerVerificationUpdateManyWithoutDecidedByNestedInput
+  performedBorrowerCheckRuns?: Prisma.BorrowerCheckRunUpdateManyWithoutPerformedByNestedInput
+  reviewedBorrowerCheckRuns?: Prisma.BorrowerCheckRunUpdateManyWithoutReviewedByNestedInput
+  reviewedBorrowerFindings?: Prisma.BorrowerCheckFindingUpdateManyWithoutMatchReviewedByNestedInput
+  reviewedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceUpdateManyWithoutReviewedByNestedInput
+  uploadedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceUpdateManyWithoutUploadedByNestedInput
+  assignedBorrowerRisks?: Prisma.BorrowerVerificationRiskUpdateManyWithoutAssignedToNestedInput
+  resolvedBorrowerRisks?: Prisma.BorrowerVerificationRiskUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserUncheckedUpdateWithoutCollateralsInput = {
@@ -937,6 +1305,17 @@ export type UserUncheckedUpdateWithoutCollateralsInput = {
   parties?: Prisma.PartyUncheckedUpdateManyWithoutUserNestedInput
   auditEntries?: Prisma.AuditEntryUncheckedUpdateManyWithoutActorNestedInput
   financeInstructions?: Prisma.FinanceInstructionUncheckedUpdateManyWithoutActorNestedInput
+  confirmedIdentityVersions?: Prisma.PartyIdentityVersionUncheckedUpdateManyWithoutConfirmedByNestedInput
+  assignedBorrowerVerifications?: Prisma.BorrowerVerificationUncheckedUpdateManyWithoutAssignedToNestedInput
+  createdBorrowerVerifications?: Prisma.BorrowerVerificationUncheckedUpdateManyWithoutCreatedByNestedInput
+  decidedBorrowerVerifications?: Prisma.BorrowerVerificationUncheckedUpdateManyWithoutDecidedByNestedInput
+  performedBorrowerCheckRuns?: Prisma.BorrowerCheckRunUncheckedUpdateManyWithoutPerformedByNestedInput
+  reviewedBorrowerCheckRuns?: Prisma.BorrowerCheckRunUncheckedUpdateManyWithoutReviewedByNestedInput
+  reviewedBorrowerFindings?: Prisma.BorrowerCheckFindingUncheckedUpdateManyWithoutMatchReviewedByNestedInput
+  reviewedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceUncheckedUpdateManyWithoutReviewedByNestedInput
+  uploadedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceUncheckedUpdateManyWithoutUploadedByNestedInput
+  assignedBorrowerRisks?: Prisma.BorrowerVerificationRiskUncheckedUpdateManyWithoutAssignedToNestedInput
+  resolvedBorrowerRisks?: Prisma.BorrowerVerificationRiskUncheckedUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserCreateWithoutDealsInput = {
@@ -958,6 +1337,17 @@ export type UserCreateWithoutDealsInput = {
   parties?: Prisma.PartyCreateNestedManyWithoutUserInput
   auditEntries?: Prisma.AuditEntryCreateNestedManyWithoutActorInput
   financeInstructions?: Prisma.FinanceInstructionCreateNestedManyWithoutActorInput
+  confirmedIdentityVersions?: Prisma.PartyIdentityVersionCreateNestedManyWithoutConfirmedByInput
+  assignedBorrowerVerifications?: Prisma.BorrowerVerificationCreateNestedManyWithoutAssignedToInput
+  createdBorrowerVerifications?: Prisma.BorrowerVerificationCreateNestedManyWithoutCreatedByInput
+  decidedBorrowerVerifications?: Prisma.BorrowerVerificationCreateNestedManyWithoutDecidedByInput
+  performedBorrowerCheckRuns?: Prisma.BorrowerCheckRunCreateNestedManyWithoutPerformedByInput
+  reviewedBorrowerCheckRuns?: Prisma.BorrowerCheckRunCreateNestedManyWithoutReviewedByInput
+  reviewedBorrowerFindings?: Prisma.BorrowerCheckFindingCreateNestedManyWithoutMatchReviewedByInput
+  reviewedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceCreateNestedManyWithoutReviewedByInput
+  uploadedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceCreateNestedManyWithoutUploadedByInput
+  assignedBorrowerRisks?: Prisma.BorrowerVerificationRiskCreateNestedManyWithoutAssignedToInput
+  resolvedBorrowerRisks?: Prisma.BorrowerVerificationRiskCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserUncheckedCreateWithoutDealsInput = {
@@ -979,6 +1369,17 @@ export type UserUncheckedCreateWithoutDealsInput = {
   parties?: Prisma.PartyUncheckedCreateNestedManyWithoutUserInput
   auditEntries?: Prisma.AuditEntryUncheckedCreateNestedManyWithoutActorInput
   financeInstructions?: Prisma.FinanceInstructionUncheckedCreateNestedManyWithoutActorInput
+  confirmedIdentityVersions?: Prisma.PartyIdentityVersionUncheckedCreateNestedManyWithoutConfirmedByInput
+  assignedBorrowerVerifications?: Prisma.BorrowerVerificationUncheckedCreateNestedManyWithoutAssignedToInput
+  createdBorrowerVerifications?: Prisma.BorrowerVerificationUncheckedCreateNestedManyWithoutCreatedByInput
+  decidedBorrowerVerifications?: Prisma.BorrowerVerificationUncheckedCreateNestedManyWithoutDecidedByInput
+  performedBorrowerCheckRuns?: Prisma.BorrowerCheckRunUncheckedCreateNestedManyWithoutPerformedByInput
+  reviewedBorrowerCheckRuns?: Prisma.BorrowerCheckRunUncheckedCreateNestedManyWithoutReviewedByInput
+  reviewedBorrowerFindings?: Prisma.BorrowerCheckFindingUncheckedCreateNestedManyWithoutMatchReviewedByInput
+  reviewedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceUncheckedCreateNestedManyWithoutReviewedByInput
+  uploadedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceUncheckedCreateNestedManyWithoutUploadedByInput
+  assignedBorrowerRisks?: Prisma.BorrowerVerificationRiskUncheckedCreateNestedManyWithoutAssignedToInput
+  resolvedBorrowerRisks?: Prisma.BorrowerVerificationRiskUncheckedCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserCreateOrConnectWithoutDealsInput = {
@@ -1016,6 +1417,17 @@ export type UserUpdateWithoutDealsInput = {
   parties?: Prisma.PartyUpdateManyWithoutUserNestedInput
   auditEntries?: Prisma.AuditEntryUpdateManyWithoutActorNestedInput
   financeInstructions?: Prisma.FinanceInstructionUpdateManyWithoutActorNestedInput
+  confirmedIdentityVersions?: Prisma.PartyIdentityVersionUpdateManyWithoutConfirmedByNestedInput
+  assignedBorrowerVerifications?: Prisma.BorrowerVerificationUpdateManyWithoutAssignedToNestedInput
+  createdBorrowerVerifications?: Prisma.BorrowerVerificationUpdateManyWithoutCreatedByNestedInput
+  decidedBorrowerVerifications?: Prisma.BorrowerVerificationUpdateManyWithoutDecidedByNestedInput
+  performedBorrowerCheckRuns?: Prisma.BorrowerCheckRunUpdateManyWithoutPerformedByNestedInput
+  reviewedBorrowerCheckRuns?: Prisma.BorrowerCheckRunUpdateManyWithoutReviewedByNestedInput
+  reviewedBorrowerFindings?: Prisma.BorrowerCheckFindingUpdateManyWithoutMatchReviewedByNestedInput
+  reviewedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceUpdateManyWithoutReviewedByNestedInput
+  uploadedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceUpdateManyWithoutUploadedByNestedInput
+  assignedBorrowerRisks?: Prisma.BorrowerVerificationRiskUpdateManyWithoutAssignedToNestedInput
+  resolvedBorrowerRisks?: Prisma.BorrowerVerificationRiskUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserUncheckedUpdateWithoutDealsInput = {
@@ -1037,6 +1449,17 @@ export type UserUncheckedUpdateWithoutDealsInput = {
   parties?: Prisma.PartyUncheckedUpdateManyWithoutUserNestedInput
   auditEntries?: Prisma.AuditEntryUncheckedUpdateManyWithoutActorNestedInput
   financeInstructions?: Prisma.FinanceInstructionUncheckedUpdateManyWithoutActorNestedInput
+  confirmedIdentityVersions?: Prisma.PartyIdentityVersionUncheckedUpdateManyWithoutConfirmedByNestedInput
+  assignedBorrowerVerifications?: Prisma.BorrowerVerificationUncheckedUpdateManyWithoutAssignedToNestedInput
+  createdBorrowerVerifications?: Prisma.BorrowerVerificationUncheckedUpdateManyWithoutCreatedByNestedInput
+  decidedBorrowerVerifications?: Prisma.BorrowerVerificationUncheckedUpdateManyWithoutDecidedByNestedInput
+  performedBorrowerCheckRuns?: Prisma.BorrowerCheckRunUncheckedUpdateManyWithoutPerformedByNestedInput
+  reviewedBorrowerCheckRuns?: Prisma.BorrowerCheckRunUncheckedUpdateManyWithoutReviewedByNestedInput
+  reviewedBorrowerFindings?: Prisma.BorrowerCheckFindingUncheckedUpdateManyWithoutMatchReviewedByNestedInput
+  reviewedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceUncheckedUpdateManyWithoutReviewedByNestedInput
+  uploadedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceUncheckedUpdateManyWithoutUploadedByNestedInput
+  assignedBorrowerRisks?: Prisma.BorrowerVerificationRiskUncheckedUpdateManyWithoutAssignedToNestedInput
+  resolvedBorrowerRisks?: Prisma.BorrowerVerificationRiskUncheckedUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserCreateWithoutFinanceInstructionsInput = {
@@ -1058,6 +1481,17 @@ export type UserCreateWithoutFinanceInstructionsInput = {
   workspaceMembers?: Prisma.WorkspaceMemberCreateNestedManyWithoutUserInput
   parties?: Prisma.PartyCreateNestedManyWithoutUserInput
   auditEntries?: Prisma.AuditEntryCreateNestedManyWithoutActorInput
+  confirmedIdentityVersions?: Prisma.PartyIdentityVersionCreateNestedManyWithoutConfirmedByInput
+  assignedBorrowerVerifications?: Prisma.BorrowerVerificationCreateNestedManyWithoutAssignedToInput
+  createdBorrowerVerifications?: Prisma.BorrowerVerificationCreateNestedManyWithoutCreatedByInput
+  decidedBorrowerVerifications?: Prisma.BorrowerVerificationCreateNestedManyWithoutDecidedByInput
+  performedBorrowerCheckRuns?: Prisma.BorrowerCheckRunCreateNestedManyWithoutPerformedByInput
+  reviewedBorrowerCheckRuns?: Prisma.BorrowerCheckRunCreateNestedManyWithoutReviewedByInput
+  reviewedBorrowerFindings?: Prisma.BorrowerCheckFindingCreateNestedManyWithoutMatchReviewedByInput
+  reviewedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceCreateNestedManyWithoutReviewedByInput
+  uploadedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceCreateNestedManyWithoutUploadedByInput
+  assignedBorrowerRisks?: Prisma.BorrowerVerificationRiskCreateNestedManyWithoutAssignedToInput
+  resolvedBorrowerRisks?: Prisma.BorrowerVerificationRiskCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserUncheckedCreateWithoutFinanceInstructionsInput = {
@@ -1079,6 +1513,17 @@ export type UserUncheckedCreateWithoutFinanceInstructionsInput = {
   workspaceMembers?: Prisma.WorkspaceMemberUncheckedCreateNestedManyWithoutUserInput
   parties?: Prisma.PartyUncheckedCreateNestedManyWithoutUserInput
   auditEntries?: Prisma.AuditEntryUncheckedCreateNestedManyWithoutActorInput
+  confirmedIdentityVersions?: Prisma.PartyIdentityVersionUncheckedCreateNestedManyWithoutConfirmedByInput
+  assignedBorrowerVerifications?: Prisma.BorrowerVerificationUncheckedCreateNestedManyWithoutAssignedToInput
+  createdBorrowerVerifications?: Prisma.BorrowerVerificationUncheckedCreateNestedManyWithoutCreatedByInput
+  decidedBorrowerVerifications?: Prisma.BorrowerVerificationUncheckedCreateNestedManyWithoutDecidedByInput
+  performedBorrowerCheckRuns?: Prisma.BorrowerCheckRunUncheckedCreateNestedManyWithoutPerformedByInput
+  reviewedBorrowerCheckRuns?: Prisma.BorrowerCheckRunUncheckedCreateNestedManyWithoutReviewedByInput
+  reviewedBorrowerFindings?: Prisma.BorrowerCheckFindingUncheckedCreateNestedManyWithoutMatchReviewedByInput
+  reviewedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceUncheckedCreateNestedManyWithoutReviewedByInput
+  uploadedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceUncheckedCreateNestedManyWithoutUploadedByInput
+  assignedBorrowerRisks?: Prisma.BorrowerVerificationRiskUncheckedCreateNestedManyWithoutAssignedToInput
+  resolvedBorrowerRisks?: Prisma.BorrowerVerificationRiskUncheckedCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserCreateOrConnectWithoutFinanceInstructionsInput = {
@@ -1116,6 +1561,17 @@ export type UserUpdateWithoutFinanceInstructionsInput = {
   workspaceMembers?: Prisma.WorkspaceMemberUpdateManyWithoutUserNestedInput
   parties?: Prisma.PartyUpdateManyWithoutUserNestedInput
   auditEntries?: Prisma.AuditEntryUpdateManyWithoutActorNestedInput
+  confirmedIdentityVersions?: Prisma.PartyIdentityVersionUpdateManyWithoutConfirmedByNestedInput
+  assignedBorrowerVerifications?: Prisma.BorrowerVerificationUpdateManyWithoutAssignedToNestedInput
+  createdBorrowerVerifications?: Prisma.BorrowerVerificationUpdateManyWithoutCreatedByNestedInput
+  decidedBorrowerVerifications?: Prisma.BorrowerVerificationUpdateManyWithoutDecidedByNestedInput
+  performedBorrowerCheckRuns?: Prisma.BorrowerCheckRunUpdateManyWithoutPerformedByNestedInput
+  reviewedBorrowerCheckRuns?: Prisma.BorrowerCheckRunUpdateManyWithoutReviewedByNestedInput
+  reviewedBorrowerFindings?: Prisma.BorrowerCheckFindingUpdateManyWithoutMatchReviewedByNestedInput
+  reviewedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceUpdateManyWithoutReviewedByNestedInput
+  uploadedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceUpdateManyWithoutUploadedByNestedInput
+  assignedBorrowerRisks?: Prisma.BorrowerVerificationRiskUpdateManyWithoutAssignedToNestedInput
+  resolvedBorrowerRisks?: Prisma.BorrowerVerificationRiskUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserUncheckedUpdateWithoutFinanceInstructionsInput = {
@@ -1137,6 +1593,17 @@ export type UserUncheckedUpdateWithoutFinanceInstructionsInput = {
   workspaceMembers?: Prisma.WorkspaceMemberUncheckedUpdateManyWithoutUserNestedInput
   parties?: Prisma.PartyUncheckedUpdateManyWithoutUserNestedInput
   auditEntries?: Prisma.AuditEntryUncheckedUpdateManyWithoutActorNestedInput
+  confirmedIdentityVersions?: Prisma.PartyIdentityVersionUncheckedUpdateManyWithoutConfirmedByNestedInput
+  assignedBorrowerVerifications?: Prisma.BorrowerVerificationUncheckedUpdateManyWithoutAssignedToNestedInput
+  createdBorrowerVerifications?: Prisma.BorrowerVerificationUncheckedUpdateManyWithoutCreatedByNestedInput
+  decidedBorrowerVerifications?: Prisma.BorrowerVerificationUncheckedUpdateManyWithoutDecidedByNestedInput
+  performedBorrowerCheckRuns?: Prisma.BorrowerCheckRunUncheckedUpdateManyWithoutPerformedByNestedInput
+  reviewedBorrowerCheckRuns?: Prisma.BorrowerCheckRunUncheckedUpdateManyWithoutReviewedByNestedInput
+  reviewedBorrowerFindings?: Prisma.BorrowerCheckFindingUncheckedUpdateManyWithoutMatchReviewedByNestedInput
+  reviewedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceUncheckedUpdateManyWithoutReviewedByNestedInput
+  uploadedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceUncheckedUpdateManyWithoutUploadedByNestedInput
+  assignedBorrowerRisks?: Prisma.BorrowerVerificationRiskUncheckedUpdateManyWithoutAssignedToNestedInput
+  resolvedBorrowerRisks?: Prisma.BorrowerVerificationRiskUncheckedUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserCreateWithoutPersonalWorkspaceInput = {
@@ -1158,6 +1625,17 @@ export type UserCreateWithoutPersonalWorkspaceInput = {
   parties?: Prisma.PartyCreateNestedManyWithoutUserInput
   auditEntries?: Prisma.AuditEntryCreateNestedManyWithoutActorInput
   financeInstructions?: Prisma.FinanceInstructionCreateNestedManyWithoutActorInput
+  confirmedIdentityVersions?: Prisma.PartyIdentityVersionCreateNestedManyWithoutConfirmedByInput
+  assignedBorrowerVerifications?: Prisma.BorrowerVerificationCreateNestedManyWithoutAssignedToInput
+  createdBorrowerVerifications?: Prisma.BorrowerVerificationCreateNestedManyWithoutCreatedByInput
+  decidedBorrowerVerifications?: Prisma.BorrowerVerificationCreateNestedManyWithoutDecidedByInput
+  performedBorrowerCheckRuns?: Prisma.BorrowerCheckRunCreateNestedManyWithoutPerformedByInput
+  reviewedBorrowerCheckRuns?: Prisma.BorrowerCheckRunCreateNestedManyWithoutReviewedByInput
+  reviewedBorrowerFindings?: Prisma.BorrowerCheckFindingCreateNestedManyWithoutMatchReviewedByInput
+  reviewedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceCreateNestedManyWithoutReviewedByInput
+  uploadedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceCreateNestedManyWithoutUploadedByInput
+  assignedBorrowerRisks?: Prisma.BorrowerVerificationRiskCreateNestedManyWithoutAssignedToInput
+  resolvedBorrowerRisks?: Prisma.BorrowerVerificationRiskCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserUncheckedCreateWithoutPersonalWorkspaceInput = {
@@ -1179,6 +1657,17 @@ export type UserUncheckedCreateWithoutPersonalWorkspaceInput = {
   parties?: Prisma.PartyUncheckedCreateNestedManyWithoutUserInput
   auditEntries?: Prisma.AuditEntryUncheckedCreateNestedManyWithoutActorInput
   financeInstructions?: Prisma.FinanceInstructionUncheckedCreateNestedManyWithoutActorInput
+  confirmedIdentityVersions?: Prisma.PartyIdentityVersionUncheckedCreateNestedManyWithoutConfirmedByInput
+  assignedBorrowerVerifications?: Prisma.BorrowerVerificationUncheckedCreateNestedManyWithoutAssignedToInput
+  createdBorrowerVerifications?: Prisma.BorrowerVerificationUncheckedCreateNestedManyWithoutCreatedByInput
+  decidedBorrowerVerifications?: Prisma.BorrowerVerificationUncheckedCreateNestedManyWithoutDecidedByInput
+  performedBorrowerCheckRuns?: Prisma.BorrowerCheckRunUncheckedCreateNestedManyWithoutPerformedByInput
+  reviewedBorrowerCheckRuns?: Prisma.BorrowerCheckRunUncheckedCreateNestedManyWithoutReviewedByInput
+  reviewedBorrowerFindings?: Prisma.BorrowerCheckFindingUncheckedCreateNestedManyWithoutMatchReviewedByInput
+  reviewedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceUncheckedCreateNestedManyWithoutReviewedByInput
+  uploadedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceUncheckedCreateNestedManyWithoutUploadedByInput
+  assignedBorrowerRisks?: Prisma.BorrowerVerificationRiskUncheckedCreateNestedManyWithoutAssignedToInput
+  resolvedBorrowerRisks?: Prisma.BorrowerVerificationRiskUncheckedCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserCreateOrConnectWithoutPersonalWorkspaceInput = {
@@ -1216,6 +1705,17 @@ export type UserUpdateWithoutPersonalWorkspaceInput = {
   parties?: Prisma.PartyUpdateManyWithoutUserNestedInput
   auditEntries?: Prisma.AuditEntryUpdateManyWithoutActorNestedInput
   financeInstructions?: Prisma.FinanceInstructionUpdateManyWithoutActorNestedInput
+  confirmedIdentityVersions?: Prisma.PartyIdentityVersionUpdateManyWithoutConfirmedByNestedInput
+  assignedBorrowerVerifications?: Prisma.BorrowerVerificationUpdateManyWithoutAssignedToNestedInput
+  createdBorrowerVerifications?: Prisma.BorrowerVerificationUpdateManyWithoutCreatedByNestedInput
+  decidedBorrowerVerifications?: Prisma.BorrowerVerificationUpdateManyWithoutDecidedByNestedInput
+  performedBorrowerCheckRuns?: Prisma.BorrowerCheckRunUpdateManyWithoutPerformedByNestedInput
+  reviewedBorrowerCheckRuns?: Prisma.BorrowerCheckRunUpdateManyWithoutReviewedByNestedInput
+  reviewedBorrowerFindings?: Prisma.BorrowerCheckFindingUpdateManyWithoutMatchReviewedByNestedInput
+  reviewedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceUpdateManyWithoutReviewedByNestedInput
+  uploadedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceUpdateManyWithoutUploadedByNestedInput
+  assignedBorrowerRisks?: Prisma.BorrowerVerificationRiskUpdateManyWithoutAssignedToNestedInput
+  resolvedBorrowerRisks?: Prisma.BorrowerVerificationRiskUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserUncheckedUpdateWithoutPersonalWorkspaceInput = {
@@ -1237,6 +1737,17 @@ export type UserUncheckedUpdateWithoutPersonalWorkspaceInput = {
   parties?: Prisma.PartyUncheckedUpdateManyWithoutUserNestedInput
   auditEntries?: Prisma.AuditEntryUncheckedUpdateManyWithoutActorNestedInput
   financeInstructions?: Prisma.FinanceInstructionUncheckedUpdateManyWithoutActorNestedInput
+  confirmedIdentityVersions?: Prisma.PartyIdentityVersionUncheckedUpdateManyWithoutConfirmedByNestedInput
+  assignedBorrowerVerifications?: Prisma.BorrowerVerificationUncheckedUpdateManyWithoutAssignedToNestedInput
+  createdBorrowerVerifications?: Prisma.BorrowerVerificationUncheckedUpdateManyWithoutCreatedByNestedInput
+  decidedBorrowerVerifications?: Prisma.BorrowerVerificationUncheckedUpdateManyWithoutDecidedByNestedInput
+  performedBorrowerCheckRuns?: Prisma.BorrowerCheckRunUncheckedUpdateManyWithoutPerformedByNestedInput
+  reviewedBorrowerCheckRuns?: Prisma.BorrowerCheckRunUncheckedUpdateManyWithoutReviewedByNestedInput
+  reviewedBorrowerFindings?: Prisma.BorrowerCheckFindingUncheckedUpdateManyWithoutMatchReviewedByNestedInput
+  reviewedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceUncheckedUpdateManyWithoutReviewedByNestedInput
+  uploadedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceUncheckedUpdateManyWithoutUploadedByNestedInput
+  assignedBorrowerRisks?: Prisma.BorrowerVerificationRiskUncheckedUpdateManyWithoutAssignedToNestedInput
+  resolvedBorrowerRisks?: Prisma.BorrowerVerificationRiskUncheckedUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserCreateWithoutWorkspaceMembersInput = {
@@ -1258,6 +1769,17 @@ export type UserCreateWithoutWorkspaceMembersInput = {
   parties?: Prisma.PartyCreateNestedManyWithoutUserInput
   auditEntries?: Prisma.AuditEntryCreateNestedManyWithoutActorInput
   financeInstructions?: Prisma.FinanceInstructionCreateNestedManyWithoutActorInput
+  confirmedIdentityVersions?: Prisma.PartyIdentityVersionCreateNestedManyWithoutConfirmedByInput
+  assignedBorrowerVerifications?: Prisma.BorrowerVerificationCreateNestedManyWithoutAssignedToInput
+  createdBorrowerVerifications?: Prisma.BorrowerVerificationCreateNestedManyWithoutCreatedByInput
+  decidedBorrowerVerifications?: Prisma.BorrowerVerificationCreateNestedManyWithoutDecidedByInput
+  performedBorrowerCheckRuns?: Prisma.BorrowerCheckRunCreateNestedManyWithoutPerformedByInput
+  reviewedBorrowerCheckRuns?: Prisma.BorrowerCheckRunCreateNestedManyWithoutReviewedByInput
+  reviewedBorrowerFindings?: Prisma.BorrowerCheckFindingCreateNestedManyWithoutMatchReviewedByInput
+  reviewedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceCreateNestedManyWithoutReviewedByInput
+  uploadedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceCreateNestedManyWithoutUploadedByInput
+  assignedBorrowerRisks?: Prisma.BorrowerVerificationRiskCreateNestedManyWithoutAssignedToInput
+  resolvedBorrowerRisks?: Prisma.BorrowerVerificationRiskCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserUncheckedCreateWithoutWorkspaceMembersInput = {
@@ -1279,6 +1801,17 @@ export type UserUncheckedCreateWithoutWorkspaceMembersInput = {
   parties?: Prisma.PartyUncheckedCreateNestedManyWithoutUserInput
   auditEntries?: Prisma.AuditEntryUncheckedCreateNestedManyWithoutActorInput
   financeInstructions?: Prisma.FinanceInstructionUncheckedCreateNestedManyWithoutActorInput
+  confirmedIdentityVersions?: Prisma.PartyIdentityVersionUncheckedCreateNestedManyWithoutConfirmedByInput
+  assignedBorrowerVerifications?: Prisma.BorrowerVerificationUncheckedCreateNestedManyWithoutAssignedToInput
+  createdBorrowerVerifications?: Prisma.BorrowerVerificationUncheckedCreateNestedManyWithoutCreatedByInput
+  decidedBorrowerVerifications?: Prisma.BorrowerVerificationUncheckedCreateNestedManyWithoutDecidedByInput
+  performedBorrowerCheckRuns?: Prisma.BorrowerCheckRunUncheckedCreateNestedManyWithoutPerformedByInput
+  reviewedBorrowerCheckRuns?: Prisma.BorrowerCheckRunUncheckedCreateNestedManyWithoutReviewedByInput
+  reviewedBorrowerFindings?: Prisma.BorrowerCheckFindingUncheckedCreateNestedManyWithoutMatchReviewedByInput
+  reviewedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceUncheckedCreateNestedManyWithoutReviewedByInput
+  uploadedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceUncheckedCreateNestedManyWithoutUploadedByInput
+  assignedBorrowerRisks?: Prisma.BorrowerVerificationRiskUncheckedCreateNestedManyWithoutAssignedToInput
+  resolvedBorrowerRisks?: Prisma.BorrowerVerificationRiskUncheckedCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserCreateOrConnectWithoutWorkspaceMembersInput = {
@@ -1316,6 +1849,17 @@ export type UserUpdateWithoutWorkspaceMembersInput = {
   parties?: Prisma.PartyUpdateManyWithoutUserNestedInput
   auditEntries?: Prisma.AuditEntryUpdateManyWithoutActorNestedInput
   financeInstructions?: Prisma.FinanceInstructionUpdateManyWithoutActorNestedInput
+  confirmedIdentityVersions?: Prisma.PartyIdentityVersionUpdateManyWithoutConfirmedByNestedInput
+  assignedBorrowerVerifications?: Prisma.BorrowerVerificationUpdateManyWithoutAssignedToNestedInput
+  createdBorrowerVerifications?: Prisma.BorrowerVerificationUpdateManyWithoutCreatedByNestedInput
+  decidedBorrowerVerifications?: Prisma.BorrowerVerificationUpdateManyWithoutDecidedByNestedInput
+  performedBorrowerCheckRuns?: Prisma.BorrowerCheckRunUpdateManyWithoutPerformedByNestedInput
+  reviewedBorrowerCheckRuns?: Prisma.BorrowerCheckRunUpdateManyWithoutReviewedByNestedInput
+  reviewedBorrowerFindings?: Prisma.BorrowerCheckFindingUpdateManyWithoutMatchReviewedByNestedInput
+  reviewedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceUpdateManyWithoutReviewedByNestedInput
+  uploadedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceUpdateManyWithoutUploadedByNestedInput
+  assignedBorrowerRisks?: Prisma.BorrowerVerificationRiskUpdateManyWithoutAssignedToNestedInput
+  resolvedBorrowerRisks?: Prisma.BorrowerVerificationRiskUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserUncheckedUpdateWithoutWorkspaceMembersInput = {
@@ -1337,6 +1881,17 @@ export type UserUncheckedUpdateWithoutWorkspaceMembersInput = {
   parties?: Prisma.PartyUncheckedUpdateManyWithoutUserNestedInput
   auditEntries?: Prisma.AuditEntryUncheckedUpdateManyWithoutActorNestedInput
   financeInstructions?: Prisma.FinanceInstructionUncheckedUpdateManyWithoutActorNestedInput
+  confirmedIdentityVersions?: Prisma.PartyIdentityVersionUncheckedUpdateManyWithoutConfirmedByNestedInput
+  assignedBorrowerVerifications?: Prisma.BorrowerVerificationUncheckedUpdateManyWithoutAssignedToNestedInput
+  createdBorrowerVerifications?: Prisma.BorrowerVerificationUncheckedUpdateManyWithoutCreatedByNestedInput
+  decidedBorrowerVerifications?: Prisma.BorrowerVerificationUncheckedUpdateManyWithoutDecidedByNestedInput
+  performedBorrowerCheckRuns?: Prisma.BorrowerCheckRunUncheckedUpdateManyWithoutPerformedByNestedInput
+  reviewedBorrowerCheckRuns?: Prisma.BorrowerCheckRunUncheckedUpdateManyWithoutReviewedByNestedInput
+  reviewedBorrowerFindings?: Prisma.BorrowerCheckFindingUncheckedUpdateManyWithoutMatchReviewedByNestedInput
+  reviewedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceUncheckedUpdateManyWithoutReviewedByNestedInput
+  uploadedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceUncheckedUpdateManyWithoutUploadedByNestedInput
+  assignedBorrowerRisks?: Prisma.BorrowerVerificationRiskUncheckedUpdateManyWithoutAssignedToNestedInput
+  resolvedBorrowerRisks?: Prisma.BorrowerVerificationRiskUncheckedUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserCreateWithoutPartiesInput = {
@@ -1358,6 +1913,17 @@ export type UserCreateWithoutPartiesInput = {
   workspaceMembers?: Prisma.WorkspaceMemberCreateNestedManyWithoutUserInput
   auditEntries?: Prisma.AuditEntryCreateNestedManyWithoutActorInput
   financeInstructions?: Prisma.FinanceInstructionCreateNestedManyWithoutActorInput
+  confirmedIdentityVersions?: Prisma.PartyIdentityVersionCreateNestedManyWithoutConfirmedByInput
+  assignedBorrowerVerifications?: Prisma.BorrowerVerificationCreateNestedManyWithoutAssignedToInput
+  createdBorrowerVerifications?: Prisma.BorrowerVerificationCreateNestedManyWithoutCreatedByInput
+  decidedBorrowerVerifications?: Prisma.BorrowerVerificationCreateNestedManyWithoutDecidedByInput
+  performedBorrowerCheckRuns?: Prisma.BorrowerCheckRunCreateNestedManyWithoutPerformedByInput
+  reviewedBorrowerCheckRuns?: Prisma.BorrowerCheckRunCreateNestedManyWithoutReviewedByInput
+  reviewedBorrowerFindings?: Prisma.BorrowerCheckFindingCreateNestedManyWithoutMatchReviewedByInput
+  reviewedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceCreateNestedManyWithoutReviewedByInput
+  uploadedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceCreateNestedManyWithoutUploadedByInput
+  assignedBorrowerRisks?: Prisma.BorrowerVerificationRiskCreateNestedManyWithoutAssignedToInput
+  resolvedBorrowerRisks?: Prisma.BorrowerVerificationRiskCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserUncheckedCreateWithoutPartiesInput = {
@@ -1379,6 +1945,17 @@ export type UserUncheckedCreateWithoutPartiesInput = {
   workspaceMembers?: Prisma.WorkspaceMemberUncheckedCreateNestedManyWithoutUserInput
   auditEntries?: Prisma.AuditEntryUncheckedCreateNestedManyWithoutActorInput
   financeInstructions?: Prisma.FinanceInstructionUncheckedCreateNestedManyWithoutActorInput
+  confirmedIdentityVersions?: Prisma.PartyIdentityVersionUncheckedCreateNestedManyWithoutConfirmedByInput
+  assignedBorrowerVerifications?: Prisma.BorrowerVerificationUncheckedCreateNestedManyWithoutAssignedToInput
+  createdBorrowerVerifications?: Prisma.BorrowerVerificationUncheckedCreateNestedManyWithoutCreatedByInput
+  decidedBorrowerVerifications?: Prisma.BorrowerVerificationUncheckedCreateNestedManyWithoutDecidedByInput
+  performedBorrowerCheckRuns?: Prisma.BorrowerCheckRunUncheckedCreateNestedManyWithoutPerformedByInput
+  reviewedBorrowerCheckRuns?: Prisma.BorrowerCheckRunUncheckedCreateNestedManyWithoutReviewedByInput
+  reviewedBorrowerFindings?: Prisma.BorrowerCheckFindingUncheckedCreateNestedManyWithoutMatchReviewedByInput
+  reviewedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceUncheckedCreateNestedManyWithoutReviewedByInput
+  uploadedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceUncheckedCreateNestedManyWithoutUploadedByInput
+  assignedBorrowerRisks?: Prisma.BorrowerVerificationRiskUncheckedCreateNestedManyWithoutAssignedToInput
+  resolvedBorrowerRisks?: Prisma.BorrowerVerificationRiskUncheckedCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserCreateOrConnectWithoutPartiesInput = {
@@ -1416,6 +1993,17 @@ export type UserUpdateWithoutPartiesInput = {
   workspaceMembers?: Prisma.WorkspaceMemberUpdateManyWithoutUserNestedInput
   auditEntries?: Prisma.AuditEntryUpdateManyWithoutActorNestedInput
   financeInstructions?: Prisma.FinanceInstructionUpdateManyWithoutActorNestedInput
+  confirmedIdentityVersions?: Prisma.PartyIdentityVersionUpdateManyWithoutConfirmedByNestedInput
+  assignedBorrowerVerifications?: Prisma.BorrowerVerificationUpdateManyWithoutAssignedToNestedInput
+  createdBorrowerVerifications?: Prisma.BorrowerVerificationUpdateManyWithoutCreatedByNestedInput
+  decidedBorrowerVerifications?: Prisma.BorrowerVerificationUpdateManyWithoutDecidedByNestedInput
+  performedBorrowerCheckRuns?: Prisma.BorrowerCheckRunUpdateManyWithoutPerformedByNestedInput
+  reviewedBorrowerCheckRuns?: Prisma.BorrowerCheckRunUpdateManyWithoutReviewedByNestedInput
+  reviewedBorrowerFindings?: Prisma.BorrowerCheckFindingUpdateManyWithoutMatchReviewedByNestedInput
+  reviewedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceUpdateManyWithoutReviewedByNestedInput
+  uploadedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceUpdateManyWithoutUploadedByNestedInput
+  assignedBorrowerRisks?: Prisma.BorrowerVerificationRiskUpdateManyWithoutAssignedToNestedInput
+  resolvedBorrowerRisks?: Prisma.BorrowerVerificationRiskUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserUncheckedUpdateWithoutPartiesInput = {
@@ -1437,6 +2025,17 @@ export type UserUncheckedUpdateWithoutPartiesInput = {
   workspaceMembers?: Prisma.WorkspaceMemberUncheckedUpdateManyWithoutUserNestedInput
   auditEntries?: Prisma.AuditEntryUncheckedUpdateManyWithoutActorNestedInput
   financeInstructions?: Prisma.FinanceInstructionUncheckedUpdateManyWithoutActorNestedInput
+  confirmedIdentityVersions?: Prisma.PartyIdentityVersionUncheckedUpdateManyWithoutConfirmedByNestedInput
+  assignedBorrowerVerifications?: Prisma.BorrowerVerificationUncheckedUpdateManyWithoutAssignedToNestedInput
+  createdBorrowerVerifications?: Prisma.BorrowerVerificationUncheckedUpdateManyWithoutCreatedByNestedInput
+  decidedBorrowerVerifications?: Prisma.BorrowerVerificationUncheckedUpdateManyWithoutDecidedByNestedInput
+  performedBorrowerCheckRuns?: Prisma.BorrowerCheckRunUncheckedUpdateManyWithoutPerformedByNestedInput
+  reviewedBorrowerCheckRuns?: Prisma.BorrowerCheckRunUncheckedUpdateManyWithoutReviewedByNestedInput
+  reviewedBorrowerFindings?: Prisma.BorrowerCheckFindingUncheckedUpdateManyWithoutMatchReviewedByNestedInput
+  reviewedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceUncheckedUpdateManyWithoutReviewedByNestedInput
+  uploadedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceUncheckedUpdateManyWithoutUploadedByNestedInput
+  assignedBorrowerRisks?: Prisma.BorrowerVerificationRiskUncheckedUpdateManyWithoutAssignedToNestedInput
+  resolvedBorrowerRisks?: Prisma.BorrowerVerificationRiskUncheckedUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserCreateWithoutAuditEntriesInput = {
@@ -1458,6 +2057,17 @@ export type UserCreateWithoutAuditEntriesInput = {
   workspaceMembers?: Prisma.WorkspaceMemberCreateNestedManyWithoutUserInput
   parties?: Prisma.PartyCreateNestedManyWithoutUserInput
   financeInstructions?: Prisma.FinanceInstructionCreateNestedManyWithoutActorInput
+  confirmedIdentityVersions?: Prisma.PartyIdentityVersionCreateNestedManyWithoutConfirmedByInput
+  assignedBorrowerVerifications?: Prisma.BorrowerVerificationCreateNestedManyWithoutAssignedToInput
+  createdBorrowerVerifications?: Prisma.BorrowerVerificationCreateNestedManyWithoutCreatedByInput
+  decidedBorrowerVerifications?: Prisma.BorrowerVerificationCreateNestedManyWithoutDecidedByInput
+  performedBorrowerCheckRuns?: Prisma.BorrowerCheckRunCreateNestedManyWithoutPerformedByInput
+  reviewedBorrowerCheckRuns?: Prisma.BorrowerCheckRunCreateNestedManyWithoutReviewedByInput
+  reviewedBorrowerFindings?: Prisma.BorrowerCheckFindingCreateNestedManyWithoutMatchReviewedByInput
+  reviewedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceCreateNestedManyWithoutReviewedByInput
+  uploadedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceCreateNestedManyWithoutUploadedByInput
+  assignedBorrowerRisks?: Prisma.BorrowerVerificationRiskCreateNestedManyWithoutAssignedToInput
+  resolvedBorrowerRisks?: Prisma.BorrowerVerificationRiskCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserUncheckedCreateWithoutAuditEntriesInput = {
@@ -1479,6 +2089,17 @@ export type UserUncheckedCreateWithoutAuditEntriesInput = {
   workspaceMembers?: Prisma.WorkspaceMemberUncheckedCreateNestedManyWithoutUserInput
   parties?: Prisma.PartyUncheckedCreateNestedManyWithoutUserInput
   financeInstructions?: Prisma.FinanceInstructionUncheckedCreateNestedManyWithoutActorInput
+  confirmedIdentityVersions?: Prisma.PartyIdentityVersionUncheckedCreateNestedManyWithoutConfirmedByInput
+  assignedBorrowerVerifications?: Prisma.BorrowerVerificationUncheckedCreateNestedManyWithoutAssignedToInput
+  createdBorrowerVerifications?: Prisma.BorrowerVerificationUncheckedCreateNestedManyWithoutCreatedByInput
+  decidedBorrowerVerifications?: Prisma.BorrowerVerificationUncheckedCreateNestedManyWithoutDecidedByInput
+  performedBorrowerCheckRuns?: Prisma.BorrowerCheckRunUncheckedCreateNestedManyWithoutPerformedByInput
+  reviewedBorrowerCheckRuns?: Prisma.BorrowerCheckRunUncheckedCreateNestedManyWithoutReviewedByInput
+  reviewedBorrowerFindings?: Prisma.BorrowerCheckFindingUncheckedCreateNestedManyWithoutMatchReviewedByInput
+  reviewedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceUncheckedCreateNestedManyWithoutReviewedByInput
+  uploadedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceUncheckedCreateNestedManyWithoutUploadedByInput
+  assignedBorrowerRisks?: Prisma.BorrowerVerificationRiskUncheckedCreateNestedManyWithoutAssignedToInput
+  resolvedBorrowerRisks?: Prisma.BorrowerVerificationRiskUncheckedCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserCreateOrConnectWithoutAuditEntriesInput = {
@@ -1516,6 +2137,17 @@ export type UserUpdateWithoutAuditEntriesInput = {
   workspaceMembers?: Prisma.WorkspaceMemberUpdateManyWithoutUserNestedInput
   parties?: Prisma.PartyUpdateManyWithoutUserNestedInput
   financeInstructions?: Prisma.FinanceInstructionUpdateManyWithoutActorNestedInput
+  confirmedIdentityVersions?: Prisma.PartyIdentityVersionUpdateManyWithoutConfirmedByNestedInput
+  assignedBorrowerVerifications?: Prisma.BorrowerVerificationUpdateManyWithoutAssignedToNestedInput
+  createdBorrowerVerifications?: Prisma.BorrowerVerificationUpdateManyWithoutCreatedByNestedInput
+  decidedBorrowerVerifications?: Prisma.BorrowerVerificationUpdateManyWithoutDecidedByNestedInput
+  performedBorrowerCheckRuns?: Prisma.BorrowerCheckRunUpdateManyWithoutPerformedByNestedInput
+  reviewedBorrowerCheckRuns?: Prisma.BorrowerCheckRunUpdateManyWithoutReviewedByNestedInput
+  reviewedBorrowerFindings?: Prisma.BorrowerCheckFindingUpdateManyWithoutMatchReviewedByNestedInput
+  reviewedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceUpdateManyWithoutReviewedByNestedInput
+  uploadedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceUpdateManyWithoutUploadedByNestedInput
+  assignedBorrowerRisks?: Prisma.BorrowerVerificationRiskUpdateManyWithoutAssignedToNestedInput
+  resolvedBorrowerRisks?: Prisma.BorrowerVerificationRiskUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserUncheckedUpdateWithoutAuditEntriesInput = {
@@ -1537,6 +2169,17 @@ export type UserUncheckedUpdateWithoutAuditEntriesInput = {
   workspaceMembers?: Prisma.WorkspaceMemberUncheckedUpdateManyWithoutUserNestedInput
   parties?: Prisma.PartyUncheckedUpdateManyWithoutUserNestedInput
   financeInstructions?: Prisma.FinanceInstructionUncheckedUpdateManyWithoutActorNestedInput
+  confirmedIdentityVersions?: Prisma.PartyIdentityVersionUncheckedUpdateManyWithoutConfirmedByNestedInput
+  assignedBorrowerVerifications?: Prisma.BorrowerVerificationUncheckedUpdateManyWithoutAssignedToNestedInput
+  createdBorrowerVerifications?: Prisma.BorrowerVerificationUncheckedUpdateManyWithoutCreatedByNestedInput
+  decidedBorrowerVerifications?: Prisma.BorrowerVerificationUncheckedUpdateManyWithoutDecidedByNestedInput
+  performedBorrowerCheckRuns?: Prisma.BorrowerCheckRunUncheckedUpdateManyWithoutPerformedByNestedInput
+  reviewedBorrowerCheckRuns?: Prisma.BorrowerCheckRunUncheckedUpdateManyWithoutReviewedByNestedInput
+  reviewedBorrowerFindings?: Prisma.BorrowerCheckFindingUncheckedUpdateManyWithoutMatchReviewedByNestedInput
+  reviewedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceUncheckedUpdateManyWithoutReviewedByNestedInput
+  uploadedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceUncheckedUpdateManyWithoutUploadedByNestedInput
+  assignedBorrowerRisks?: Prisma.BorrowerVerificationRiskUncheckedUpdateManyWithoutAssignedToNestedInput
+  resolvedBorrowerRisks?: Prisma.BorrowerVerificationRiskUncheckedUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserCreateWithoutMarketplaceMarksInput = {
@@ -1558,6 +2201,17 @@ export type UserCreateWithoutMarketplaceMarksInput = {
   parties?: Prisma.PartyCreateNestedManyWithoutUserInput
   auditEntries?: Prisma.AuditEntryCreateNestedManyWithoutActorInput
   financeInstructions?: Prisma.FinanceInstructionCreateNestedManyWithoutActorInput
+  confirmedIdentityVersions?: Prisma.PartyIdentityVersionCreateNestedManyWithoutConfirmedByInput
+  assignedBorrowerVerifications?: Prisma.BorrowerVerificationCreateNestedManyWithoutAssignedToInput
+  createdBorrowerVerifications?: Prisma.BorrowerVerificationCreateNestedManyWithoutCreatedByInput
+  decidedBorrowerVerifications?: Prisma.BorrowerVerificationCreateNestedManyWithoutDecidedByInput
+  performedBorrowerCheckRuns?: Prisma.BorrowerCheckRunCreateNestedManyWithoutPerformedByInput
+  reviewedBorrowerCheckRuns?: Prisma.BorrowerCheckRunCreateNestedManyWithoutReviewedByInput
+  reviewedBorrowerFindings?: Prisma.BorrowerCheckFindingCreateNestedManyWithoutMatchReviewedByInput
+  reviewedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceCreateNestedManyWithoutReviewedByInput
+  uploadedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceCreateNestedManyWithoutUploadedByInput
+  assignedBorrowerRisks?: Prisma.BorrowerVerificationRiskCreateNestedManyWithoutAssignedToInput
+  resolvedBorrowerRisks?: Prisma.BorrowerVerificationRiskCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserUncheckedCreateWithoutMarketplaceMarksInput = {
@@ -1579,6 +2233,17 @@ export type UserUncheckedCreateWithoutMarketplaceMarksInput = {
   parties?: Prisma.PartyUncheckedCreateNestedManyWithoutUserInput
   auditEntries?: Prisma.AuditEntryUncheckedCreateNestedManyWithoutActorInput
   financeInstructions?: Prisma.FinanceInstructionUncheckedCreateNestedManyWithoutActorInput
+  confirmedIdentityVersions?: Prisma.PartyIdentityVersionUncheckedCreateNestedManyWithoutConfirmedByInput
+  assignedBorrowerVerifications?: Prisma.BorrowerVerificationUncheckedCreateNestedManyWithoutAssignedToInput
+  createdBorrowerVerifications?: Prisma.BorrowerVerificationUncheckedCreateNestedManyWithoutCreatedByInput
+  decidedBorrowerVerifications?: Prisma.BorrowerVerificationUncheckedCreateNestedManyWithoutDecidedByInput
+  performedBorrowerCheckRuns?: Prisma.BorrowerCheckRunUncheckedCreateNestedManyWithoutPerformedByInput
+  reviewedBorrowerCheckRuns?: Prisma.BorrowerCheckRunUncheckedCreateNestedManyWithoutReviewedByInput
+  reviewedBorrowerFindings?: Prisma.BorrowerCheckFindingUncheckedCreateNestedManyWithoutMatchReviewedByInput
+  reviewedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceUncheckedCreateNestedManyWithoutReviewedByInput
+  uploadedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceUncheckedCreateNestedManyWithoutUploadedByInput
+  assignedBorrowerRisks?: Prisma.BorrowerVerificationRiskUncheckedCreateNestedManyWithoutAssignedToInput
+  resolvedBorrowerRisks?: Prisma.BorrowerVerificationRiskUncheckedCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserCreateOrConnectWithoutMarketplaceMarksInput = {
@@ -1616,6 +2281,17 @@ export type UserUpdateWithoutMarketplaceMarksInput = {
   parties?: Prisma.PartyUpdateManyWithoutUserNestedInput
   auditEntries?: Prisma.AuditEntryUpdateManyWithoutActorNestedInput
   financeInstructions?: Prisma.FinanceInstructionUpdateManyWithoutActorNestedInput
+  confirmedIdentityVersions?: Prisma.PartyIdentityVersionUpdateManyWithoutConfirmedByNestedInput
+  assignedBorrowerVerifications?: Prisma.BorrowerVerificationUpdateManyWithoutAssignedToNestedInput
+  createdBorrowerVerifications?: Prisma.BorrowerVerificationUpdateManyWithoutCreatedByNestedInput
+  decidedBorrowerVerifications?: Prisma.BorrowerVerificationUpdateManyWithoutDecidedByNestedInput
+  performedBorrowerCheckRuns?: Prisma.BorrowerCheckRunUpdateManyWithoutPerformedByNestedInput
+  reviewedBorrowerCheckRuns?: Prisma.BorrowerCheckRunUpdateManyWithoutReviewedByNestedInput
+  reviewedBorrowerFindings?: Prisma.BorrowerCheckFindingUpdateManyWithoutMatchReviewedByNestedInput
+  reviewedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceUpdateManyWithoutReviewedByNestedInput
+  uploadedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceUpdateManyWithoutUploadedByNestedInput
+  assignedBorrowerRisks?: Prisma.BorrowerVerificationRiskUpdateManyWithoutAssignedToNestedInput
+  resolvedBorrowerRisks?: Prisma.BorrowerVerificationRiskUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserUncheckedUpdateWithoutMarketplaceMarksInput = {
@@ -1637,6 +2313,1601 @@ export type UserUncheckedUpdateWithoutMarketplaceMarksInput = {
   parties?: Prisma.PartyUncheckedUpdateManyWithoutUserNestedInput
   auditEntries?: Prisma.AuditEntryUncheckedUpdateManyWithoutActorNestedInput
   financeInstructions?: Prisma.FinanceInstructionUncheckedUpdateManyWithoutActorNestedInput
+  confirmedIdentityVersions?: Prisma.PartyIdentityVersionUncheckedUpdateManyWithoutConfirmedByNestedInput
+  assignedBorrowerVerifications?: Prisma.BorrowerVerificationUncheckedUpdateManyWithoutAssignedToNestedInput
+  createdBorrowerVerifications?: Prisma.BorrowerVerificationUncheckedUpdateManyWithoutCreatedByNestedInput
+  decidedBorrowerVerifications?: Prisma.BorrowerVerificationUncheckedUpdateManyWithoutDecidedByNestedInput
+  performedBorrowerCheckRuns?: Prisma.BorrowerCheckRunUncheckedUpdateManyWithoutPerformedByNestedInput
+  reviewedBorrowerCheckRuns?: Prisma.BorrowerCheckRunUncheckedUpdateManyWithoutReviewedByNestedInput
+  reviewedBorrowerFindings?: Prisma.BorrowerCheckFindingUncheckedUpdateManyWithoutMatchReviewedByNestedInput
+  reviewedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceUncheckedUpdateManyWithoutReviewedByNestedInput
+  uploadedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceUncheckedUpdateManyWithoutUploadedByNestedInput
+  assignedBorrowerRisks?: Prisma.BorrowerVerificationRiskUncheckedUpdateManyWithoutAssignedToNestedInput
+  resolvedBorrowerRisks?: Prisma.BorrowerVerificationRiskUncheckedUpdateManyWithoutResolvedByNestedInput
+}
+
+export type UserCreateWithoutConfirmedIdentityVersionsInput = {
+  id?: string
+  email: string
+  passwordHash: string
+  firstName?: string | null
+  lastName?: string | null
+  isActive?: boolean
+  emailVerifiedAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  marketplaceMarks?: Prisma.MarketplaceMarkCreateNestedManyWithoutUserInput
+  authChallenges?: Prisma.AuthChallengeCreateNestedManyWithoutUserInput
+  deals?: Prisma.DealCreateNestedManyWithoutUserInput
+  borrowers?: Prisma.BorrowerCreateNestedManyWithoutUserInput
+  collaterals?: Prisma.CollateralCreateNestedManyWithoutUserInput
+  personalWorkspace?: Prisma.WorkspaceCreateNestedOneWithoutPersonalOwnerInput
+  workspaceMembers?: Prisma.WorkspaceMemberCreateNestedManyWithoutUserInput
+  parties?: Prisma.PartyCreateNestedManyWithoutUserInput
+  auditEntries?: Prisma.AuditEntryCreateNestedManyWithoutActorInput
+  financeInstructions?: Prisma.FinanceInstructionCreateNestedManyWithoutActorInput
+  assignedBorrowerVerifications?: Prisma.BorrowerVerificationCreateNestedManyWithoutAssignedToInput
+  createdBorrowerVerifications?: Prisma.BorrowerVerificationCreateNestedManyWithoutCreatedByInput
+  decidedBorrowerVerifications?: Prisma.BorrowerVerificationCreateNestedManyWithoutDecidedByInput
+  performedBorrowerCheckRuns?: Prisma.BorrowerCheckRunCreateNestedManyWithoutPerformedByInput
+  reviewedBorrowerCheckRuns?: Prisma.BorrowerCheckRunCreateNestedManyWithoutReviewedByInput
+  reviewedBorrowerFindings?: Prisma.BorrowerCheckFindingCreateNestedManyWithoutMatchReviewedByInput
+  reviewedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceCreateNestedManyWithoutReviewedByInput
+  uploadedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceCreateNestedManyWithoutUploadedByInput
+  assignedBorrowerRisks?: Prisma.BorrowerVerificationRiskCreateNestedManyWithoutAssignedToInput
+  resolvedBorrowerRisks?: Prisma.BorrowerVerificationRiskCreateNestedManyWithoutResolvedByInput
+}
+
+export type UserUncheckedCreateWithoutConfirmedIdentityVersionsInput = {
+  id?: string
+  email: string
+  passwordHash: string
+  firstName?: string | null
+  lastName?: string | null
+  isActive?: boolean
+  emailVerifiedAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  marketplaceMarks?: Prisma.MarketplaceMarkUncheckedCreateNestedManyWithoutUserInput
+  authChallenges?: Prisma.AuthChallengeUncheckedCreateNestedManyWithoutUserInput
+  deals?: Prisma.DealUncheckedCreateNestedManyWithoutUserInput
+  borrowers?: Prisma.BorrowerUncheckedCreateNestedManyWithoutUserInput
+  collaterals?: Prisma.CollateralUncheckedCreateNestedManyWithoutUserInput
+  personalWorkspace?: Prisma.WorkspaceUncheckedCreateNestedOneWithoutPersonalOwnerInput
+  workspaceMembers?: Prisma.WorkspaceMemberUncheckedCreateNestedManyWithoutUserInput
+  parties?: Prisma.PartyUncheckedCreateNestedManyWithoutUserInput
+  auditEntries?: Prisma.AuditEntryUncheckedCreateNestedManyWithoutActorInput
+  financeInstructions?: Prisma.FinanceInstructionUncheckedCreateNestedManyWithoutActorInput
+  assignedBorrowerVerifications?: Prisma.BorrowerVerificationUncheckedCreateNestedManyWithoutAssignedToInput
+  createdBorrowerVerifications?: Prisma.BorrowerVerificationUncheckedCreateNestedManyWithoutCreatedByInput
+  decidedBorrowerVerifications?: Prisma.BorrowerVerificationUncheckedCreateNestedManyWithoutDecidedByInput
+  performedBorrowerCheckRuns?: Prisma.BorrowerCheckRunUncheckedCreateNestedManyWithoutPerformedByInput
+  reviewedBorrowerCheckRuns?: Prisma.BorrowerCheckRunUncheckedCreateNestedManyWithoutReviewedByInput
+  reviewedBorrowerFindings?: Prisma.BorrowerCheckFindingUncheckedCreateNestedManyWithoutMatchReviewedByInput
+  reviewedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceUncheckedCreateNestedManyWithoutReviewedByInput
+  uploadedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceUncheckedCreateNestedManyWithoutUploadedByInput
+  assignedBorrowerRisks?: Prisma.BorrowerVerificationRiskUncheckedCreateNestedManyWithoutAssignedToInput
+  resolvedBorrowerRisks?: Prisma.BorrowerVerificationRiskUncheckedCreateNestedManyWithoutResolvedByInput
+}
+
+export type UserCreateOrConnectWithoutConfirmedIdentityVersionsInput = {
+  where: Prisma.UserWhereUniqueInput
+  create: Prisma.XOR<Prisma.UserCreateWithoutConfirmedIdentityVersionsInput, Prisma.UserUncheckedCreateWithoutConfirmedIdentityVersionsInput>
+}
+
+export type UserUpsertWithoutConfirmedIdentityVersionsInput = {
+  update: Prisma.XOR<Prisma.UserUpdateWithoutConfirmedIdentityVersionsInput, Prisma.UserUncheckedUpdateWithoutConfirmedIdentityVersionsInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutConfirmedIdentityVersionsInput, Prisma.UserUncheckedCreateWithoutConfirmedIdentityVersionsInput>
+  where?: Prisma.UserWhereInput
+}
+
+export type UserUpdateToOneWithWhereWithoutConfirmedIdentityVersionsInput = {
+  where?: Prisma.UserWhereInput
+  data: Prisma.XOR<Prisma.UserUpdateWithoutConfirmedIdentityVersionsInput, Prisma.UserUncheckedUpdateWithoutConfirmedIdentityVersionsInput>
+}
+
+export type UserUpdateWithoutConfirmedIdentityVersionsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  firstName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lastName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  emailVerifiedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  marketplaceMarks?: Prisma.MarketplaceMarkUpdateManyWithoutUserNestedInput
+  authChallenges?: Prisma.AuthChallengeUpdateManyWithoutUserNestedInput
+  deals?: Prisma.DealUpdateManyWithoutUserNestedInput
+  borrowers?: Prisma.BorrowerUpdateManyWithoutUserNestedInput
+  collaterals?: Prisma.CollateralUpdateManyWithoutUserNestedInput
+  personalWorkspace?: Prisma.WorkspaceUpdateOneWithoutPersonalOwnerNestedInput
+  workspaceMembers?: Prisma.WorkspaceMemberUpdateManyWithoutUserNestedInput
+  parties?: Prisma.PartyUpdateManyWithoutUserNestedInput
+  auditEntries?: Prisma.AuditEntryUpdateManyWithoutActorNestedInput
+  financeInstructions?: Prisma.FinanceInstructionUpdateManyWithoutActorNestedInput
+  assignedBorrowerVerifications?: Prisma.BorrowerVerificationUpdateManyWithoutAssignedToNestedInput
+  createdBorrowerVerifications?: Prisma.BorrowerVerificationUpdateManyWithoutCreatedByNestedInput
+  decidedBorrowerVerifications?: Prisma.BorrowerVerificationUpdateManyWithoutDecidedByNestedInput
+  performedBorrowerCheckRuns?: Prisma.BorrowerCheckRunUpdateManyWithoutPerformedByNestedInput
+  reviewedBorrowerCheckRuns?: Prisma.BorrowerCheckRunUpdateManyWithoutReviewedByNestedInput
+  reviewedBorrowerFindings?: Prisma.BorrowerCheckFindingUpdateManyWithoutMatchReviewedByNestedInput
+  reviewedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceUpdateManyWithoutReviewedByNestedInput
+  uploadedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceUpdateManyWithoutUploadedByNestedInput
+  assignedBorrowerRisks?: Prisma.BorrowerVerificationRiskUpdateManyWithoutAssignedToNestedInput
+  resolvedBorrowerRisks?: Prisma.BorrowerVerificationRiskUpdateManyWithoutResolvedByNestedInput
+}
+
+export type UserUncheckedUpdateWithoutConfirmedIdentityVersionsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  firstName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lastName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  emailVerifiedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  marketplaceMarks?: Prisma.MarketplaceMarkUncheckedUpdateManyWithoutUserNestedInput
+  authChallenges?: Prisma.AuthChallengeUncheckedUpdateManyWithoutUserNestedInput
+  deals?: Prisma.DealUncheckedUpdateManyWithoutUserNestedInput
+  borrowers?: Prisma.BorrowerUncheckedUpdateManyWithoutUserNestedInput
+  collaterals?: Prisma.CollateralUncheckedUpdateManyWithoutUserNestedInput
+  personalWorkspace?: Prisma.WorkspaceUncheckedUpdateOneWithoutPersonalOwnerNestedInput
+  workspaceMembers?: Prisma.WorkspaceMemberUncheckedUpdateManyWithoutUserNestedInput
+  parties?: Prisma.PartyUncheckedUpdateManyWithoutUserNestedInput
+  auditEntries?: Prisma.AuditEntryUncheckedUpdateManyWithoutActorNestedInput
+  financeInstructions?: Prisma.FinanceInstructionUncheckedUpdateManyWithoutActorNestedInput
+  assignedBorrowerVerifications?: Prisma.BorrowerVerificationUncheckedUpdateManyWithoutAssignedToNestedInput
+  createdBorrowerVerifications?: Prisma.BorrowerVerificationUncheckedUpdateManyWithoutCreatedByNestedInput
+  decidedBorrowerVerifications?: Prisma.BorrowerVerificationUncheckedUpdateManyWithoutDecidedByNestedInput
+  performedBorrowerCheckRuns?: Prisma.BorrowerCheckRunUncheckedUpdateManyWithoutPerformedByNestedInput
+  reviewedBorrowerCheckRuns?: Prisma.BorrowerCheckRunUncheckedUpdateManyWithoutReviewedByNestedInput
+  reviewedBorrowerFindings?: Prisma.BorrowerCheckFindingUncheckedUpdateManyWithoutMatchReviewedByNestedInput
+  reviewedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceUncheckedUpdateManyWithoutReviewedByNestedInput
+  uploadedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceUncheckedUpdateManyWithoutUploadedByNestedInput
+  assignedBorrowerRisks?: Prisma.BorrowerVerificationRiskUncheckedUpdateManyWithoutAssignedToNestedInput
+  resolvedBorrowerRisks?: Prisma.BorrowerVerificationRiskUncheckedUpdateManyWithoutResolvedByNestedInput
+}
+
+export type UserCreateWithoutAssignedBorrowerVerificationsInput = {
+  id?: string
+  email: string
+  passwordHash: string
+  firstName?: string | null
+  lastName?: string | null
+  isActive?: boolean
+  emailVerifiedAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  marketplaceMarks?: Prisma.MarketplaceMarkCreateNestedManyWithoutUserInput
+  authChallenges?: Prisma.AuthChallengeCreateNestedManyWithoutUserInput
+  deals?: Prisma.DealCreateNestedManyWithoutUserInput
+  borrowers?: Prisma.BorrowerCreateNestedManyWithoutUserInput
+  collaterals?: Prisma.CollateralCreateNestedManyWithoutUserInput
+  personalWorkspace?: Prisma.WorkspaceCreateNestedOneWithoutPersonalOwnerInput
+  workspaceMembers?: Prisma.WorkspaceMemberCreateNestedManyWithoutUserInput
+  parties?: Prisma.PartyCreateNestedManyWithoutUserInput
+  auditEntries?: Prisma.AuditEntryCreateNestedManyWithoutActorInput
+  financeInstructions?: Prisma.FinanceInstructionCreateNestedManyWithoutActorInput
+  confirmedIdentityVersions?: Prisma.PartyIdentityVersionCreateNestedManyWithoutConfirmedByInput
+  createdBorrowerVerifications?: Prisma.BorrowerVerificationCreateNestedManyWithoutCreatedByInput
+  decidedBorrowerVerifications?: Prisma.BorrowerVerificationCreateNestedManyWithoutDecidedByInput
+  performedBorrowerCheckRuns?: Prisma.BorrowerCheckRunCreateNestedManyWithoutPerformedByInput
+  reviewedBorrowerCheckRuns?: Prisma.BorrowerCheckRunCreateNestedManyWithoutReviewedByInput
+  reviewedBorrowerFindings?: Prisma.BorrowerCheckFindingCreateNestedManyWithoutMatchReviewedByInput
+  reviewedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceCreateNestedManyWithoutReviewedByInput
+  uploadedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceCreateNestedManyWithoutUploadedByInput
+  assignedBorrowerRisks?: Prisma.BorrowerVerificationRiskCreateNestedManyWithoutAssignedToInput
+  resolvedBorrowerRisks?: Prisma.BorrowerVerificationRiskCreateNestedManyWithoutResolvedByInput
+}
+
+export type UserUncheckedCreateWithoutAssignedBorrowerVerificationsInput = {
+  id?: string
+  email: string
+  passwordHash: string
+  firstName?: string | null
+  lastName?: string | null
+  isActive?: boolean
+  emailVerifiedAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  marketplaceMarks?: Prisma.MarketplaceMarkUncheckedCreateNestedManyWithoutUserInput
+  authChallenges?: Prisma.AuthChallengeUncheckedCreateNestedManyWithoutUserInput
+  deals?: Prisma.DealUncheckedCreateNestedManyWithoutUserInput
+  borrowers?: Prisma.BorrowerUncheckedCreateNestedManyWithoutUserInput
+  collaterals?: Prisma.CollateralUncheckedCreateNestedManyWithoutUserInput
+  personalWorkspace?: Prisma.WorkspaceUncheckedCreateNestedOneWithoutPersonalOwnerInput
+  workspaceMembers?: Prisma.WorkspaceMemberUncheckedCreateNestedManyWithoutUserInput
+  parties?: Prisma.PartyUncheckedCreateNestedManyWithoutUserInput
+  auditEntries?: Prisma.AuditEntryUncheckedCreateNestedManyWithoutActorInput
+  financeInstructions?: Prisma.FinanceInstructionUncheckedCreateNestedManyWithoutActorInput
+  confirmedIdentityVersions?: Prisma.PartyIdentityVersionUncheckedCreateNestedManyWithoutConfirmedByInput
+  createdBorrowerVerifications?: Prisma.BorrowerVerificationUncheckedCreateNestedManyWithoutCreatedByInput
+  decidedBorrowerVerifications?: Prisma.BorrowerVerificationUncheckedCreateNestedManyWithoutDecidedByInput
+  performedBorrowerCheckRuns?: Prisma.BorrowerCheckRunUncheckedCreateNestedManyWithoutPerformedByInput
+  reviewedBorrowerCheckRuns?: Prisma.BorrowerCheckRunUncheckedCreateNestedManyWithoutReviewedByInput
+  reviewedBorrowerFindings?: Prisma.BorrowerCheckFindingUncheckedCreateNestedManyWithoutMatchReviewedByInput
+  reviewedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceUncheckedCreateNestedManyWithoutReviewedByInput
+  uploadedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceUncheckedCreateNestedManyWithoutUploadedByInput
+  assignedBorrowerRisks?: Prisma.BorrowerVerificationRiskUncheckedCreateNestedManyWithoutAssignedToInput
+  resolvedBorrowerRisks?: Prisma.BorrowerVerificationRiskUncheckedCreateNestedManyWithoutResolvedByInput
+}
+
+export type UserCreateOrConnectWithoutAssignedBorrowerVerificationsInput = {
+  where: Prisma.UserWhereUniqueInput
+  create: Prisma.XOR<Prisma.UserCreateWithoutAssignedBorrowerVerificationsInput, Prisma.UserUncheckedCreateWithoutAssignedBorrowerVerificationsInput>
+}
+
+export type UserCreateWithoutCreatedBorrowerVerificationsInput = {
+  id?: string
+  email: string
+  passwordHash: string
+  firstName?: string | null
+  lastName?: string | null
+  isActive?: boolean
+  emailVerifiedAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  marketplaceMarks?: Prisma.MarketplaceMarkCreateNestedManyWithoutUserInput
+  authChallenges?: Prisma.AuthChallengeCreateNestedManyWithoutUserInput
+  deals?: Prisma.DealCreateNestedManyWithoutUserInput
+  borrowers?: Prisma.BorrowerCreateNestedManyWithoutUserInput
+  collaterals?: Prisma.CollateralCreateNestedManyWithoutUserInput
+  personalWorkspace?: Prisma.WorkspaceCreateNestedOneWithoutPersonalOwnerInput
+  workspaceMembers?: Prisma.WorkspaceMemberCreateNestedManyWithoutUserInput
+  parties?: Prisma.PartyCreateNestedManyWithoutUserInput
+  auditEntries?: Prisma.AuditEntryCreateNestedManyWithoutActorInput
+  financeInstructions?: Prisma.FinanceInstructionCreateNestedManyWithoutActorInput
+  confirmedIdentityVersions?: Prisma.PartyIdentityVersionCreateNestedManyWithoutConfirmedByInput
+  assignedBorrowerVerifications?: Prisma.BorrowerVerificationCreateNestedManyWithoutAssignedToInput
+  decidedBorrowerVerifications?: Prisma.BorrowerVerificationCreateNestedManyWithoutDecidedByInput
+  performedBorrowerCheckRuns?: Prisma.BorrowerCheckRunCreateNestedManyWithoutPerformedByInput
+  reviewedBorrowerCheckRuns?: Prisma.BorrowerCheckRunCreateNestedManyWithoutReviewedByInput
+  reviewedBorrowerFindings?: Prisma.BorrowerCheckFindingCreateNestedManyWithoutMatchReviewedByInput
+  reviewedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceCreateNestedManyWithoutReviewedByInput
+  uploadedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceCreateNestedManyWithoutUploadedByInput
+  assignedBorrowerRisks?: Prisma.BorrowerVerificationRiskCreateNestedManyWithoutAssignedToInput
+  resolvedBorrowerRisks?: Prisma.BorrowerVerificationRiskCreateNestedManyWithoutResolvedByInput
+}
+
+export type UserUncheckedCreateWithoutCreatedBorrowerVerificationsInput = {
+  id?: string
+  email: string
+  passwordHash: string
+  firstName?: string | null
+  lastName?: string | null
+  isActive?: boolean
+  emailVerifiedAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  marketplaceMarks?: Prisma.MarketplaceMarkUncheckedCreateNestedManyWithoutUserInput
+  authChallenges?: Prisma.AuthChallengeUncheckedCreateNestedManyWithoutUserInput
+  deals?: Prisma.DealUncheckedCreateNestedManyWithoutUserInput
+  borrowers?: Prisma.BorrowerUncheckedCreateNestedManyWithoutUserInput
+  collaterals?: Prisma.CollateralUncheckedCreateNestedManyWithoutUserInput
+  personalWorkspace?: Prisma.WorkspaceUncheckedCreateNestedOneWithoutPersonalOwnerInput
+  workspaceMembers?: Prisma.WorkspaceMemberUncheckedCreateNestedManyWithoutUserInput
+  parties?: Prisma.PartyUncheckedCreateNestedManyWithoutUserInput
+  auditEntries?: Prisma.AuditEntryUncheckedCreateNestedManyWithoutActorInput
+  financeInstructions?: Prisma.FinanceInstructionUncheckedCreateNestedManyWithoutActorInput
+  confirmedIdentityVersions?: Prisma.PartyIdentityVersionUncheckedCreateNestedManyWithoutConfirmedByInput
+  assignedBorrowerVerifications?: Prisma.BorrowerVerificationUncheckedCreateNestedManyWithoutAssignedToInput
+  decidedBorrowerVerifications?: Prisma.BorrowerVerificationUncheckedCreateNestedManyWithoutDecidedByInput
+  performedBorrowerCheckRuns?: Prisma.BorrowerCheckRunUncheckedCreateNestedManyWithoutPerformedByInput
+  reviewedBorrowerCheckRuns?: Prisma.BorrowerCheckRunUncheckedCreateNestedManyWithoutReviewedByInput
+  reviewedBorrowerFindings?: Prisma.BorrowerCheckFindingUncheckedCreateNestedManyWithoutMatchReviewedByInput
+  reviewedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceUncheckedCreateNestedManyWithoutReviewedByInput
+  uploadedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceUncheckedCreateNestedManyWithoutUploadedByInput
+  assignedBorrowerRisks?: Prisma.BorrowerVerificationRiskUncheckedCreateNestedManyWithoutAssignedToInput
+  resolvedBorrowerRisks?: Prisma.BorrowerVerificationRiskUncheckedCreateNestedManyWithoutResolvedByInput
+}
+
+export type UserCreateOrConnectWithoutCreatedBorrowerVerificationsInput = {
+  where: Prisma.UserWhereUniqueInput
+  create: Prisma.XOR<Prisma.UserCreateWithoutCreatedBorrowerVerificationsInput, Prisma.UserUncheckedCreateWithoutCreatedBorrowerVerificationsInput>
+}
+
+export type UserCreateWithoutDecidedBorrowerVerificationsInput = {
+  id?: string
+  email: string
+  passwordHash: string
+  firstName?: string | null
+  lastName?: string | null
+  isActive?: boolean
+  emailVerifiedAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  marketplaceMarks?: Prisma.MarketplaceMarkCreateNestedManyWithoutUserInput
+  authChallenges?: Prisma.AuthChallengeCreateNestedManyWithoutUserInput
+  deals?: Prisma.DealCreateNestedManyWithoutUserInput
+  borrowers?: Prisma.BorrowerCreateNestedManyWithoutUserInput
+  collaterals?: Prisma.CollateralCreateNestedManyWithoutUserInput
+  personalWorkspace?: Prisma.WorkspaceCreateNestedOneWithoutPersonalOwnerInput
+  workspaceMembers?: Prisma.WorkspaceMemberCreateNestedManyWithoutUserInput
+  parties?: Prisma.PartyCreateNestedManyWithoutUserInput
+  auditEntries?: Prisma.AuditEntryCreateNestedManyWithoutActorInput
+  financeInstructions?: Prisma.FinanceInstructionCreateNestedManyWithoutActorInput
+  confirmedIdentityVersions?: Prisma.PartyIdentityVersionCreateNestedManyWithoutConfirmedByInput
+  assignedBorrowerVerifications?: Prisma.BorrowerVerificationCreateNestedManyWithoutAssignedToInput
+  createdBorrowerVerifications?: Prisma.BorrowerVerificationCreateNestedManyWithoutCreatedByInput
+  performedBorrowerCheckRuns?: Prisma.BorrowerCheckRunCreateNestedManyWithoutPerformedByInput
+  reviewedBorrowerCheckRuns?: Prisma.BorrowerCheckRunCreateNestedManyWithoutReviewedByInput
+  reviewedBorrowerFindings?: Prisma.BorrowerCheckFindingCreateNestedManyWithoutMatchReviewedByInput
+  reviewedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceCreateNestedManyWithoutReviewedByInput
+  uploadedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceCreateNestedManyWithoutUploadedByInput
+  assignedBorrowerRisks?: Prisma.BorrowerVerificationRiskCreateNestedManyWithoutAssignedToInput
+  resolvedBorrowerRisks?: Prisma.BorrowerVerificationRiskCreateNestedManyWithoutResolvedByInput
+}
+
+export type UserUncheckedCreateWithoutDecidedBorrowerVerificationsInput = {
+  id?: string
+  email: string
+  passwordHash: string
+  firstName?: string | null
+  lastName?: string | null
+  isActive?: boolean
+  emailVerifiedAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  marketplaceMarks?: Prisma.MarketplaceMarkUncheckedCreateNestedManyWithoutUserInput
+  authChallenges?: Prisma.AuthChallengeUncheckedCreateNestedManyWithoutUserInput
+  deals?: Prisma.DealUncheckedCreateNestedManyWithoutUserInput
+  borrowers?: Prisma.BorrowerUncheckedCreateNestedManyWithoutUserInput
+  collaterals?: Prisma.CollateralUncheckedCreateNestedManyWithoutUserInput
+  personalWorkspace?: Prisma.WorkspaceUncheckedCreateNestedOneWithoutPersonalOwnerInput
+  workspaceMembers?: Prisma.WorkspaceMemberUncheckedCreateNestedManyWithoutUserInput
+  parties?: Prisma.PartyUncheckedCreateNestedManyWithoutUserInput
+  auditEntries?: Prisma.AuditEntryUncheckedCreateNestedManyWithoutActorInput
+  financeInstructions?: Prisma.FinanceInstructionUncheckedCreateNestedManyWithoutActorInput
+  confirmedIdentityVersions?: Prisma.PartyIdentityVersionUncheckedCreateNestedManyWithoutConfirmedByInput
+  assignedBorrowerVerifications?: Prisma.BorrowerVerificationUncheckedCreateNestedManyWithoutAssignedToInput
+  createdBorrowerVerifications?: Prisma.BorrowerVerificationUncheckedCreateNestedManyWithoutCreatedByInput
+  performedBorrowerCheckRuns?: Prisma.BorrowerCheckRunUncheckedCreateNestedManyWithoutPerformedByInput
+  reviewedBorrowerCheckRuns?: Prisma.BorrowerCheckRunUncheckedCreateNestedManyWithoutReviewedByInput
+  reviewedBorrowerFindings?: Prisma.BorrowerCheckFindingUncheckedCreateNestedManyWithoutMatchReviewedByInput
+  reviewedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceUncheckedCreateNestedManyWithoutReviewedByInput
+  uploadedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceUncheckedCreateNestedManyWithoutUploadedByInput
+  assignedBorrowerRisks?: Prisma.BorrowerVerificationRiskUncheckedCreateNestedManyWithoutAssignedToInput
+  resolvedBorrowerRisks?: Prisma.BorrowerVerificationRiskUncheckedCreateNestedManyWithoutResolvedByInput
+}
+
+export type UserCreateOrConnectWithoutDecidedBorrowerVerificationsInput = {
+  where: Prisma.UserWhereUniqueInput
+  create: Prisma.XOR<Prisma.UserCreateWithoutDecidedBorrowerVerificationsInput, Prisma.UserUncheckedCreateWithoutDecidedBorrowerVerificationsInput>
+}
+
+export type UserUpsertWithoutAssignedBorrowerVerificationsInput = {
+  update: Prisma.XOR<Prisma.UserUpdateWithoutAssignedBorrowerVerificationsInput, Prisma.UserUncheckedUpdateWithoutAssignedBorrowerVerificationsInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutAssignedBorrowerVerificationsInput, Prisma.UserUncheckedCreateWithoutAssignedBorrowerVerificationsInput>
+  where?: Prisma.UserWhereInput
+}
+
+export type UserUpdateToOneWithWhereWithoutAssignedBorrowerVerificationsInput = {
+  where?: Prisma.UserWhereInput
+  data: Prisma.XOR<Prisma.UserUpdateWithoutAssignedBorrowerVerificationsInput, Prisma.UserUncheckedUpdateWithoutAssignedBorrowerVerificationsInput>
+}
+
+export type UserUpdateWithoutAssignedBorrowerVerificationsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  firstName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lastName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  emailVerifiedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  marketplaceMarks?: Prisma.MarketplaceMarkUpdateManyWithoutUserNestedInput
+  authChallenges?: Prisma.AuthChallengeUpdateManyWithoutUserNestedInput
+  deals?: Prisma.DealUpdateManyWithoutUserNestedInput
+  borrowers?: Prisma.BorrowerUpdateManyWithoutUserNestedInput
+  collaterals?: Prisma.CollateralUpdateManyWithoutUserNestedInput
+  personalWorkspace?: Prisma.WorkspaceUpdateOneWithoutPersonalOwnerNestedInput
+  workspaceMembers?: Prisma.WorkspaceMemberUpdateManyWithoutUserNestedInput
+  parties?: Prisma.PartyUpdateManyWithoutUserNestedInput
+  auditEntries?: Prisma.AuditEntryUpdateManyWithoutActorNestedInput
+  financeInstructions?: Prisma.FinanceInstructionUpdateManyWithoutActorNestedInput
+  confirmedIdentityVersions?: Prisma.PartyIdentityVersionUpdateManyWithoutConfirmedByNestedInput
+  createdBorrowerVerifications?: Prisma.BorrowerVerificationUpdateManyWithoutCreatedByNestedInput
+  decidedBorrowerVerifications?: Prisma.BorrowerVerificationUpdateManyWithoutDecidedByNestedInput
+  performedBorrowerCheckRuns?: Prisma.BorrowerCheckRunUpdateManyWithoutPerformedByNestedInput
+  reviewedBorrowerCheckRuns?: Prisma.BorrowerCheckRunUpdateManyWithoutReviewedByNestedInput
+  reviewedBorrowerFindings?: Prisma.BorrowerCheckFindingUpdateManyWithoutMatchReviewedByNestedInput
+  reviewedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceUpdateManyWithoutReviewedByNestedInput
+  uploadedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceUpdateManyWithoutUploadedByNestedInput
+  assignedBorrowerRisks?: Prisma.BorrowerVerificationRiskUpdateManyWithoutAssignedToNestedInput
+  resolvedBorrowerRisks?: Prisma.BorrowerVerificationRiskUpdateManyWithoutResolvedByNestedInput
+}
+
+export type UserUncheckedUpdateWithoutAssignedBorrowerVerificationsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  firstName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lastName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  emailVerifiedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  marketplaceMarks?: Prisma.MarketplaceMarkUncheckedUpdateManyWithoutUserNestedInput
+  authChallenges?: Prisma.AuthChallengeUncheckedUpdateManyWithoutUserNestedInput
+  deals?: Prisma.DealUncheckedUpdateManyWithoutUserNestedInput
+  borrowers?: Prisma.BorrowerUncheckedUpdateManyWithoutUserNestedInput
+  collaterals?: Prisma.CollateralUncheckedUpdateManyWithoutUserNestedInput
+  personalWorkspace?: Prisma.WorkspaceUncheckedUpdateOneWithoutPersonalOwnerNestedInput
+  workspaceMembers?: Prisma.WorkspaceMemberUncheckedUpdateManyWithoutUserNestedInput
+  parties?: Prisma.PartyUncheckedUpdateManyWithoutUserNestedInput
+  auditEntries?: Prisma.AuditEntryUncheckedUpdateManyWithoutActorNestedInput
+  financeInstructions?: Prisma.FinanceInstructionUncheckedUpdateManyWithoutActorNestedInput
+  confirmedIdentityVersions?: Prisma.PartyIdentityVersionUncheckedUpdateManyWithoutConfirmedByNestedInput
+  createdBorrowerVerifications?: Prisma.BorrowerVerificationUncheckedUpdateManyWithoutCreatedByNestedInput
+  decidedBorrowerVerifications?: Prisma.BorrowerVerificationUncheckedUpdateManyWithoutDecidedByNestedInput
+  performedBorrowerCheckRuns?: Prisma.BorrowerCheckRunUncheckedUpdateManyWithoutPerformedByNestedInput
+  reviewedBorrowerCheckRuns?: Prisma.BorrowerCheckRunUncheckedUpdateManyWithoutReviewedByNestedInput
+  reviewedBorrowerFindings?: Prisma.BorrowerCheckFindingUncheckedUpdateManyWithoutMatchReviewedByNestedInput
+  reviewedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceUncheckedUpdateManyWithoutReviewedByNestedInput
+  uploadedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceUncheckedUpdateManyWithoutUploadedByNestedInput
+  assignedBorrowerRisks?: Prisma.BorrowerVerificationRiskUncheckedUpdateManyWithoutAssignedToNestedInput
+  resolvedBorrowerRisks?: Prisma.BorrowerVerificationRiskUncheckedUpdateManyWithoutResolvedByNestedInput
+}
+
+export type UserUpsertWithoutCreatedBorrowerVerificationsInput = {
+  update: Prisma.XOR<Prisma.UserUpdateWithoutCreatedBorrowerVerificationsInput, Prisma.UserUncheckedUpdateWithoutCreatedBorrowerVerificationsInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutCreatedBorrowerVerificationsInput, Prisma.UserUncheckedCreateWithoutCreatedBorrowerVerificationsInput>
+  where?: Prisma.UserWhereInput
+}
+
+export type UserUpdateToOneWithWhereWithoutCreatedBorrowerVerificationsInput = {
+  where?: Prisma.UserWhereInput
+  data: Prisma.XOR<Prisma.UserUpdateWithoutCreatedBorrowerVerificationsInput, Prisma.UserUncheckedUpdateWithoutCreatedBorrowerVerificationsInput>
+}
+
+export type UserUpdateWithoutCreatedBorrowerVerificationsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  firstName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lastName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  emailVerifiedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  marketplaceMarks?: Prisma.MarketplaceMarkUpdateManyWithoutUserNestedInput
+  authChallenges?: Prisma.AuthChallengeUpdateManyWithoutUserNestedInput
+  deals?: Prisma.DealUpdateManyWithoutUserNestedInput
+  borrowers?: Prisma.BorrowerUpdateManyWithoutUserNestedInput
+  collaterals?: Prisma.CollateralUpdateManyWithoutUserNestedInput
+  personalWorkspace?: Prisma.WorkspaceUpdateOneWithoutPersonalOwnerNestedInput
+  workspaceMembers?: Prisma.WorkspaceMemberUpdateManyWithoutUserNestedInput
+  parties?: Prisma.PartyUpdateManyWithoutUserNestedInput
+  auditEntries?: Prisma.AuditEntryUpdateManyWithoutActorNestedInput
+  financeInstructions?: Prisma.FinanceInstructionUpdateManyWithoutActorNestedInput
+  confirmedIdentityVersions?: Prisma.PartyIdentityVersionUpdateManyWithoutConfirmedByNestedInput
+  assignedBorrowerVerifications?: Prisma.BorrowerVerificationUpdateManyWithoutAssignedToNestedInput
+  decidedBorrowerVerifications?: Prisma.BorrowerVerificationUpdateManyWithoutDecidedByNestedInput
+  performedBorrowerCheckRuns?: Prisma.BorrowerCheckRunUpdateManyWithoutPerformedByNestedInput
+  reviewedBorrowerCheckRuns?: Prisma.BorrowerCheckRunUpdateManyWithoutReviewedByNestedInput
+  reviewedBorrowerFindings?: Prisma.BorrowerCheckFindingUpdateManyWithoutMatchReviewedByNestedInput
+  reviewedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceUpdateManyWithoutReviewedByNestedInput
+  uploadedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceUpdateManyWithoutUploadedByNestedInput
+  assignedBorrowerRisks?: Prisma.BorrowerVerificationRiskUpdateManyWithoutAssignedToNestedInput
+  resolvedBorrowerRisks?: Prisma.BorrowerVerificationRiskUpdateManyWithoutResolvedByNestedInput
+}
+
+export type UserUncheckedUpdateWithoutCreatedBorrowerVerificationsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  firstName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lastName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  emailVerifiedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  marketplaceMarks?: Prisma.MarketplaceMarkUncheckedUpdateManyWithoutUserNestedInput
+  authChallenges?: Prisma.AuthChallengeUncheckedUpdateManyWithoutUserNestedInput
+  deals?: Prisma.DealUncheckedUpdateManyWithoutUserNestedInput
+  borrowers?: Prisma.BorrowerUncheckedUpdateManyWithoutUserNestedInput
+  collaterals?: Prisma.CollateralUncheckedUpdateManyWithoutUserNestedInput
+  personalWorkspace?: Prisma.WorkspaceUncheckedUpdateOneWithoutPersonalOwnerNestedInput
+  workspaceMembers?: Prisma.WorkspaceMemberUncheckedUpdateManyWithoutUserNestedInput
+  parties?: Prisma.PartyUncheckedUpdateManyWithoutUserNestedInput
+  auditEntries?: Prisma.AuditEntryUncheckedUpdateManyWithoutActorNestedInput
+  financeInstructions?: Prisma.FinanceInstructionUncheckedUpdateManyWithoutActorNestedInput
+  confirmedIdentityVersions?: Prisma.PartyIdentityVersionUncheckedUpdateManyWithoutConfirmedByNestedInput
+  assignedBorrowerVerifications?: Prisma.BorrowerVerificationUncheckedUpdateManyWithoutAssignedToNestedInput
+  decidedBorrowerVerifications?: Prisma.BorrowerVerificationUncheckedUpdateManyWithoutDecidedByNestedInput
+  performedBorrowerCheckRuns?: Prisma.BorrowerCheckRunUncheckedUpdateManyWithoutPerformedByNestedInput
+  reviewedBorrowerCheckRuns?: Prisma.BorrowerCheckRunUncheckedUpdateManyWithoutReviewedByNestedInput
+  reviewedBorrowerFindings?: Prisma.BorrowerCheckFindingUncheckedUpdateManyWithoutMatchReviewedByNestedInput
+  reviewedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceUncheckedUpdateManyWithoutReviewedByNestedInput
+  uploadedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceUncheckedUpdateManyWithoutUploadedByNestedInput
+  assignedBorrowerRisks?: Prisma.BorrowerVerificationRiskUncheckedUpdateManyWithoutAssignedToNestedInput
+  resolvedBorrowerRisks?: Prisma.BorrowerVerificationRiskUncheckedUpdateManyWithoutResolvedByNestedInput
+}
+
+export type UserUpsertWithoutDecidedBorrowerVerificationsInput = {
+  update: Prisma.XOR<Prisma.UserUpdateWithoutDecidedBorrowerVerificationsInput, Prisma.UserUncheckedUpdateWithoutDecidedBorrowerVerificationsInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutDecidedBorrowerVerificationsInput, Prisma.UserUncheckedCreateWithoutDecidedBorrowerVerificationsInput>
+  where?: Prisma.UserWhereInput
+}
+
+export type UserUpdateToOneWithWhereWithoutDecidedBorrowerVerificationsInput = {
+  where?: Prisma.UserWhereInput
+  data: Prisma.XOR<Prisma.UserUpdateWithoutDecidedBorrowerVerificationsInput, Prisma.UserUncheckedUpdateWithoutDecidedBorrowerVerificationsInput>
+}
+
+export type UserUpdateWithoutDecidedBorrowerVerificationsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  firstName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lastName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  emailVerifiedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  marketplaceMarks?: Prisma.MarketplaceMarkUpdateManyWithoutUserNestedInput
+  authChallenges?: Prisma.AuthChallengeUpdateManyWithoutUserNestedInput
+  deals?: Prisma.DealUpdateManyWithoutUserNestedInput
+  borrowers?: Prisma.BorrowerUpdateManyWithoutUserNestedInput
+  collaterals?: Prisma.CollateralUpdateManyWithoutUserNestedInput
+  personalWorkspace?: Prisma.WorkspaceUpdateOneWithoutPersonalOwnerNestedInput
+  workspaceMembers?: Prisma.WorkspaceMemberUpdateManyWithoutUserNestedInput
+  parties?: Prisma.PartyUpdateManyWithoutUserNestedInput
+  auditEntries?: Prisma.AuditEntryUpdateManyWithoutActorNestedInput
+  financeInstructions?: Prisma.FinanceInstructionUpdateManyWithoutActorNestedInput
+  confirmedIdentityVersions?: Prisma.PartyIdentityVersionUpdateManyWithoutConfirmedByNestedInput
+  assignedBorrowerVerifications?: Prisma.BorrowerVerificationUpdateManyWithoutAssignedToNestedInput
+  createdBorrowerVerifications?: Prisma.BorrowerVerificationUpdateManyWithoutCreatedByNestedInput
+  performedBorrowerCheckRuns?: Prisma.BorrowerCheckRunUpdateManyWithoutPerformedByNestedInput
+  reviewedBorrowerCheckRuns?: Prisma.BorrowerCheckRunUpdateManyWithoutReviewedByNestedInput
+  reviewedBorrowerFindings?: Prisma.BorrowerCheckFindingUpdateManyWithoutMatchReviewedByNestedInput
+  reviewedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceUpdateManyWithoutReviewedByNestedInput
+  uploadedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceUpdateManyWithoutUploadedByNestedInput
+  assignedBorrowerRisks?: Prisma.BorrowerVerificationRiskUpdateManyWithoutAssignedToNestedInput
+  resolvedBorrowerRisks?: Prisma.BorrowerVerificationRiskUpdateManyWithoutResolvedByNestedInput
+}
+
+export type UserUncheckedUpdateWithoutDecidedBorrowerVerificationsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  firstName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lastName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  emailVerifiedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  marketplaceMarks?: Prisma.MarketplaceMarkUncheckedUpdateManyWithoutUserNestedInput
+  authChallenges?: Prisma.AuthChallengeUncheckedUpdateManyWithoutUserNestedInput
+  deals?: Prisma.DealUncheckedUpdateManyWithoutUserNestedInput
+  borrowers?: Prisma.BorrowerUncheckedUpdateManyWithoutUserNestedInput
+  collaterals?: Prisma.CollateralUncheckedUpdateManyWithoutUserNestedInput
+  personalWorkspace?: Prisma.WorkspaceUncheckedUpdateOneWithoutPersonalOwnerNestedInput
+  workspaceMembers?: Prisma.WorkspaceMemberUncheckedUpdateManyWithoutUserNestedInput
+  parties?: Prisma.PartyUncheckedUpdateManyWithoutUserNestedInput
+  auditEntries?: Prisma.AuditEntryUncheckedUpdateManyWithoutActorNestedInput
+  financeInstructions?: Prisma.FinanceInstructionUncheckedUpdateManyWithoutActorNestedInput
+  confirmedIdentityVersions?: Prisma.PartyIdentityVersionUncheckedUpdateManyWithoutConfirmedByNestedInput
+  assignedBorrowerVerifications?: Prisma.BorrowerVerificationUncheckedUpdateManyWithoutAssignedToNestedInput
+  createdBorrowerVerifications?: Prisma.BorrowerVerificationUncheckedUpdateManyWithoutCreatedByNestedInput
+  performedBorrowerCheckRuns?: Prisma.BorrowerCheckRunUncheckedUpdateManyWithoutPerformedByNestedInput
+  reviewedBorrowerCheckRuns?: Prisma.BorrowerCheckRunUncheckedUpdateManyWithoutReviewedByNestedInput
+  reviewedBorrowerFindings?: Prisma.BorrowerCheckFindingUncheckedUpdateManyWithoutMatchReviewedByNestedInput
+  reviewedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceUncheckedUpdateManyWithoutReviewedByNestedInput
+  uploadedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceUncheckedUpdateManyWithoutUploadedByNestedInput
+  assignedBorrowerRisks?: Prisma.BorrowerVerificationRiskUncheckedUpdateManyWithoutAssignedToNestedInput
+  resolvedBorrowerRisks?: Prisma.BorrowerVerificationRiskUncheckedUpdateManyWithoutResolvedByNestedInput
+}
+
+export type UserCreateWithoutPerformedBorrowerCheckRunsInput = {
+  id?: string
+  email: string
+  passwordHash: string
+  firstName?: string | null
+  lastName?: string | null
+  isActive?: boolean
+  emailVerifiedAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  marketplaceMarks?: Prisma.MarketplaceMarkCreateNestedManyWithoutUserInput
+  authChallenges?: Prisma.AuthChallengeCreateNestedManyWithoutUserInput
+  deals?: Prisma.DealCreateNestedManyWithoutUserInput
+  borrowers?: Prisma.BorrowerCreateNestedManyWithoutUserInput
+  collaterals?: Prisma.CollateralCreateNestedManyWithoutUserInput
+  personalWorkspace?: Prisma.WorkspaceCreateNestedOneWithoutPersonalOwnerInput
+  workspaceMembers?: Prisma.WorkspaceMemberCreateNestedManyWithoutUserInput
+  parties?: Prisma.PartyCreateNestedManyWithoutUserInput
+  auditEntries?: Prisma.AuditEntryCreateNestedManyWithoutActorInput
+  financeInstructions?: Prisma.FinanceInstructionCreateNestedManyWithoutActorInput
+  confirmedIdentityVersions?: Prisma.PartyIdentityVersionCreateNestedManyWithoutConfirmedByInput
+  assignedBorrowerVerifications?: Prisma.BorrowerVerificationCreateNestedManyWithoutAssignedToInput
+  createdBorrowerVerifications?: Prisma.BorrowerVerificationCreateNestedManyWithoutCreatedByInput
+  decidedBorrowerVerifications?: Prisma.BorrowerVerificationCreateNestedManyWithoutDecidedByInput
+  reviewedBorrowerCheckRuns?: Prisma.BorrowerCheckRunCreateNestedManyWithoutReviewedByInput
+  reviewedBorrowerFindings?: Prisma.BorrowerCheckFindingCreateNestedManyWithoutMatchReviewedByInput
+  reviewedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceCreateNestedManyWithoutReviewedByInput
+  uploadedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceCreateNestedManyWithoutUploadedByInput
+  assignedBorrowerRisks?: Prisma.BorrowerVerificationRiskCreateNestedManyWithoutAssignedToInput
+  resolvedBorrowerRisks?: Prisma.BorrowerVerificationRiskCreateNestedManyWithoutResolvedByInput
+}
+
+export type UserUncheckedCreateWithoutPerformedBorrowerCheckRunsInput = {
+  id?: string
+  email: string
+  passwordHash: string
+  firstName?: string | null
+  lastName?: string | null
+  isActive?: boolean
+  emailVerifiedAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  marketplaceMarks?: Prisma.MarketplaceMarkUncheckedCreateNestedManyWithoutUserInput
+  authChallenges?: Prisma.AuthChallengeUncheckedCreateNestedManyWithoutUserInput
+  deals?: Prisma.DealUncheckedCreateNestedManyWithoutUserInput
+  borrowers?: Prisma.BorrowerUncheckedCreateNestedManyWithoutUserInput
+  collaterals?: Prisma.CollateralUncheckedCreateNestedManyWithoutUserInput
+  personalWorkspace?: Prisma.WorkspaceUncheckedCreateNestedOneWithoutPersonalOwnerInput
+  workspaceMembers?: Prisma.WorkspaceMemberUncheckedCreateNestedManyWithoutUserInput
+  parties?: Prisma.PartyUncheckedCreateNestedManyWithoutUserInput
+  auditEntries?: Prisma.AuditEntryUncheckedCreateNestedManyWithoutActorInput
+  financeInstructions?: Prisma.FinanceInstructionUncheckedCreateNestedManyWithoutActorInput
+  confirmedIdentityVersions?: Prisma.PartyIdentityVersionUncheckedCreateNestedManyWithoutConfirmedByInput
+  assignedBorrowerVerifications?: Prisma.BorrowerVerificationUncheckedCreateNestedManyWithoutAssignedToInput
+  createdBorrowerVerifications?: Prisma.BorrowerVerificationUncheckedCreateNestedManyWithoutCreatedByInput
+  decidedBorrowerVerifications?: Prisma.BorrowerVerificationUncheckedCreateNestedManyWithoutDecidedByInput
+  reviewedBorrowerCheckRuns?: Prisma.BorrowerCheckRunUncheckedCreateNestedManyWithoutReviewedByInput
+  reviewedBorrowerFindings?: Prisma.BorrowerCheckFindingUncheckedCreateNestedManyWithoutMatchReviewedByInput
+  reviewedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceUncheckedCreateNestedManyWithoutReviewedByInput
+  uploadedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceUncheckedCreateNestedManyWithoutUploadedByInput
+  assignedBorrowerRisks?: Prisma.BorrowerVerificationRiskUncheckedCreateNestedManyWithoutAssignedToInput
+  resolvedBorrowerRisks?: Prisma.BorrowerVerificationRiskUncheckedCreateNestedManyWithoutResolvedByInput
+}
+
+export type UserCreateOrConnectWithoutPerformedBorrowerCheckRunsInput = {
+  where: Prisma.UserWhereUniqueInput
+  create: Prisma.XOR<Prisma.UserCreateWithoutPerformedBorrowerCheckRunsInput, Prisma.UserUncheckedCreateWithoutPerformedBorrowerCheckRunsInput>
+}
+
+export type UserCreateWithoutReviewedBorrowerCheckRunsInput = {
+  id?: string
+  email: string
+  passwordHash: string
+  firstName?: string | null
+  lastName?: string | null
+  isActive?: boolean
+  emailVerifiedAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  marketplaceMarks?: Prisma.MarketplaceMarkCreateNestedManyWithoutUserInput
+  authChallenges?: Prisma.AuthChallengeCreateNestedManyWithoutUserInput
+  deals?: Prisma.DealCreateNestedManyWithoutUserInput
+  borrowers?: Prisma.BorrowerCreateNestedManyWithoutUserInput
+  collaterals?: Prisma.CollateralCreateNestedManyWithoutUserInput
+  personalWorkspace?: Prisma.WorkspaceCreateNestedOneWithoutPersonalOwnerInput
+  workspaceMembers?: Prisma.WorkspaceMemberCreateNestedManyWithoutUserInput
+  parties?: Prisma.PartyCreateNestedManyWithoutUserInput
+  auditEntries?: Prisma.AuditEntryCreateNestedManyWithoutActorInput
+  financeInstructions?: Prisma.FinanceInstructionCreateNestedManyWithoutActorInput
+  confirmedIdentityVersions?: Prisma.PartyIdentityVersionCreateNestedManyWithoutConfirmedByInput
+  assignedBorrowerVerifications?: Prisma.BorrowerVerificationCreateNestedManyWithoutAssignedToInput
+  createdBorrowerVerifications?: Prisma.BorrowerVerificationCreateNestedManyWithoutCreatedByInput
+  decidedBorrowerVerifications?: Prisma.BorrowerVerificationCreateNestedManyWithoutDecidedByInput
+  performedBorrowerCheckRuns?: Prisma.BorrowerCheckRunCreateNestedManyWithoutPerformedByInput
+  reviewedBorrowerFindings?: Prisma.BorrowerCheckFindingCreateNestedManyWithoutMatchReviewedByInput
+  reviewedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceCreateNestedManyWithoutReviewedByInput
+  uploadedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceCreateNestedManyWithoutUploadedByInput
+  assignedBorrowerRisks?: Prisma.BorrowerVerificationRiskCreateNestedManyWithoutAssignedToInput
+  resolvedBorrowerRisks?: Prisma.BorrowerVerificationRiskCreateNestedManyWithoutResolvedByInput
+}
+
+export type UserUncheckedCreateWithoutReviewedBorrowerCheckRunsInput = {
+  id?: string
+  email: string
+  passwordHash: string
+  firstName?: string | null
+  lastName?: string | null
+  isActive?: boolean
+  emailVerifiedAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  marketplaceMarks?: Prisma.MarketplaceMarkUncheckedCreateNestedManyWithoutUserInput
+  authChallenges?: Prisma.AuthChallengeUncheckedCreateNestedManyWithoutUserInput
+  deals?: Prisma.DealUncheckedCreateNestedManyWithoutUserInput
+  borrowers?: Prisma.BorrowerUncheckedCreateNestedManyWithoutUserInput
+  collaterals?: Prisma.CollateralUncheckedCreateNestedManyWithoutUserInput
+  personalWorkspace?: Prisma.WorkspaceUncheckedCreateNestedOneWithoutPersonalOwnerInput
+  workspaceMembers?: Prisma.WorkspaceMemberUncheckedCreateNestedManyWithoutUserInput
+  parties?: Prisma.PartyUncheckedCreateNestedManyWithoutUserInput
+  auditEntries?: Prisma.AuditEntryUncheckedCreateNestedManyWithoutActorInput
+  financeInstructions?: Prisma.FinanceInstructionUncheckedCreateNestedManyWithoutActorInput
+  confirmedIdentityVersions?: Prisma.PartyIdentityVersionUncheckedCreateNestedManyWithoutConfirmedByInput
+  assignedBorrowerVerifications?: Prisma.BorrowerVerificationUncheckedCreateNestedManyWithoutAssignedToInput
+  createdBorrowerVerifications?: Prisma.BorrowerVerificationUncheckedCreateNestedManyWithoutCreatedByInput
+  decidedBorrowerVerifications?: Prisma.BorrowerVerificationUncheckedCreateNestedManyWithoutDecidedByInput
+  performedBorrowerCheckRuns?: Prisma.BorrowerCheckRunUncheckedCreateNestedManyWithoutPerformedByInput
+  reviewedBorrowerFindings?: Prisma.BorrowerCheckFindingUncheckedCreateNestedManyWithoutMatchReviewedByInput
+  reviewedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceUncheckedCreateNestedManyWithoutReviewedByInput
+  uploadedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceUncheckedCreateNestedManyWithoutUploadedByInput
+  assignedBorrowerRisks?: Prisma.BorrowerVerificationRiskUncheckedCreateNestedManyWithoutAssignedToInput
+  resolvedBorrowerRisks?: Prisma.BorrowerVerificationRiskUncheckedCreateNestedManyWithoutResolvedByInput
+}
+
+export type UserCreateOrConnectWithoutReviewedBorrowerCheckRunsInput = {
+  where: Prisma.UserWhereUniqueInput
+  create: Prisma.XOR<Prisma.UserCreateWithoutReviewedBorrowerCheckRunsInput, Prisma.UserUncheckedCreateWithoutReviewedBorrowerCheckRunsInput>
+}
+
+export type UserUpsertWithoutPerformedBorrowerCheckRunsInput = {
+  update: Prisma.XOR<Prisma.UserUpdateWithoutPerformedBorrowerCheckRunsInput, Prisma.UserUncheckedUpdateWithoutPerformedBorrowerCheckRunsInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutPerformedBorrowerCheckRunsInput, Prisma.UserUncheckedCreateWithoutPerformedBorrowerCheckRunsInput>
+  where?: Prisma.UserWhereInput
+}
+
+export type UserUpdateToOneWithWhereWithoutPerformedBorrowerCheckRunsInput = {
+  where?: Prisma.UserWhereInput
+  data: Prisma.XOR<Prisma.UserUpdateWithoutPerformedBorrowerCheckRunsInput, Prisma.UserUncheckedUpdateWithoutPerformedBorrowerCheckRunsInput>
+}
+
+export type UserUpdateWithoutPerformedBorrowerCheckRunsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  firstName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lastName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  emailVerifiedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  marketplaceMarks?: Prisma.MarketplaceMarkUpdateManyWithoutUserNestedInput
+  authChallenges?: Prisma.AuthChallengeUpdateManyWithoutUserNestedInput
+  deals?: Prisma.DealUpdateManyWithoutUserNestedInput
+  borrowers?: Prisma.BorrowerUpdateManyWithoutUserNestedInput
+  collaterals?: Prisma.CollateralUpdateManyWithoutUserNestedInput
+  personalWorkspace?: Prisma.WorkspaceUpdateOneWithoutPersonalOwnerNestedInput
+  workspaceMembers?: Prisma.WorkspaceMemberUpdateManyWithoutUserNestedInput
+  parties?: Prisma.PartyUpdateManyWithoutUserNestedInput
+  auditEntries?: Prisma.AuditEntryUpdateManyWithoutActorNestedInput
+  financeInstructions?: Prisma.FinanceInstructionUpdateManyWithoutActorNestedInput
+  confirmedIdentityVersions?: Prisma.PartyIdentityVersionUpdateManyWithoutConfirmedByNestedInput
+  assignedBorrowerVerifications?: Prisma.BorrowerVerificationUpdateManyWithoutAssignedToNestedInput
+  createdBorrowerVerifications?: Prisma.BorrowerVerificationUpdateManyWithoutCreatedByNestedInput
+  decidedBorrowerVerifications?: Prisma.BorrowerVerificationUpdateManyWithoutDecidedByNestedInput
+  reviewedBorrowerCheckRuns?: Prisma.BorrowerCheckRunUpdateManyWithoutReviewedByNestedInput
+  reviewedBorrowerFindings?: Prisma.BorrowerCheckFindingUpdateManyWithoutMatchReviewedByNestedInput
+  reviewedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceUpdateManyWithoutReviewedByNestedInput
+  uploadedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceUpdateManyWithoutUploadedByNestedInput
+  assignedBorrowerRisks?: Prisma.BorrowerVerificationRiskUpdateManyWithoutAssignedToNestedInput
+  resolvedBorrowerRisks?: Prisma.BorrowerVerificationRiskUpdateManyWithoutResolvedByNestedInput
+}
+
+export type UserUncheckedUpdateWithoutPerformedBorrowerCheckRunsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  firstName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lastName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  emailVerifiedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  marketplaceMarks?: Prisma.MarketplaceMarkUncheckedUpdateManyWithoutUserNestedInput
+  authChallenges?: Prisma.AuthChallengeUncheckedUpdateManyWithoutUserNestedInput
+  deals?: Prisma.DealUncheckedUpdateManyWithoutUserNestedInput
+  borrowers?: Prisma.BorrowerUncheckedUpdateManyWithoutUserNestedInput
+  collaterals?: Prisma.CollateralUncheckedUpdateManyWithoutUserNestedInput
+  personalWorkspace?: Prisma.WorkspaceUncheckedUpdateOneWithoutPersonalOwnerNestedInput
+  workspaceMembers?: Prisma.WorkspaceMemberUncheckedUpdateManyWithoutUserNestedInput
+  parties?: Prisma.PartyUncheckedUpdateManyWithoutUserNestedInput
+  auditEntries?: Prisma.AuditEntryUncheckedUpdateManyWithoutActorNestedInput
+  financeInstructions?: Prisma.FinanceInstructionUncheckedUpdateManyWithoutActorNestedInput
+  confirmedIdentityVersions?: Prisma.PartyIdentityVersionUncheckedUpdateManyWithoutConfirmedByNestedInput
+  assignedBorrowerVerifications?: Prisma.BorrowerVerificationUncheckedUpdateManyWithoutAssignedToNestedInput
+  createdBorrowerVerifications?: Prisma.BorrowerVerificationUncheckedUpdateManyWithoutCreatedByNestedInput
+  decidedBorrowerVerifications?: Prisma.BorrowerVerificationUncheckedUpdateManyWithoutDecidedByNestedInput
+  reviewedBorrowerCheckRuns?: Prisma.BorrowerCheckRunUncheckedUpdateManyWithoutReviewedByNestedInput
+  reviewedBorrowerFindings?: Prisma.BorrowerCheckFindingUncheckedUpdateManyWithoutMatchReviewedByNestedInput
+  reviewedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceUncheckedUpdateManyWithoutReviewedByNestedInput
+  uploadedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceUncheckedUpdateManyWithoutUploadedByNestedInput
+  assignedBorrowerRisks?: Prisma.BorrowerVerificationRiskUncheckedUpdateManyWithoutAssignedToNestedInput
+  resolvedBorrowerRisks?: Prisma.BorrowerVerificationRiskUncheckedUpdateManyWithoutResolvedByNestedInput
+}
+
+export type UserUpsertWithoutReviewedBorrowerCheckRunsInput = {
+  update: Prisma.XOR<Prisma.UserUpdateWithoutReviewedBorrowerCheckRunsInput, Prisma.UserUncheckedUpdateWithoutReviewedBorrowerCheckRunsInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutReviewedBorrowerCheckRunsInput, Prisma.UserUncheckedCreateWithoutReviewedBorrowerCheckRunsInput>
+  where?: Prisma.UserWhereInput
+}
+
+export type UserUpdateToOneWithWhereWithoutReviewedBorrowerCheckRunsInput = {
+  where?: Prisma.UserWhereInput
+  data: Prisma.XOR<Prisma.UserUpdateWithoutReviewedBorrowerCheckRunsInput, Prisma.UserUncheckedUpdateWithoutReviewedBorrowerCheckRunsInput>
+}
+
+export type UserUpdateWithoutReviewedBorrowerCheckRunsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  firstName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lastName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  emailVerifiedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  marketplaceMarks?: Prisma.MarketplaceMarkUpdateManyWithoutUserNestedInput
+  authChallenges?: Prisma.AuthChallengeUpdateManyWithoutUserNestedInput
+  deals?: Prisma.DealUpdateManyWithoutUserNestedInput
+  borrowers?: Prisma.BorrowerUpdateManyWithoutUserNestedInput
+  collaterals?: Prisma.CollateralUpdateManyWithoutUserNestedInput
+  personalWorkspace?: Prisma.WorkspaceUpdateOneWithoutPersonalOwnerNestedInput
+  workspaceMembers?: Prisma.WorkspaceMemberUpdateManyWithoutUserNestedInput
+  parties?: Prisma.PartyUpdateManyWithoutUserNestedInput
+  auditEntries?: Prisma.AuditEntryUpdateManyWithoutActorNestedInput
+  financeInstructions?: Prisma.FinanceInstructionUpdateManyWithoutActorNestedInput
+  confirmedIdentityVersions?: Prisma.PartyIdentityVersionUpdateManyWithoutConfirmedByNestedInput
+  assignedBorrowerVerifications?: Prisma.BorrowerVerificationUpdateManyWithoutAssignedToNestedInput
+  createdBorrowerVerifications?: Prisma.BorrowerVerificationUpdateManyWithoutCreatedByNestedInput
+  decidedBorrowerVerifications?: Prisma.BorrowerVerificationUpdateManyWithoutDecidedByNestedInput
+  performedBorrowerCheckRuns?: Prisma.BorrowerCheckRunUpdateManyWithoutPerformedByNestedInput
+  reviewedBorrowerFindings?: Prisma.BorrowerCheckFindingUpdateManyWithoutMatchReviewedByNestedInput
+  reviewedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceUpdateManyWithoutReviewedByNestedInput
+  uploadedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceUpdateManyWithoutUploadedByNestedInput
+  assignedBorrowerRisks?: Prisma.BorrowerVerificationRiskUpdateManyWithoutAssignedToNestedInput
+  resolvedBorrowerRisks?: Prisma.BorrowerVerificationRiskUpdateManyWithoutResolvedByNestedInput
+}
+
+export type UserUncheckedUpdateWithoutReviewedBorrowerCheckRunsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  firstName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lastName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  emailVerifiedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  marketplaceMarks?: Prisma.MarketplaceMarkUncheckedUpdateManyWithoutUserNestedInput
+  authChallenges?: Prisma.AuthChallengeUncheckedUpdateManyWithoutUserNestedInput
+  deals?: Prisma.DealUncheckedUpdateManyWithoutUserNestedInput
+  borrowers?: Prisma.BorrowerUncheckedUpdateManyWithoutUserNestedInput
+  collaterals?: Prisma.CollateralUncheckedUpdateManyWithoutUserNestedInput
+  personalWorkspace?: Prisma.WorkspaceUncheckedUpdateOneWithoutPersonalOwnerNestedInput
+  workspaceMembers?: Prisma.WorkspaceMemberUncheckedUpdateManyWithoutUserNestedInput
+  parties?: Prisma.PartyUncheckedUpdateManyWithoutUserNestedInput
+  auditEntries?: Prisma.AuditEntryUncheckedUpdateManyWithoutActorNestedInput
+  financeInstructions?: Prisma.FinanceInstructionUncheckedUpdateManyWithoutActorNestedInput
+  confirmedIdentityVersions?: Prisma.PartyIdentityVersionUncheckedUpdateManyWithoutConfirmedByNestedInput
+  assignedBorrowerVerifications?: Prisma.BorrowerVerificationUncheckedUpdateManyWithoutAssignedToNestedInput
+  createdBorrowerVerifications?: Prisma.BorrowerVerificationUncheckedUpdateManyWithoutCreatedByNestedInput
+  decidedBorrowerVerifications?: Prisma.BorrowerVerificationUncheckedUpdateManyWithoutDecidedByNestedInput
+  performedBorrowerCheckRuns?: Prisma.BorrowerCheckRunUncheckedUpdateManyWithoutPerformedByNestedInput
+  reviewedBorrowerFindings?: Prisma.BorrowerCheckFindingUncheckedUpdateManyWithoutMatchReviewedByNestedInput
+  reviewedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceUncheckedUpdateManyWithoutReviewedByNestedInput
+  uploadedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceUncheckedUpdateManyWithoutUploadedByNestedInput
+  assignedBorrowerRisks?: Prisma.BorrowerVerificationRiskUncheckedUpdateManyWithoutAssignedToNestedInput
+  resolvedBorrowerRisks?: Prisma.BorrowerVerificationRiskUncheckedUpdateManyWithoutResolvedByNestedInput
+}
+
+export type UserCreateWithoutReviewedBorrowerFindingsInput = {
+  id?: string
+  email: string
+  passwordHash: string
+  firstName?: string | null
+  lastName?: string | null
+  isActive?: boolean
+  emailVerifiedAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  marketplaceMarks?: Prisma.MarketplaceMarkCreateNestedManyWithoutUserInput
+  authChallenges?: Prisma.AuthChallengeCreateNestedManyWithoutUserInput
+  deals?: Prisma.DealCreateNestedManyWithoutUserInput
+  borrowers?: Prisma.BorrowerCreateNestedManyWithoutUserInput
+  collaterals?: Prisma.CollateralCreateNestedManyWithoutUserInput
+  personalWorkspace?: Prisma.WorkspaceCreateNestedOneWithoutPersonalOwnerInput
+  workspaceMembers?: Prisma.WorkspaceMemberCreateNestedManyWithoutUserInput
+  parties?: Prisma.PartyCreateNestedManyWithoutUserInput
+  auditEntries?: Prisma.AuditEntryCreateNestedManyWithoutActorInput
+  financeInstructions?: Prisma.FinanceInstructionCreateNestedManyWithoutActorInput
+  confirmedIdentityVersions?: Prisma.PartyIdentityVersionCreateNestedManyWithoutConfirmedByInput
+  assignedBorrowerVerifications?: Prisma.BorrowerVerificationCreateNestedManyWithoutAssignedToInput
+  createdBorrowerVerifications?: Prisma.BorrowerVerificationCreateNestedManyWithoutCreatedByInput
+  decidedBorrowerVerifications?: Prisma.BorrowerVerificationCreateNestedManyWithoutDecidedByInput
+  performedBorrowerCheckRuns?: Prisma.BorrowerCheckRunCreateNestedManyWithoutPerformedByInput
+  reviewedBorrowerCheckRuns?: Prisma.BorrowerCheckRunCreateNestedManyWithoutReviewedByInput
+  reviewedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceCreateNestedManyWithoutReviewedByInput
+  uploadedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceCreateNestedManyWithoutUploadedByInput
+  assignedBorrowerRisks?: Prisma.BorrowerVerificationRiskCreateNestedManyWithoutAssignedToInput
+  resolvedBorrowerRisks?: Prisma.BorrowerVerificationRiskCreateNestedManyWithoutResolvedByInput
+}
+
+export type UserUncheckedCreateWithoutReviewedBorrowerFindingsInput = {
+  id?: string
+  email: string
+  passwordHash: string
+  firstName?: string | null
+  lastName?: string | null
+  isActive?: boolean
+  emailVerifiedAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  marketplaceMarks?: Prisma.MarketplaceMarkUncheckedCreateNestedManyWithoutUserInput
+  authChallenges?: Prisma.AuthChallengeUncheckedCreateNestedManyWithoutUserInput
+  deals?: Prisma.DealUncheckedCreateNestedManyWithoutUserInput
+  borrowers?: Prisma.BorrowerUncheckedCreateNestedManyWithoutUserInput
+  collaterals?: Prisma.CollateralUncheckedCreateNestedManyWithoutUserInput
+  personalWorkspace?: Prisma.WorkspaceUncheckedCreateNestedOneWithoutPersonalOwnerInput
+  workspaceMembers?: Prisma.WorkspaceMemberUncheckedCreateNestedManyWithoutUserInput
+  parties?: Prisma.PartyUncheckedCreateNestedManyWithoutUserInput
+  auditEntries?: Prisma.AuditEntryUncheckedCreateNestedManyWithoutActorInput
+  financeInstructions?: Prisma.FinanceInstructionUncheckedCreateNestedManyWithoutActorInput
+  confirmedIdentityVersions?: Prisma.PartyIdentityVersionUncheckedCreateNestedManyWithoutConfirmedByInput
+  assignedBorrowerVerifications?: Prisma.BorrowerVerificationUncheckedCreateNestedManyWithoutAssignedToInput
+  createdBorrowerVerifications?: Prisma.BorrowerVerificationUncheckedCreateNestedManyWithoutCreatedByInput
+  decidedBorrowerVerifications?: Prisma.BorrowerVerificationUncheckedCreateNestedManyWithoutDecidedByInput
+  performedBorrowerCheckRuns?: Prisma.BorrowerCheckRunUncheckedCreateNestedManyWithoutPerformedByInput
+  reviewedBorrowerCheckRuns?: Prisma.BorrowerCheckRunUncheckedCreateNestedManyWithoutReviewedByInput
+  reviewedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceUncheckedCreateNestedManyWithoutReviewedByInput
+  uploadedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceUncheckedCreateNestedManyWithoutUploadedByInput
+  assignedBorrowerRisks?: Prisma.BorrowerVerificationRiskUncheckedCreateNestedManyWithoutAssignedToInput
+  resolvedBorrowerRisks?: Prisma.BorrowerVerificationRiskUncheckedCreateNestedManyWithoutResolvedByInput
+}
+
+export type UserCreateOrConnectWithoutReviewedBorrowerFindingsInput = {
+  where: Prisma.UserWhereUniqueInput
+  create: Prisma.XOR<Prisma.UserCreateWithoutReviewedBorrowerFindingsInput, Prisma.UserUncheckedCreateWithoutReviewedBorrowerFindingsInput>
+}
+
+export type UserUpsertWithoutReviewedBorrowerFindingsInput = {
+  update: Prisma.XOR<Prisma.UserUpdateWithoutReviewedBorrowerFindingsInput, Prisma.UserUncheckedUpdateWithoutReviewedBorrowerFindingsInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutReviewedBorrowerFindingsInput, Prisma.UserUncheckedCreateWithoutReviewedBorrowerFindingsInput>
+  where?: Prisma.UserWhereInput
+}
+
+export type UserUpdateToOneWithWhereWithoutReviewedBorrowerFindingsInput = {
+  where?: Prisma.UserWhereInput
+  data: Prisma.XOR<Prisma.UserUpdateWithoutReviewedBorrowerFindingsInput, Prisma.UserUncheckedUpdateWithoutReviewedBorrowerFindingsInput>
+}
+
+export type UserUpdateWithoutReviewedBorrowerFindingsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  firstName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lastName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  emailVerifiedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  marketplaceMarks?: Prisma.MarketplaceMarkUpdateManyWithoutUserNestedInput
+  authChallenges?: Prisma.AuthChallengeUpdateManyWithoutUserNestedInput
+  deals?: Prisma.DealUpdateManyWithoutUserNestedInput
+  borrowers?: Prisma.BorrowerUpdateManyWithoutUserNestedInput
+  collaterals?: Prisma.CollateralUpdateManyWithoutUserNestedInput
+  personalWorkspace?: Prisma.WorkspaceUpdateOneWithoutPersonalOwnerNestedInput
+  workspaceMembers?: Prisma.WorkspaceMemberUpdateManyWithoutUserNestedInput
+  parties?: Prisma.PartyUpdateManyWithoutUserNestedInput
+  auditEntries?: Prisma.AuditEntryUpdateManyWithoutActorNestedInput
+  financeInstructions?: Prisma.FinanceInstructionUpdateManyWithoutActorNestedInput
+  confirmedIdentityVersions?: Prisma.PartyIdentityVersionUpdateManyWithoutConfirmedByNestedInput
+  assignedBorrowerVerifications?: Prisma.BorrowerVerificationUpdateManyWithoutAssignedToNestedInput
+  createdBorrowerVerifications?: Prisma.BorrowerVerificationUpdateManyWithoutCreatedByNestedInput
+  decidedBorrowerVerifications?: Prisma.BorrowerVerificationUpdateManyWithoutDecidedByNestedInput
+  performedBorrowerCheckRuns?: Prisma.BorrowerCheckRunUpdateManyWithoutPerformedByNestedInput
+  reviewedBorrowerCheckRuns?: Prisma.BorrowerCheckRunUpdateManyWithoutReviewedByNestedInput
+  reviewedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceUpdateManyWithoutReviewedByNestedInput
+  uploadedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceUpdateManyWithoutUploadedByNestedInput
+  assignedBorrowerRisks?: Prisma.BorrowerVerificationRiskUpdateManyWithoutAssignedToNestedInput
+  resolvedBorrowerRisks?: Prisma.BorrowerVerificationRiskUpdateManyWithoutResolvedByNestedInput
+}
+
+export type UserUncheckedUpdateWithoutReviewedBorrowerFindingsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  firstName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lastName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  emailVerifiedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  marketplaceMarks?: Prisma.MarketplaceMarkUncheckedUpdateManyWithoutUserNestedInput
+  authChallenges?: Prisma.AuthChallengeUncheckedUpdateManyWithoutUserNestedInput
+  deals?: Prisma.DealUncheckedUpdateManyWithoutUserNestedInput
+  borrowers?: Prisma.BorrowerUncheckedUpdateManyWithoutUserNestedInput
+  collaterals?: Prisma.CollateralUncheckedUpdateManyWithoutUserNestedInput
+  personalWorkspace?: Prisma.WorkspaceUncheckedUpdateOneWithoutPersonalOwnerNestedInput
+  workspaceMembers?: Prisma.WorkspaceMemberUncheckedUpdateManyWithoutUserNestedInput
+  parties?: Prisma.PartyUncheckedUpdateManyWithoutUserNestedInput
+  auditEntries?: Prisma.AuditEntryUncheckedUpdateManyWithoutActorNestedInput
+  financeInstructions?: Prisma.FinanceInstructionUncheckedUpdateManyWithoutActorNestedInput
+  confirmedIdentityVersions?: Prisma.PartyIdentityVersionUncheckedUpdateManyWithoutConfirmedByNestedInput
+  assignedBorrowerVerifications?: Prisma.BorrowerVerificationUncheckedUpdateManyWithoutAssignedToNestedInput
+  createdBorrowerVerifications?: Prisma.BorrowerVerificationUncheckedUpdateManyWithoutCreatedByNestedInput
+  decidedBorrowerVerifications?: Prisma.BorrowerVerificationUncheckedUpdateManyWithoutDecidedByNestedInput
+  performedBorrowerCheckRuns?: Prisma.BorrowerCheckRunUncheckedUpdateManyWithoutPerformedByNestedInput
+  reviewedBorrowerCheckRuns?: Prisma.BorrowerCheckRunUncheckedUpdateManyWithoutReviewedByNestedInput
+  reviewedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceUncheckedUpdateManyWithoutReviewedByNestedInput
+  uploadedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceUncheckedUpdateManyWithoutUploadedByNestedInput
+  assignedBorrowerRisks?: Prisma.BorrowerVerificationRiskUncheckedUpdateManyWithoutAssignedToNestedInput
+  resolvedBorrowerRisks?: Prisma.BorrowerVerificationRiskUncheckedUpdateManyWithoutResolvedByNestedInput
+}
+
+export type UserCreateWithoutReviewedBorrowerEvidenceInput = {
+  id?: string
+  email: string
+  passwordHash: string
+  firstName?: string | null
+  lastName?: string | null
+  isActive?: boolean
+  emailVerifiedAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  marketplaceMarks?: Prisma.MarketplaceMarkCreateNestedManyWithoutUserInput
+  authChallenges?: Prisma.AuthChallengeCreateNestedManyWithoutUserInput
+  deals?: Prisma.DealCreateNestedManyWithoutUserInput
+  borrowers?: Prisma.BorrowerCreateNestedManyWithoutUserInput
+  collaterals?: Prisma.CollateralCreateNestedManyWithoutUserInput
+  personalWorkspace?: Prisma.WorkspaceCreateNestedOneWithoutPersonalOwnerInput
+  workspaceMembers?: Prisma.WorkspaceMemberCreateNestedManyWithoutUserInput
+  parties?: Prisma.PartyCreateNestedManyWithoutUserInput
+  auditEntries?: Prisma.AuditEntryCreateNestedManyWithoutActorInput
+  financeInstructions?: Prisma.FinanceInstructionCreateNestedManyWithoutActorInput
+  confirmedIdentityVersions?: Prisma.PartyIdentityVersionCreateNestedManyWithoutConfirmedByInput
+  assignedBorrowerVerifications?: Prisma.BorrowerVerificationCreateNestedManyWithoutAssignedToInput
+  createdBorrowerVerifications?: Prisma.BorrowerVerificationCreateNestedManyWithoutCreatedByInput
+  decidedBorrowerVerifications?: Prisma.BorrowerVerificationCreateNestedManyWithoutDecidedByInput
+  performedBorrowerCheckRuns?: Prisma.BorrowerCheckRunCreateNestedManyWithoutPerformedByInput
+  reviewedBorrowerCheckRuns?: Prisma.BorrowerCheckRunCreateNestedManyWithoutReviewedByInput
+  reviewedBorrowerFindings?: Prisma.BorrowerCheckFindingCreateNestedManyWithoutMatchReviewedByInput
+  uploadedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceCreateNestedManyWithoutUploadedByInput
+  assignedBorrowerRisks?: Prisma.BorrowerVerificationRiskCreateNestedManyWithoutAssignedToInput
+  resolvedBorrowerRisks?: Prisma.BorrowerVerificationRiskCreateNestedManyWithoutResolvedByInput
+}
+
+export type UserUncheckedCreateWithoutReviewedBorrowerEvidenceInput = {
+  id?: string
+  email: string
+  passwordHash: string
+  firstName?: string | null
+  lastName?: string | null
+  isActive?: boolean
+  emailVerifiedAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  marketplaceMarks?: Prisma.MarketplaceMarkUncheckedCreateNestedManyWithoutUserInput
+  authChallenges?: Prisma.AuthChallengeUncheckedCreateNestedManyWithoutUserInput
+  deals?: Prisma.DealUncheckedCreateNestedManyWithoutUserInput
+  borrowers?: Prisma.BorrowerUncheckedCreateNestedManyWithoutUserInput
+  collaterals?: Prisma.CollateralUncheckedCreateNestedManyWithoutUserInput
+  personalWorkspace?: Prisma.WorkspaceUncheckedCreateNestedOneWithoutPersonalOwnerInput
+  workspaceMembers?: Prisma.WorkspaceMemberUncheckedCreateNestedManyWithoutUserInput
+  parties?: Prisma.PartyUncheckedCreateNestedManyWithoutUserInput
+  auditEntries?: Prisma.AuditEntryUncheckedCreateNestedManyWithoutActorInput
+  financeInstructions?: Prisma.FinanceInstructionUncheckedCreateNestedManyWithoutActorInput
+  confirmedIdentityVersions?: Prisma.PartyIdentityVersionUncheckedCreateNestedManyWithoutConfirmedByInput
+  assignedBorrowerVerifications?: Prisma.BorrowerVerificationUncheckedCreateNestedManyWithoutAssignedToInput
+  createdBorrowerVerifications?: Prisma.BorrowerVerificationUncheckedCreateNestedManyWithoutCreatedByInput
+  decidedBorrowerVerifications?: Prisma.BorrowerVerificationUncheckedCreateNestedManyWithoutDecidedByInput
+  performedBorrowerCheckRuns?: Prisma.BorrowerCheckRunUncheckedCreateNestedManyWithoutPerformedByInput
+  reviewedBorrowerCheckRuns?: Prisma.BorrowerCheckRunUncheckedCreateNestedManyWithoutReviewedByInput
+  reviewedBorrowerFindings?: Prisma.BorrowerCheckFindingUncheckedCreateNestedManyWithoutMatchReviewedByInput
+  uploadedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceUncheckedCreateNestedManyWithoutUploadedByInput
+  assignedBorrowerRisks?: Prisma.BorrowerVerificationRiskUncheckedCreateNestedManyWithoutAssignedToInput
+  resolvedBorrowerRisks?: Prisma.BorrowerVerificationRiskUncheckedCreateNestedManyWithoutResolvedByInput
+}
+
+export type UserCreateOrConnectWithoutReviewedBorrowerEvidenceInput = {
+  where: Prisma.UserWhereUniqueInput
+  create: Prisma.XOR<Prisma.UserCreateWithoutReviewedBorrowerEvidenceInput, Prisma.UserUncheckedCreateWithoutReviewedBorrowerEvidenceInput>
+}
+
+export type UserCreateWithoutUploadedBorrowerEvidenceInput = {
+  id?: string
+  email: string
+  passwordHash: string
+  firstName?: string | null
+  lastName?: string | null
+  isActive?: boolean
+  emailVerifiedAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  marketplaceMarks?: Prisma.MarketplaceMarkCreateNestedManyWithoutUserInput
+  authChallenges?: Prisma.AuthChallengeCreateNestedManyWithoutUserInput
+  deals?: Prisma.DealCreateNestedManyWithoutUserInput
+  borrowers?: Prisma.BorrowerCreateNestedManyWithoutUserInput
+  collaterals?: Prisma.CollateralCreateNestedManyWithoutUserInput
+  personalWorkspace?: Prisma.WorkspaceCreateNestedOneWithoutPersonalOwnerInput
+  workspaceMembers?: Prisma.WorkspaceMemberCreateNestedManyWithoutUserInput
+  parties?: Prisma.PartyCreateNestedManyWithoutUserInput
+  auditEntries?: Prisma.AuditEntryCreateNestedManyWithoutActorInput
+  financeInstructions?: Prisma.FinanceInstructionCreateNestedManyWithoutActorInput
+  confirmedIdentityVersions?: Prisma.PartyIdentityVersionCreateNestedManyWithoutConfirmedByInput
+  assignedBorrowerVerifications?: Prisma.BorrowerVerificationCreateNestedManyWithoutAssignedToInput
+  createdBorrowerVerifications?: Prisma.BorrowerVerificationCreateNestedManyWithoutCreatedByInput
+  decidedBorrowerVerifications?: Prisma.BorrowerVerificationCreateNestedManyWithoutDecidedByInput
+  performedBorrowerCheckRuns?: Prisma.BorrowerCheckRunCreateNestedManyWithoutPerformedByInput
+  reviewedBorrowerCheckRuns?: Prisma.BorrowerCheckRunCreateNestedManyWithoutReviewedByInput
+  reviewedBorrowerFindings?: Prisma.BorrowerCheckFindingCreateNestedManyWithoutMatchReviewedByInput
+  reviewedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceCreateNestedManyWithoutReviewedByInput
+  assignedBorrowerRisks?: Prisma.BorrowerVerificationRiskCreateNestedManyWithoutAssignedToInput
+  resolvedBorrowerRisks?: Prisma.BorrowerVerificationRiskCreateNestedManyWithoutResolvedByInput
+}
+
+export type UserUncheckedCreateWithoutUploadedBorrowerEvidenceInput = {
+  id?: string
+  email: string
+  passwordHash: string
+  firstName?: string | null
+  lastName?: string | null
+  isActive?: boolean
+  emailVerifiedAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  marketplaceMarks?: Prisma.MarketplaceMarkUncheckedCreateNestedManyWithoutUserInput
+  authChallenges?: Prisma.AuthChallengeUncheckedCreateNestedManyWithoutUserInput
+  deals?: Prisma.DealUncheckedCreateNestedManyWithoutUserInput
+  borrowers?: Prisma.BorrowerUncheckedCreateNestedManyWithoutUserInput
+  collaterals?: Prisma.CollateralUncheckedCreateNestedManyWithoutUserInput
+  personalWorkspace?: Prisma.WorkspaceUncheckedCreateNestedOneWithoutPersonalOwnerInput
+  workspaceMembers?: Prisma.WorkspaceMemberUncheckedCreateNestedManyWithoutUserInput
+  parties?: Prisma.PartyUncheckedCreateNestedManyWithoutUserInput
+  auditEntries?: Prisma.AuditEntryUncheckedCreateNestedManyWithoutActorInput
+  financeInstructions?: Prisma.FinanceInstructionUncheckedCreateNestedManyWithoutActorInput
+  confirmedIdentityVersions?: Prisma.PartyIdentityVersionUncheckedCreateNestedManyWithoutConfirmedByInput
+  assignedBorrowerVerifications?: Prisma.BorrowerVerificationUncheckedCreateNestedManyWithoutAssignedToInput
+  createdBorrowerVerifications?: Prisma.BorrowerVerificationUncheckedCreateNestedManyWithoutCreatedByInput
+  decidedBorrowerVerifications?: Prisma.BorrowerVerificationUncheckedCreateNestedManyWithoutDecidedByInput
+  performedBorrowerCheckRuns?: Prisma.BorrowerCheckRunUncheckedCreateNestedManyWithoutPerformedByInput
+  reviewedBorrowerCheckRuns?: Prisma.BorrowerCheckRunUncheckedCreateNestedManyWithoutReviewedByInput
+  reviewedBorrowerFindings?: Prisma.BorrowerCheckFindingUncheckedCreateNestedManyWithoutMatchReviewedByInput
+  reviewedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceUncheckedCreateNestedManyWithoutReviewedByInput
+  assignedBorrowerRisks?: Prisma.BorrowerVerificationRiskUncheckedCreateNestedManyWithoutAssignedToInput
+  resolvedBorrowerRisks?: Prisma.BorrowerVerificationRiskUncheckedCreateNestedManyWithoutResolvedByInput
+}
+
+export type UserCreateOrConnectWithoutUploadedBorrowerEvidenceInput = {
+  where: Prisma.UserWhereUniqueInput
+  create: Prisma.XOR<Prisma.UserCreateWithoutUploadedBorrowerEvidenceInput, Prisma.UserUncheckedCreateWithoutUploadedBorrowerEvidenceInput>
+}
+
+export type UserUpsertWithoutReviewedBorrowerEvidenceInput = {
+  update: Prisma.XOR<Prisma.UserUpdateWithoutReviewedBorrowerEvidenceInput, Prisma.UserUncheckedUpdateWithoutReviewedBorrowerEvidenceInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutReviewedBorrowerEvidenceInput, Prisma.UserUncheckedCreateWithoutReviewedBorrowerEvidenceInput>
+  where?: Prisma.UserWhereInput
+}
+
+export type UserUpdateToOneWithWhereWithoutReviewedBorrowerEvidenceInput = {
+  where?: Prisma.UserWhereInput
+  data: Prisma.XOR<Prisma.UserUpdateWithoutReviewedBorrowerEvidenceInput, Prisma.UserUncheckedUpdateWithoutReviewedBorrowerEvidenceInput>
+}
+
+export type UserUpdateWithoutReviewedBorrowerEvidenceInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  firstName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lastName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  emailVerifiedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  marketplaceMarks?: Prisma.MarketplaceMarkUpdateManyWithoutUserNestedInput
+  authChallenges?: Prisma.AuthChallengeUpdateManyWithoutUserNestedInput
+  deals?: Prisma.DealUpdateManyWithoutUserNestedInput
+  borrowers?: Prisma.BorrowerUpdateManyWithoutUserNestedInput
+  collaterals?: Prisma.CollateralUpdateManyWithoutUserNestedInput
+  personalWorkspace?: Prisma.WorkspaceUpdateOneWithoutPersonalOwnerNestedInput
+  workspaceMembers?: Prisma.WorkspaceMemberUpdateManyWithoutUserNestedInput
+  parties?: Prisma.PartyUpdateManyWithoutUserNestedInput
+  auditEntries?: Prisma.AuditEntryUpdateManyWithoutActorNestedInput
+  financeInstructions?: Prisma.FinanceInstructionUpdateManyWithoutActorNestedInput
+  confirmedIdentityVersions?: Prisma.PartyIdentityVersionUpdateManyWithoutConfirmedByNestedInput
+  assignedBorrowerVerifications?: Prisma.BorrowerVerificationUpdateManyWithoutAssignedToNestedInput
+  createdBorrowerVerifications?: Prisma.BorrowerVerificationUpdateManyWithoutCreatedByNestedInput
+  decidedBorrowerVerifications?: Prisma.BorrowerVerificationUpdateManyWithoutDecidedByNestedInput
+  performedBorrowerCheckRuns?: Prisma.BorrowerCheckRunUpdateManyWithoutPerformedByNestedInput
+  reviewedBorrowerCheckRuns?: Prisma.BorrowerCheckRunUpdateManyWithoutReviewedByNestedInput
+  reviewedBorrowerFindings?: Prisma.BorrowerCheckFindingUpdateManyWithoutMatchReviewedByNestedInput
+  uploadedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceUpdateManyWithoutUploadedByNestedInput
+  assignedBorrowerRisks?: Prisma.BorrowerVerificationRiskUpdateManyWithoutAssignedToNestedInput
+  resolvedBorrowerRisks?: Prisma.BorrowerVerificationRiskUpdateManyWithoutResolvedByNestedInput
+}
+
+export type UserUncheckedUpdateWithoutReviewedBorrowerEvidenceInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  firstName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lastName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  emailVerifiedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  marketplaceMarks?: Prisma.MarketplaceMarkUncheckedUpdateManyWithoutUserNestedInput
+  authChallenges?: Prisma.AuthChallengeUncheckedUpdateManyWithoutUserNestedInput
+  deals?: Prisma.DealUncheckedUpdateManyWithoutUserNestedInput
+  borrowers?: Prisma.BorrowerUncheckedUpdateManyWithoutUserNestedInput
+  collaterals?: Prisma.CollateralUncheckedUpdateManyWithoutUserNestedInput
+  personalWorkspace?: Prisma.WorkspaceUncheckedUpdateOneWithoutPersonalOwnerNestedInput
+  workspaceMembers?: Prisma.WorkspaceMemberUncheckedUpdateManyWithoutUserNestedInput
+  parties?: Prisma.PartyUncheckedUpdateManyWithoutUserNestedInput
+  auditEntries?: Prisma.AuditEntryUncheckedUpdateManyWithoutActorNestedInput
+  financeInstructions?: Prisma.FinanceInstructionUncheckedUpdateManyWithoutActorNestedInput
+  confirmedIdentityVersions?: Prisma.PartyIdentityVersionUncheckedUpdateManyWithoutConfirmedByNestedInput
+  assignedBorrowerVerifications?: Prisma.BorrowerVerificationUncheckedUpdateManyWithoutAssignedToNestedInput
+  createdBorrowerVerifications?: Prisma.BorrowerVerificationUncheckedUpdateManyWithoutCreatedByNestedInput
+  decidedBorrowerVerifications?: Prisma.BorrowerVerificationUncheckedUpdateManyWithoutDecidedByNestedInput
+  performedBorrowerCheckRuns?: Prisma.BorrowerCheckRunUncheckedUpdateManyWithoutPerformedByNestedInput
+  reviewedBorrowerCheckRuns?: Prisma.BorrowerCheckRunUncheckedUpdateManyWithoutReviewedByNestedInput
+  reviewedBorrowerFindings?: Prisma.BorrowerCheckFindingUncheckedUpdateManyWithoutMatchReviewedByNestedInput
+  uploadedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceUncheckedUpdateManyWithoutUploadedByNestedInput
+  assignedBorrowerRisks?: Prisma.BorrowerVerificationRiskUncheckedUpdateManyWithoutAssignedToNestedInput
+  resolvedBorrowerRisks?: Prisma.BorrowerVerificationRiskUncheckedUpdateManyWithoutResolvedByNestedInput
+}
+
+export type UserUpsertWithoutUploadedBorrowerEvidenceInput = {
+  update: Prisma.XOR<Prisma.UserUpdateWithoutUploadedBorrowerEvidenceInput, Prisma.UserUncheckedUpdateWithoutUploadedBorrowerEvidenceInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutUploadedBorrowerEvidenceInput, Prisma.UserUncheckedCreateWithoutUploadedBorrowerEvidenceInput>
+  where?: Prisma.UserWhereInput
+}
+
+export type UserUpdateToOneWithWhereWithoutUploadedBorrowerEvidenceInput = {
+  where?: Prisma.UserWhereInput
+  data: Prisma.XOR<Prisma.UserUpdateWithoutUploadedBorrowerEvidenceInput, Prisma.UserUncheckedUpdateWithoutUploadedBorrowerEvidenceInput>
+}
+
+export type UserUpdateWithoutUploadedBorrowerEvidenceInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  firstName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lastName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  emailVerifiedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  marketplaceMarks?: Prisma.MarketplaceMarkUpdateManyWithoutUserNestedInput
+  authChallenges?: Prisma.AuthChallengeUpdateManyWithoutUserNestedInput
+  deals?: Prisma.DealUpdateManyWithoutUserNestedInput
+  borrowers?: Prisma.BorrowerUpdateManyWithoutUserNestedInput
+  collaterals?: Prisma.CollateralUpdateManyWithoutUserNestedInput
+  personalWorkspace?: Prisma.WorkspaceUpdateOneWithoutPersonalOwnerNestedInput
+  workspaceMembers?: Prisma.WorkspaceMemberUpdateManyWithoutUserNestedInput
+  parties?: Prisma.PartyUpdateManyWithoutUserNestedInput
+  auditEntries?: Prisma.AuditEntryUpdateManyWithoutActorNestedInput
+  financeInstructions?: Prisma.FinanceInstructionUpdateManyWithoutActorNestedInput
+  confirmedIdentityVersions?: Prisma.PartyIdentityVersionUpdateManyWithoutConfirmedByNestedInput
+  assignedBorrowerVerifications?: Prisma.BorrowerVerificationUpdateManyWithoutAssignedToNestedInput
+  createdBorrowerVerifications?: Prisma.BorrowerVerificationUpdateManyWithoutCreatedByNestedInput
+  decidedBorrowerVerifications?: Prisma.BorrowerVerificationUpdateManyWithoutDecidedByNestedInput
+  performedBorrowerCheckRuns?: Prisma.BorrowerCheckRunUpdateManyWithoutPerformedByNestedInput
+  reviewedBorrowerCheckRuns?: Prisma.BorrowerCheckRunUpdateManyWithoutReviewedByNestedInput
+  reviewedBorrowerFindings?: Prisma.BorrowerCheckFindingUpdateManyWithoutMatchReviewedByNestedInput
+  reviewedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceUpdateManyWithoutReviewedByNestedInput
+  assignedBorrowerRisks?: Prisma.BorrowerVerificationRiskUpdateManyWithoutAssignedToNestedInput
+  resolvedBorrowerRisks?: Prisma.BorrowerVerificationRiskUpdateManyWithoutResolvedByNestedInput
+}
+
+export type UserUncheckedUpdateWithoutUploadedBorrowerEvidenceInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  firstName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lastName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  emailVerifiedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  marketplaceMarks?: Prisma.MarketplaceMarkUncheckedUpdateManyWithoutUserNestedInput
+  authChallenges?: Prisma.AuthChallengeUncheckedUpdateManyWithoutUserNestedInput
+  deals?: Prisma.DealUncheckedUpdateManyWithoutUserNestedInput
+  borrowers?: Prisma.BorrowerUncheckedUpdateManyWithoutUserNestedInput
+  collaterals?: Prisma.CollateralUncheckedUpdateManyWithoutUserNestedInput
+  personalWorkspace?: Prisma.WorkspaceUncheckedUpdateOneWithoutPersonalOwnerNestedInput
+  workspaceMembers?: Prisma.WorkspaceMemberUncheckedUpdateManyWithoutUserNestedInput
+  parties?: Prisma.PartyUncheckedUpdateManyWithoutUserNestedInput
+  auditEntries?: Prisma.AuditEntryUncheckedUpdateManyWithoutActorNestedInput
+  financeInstructions?: Prisma.FinanceInstructionUncheckedUpdateManyWithoutActorNestedInput
+  confirmedIdentityVersions?: Prisma.PartyIdentityVersionUncheckedUpdateManyWithoutConfirmedByNestedInput
+  assignedBorrowerVerifications?: Prisma.BorrowerVerificationUncheckedUpdateManyWithoutAssignedToNestedInput
+  createdBorrowerVerifications?: Prisma.BorrowerVerificationUncheckedUpdateManyWithoutCreatedByNestedInput
+  decidedBorrowerVerifications?: Prisma.BorrowerVerificationUncheckedUpdateManyWithoutDecidedByNestedInput
+  performedBorrowerCheckRuns?: Prisma.BorrowerCheckRunUncheckedUpdateManyWithoutPerformedByNestedInput
+  reviewedBorrowerCheckRuns?: Prisma.BorrowerCheckRunUncheckedUpdateManyWithoutReviewedByNestedInput
+  reviewedBorrowerFindings?: Prisma.BorrowerCheckFindingUncheckedUpdateManyWithoutMatchReviewedByNestedInput
+  reviewedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceUncheckedUpdateManyWithoutReviewedByNestedInput
+  assignedBorrowerRisks?: Prisma.BorrowerVerificationRiskUncheckedUpdateManyWithoutAssignedToNestedInput
+  resolvedBorrowerRisks?: Prisma.BorrowerVerificationRiskUncheckedUpdateManyWithoutResolvedByNestedInput
+}
+
+export type UserCreateWithoutAssignedBorrowerRisksInput = {
+  id?: string
+  email: string
+  passwordHash: string
+  firstName?: string | null
+  lastName?: string | null
+  isActive?: boolean
+  emailVerifiedAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  marketplaceMarks?: Prisma.MarketplaceMarkCreateNestedManyWithoutUserInput
+  authChallenges?: Prisma.AuthChallengeCreateNestedManyWithoutUserInput
+  deals?: Prisma.DealCreateNestedManyWithoutUserInput
+  borrowers?: Prisma.BorrowerCreateNestedManyWithoutUserInput
+  collaterals?: Prisma.CollateralCreateNestedManyWithoutUserInput
+  personalWorkspace?: Prisma.WorkspaceCreateNestedOneWithoutPersonalOwnerInput
+  workspaceMembers?: Prisma.WorkspaceMemberCreateNestedManyWithoutUserInput
+  parties?: Prisma.PartyCreateNestedManyWithoutUserInput
+  auditEntries?: Prisma.AuditEntryCreateNestedManyWithoutActorInput
+  financeInstructions?: Prisma.FinanceInstructionCreateNestedManyWithoutActorInput
+  confirmedIdentityVersions?: Prisma.PartyIdentityVersionCreateNestedManyWithoutConfirmedByInput
+  assignedBorrowerVerifications?: Prisma.BorrowerVerificationCreateNestedManyWithoutAssignedToInput
+  createdBorrowerVerifications?: Prisma.BorrowerVerificationCreateNestedManyWithoutCreatedByInput
+  decidedBorrowerVerifications?: Prisma.BorrowerVerificationCreateNestedManyWithoutDecidedByInput
+  performedBorrowerCheckRuns?: Prisma.BorrowerCheckRunCreateNestedManyWithoutPerformedByInput
+  reviewedBorrowerCheckRuns?: Prisma.BorrowerCheckRunCreateNestedManyWithoutReviewedByInput
+  reviewedBorrowerFindings?: Prisma.BorrowerCheckFindingCreateNestedManyWithoutMatchReviewedByInput
+  reviewedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceCreateNestedManyWithoutReviewedByInput
+  uploadedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceCreateNestedManyWithoutUploadedByInput
+  resolvedBorrowerRisks?: Prisma.BorrowerVerificationRiskCreateNestedManyWithoutResolvedByInput
+}
+
+export type UserUncheckedCreateWithoutAssignedBorrowerRisksInput = {
+  id?: string
+  email: string
+  passwordHash: string
+  firstName?: string | null
+  lastName?: string | null
+  isActive?: boolean
+  emailVerifiedAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  marketplaceMarks?: Prisma.MarketplaceMarkUncheckedCreateNestedManyWithoutUserInput
+  authChallenges?: Prisma.AuthChallengeUncheckedCreateNestedManyWithoutUserInput
+  deals?: Prisma.DealUncheckedCreateNestedManyWithoutUserInput
+  borrowers?: Prisma.BorrowerUncheckedCreateNestedManyWithoutUserInput
+  collaterals?: Prisma.CollateralUncheckedCreateNestedManyWithoutUserInput
+  personalWorkspace?: Prisma.WorkspaceUncheckedCreateNestedOneWithoutPersonalOwnerInput
+  workspaceMembers?: Prisma.WorkspaceMemberUncheckedCreateNestedManyWithoutUserInput
+  parties?: Prisma.PartyUncheckedCreateNestedManyWithoutUserInput
+  auditEntries?: Prisma.AuditEntryUncheckedCreateNestedManyWithoutActorInput
+  financeInstructions?: Prisma.FinanceInstructionUncheckedCreateNestedManyWithoutActorInput
+  confirmedIdentityVersions?: Prisma.PartyIdentityVersionUncheckedCreateNestedManyWithoutConfirmedByInput
+  assignedBorrowerVerifications?: Prisma.BorrowerVerificationUncheckedCreateNestedManyWithoutAssignedToInput
+  createdBorrowerVerifications?: Prisma.BorrowerVerificationUncheckedCreateNestedManyWithoutCreatedByInput
+  decidedBorrowerVerifications?: Prisma.BorrowerVerificationUncheckedCreateNestedManyWithoutDecidedByInput
+  performedBorrowerCheckRuns?: Prisma.BorrowerCheckRunUncheckedCreateNestedManyWithoutPerformedByInput
+  reviewedBorrowerCheckRuns?: Prisma.BorrowerCheckRunUncheckedCreateNestedManyWithoutReviewedByInput
+  reviewedBorrowerFindings?: Prisma.BorrowerCheckFindingUncheckedCreateNestedManyWithoutMatchReviewedByInput
+  reviewedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceUncheckedCreateNestedManyWithoutReviewedByInput
+  uploadedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceUncheckedCreateNestedManyWithoutUploadedByInput
+  resolvedBorrowerRisks?: Prisma.BorrowerVerificationRiskUncheckedCreateNestedManyWithoutResolvedByInput
+}
+
+export type UserCreateOrConnectWithoutAssignedBorrowerRisksInput = {
+  where: Prisma.UserWhereUniqueInput
+  create: Prisma.XOR<Prisma.UserCreateWithoutAssignedBorrowerRisksInput, Prisma.UserUncheckedCreateWithoutAssignedBorrowerRisksInput>
+}
+
+export type UserCreateWithoutResolvedBorrowerRisksInput = {
+  id?: string
+  email: string
+  passwordHash: string
+  firstName?: string | null
+  lastName?: string | null
+  isActive?: boolean
+  emailVerifiedAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  marketplaceMarks?: Prisma.MarketplaceMarkCreateNestedManyWithoutUserInput
+  authChallenges?: Prisma.AuthChallengeCreateNestedManyWithoutUserInput
+  deals?: Prisma.DealCreateNestedManyWithoutUserInput
+  borrowers?: Prisma.BorrowerCreateNestedManyWithoutUserInput
+  collaterals?: Prisma.CollateralCreateNestedManyWithoutUserInput
+  personalWorkspace?: Prisma.WorkspaceCreateNestedOneWithoutPersonalOwnerInput
+  workspaceMembers?: Prisma.WorkspaceMemberCreateNestedManyWithoutUserInput
+  parties?: Prisma.PartyCreateNestedManyWithoutUserInput
+  auditEntries?: Prisma.AuditEntryCreateNestedManyWithoutActorInput
+  financeInstructions?: Prisma.FinanceInstructionCreateNestedManyWithoutActorInput
+  confirmedIdentityVersions?: Prisma.PartyIdentityVersionCreateNestedManyWithoutConfirmedByInput
+  assignedBorrowerVerifications?: Prisma.BorrowerVerificationCreateNestedManyWithoutAssignedToInput
+  createdBorrowerVerifications?: Prisma.BorrowerVerificationCreateNestedManyWithoutCreatedByInput
+  decidedBorrowerVerifications?: Prisma.BorrowerVerificationCreateNestedManyWithoutDecidedByInput
+  performedBorrowerCheckRuns?: Prisma.BorrowerCheckRunCreateNestedManyWithoutPerformedByInput
+  reviewedBorrowerCheckRuns?: Prisma.BorrowerCheckRunCreateNestedManyWithoutReviewedByInput
+  reviewedBorrowerFindings?: Prisma.BorrowerCheckFindingCreateNestedManyWithoutMatchReviewedByInput
+  reviewedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceCreateNestedManyWithoutReviewedByInput
+  uploadedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceCreateNestedManyWithoutUploadedByInput
+  assignedBorrowerRisks?: Prisma.BorrowerVerificationRiskCreateNestedManyWithoutAssignedToInput
+}
+
+export type UserUncheckedCreateWithoutResolvedBorrowerRisksInput = {
+  id?: string
+  email: string
+  passwordHash: string
+  firstName?: string | null
+  lastName?: string | null
+  isActive?: boolean
+  emailVerifiedAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  marketplaceMarks?: Prisma.MarketplaceMarkUncheckedCreateNestedManyWithoutUserInput
+  authChallenges?: Prisma.AuthChallengeUncheckedCreateNestedManyWithoutUserInput
+  deals?: Prisma.DealUncheckedCreateNestedManyWithoutUserInput
+  borrowers?: Prisma.BorrowerUncheckedCreateNestedManyWithoutUserInput
+  collaterals?: Prisma.CollateralUncheckedCreateNestedManyWithoutUserInput
+  personalWorkspace?: Prisma.WorkspaceUncheckedCreateNestedOneWithoutPersonalOwnerInput
+  workspaceMembers?: Prisma.WorkspaceMemberUncheckedCreateNestedManyWithoutUserInput
+  parties?: Prisma.PartyUncheckedCreateNestedManyWithoutUserInput
+  auditEntries?: Prisma.AuditEntryUncheckedCreateNestedManyWithoutActorInput
+  financeInstructions?: Prisma.FinanceInstructionUncheckedCreateNestedManyWithoutActorInput
+  confirmedIdentityVersions?: Prisma.PartyIdentityVersionUncheckedCreateNestedManyWithoutConfirmedByInput
+  assignedBorrowerVerifications?: Prisma.BorrowerVerificationUncheckedCreateNestedManyWithoutAssignedToInput
+  createdBorrowerVerifications?: Prisma.BorrowerVerificationUncheckedCreateNestedManyWithoutCreatedByInput
+  decidedBorrowerVerifications?: Prisma.BorrowerVerificationUncheckedCreateNestedManyWithoutDecidedByInput
+  performedBorrowerCheckRuns?: Prisma.BorrowerCheckRunUncheckedCreateNestedManyWithoutPerformedByInput
+  reviewedBorrowerCheckRuns?: Prisma.BorrowerCheckRunUncheckedCreateNestedManyWithoutReviewedByInput
+  reviewedBorrowerFindings?: Prisma.BorrowerCheckFindingUncheckedCreateNestedManyWithoutMatchReviewedByInput
+  reviewedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceUncheckedCreateNestedManyWithoutReviewedByInput
+  uploadedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceUncheckedCreateNestedManyWithoutUploadedByInput
+  assignedBorrowerRisks?: Prisma.BorrowerVerificationRiskUncheckedCreateNestedManyWithoutAssignedToInput
+}
+
+export type UserCreateOrConnectWithoutResolvedBorrowerRisksInput = {
+  where: Prisma.UserWhereUniqueInput
+  create: Prisma.XOR<Prisma.UserCreateWithoutResolvedBorrowerRisksInput, Prisma.UserUncheckedCreateWithoutResolvedBorrowerRisksInput>
+}
+
+export type UserUpsertWithoutAssignedBorrowerRisksInput = {
+  update: Prisma.XOR<Prisma.UserUpdateWithoutAssignedBorrowerRisksInput, Prisma.UserUncheckedUpdateWithoutAssignedBorrowerRisksInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutAssignedBorrowerRisksInput, Prisma.UserUncheckedCreateWithoutAssignedBorrowerRisksInput>
+  where?: Prisma.UserWhereInput
+}
+
+export type UserUpdateToOneWithWhereWithoutAssignedBorrowerRisksInput = {
+  where?: Prisma.UserWhereInput
+  data: Prisma.XOR<Prisma.UserUpdateWithoutAssignedBorrowerRisksInput, Prisma.UserUncheckedUpdateWithoutAssignedBorrowerRisksInput>
+}
+
+export type UserUpdateWithoutAssignedBorrowerRisksInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  firstName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lastName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  emailVerifiedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  marketplaceMarks?: Prisma.MarketplaceMarkUpdateManyWithoutUserNestedInput
+  authChallenges?: Prisma.AuthChallengeUpdateManyWithoutUserNestedInput
+  deals?: Prisma.DealUpdateManyWithoutUserNestedInput
+  borrowers?: Prisma.BorrowerUpdateManyWithoutUserNestedInput
+  collaterals?: Prisma.CollateralUpdateManyWithoutUserNestedInput
+  personalWorkspace?: Prisma.WorkspaceUpdateOneWithoutPersonalOwnerNestedInput
+  workspaceMembers?: Prisma.WorkspaceMemberUpdateManyWithoutUserNestedInput
+  parties?: Prisma.PartyUpdateManyWithoutUserNestedInput
+  auditEntries?: Prisma.AuditEntryUpdateManyWithoutActorNestedInput
+  financeInstructions?: Prisma.FinanceInstructionUpdateManyWithoutActorNestedInput
+  confirmedIdentityVersions?: Prisma.PartyIdentityVersionUpdateManyWithoutConfirmedByNestedInput
+  assignedBorrowerVerifications?: Prisma.BorrowerVerificationUpdateManyWithoutAssignedToNestedInput
+  createdBorrowerVerifications?: Prisma.BorrowerVerificationUpdateManyWithoutCreatedByNestedInput
+  decidedBorrowerVerifications?: Prisma.BorrowerVerificationUpdateManyWithoutDecidedByNestedInput
+  performedBorrowerCheckRuns?: Prisma.BorrowerCheckRunUpdateManyWithoutPerformedByNestedInput
+  reviewedBorrowerCheckRuns?: Prisma.BorrowerCheckRunUpdateManyWithoutReviewedByNestedInput
+  reviewedBorrowerFindings?: Prisma.BorrowerCheckFindingUpdateManyWithoutMatchReviewedByNestedInput
+  reviewedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceUpdateManyWithoutReviewedByNestedInput
+  uploadedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceUpdateManyWithoutUploadedByNestedInput
+  resolvedBorrowerRisks?: Prisma.BorrowerVerificationRiskUpdateManyWithoutResolvedByNestedInput
+}
+
+export type UserUncheckedUpdateWithoutAssignedBorrowerRisksInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  firstName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lastName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  emailVerifiedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  marketplaceMarks?: Prisma.MarketplaceMarkUncheckedUpdateManyWithoutUserNestedInput
+  authChallenges?: Prisma.AuthChallengeUncheckedUpdateManyWithoutUserNestedInput
+  deals?: Prisma.DealUncheckedUpdateManyWithoutUserNestedInput
+  borrowers?: Prisma.BorrowerUncheckedUpdateManyWithoutUserNestedInput
+  collaterals?: Prisma.CollateralUncheckedUpdateManyWithoutUserNestedInput
+  personalWorkspace?: Prisma.WorkspaceUncheckedUpdateOneWithoutPersonalOwnerNestedInput
+  workspaceMembers?: Prisma.WorkspaceMemberUncheckedUpdateManyWithoutUserNestedInput
+  parties?: Prisma.PartyUncheckedUpdateManyWithoutUserNestedInput
+  auditEntries?: Prisma.AuditEntryUncheckedUpdateManyWithoutActorNestedInput
+  financeInstructions?: Prisma.FinanceInstructionUncheckedUpdateManyWithoutActorNestedInput
+  confirmedIdentityVersions?: Prisma.PartyIdentityVersionUncheckedUpdateManyWithoutConfirmedByNestedInput
+  assignedBorrowerVerifications?: Prisma.BorrowerVerificationUncheckedUpdateManyWithoutAssignedToNestedInput
+  createdBorrowerVerifications?: Prisma.BorrowerVerificationUncheckedUpdateManyWithoutCreatedByNestedInput
+  decidedBorrowerVerifications?: Prisma.BorrowerVerificationUncheckedUpdateManyWithoutDecidedByNestedInput
+  performedBorrowerCheckRuns?: Prisma.BorrowerCheckRunUncheckedUpdateManyWithoutPerformedByNestedInput
+  reviewedBorrowerCheckRuns?: Prisma.BorrowerCheckRunUncheckedUpdateManyWithoutReviewedByNestedInput
+  reviewedBorrowerFindings?: Prisma.BorrowerCheckFindingUncheckedUpdateManyWithoutMatchReviewedByNestedInput
+  reviewedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceUncheckedUpdateManyWithoutReviewedByNestedInput
+  uploadedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceUncheckedUpdateManyWithoutUploadedByNestedInput
+  resolvedBorrowerRisks?: Prisma.BorrowerVerificationRiskUncheckedUpdateManyWithoutResolvedByNestedInput
+}
+
+export type UserUpsertWithoutResolvedBorrowerRisksInput = {
+  update: Prisma.XOR<Prisma.UserUpdateWithoutResolvedBorrowerRisksInput, Prisma.UserUncheckedUpdateWithoutResolvedBorrowerRisksInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutResolvedBorrowerRisksInput, Prisma.UserUncheckedCreateWithoutResolvedBorrowerRisksInput>
+  where?: Prisma.UserWhereInput
+}
+
+export type UserUpdateToOneWithWhereWithoutResolvedBorrowerRisksInput = {
+  where?: Prisma.UserWhereInput
+  data: Prisma.XOR<Prisma.UserUpdateWithoutResolvedBorrowerRisksInput, Prisma.UserUncheckedUpdateWithoutResolvedBorrowerRisksInput>
+}
+
+export type UserUpdateWithoutResolvedBorrowerRisksInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  firstName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lastName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  emailVerifiedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  marketplaceMarks?: Prisma.MarketplaceMarkUpdateManyWithoutUserNestedInput
+  authChallenges?: Prisma.AuthChallengeUpdateManyWithoutUserNestedInput
+  deals?: Prisma.DealUpdateManyWithoutUserNestedInput
+  borrowers?: Prisma.BorrowerUpdateManyWithoutUserNestedInput
+  collaterals?: Prisma.CollateralUpdateManyWithoutUserNestedInput
+  personalWorkspace?: Prisma.WorkspaceUpdateOneWithoutPersonalOwnerNestedInput
+  workspaceMembers?: Prisma.WorkspaceMemberUpdateManyWithoutUserNestedInput
+  parties?: Prisma.PartyUpdateManyWithoutUserNestedInput
+  auditEntries?: Prisma.AuditEntryUpdateManyWithoutActorNestedInput
+  financeInstructions?: Prisma.FinanceInstructionUpdateManyWithoutActorNestedInput
+  confirmedIdentityVersions?: Prisma.PartyIdentityVersionUpdateManyWithoutConfirmedByNestedInput
+  assignedBorrowerVerifications?: Prisma.BorrowerVerificationUpdateManyWithoutAssignedToNestedInput
+  createdBorrowerVerifications?: Prisma.BorrowerVerificationUpdateManyWithoutCreatedByNestedInput
+  decidedBorrowerVerifications?: Prisma.BorrowerVerificationUpdateManyWithoutDecidedByNestedInput
+  performedBorrowerCheckRuns?: Prisma.BorrowerCheckRunUpdateManyWithoutPerformedByNestedInput
+  reviewedBorrowerCheckRuns?: Prisma.BorrowerCheckRunUpdateManyWithoutReviewedByNestedInput
+  reviewedBorrowerFindings?: Prisma.BorrowerCheckFindingUpdateManyWithoutMatchReviewedByNestedInput
+  reviewedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceUpdateManyWithoutReviewedByNestedInput
+  uploadedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceUpdateManyWithoutUploadedByNestedInput
+  assignedBorrowerRisks?: Prisma.BorrowerVerificationRiskUpdateManyWithoutAssignedToNestedInput
+}
+
+export type UserUncheckedUpdateWithoutResolvedBorrowerRisksInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  firstName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lastName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  emailVerifiedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  marketplaceMarks?: Prisma.MarketplaceMarkUncheckedUpdateManyWithoutUserNestedInput
+  authChallenges?: Prisma.AuthChallengeUncheckedUpdateManyWithoutUserNestedInput
+  deals?: Prisma.DealUncheckedUpdateManyWithoutUserNestedInput
+  borrowers?: Prisma.BorrowerUncheckedUpdateManyWithoutUserNestedInput
+  collaterals?: Prisma.CollateralUncheckedUpdateManyWithoutUserNestedInput
+  personalWorkspace?: Prisma.WorkspaceUncheckedUpdateOneWithoutPersonalOwnerNestedInput
+  workspaceMembers?: Prisma.WorkspaceMemberUncheckedUpdateManyWithoutUserNestedInput
+  parties?: Prisma.PartyUncheckedUpdateManyWithoutUserNestedInput
+  auditEntries?: Prisma.AuditEntryUncheckedUpdateManyWithoutActorNestedInput
+  financeInstructions?: Prisma.FinanceInstructionUncheckedUpdateManyWithoutActorNestedInput
+  confirmedIdentityVersions?: Prisma.PartyIdentityVersionUncheckedUpdateManyWithoutConfirmedByNestedInput
+  assignedBorrowerVerifications?: Prisma.BorrowerVerificationUncheckedUpdateManyWithoutAssignedToNestedInput
+  createdBorrowerVerifications?: Prisma.BorrowerVerificationUncheckedUpdateManyWithoutCreatedByNestedInput
+  decidedBorrowerVerifications?: Prisma.BorrowerVerificationUncheckedUpdateManyWithoutDecidedByNestedInput
+  performedBorrowerCheckRuns?: Prisma.BorrowerCheckRunUncheckedUpdateManyWithoutPerformedByNestedInput
+  reviewedBorrowerCheckRuns?: Prisma.BorrowerCheckRunUncheckedUpdateManyWithoutReviewedByNestedInput
+  reviewedBorrowerFindings?: Prisma.BorrowerCheckFindingUncheckedUpdateManyWithoutMatchReviewedByNestedInput
+  reviewedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceUncheckedUpdateManyWithoutReviewedByNestedInput
+  uploadedBorrowerEvidence?: Prisma.BorrowerVerificationEvidenceUncheckedUpdateManyWithoutUploadedByNestedInput
+  assignedBorrowerRisks?: Prisma.BorrowerVerificationRiskUncheckedUpdateManyWithoutAssignedToNestedInput
 }
 
 
@@ -1654,6 +3925,17 @@ export type UserCountOutputType = {
   parties: number
   auditEntries: number
   financeInstructions: number
+  confirmedIdentityVersions: number
+  assignedBorrowerVerifications: number
+  createdBorrowerVerifications: number
+  decidedBorrowerVerifications: number
+  performedBorrowerCheckRuns: number
+  reviewedBorrowerCheckRuns: number
+  reviewedBorrowerFindings: number
+  reviewedBorrowerEvidence: number
+  uploadedBorrowerEvidence: number
+  assignedBorrowerRisks: number
+  resolvedBorrowerRisks: number
 }
 
 export type UserCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -1666,6 +3948,17 @@ export type UserCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.I
   parties?: boolean | UserCountOutputTypeCountPartiesArgs
   auditEntries?: boolean | UserCountOutputTypeCountAuditEntriesArgs
   financeInstructions?: boolean | UserCountOutputTypeCountFinanceInstructionsArgs
+  confirmedIdentityVersions?: boolean | UserCountOutputTypeCountConfirmedIdentityVersionsArgs
+  assignedBorrowerVerifications?: boolean | UserCountOutputTypeCountAssignedBorrowerVerificationsArgs
+  createdBorrowerVerifications?: boolean | UserCountOutputTypeCountCreatedBorrowerVerificationsArgs
+  decidedBorrowerVerifications?: boolean | UserCountOutputTypeCountDecidedBorrowerVerificationsArgs
+  performedBorrowerCheckRuns?: boolean | UserCountOutputTypeCountPerformedBorrowerCheckRunsArgs
+  reviewedBorrowerCheckRuns?: boolean | UserCountOutputTypeCountReviewedBorrowerCheckRunsArgs
+  reviewedBorrowerFindings?: boolean | UserCountOutputTypeCountReviewedBorrowerFindingsArgs
+  reviewedBorrowerEvidence?: boolean | UserCountOutputTypeCountReviewedBorrowerEvidenceArgs
+  uploadedBorrowerEvidence?: boolean | UserCountOutputTypeCountUploadedBorrowerEvidenceArgs
+  assignedBorrowerRisks?: boolean | UserCountOutputTypeCountAssignedBorrowerRisksArgs
+  resolvedBorrowerRisks?: boolean | UserCountOutputTypeCountResolvedBorrowerRisksArgs
 }
 
 /**
@@ -1741,6 +4034,83 @@ export type UserCountOutputTypeCountFinanceInstructionsArgs<ExtArgs extends runt
   where?: Prisma.FinanceInstructionWhereInput
 }
 
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeCountConfirmedIdentityVersionsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.PartyIdentityVersionWhereInput
+}
+
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeCountAssignedBorrowerVerificationsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.BorrowerVerificationWhereInput
+}
+
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeCountCreatedBorrowerVerificationsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.BorrowerVerificationWhereInput
+}
+
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeCountDecidedBorrowerVerificationsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.BorrowerVerificationWhereInput
+}
+
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeCountPerformedBorrowerCheckRunsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.BorrowerCheckRunWhereInput
+}
+
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeCountReviewedBorrowerCheckRunsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.BorrowerCheckRunWhereInput
+}
+
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeCountReviewedBorrowerFindingsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.BorrowerCheckFindingWhereInput
+}
+
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeCountReviewedBorrowerEvidenceArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.BorrowerVerificationEvidenceWhereInput
+}
+
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeCountUploadedBorrowerEvidenceArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.BorrowerVerificationEvidenceWhereInput
+}
+
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeCountAssignedBorrowerRisksArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.BorrowerVerificationRiskWhereInput
+}
+
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeCountResolvedBorrowerRisksArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.BorrowerVerificationRiskWhereInput
+}
+
 
 export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -1762,6 +4132,17 @@ export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
   parties?: boolean | Prisma.User$partiesArgs<ExtArgs>
   auditEntries?: boolean | Prisma.User$auditEntriesArgs<ExtArgs>
   financeInstructions?: boolean | Prisma.User$financeInstructionsArgs<ExtArgs>
+  confirmedIdentityVersions?: boolean | Prisma.User$confirmedIdentityVersionsArgs<ExtArgs>
+  assignedBorrowerVerifications?: boolean | Prisma.User$assignedBorrowerVerificationsArgs<ExtArgs>
+  createdBorrowerVerifications?: boolean | Prisma.User$createdBorrowerVerificationsArgs<ExtArgs>
+  decidedBorrowerVerifications?: boolean | Prisma.User$decidedBorrowerVerificationsArgs<ExtArgs>
+  performedBorrowerCheckRuns?: boolean | Prisma.User$performedBorrowerCheckRunsArgs<ExtArgs>
+  reviewedBorrowerCheckRuns?: boolean | Prisma.User$reviewedBorrowerCheckRunsArgs<ExtArgs>
+  reviewedBorrowerFindings?: boolean | Prisma.User$reviewedBorrowerFindingsArgs<ExtArgs>
+  reviewedBorrowerEvidence?: boolean | Prisma.User$reviewedBorrowerEvidenceArgs<ExtArgs>
+  uploadedBorrowerEvidence?: boolean | Prisma.User$uploadedBorrowerEvidenceArgs<ExtArgs>
+  assignedBorrowerRisks?: boolean | Prisma.User$assignedBorrowerRisksArgs<ExtArgs>
+  resolvedBorrowerRisks?: boolean | Prisma.User$resolvedBorrowerRisksArgs<ExtArgs>
   _count?: boolean | Prisma.UserCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["user"]>
 
@@ -1813,6 +4194,17 @@ export type UserInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = 
   parties?: boolean | Prisma.User$partiesArgs<ExtArgs>
   auditEntries?: boolean | Prisma.User$auditEntriesArgs<ExtArgs>
   financeInstructions?: boolean | Prisma.User$financeInstructionsArgs<ExtArgs>
+  confirmedIdentityVersions?: boolean | Prisma.User$confirmedIdentityVersionsArgs<ExtArgs>
+  assignedBorrowerVerifications?: boolean | Prisma.User$assignedBorrowerVerificationsArgs<ExtArgs>
+  createdBorrowerVerifications?: boolean | Prisma.User$createdBorrowerVerificationsArgs<ExtArgs>
+  decidedBorrowerVerifications?: boolean | Prisma.User$decidedBorrowerVerificationsArgs<ExtArgs>
+  performedBorrowerCheckRuns?: boolean | Prisma.User$performedBorrowerCheckRunsArgs<ExtArgs>
+  reviewedBorrowerCheckRuns?: boolean | Prisma.User$reviewedBorrowerCheckRunsArgs<ExtArgs>
+  reviewedBorrowerFindings?: boolean | Prisma.User$reviewedBorrowerFindingsArgs<ExtArgs>
+  reviewedBorrowerEvidence?: boolean | Prisma.User$reviewedBorrowerEvidenceArgs<ExtArgs>
+  uploadedBorrowerEvidence?: boolean | Prisma.User$uploadedBorrowerEvidenceArgs<ExtArgs>
+  assignedBorrowerRisks?: boolean | Prisma.User$assignedBorrowerRisksArgs<ExtArgs>
+  resolvedBorrowerRisks?: boolean | Prisma.User$resolvedBorrowerRisksArgs<ExtArgs>
   _count?: boolean | Prisma.UserCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type UserIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
@@ -1831,6 +4223,17 @@ export type $UserPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
     parties: Prisma.$PartyPayload<ExtArgs>[]
     auditEntries: Prisma.$AuditEntryPayload<ExtArgs>[]
     financeInstructions: Prisma.$FinanceInstructionPayload<ExtArgs>[]
+    confirmedIdentityVersions: Prisma.$PartyIdentityVersionPayload<ExtArgs>[]
+    assignedBorrowerVerifications: Prisma.$BorrowerVerificationPayload<ExtArgs>[]
+    createdBorrowerVerifications: Prisma.$BorrowerVerificationPayload<ExtArgs>[]
+    decidedBorrowerVerifications: Prisma.$BorrowerVerificationPayload<ExtArgs>[]
+    performedBorrowerCheckRuns: Prisma.$BorrowerCheckRunPayload<ExtArgs>[]
+    reviewedBorrowerCheckRuns: Prisma.$BorrowerCheckRunPayload<ExtArgs>[]
+    reviewedBorrowerFindings: Prisma.$BorrowerCheckFindingPayload<ExtArgs>[]
+    reviewedBorrowerEvidence: Prisma.$BorrowerVerificationEvidencePayload<ExtArgs>[]
+    uploadedBorrowerEvidence: Prisma.$BorrowerVerificationEvidencePayload<ExtArgs>[]
+    assignedBorrowerRisks: Prisma.$BorrowerVerificationRiskPayload<ExtArgs>[]
+    resolvedBorrowerRisks: Prisma.$BorrowerVerificationRiskPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -2246,6 +4649,17 @@ export interface Prisma__UserClient<T, Null = never, ExtArgs extends runtime.Typ
   parties<T extends Prisma.User$partiesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$partiesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$PartyPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   auditEntries<T extends Prisma.User$auditEntriesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$auditEntriesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$AuditEntryPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   financeInstructions<T extends Prisma.User$financeInstructionsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$financeInstructionsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$FinanceInstructionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  confirmedIdentityVersions<T extends Prisma.User$confirmedIdentityVersionsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$confirmedIdentityVersionsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$PartyIdentityVersionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  assignedBorrowerVerifications<T extends Prisma.User$assignedBorrowerVerificationsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$assignedBorrowerVerificationsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$BorrowerVerificationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  createdBorrowerVerifications<T extends Prisma.User$createdBorrowerVerificationsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$createdBorrowerVerificationsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$BorrowerVerificationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  decidedBorrowerVerifications<T extends Prisma.User$decidedBorrowerVerificationsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$decidedBorrowerVerificationsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$BorrowerVerificationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  performedBorrowerCheckRuns<T extends Prisma.User$performedBorrowerCheckRunsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$performedBorrowerCheckRunsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$BorrowerCheckRunPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  reviewedBorrowerCheckRuns<T extends Prisma.User$reviewedBorrowerCheckRunsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$reviewedBorrowerCheckRunsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$BorrowerCheckRunPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  reviewedBorrowerFindings<T extends Prisma.User$reviewedBorrowerFindingsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$reviewedBorrowerFindingsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$BorrowerCheckFindingPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  reviewedBorrowerEvidence<T extends Prisma.User$reviewedBorrowerEvidenceArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$reviewedBorrowerEvidenceArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$BorrowerVerificationEvidencePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  uploadedBorrowerEvidence<T extends Prisma.User$uploadedBorrowerEvidenceArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$uploadedBorrowerEvidenceArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$BorrowerVerificationEvidencePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  assignedBorrowerRisks<T extends Prisma.User$assignedBorrowerRisksArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$assignedBorrowerRisksArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$BorrowerVerificationRiskPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  resolvedBorrowerRisks<T extends Prisma.User$resolvedBorrowerRisksArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$resolvedBorrowerRisksArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$BorrowerVerificationRiskPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2909,6 +5323,270 @@ export type User$financeInstructionsArgs<ExtArgs extends runtime.Types.Extension
   take?: number
   skip?: number
   distinct?: Prisma.FinanceInstructionScalarFieldEnum | Prisma.FinanceInstructionScalarFieldEnum[]
+}
+
+/**
+ * User.confirmedIdentityVersions
+ */
+export type User$confirmedIdentityVersionsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the PartyIdentityVersion
+   */
+  select?: Prisma.PartyIdentityVersionSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the PartyIdentityVersion
+   */
+  omit?: Prisma.PartyIdentityVersionOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.PartyIdentityVersionInclude<ExtArgs> | null
+  where?: Prisma.PartyIdentityVersionWhereInput
+  orderBy?: Prisma.PartyIdentityVersionOrderByWithRelationInput | Prisma.PartyIdentityVersionOrderByWithRelationInput[]
+  cursor?: Prisma.PartyIdentityVersionWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.PartyIdentityVersionScalarFieldEnum | Prisma.PartyIdentityVersionScalarFieldEnum[]
+}
+
+/**
+ * User.assignedBorrowerVerifications
+ */
+export type User$assignedBorrowerVerificationsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the BorrowerVerification
+   */
+  select?: Prisma.BorrowerVerificationSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the BorrowerVerification
+   */
+  omit?: Prisma.BorrowerVerificationOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.BorrowerVerificationInclude<ExtArgs> | null
+  where?: Prisma.BorrowerVerificationWhereInput
+  orderBy?: Prisma.BorrowerVerificationOrderByWithRelationInput | Prisma.BorrowerVerificationOrderByWithRelationInput[]
+  cursor?: Prisma.BorrowerVerificationWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.BorrowerVerificationScalarFieldEnum | Prisma.BorrowerVerificationScalarFieldEnum[]
+}
+
+/**
+ * User.createdBorrowerVerifications
+ */
+export type User$createdBorrowerVerificationsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the BorrowerVerification
+   */
+  select?: Prisma.BorrowerVerificationSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the BorrowerVerification
+   */
+  omit?: Prisma.BorrowerVerificationOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.BorrowerVerificationInclude<ExtArgs> | null
+  where?: Prisma.BorrowerVerificationWhereInput
+  orderBy?: Prisma.BorrowerVerificationOrderByWithRelationInput | Prisma.BorrowerVerificationOrderByWithRelationInput[]
+  cursor?: Prisma.BorrowerVerificationWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.BorrowerVerificationScalarFieldEnum | Prisma.BorrowerVerificationScalarFieldEnum[]
+}
+
+/**
+ * User.decidedBorrowerVerifications
+ */
+export type User$decidedBorrowerVerificationsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the BorrowerVerification
+   */
+  select?: Prisma.BorrowerVerificationSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the BorrowerVerification
+   */
+  omit?: Prisma.BorrowerVerificationOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.BorrowerVerificationInclude<ExtArgs> | null
+  where?: Prisma.BorrowerVerificationWhereInput
+  orderBy?: Prisma.BorrowerVerificationOrderByWithRelationInput | Prisma.BorrowerVerificationOrderByWithRelationInput[]
+  cursor?: Prisma.BorrowerVerificationWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.BorrowerVerificationScalarFieldEnum | Prisma.BorrowerVerificationScalarFieldEnum[]
+}
+
+/**
+ * User.performedBorrowerCheckRuns
+ */
+export type User$performedBorrowerCheckRunsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the BorrowerCheckRun
+   */
+  select?: Prisma.BorrowerCheckRunSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the BorrowerCheckRun
+   */
+  omit?: Prisma.BorrowerCheckRunOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.BorrowerCheckRunInclude<ExtArgs> | null
+  where?: Prisma.BorrowerCheckRunWhereInput
+  orderBy?: Prisma.BorrowerCheckRunOrderByWithRelationInput | Prisma.BorrowerCheckRunOrderByWithRelationInput[]
+  cursor?: Prisma.BorrowerCheckRunWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.BorrowerCheckRunScalarFieldEnum | Prisma.BorrowerCheckRunScalarFieldEnum[]
+}
+
+/**
+ * User.reviewedBorrowerCheckRuns
+ */
+export type User$reviewedBorrowerCheckRunsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the BorrowerCheckRun
+   */
+  select?: Prisma.BorrowerCheckRunSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the BorrowerCheckRun
+   */
+  omit?: Prisma.BorrowerCheckRunOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.BorrowerCheckRunInclude<ExtArgs> | null
+  where?: Prisma.BorrowerCheckRunWhereInput
+  orderBy?: Prisma.BorrowerCheckRunOrderByWithRelationInput | Prisma.BorrowerCheckRunOrderByWithRelationInput[]
+  cursor?: Prisma.BorrowerCheckRunWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.BorrowerCheckRunScalarFieldEnum | Prisma.BorrowerCheckRunScalarFieldEnum[]
+}
+
+/**
+ * User.reviewedBorrowerFindings
+ */
+export type User$reviewedBorrowerFindingsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the BorrowerCheckFinding
+   */
+  select?: Prisma.BorrowerCheckFindingSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the BorrowerCheckFinding
+   */
+  omit?: Prisma.BorrowerCheckFindingOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.BorrowerCheckFindingInclude<ExtArgs> | null
+  where?: Prisma.BorrowerCheckFindingWhereInput
+  orderBy?: Prisma.BorrowerCheckFindingOrderByWithRelationInput | Prisma.BorrowerCheckFindingOrderByWithRelationInput[]
+  cursor?: Prisma.BorrowerCheckFindingWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.BorrowerCheckFindingScalarFieldEnum | Prisma.BorrowerCheckFindingScalarFieldEnum[]
+}
+
+/**
+ * User.reviewedBorrowerEvidence
+ */
+export type User$reviewedBorrowerEvidenceArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the BorrowerVerificationEvidence
+   */
+  select?: Prisma.BorrowerVerificationEvidenceSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the BorrowerVerificationEvidence
+   */
+  omit?: Prisma.BorrowerVerificationEvidenceOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.BorrowerVerificationEvidenceInclude<ExtArgs> | null
+  where?: Prisma.BorrowerVerificationEvidenceWhereInput
+  orderBy?: Prisma.BorrowerVerificationEvidenceOrderByWithRelationInput | Prisma.BorrowerVerificationEvidenceOrderByWithRelationInput[]
+  cursor?: Prisma.BorrowerVerificationEvidenceWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.BorrowerVerificationEvidenceScalarFieldEnum | Prisma.BorrowerVerificationEvidenceScalarFieldEnum[]
+}
+
+/**
+ * User.uploadedBorrowerEvidence
+ */
+export type User$uploadedBorrowerEvidenceArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the BorrowerVerificationEvidence
+   */
+  select?: Prisma.BorrowerVerificationEvidenceSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the BorrowerVerificationEvidence
+   */
+  omit?: Prisma.BorrowerVerificationEvidenceOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.BorrowerVerificationEvidenceInclude<ExtArgs> | null
+  where?: Prisma.BorrowerVerificationEvidenceWhereInput
+  orderBy?: Prisma.BorrowerVerificationEvidenceOrderByWithRelationInput | Prisma.BorrowerVerificationEvidenceOrderByWithRelationInput[]
+  cursor?: Prisma.BorrowerVerificationEvidenceWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.BorrowerVerificationEvidenceScalarFieldEnum | Prisma.BorrowerVerificationEvidenceScalarFieldEnum[]
+}
+
+/**
+ * User.assignedBorrowerRisks
+ */
+export type User$assignedBorrowerRisksArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the BorrowerVerificationRisk
+   */
+  select?: Prisma.BorrowerVerificationRiskSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the BorrowerVerificationRisk
+   */
+  omit?: Prisma.BorrowerVerificationRiskOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.BorrowerVerificationRiskInclude<ExtArgs> | null
+  where?: Prisma.BorrowerVerificationRiskWhereInput
+  orderBy?: Prisma.BorrowerVerificationRiskOrderByWithRelationInput | Prisma.BorrowerVerificationRiskOrderByWithRelationInput[]
+  cursor?: Prisma.BorrowerVerificationRiskWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.BorrowerVerificationRiskScalarFieldEnum | Prisma.BorrowerVerificationRiskScalarFieldEnum[]
+}
+
+/**
+ * User.resolvedBorrowerRisks
+ */
+export type User$resolvedBorrowerRisksArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the BorrowerVerificationRisk
+   */
+  select?: Prisma.BorrowerVerificationRiskSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the BorrowerVerificationRisk
+   */
+  omit?: Prisma.BorrowerVerificationRiskOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.BorrowerVerificationRiskInclude<ExtArgs> | null
+  where?: Prisma.BorrowerVerificationRiskWhereInput
+  orderBy?: Prisma.BorrowerVerificationRiskOrderByWithRelationInput | Prisma.BorrowerVerificationRiskOrderByWithRelationInput[]
+  cursor?: Prisma.BorrowerVerificationRiskWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.BorrowerVerificationRiskScalarFieldEnum | Prisma.BorrowerVerificationRiskScalarFieldEnum[]
 }
 
 /**

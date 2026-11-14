@@ -33,6 +33,7 @@ services:
     build: { context: ., target: api }
     restart: unless-stopped
     env_file: [./deploy/secrets/api.env]
+    volumes: [verification_documents:/var/lib/zaloghub/verifications]
     depends_on:
       migrate: { condition: service_completed_successfully }
     healthcheck:
@@ -107,5 +108,6 @@ services:
     logging: *logging
 volumes:
   postgres_data:
+  verification_documents:
   collector_data:
   backup_data:

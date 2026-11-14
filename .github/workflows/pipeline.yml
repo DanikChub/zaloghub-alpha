@@ -38,6 +38,7 @@ jobs:
       - run: pnpm --dir apps/api test
       - run: pnpm --dir apps/collector test
       - run: pnpm --dir apps/api test:db
+      - run: pnpm --dir apps/api test:borrower-verifications:db
       - run: pnpm --dir apps/api test:finance:db
       - run: pnpm --dir apps/api test:marketplace:http
       - name: Validate deployment scripts and Compose

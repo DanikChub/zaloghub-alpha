@@ -6,6 +6,7 @@
 .git
 .idea
 .local
+**/.local
 .pnpm-store
 docs
 **/coverage

@@ -191,6 +191,13 @@ export type WorkspaceWhereInput = {
   legacyDeals?: Prisma.DealListRelationFilter
   legacyBorrowers?: Prisma.BorrowerListRelationFilter
   legacyCollaterals?: Prisma.CollateralListRelationFilter
+  identityVersions?: Prisma.PartyIdentityVersionListRelationFilter
+  borrowerVerifications?: Prisma.BorrowerVerificationListRelationFilter
+  borrowerVerificationItems?: Prisma.BorrowerVerificationItemListRelationFilter
+  borrowerCheckRuns?: Prisma.BorrowerCheckRunListRelationFilter
+  borrowerCheckFindings?: Prisma.BorrowerCheckFindingListRelationFilter
+  borrowerVerificationEvidence?: Prisma.BorrowerVerificationEvidenceListRelationFilter
+  borrowerVerificationRisks?: Prisma.BorrowerVerificationRiskListRelationFilter
 }
 
 export type WorkspaceOrderByWithRelationInput = {
@@ -208,6 +215,13 @@ export type WorkspaceOrderByWithRelationInput = {
   legacyDeals?: Prisma.DealOrderByRelationAggregateInput
   legacyBorrowers?: Prisma.BorrowerOrderByRelationAggregateInput
   legacyCollaterals?: Prisma.CollateralOrderByRelationAggregateInput
+  identityVersions?: Prisma.PartyIdentityVersionOrderByRelationAggregateInput
+  borrowerVerifications?: Prisma.BorrowerVerificationOrderByRelationAggregateInput
+  borrowerVerificationItems?: Prisma.BorrowerVerificationItemOrderByRelationAggregateInput
+  borrowerCheckRuns?: Prisma.BorrowerCheckRunOrderByRelationAggregateInput
+  borrowerCheckFindings?: Prisma.BorrowerCheckFindingOrderByRelationAggregateInput
+  borrowerVerificationEvidence?: Prisma.BorrowerVerificationEvidenceOrderByRelationAggregateInput
+  borrowerVerificationRisks?: Prisma.BorrowerVerificationRiskOrderByRelationAggregateInput
 }
 
 export type WorkspaceWhereUniqueInput = Prisma.AtLeast<{
@@ -228,6 +242,13 @@ export type WorkspaceWhereUniqueInput = Prisma.AtLeast<{
   legacyDeals?: Prisma.DealListRelationFilter
   legacyBorrowers?: Prisma.BorrowerListRelationFilter
   legacyCollaterals?: Prisma.CollateralListRelationFilter
+  identityVersions?: Prisma.PartyIdentityVersionListRelationFilter
+  borrowerVerifications?: Prisma.BorrowerVerificationListRelationFilter
+  borrowerVerificationItems?: Prisma.BorrowerVerificationItemListRelationFilter
+  borrowerCheckRuns?: Prisma.BorrowerCheckRunListRelationFilter
+  borrowerCheckFindings?: Prisma.BorrowerCheckFindingListRelationFilter
+  borrowerVerificationEvidence?: Prisma.BorrowerVerificationEvidenceListRelationFilter
+  borrowerVerificationRisks?: Prisma.BorrowerVerificationRiskListRelationFilter
 }, "id" | "personalOwnerId">
 
 export type WorkspaceOrderByWithAggregationInput = {
@@ -266,6 +287,13 @@ export type WorkspaceCreateInput = {
   legacyDeals?: Prisma.DealCreateNestedManyWithoutWorkspaceInput
   legacyBorrowers?: Prisma.BorrowerCreateNestedManyWithoutWorkspaceInput
   legacyCollaterals?: Prisma.CollateralCreateNestedManyWithoutWorkspaceInput
+  identityVersions?: Prisma.PartyIdentityVersionCreateNestedManyWithoutWorkspaceInput
+  borrowerVerifications?: Prisma.BorrowerVerificationCreateNestedManyWithoutWorkspaceInput
+  borrowerVerificationItems?: Prisma.BorrowerVerificationItemCreateNestedManyWithoutWorkspaceInput
+  borrowerCheckRuns?: Prisma.BorrowerCheckRunCreateNestedManyWithoutWorkspaceInput
+  borrowerCheckFindings?: Prisma.BorrowerCheckFindingCreateNestedManyWithoutWorkspaceInput
+  borrowerVerificationEvidence?: Prisma.BorrowerVerificationEvidenceCreateNestedManyWithoutWorkspaceInput
+  borrowerVerificationRisks?: Prisma.BorrowerVerificationRiskCreateNestedManyWithoutWorkspaceInput
 }
 
 export type WorkspaceUncheckedCreateInput = {
@@ -282,6 +310,13 @@ export type WorkspaceUncheckedCreateInput = {
   legacyDeals?: Prisma.DealUncheckedCreateNestedManyWithoutWorkspaceInput
   legacyBorrowers?: Prisma.BorrowerUncheckedCreateNestedManyWithoutWorkspaceInput
   legacyCollaterals?: Prisma.CollateralUncheckedCreateNestedManyWithoutWorkspaceInput
+  identityVersions?: Prisma.PartyIdentityVersionUncheckedCreateNestedManyWithoutWorkspaceInput
+  borrowerVerifications?: Prisma.BorrowerVerificationUncheckedCreateNestedManyWithoutWorkspaceInput
+  borrowerVerificationItems?: Prisma.BorrowerVerificationItemUncheckedCreateNestedManyWithoutWorkspaceInput
+  borrowerCheckRuns?: Prisma.BorrowerCheckRunUncheckedCreateNestedManyWithoutWorkspaceInput
+  borrowerCheckFindings?: Prisma.BorrowerCheckFindingUncheckedCreateNestedManyWithoutWorkspaceInput
+  borrowerVerificationEvidence?: Prisma.BorrowerVerificationEvidenceUncheckedCreateNestedManyWithoutWorkspaceInput
+  borrowerVerificationRisks?: Prisma.BorrowerVerificationRiskUncheckedCreateNestedManyWithoutWorkspaceInput
 }
 
 export type WorkspaceUpdateInput = {
@@ -298,6 +333,13 @@ export type WorkspaceUpdateInput = {
   legacyDeals?: Prisma.DealUpdateManyWithoutWorkspaceNestedInput
   legacyBorrowers?: Prisma.BorrowerUpdateManyWithoutWorkspaceNestedInput
   legacyCollaterals?: Prisma.CollateralUpdateManyWithoutWorkspaceNestedInput
+  identityVersions?: Prisma.PartyIdentityVersionUpdateManyWithoutWorkspaceNestedInput
+  borrowerVerifications?: Prisma.BorrowerVerificationUpdateManyWithoutWorkspaceNestedInput
+  borrowerVerificationItems?: Prisma.BorrowerVerificationItemUpdateManyWithoutWorkspaceNestedInput
+  borrowerCheckRuns?: Prisma.BorrowerCheckRunUpdateManyWithoutWorkspaceNestedInput
+  borrowerCheckFindings?: Prisma.BorrowerCheckFindingUpdateManyWithoutWorkspaceNestedInput
+  borrowerVerificationEvidence?: Prisma.BorrowerVerificationEvidenceUpdateManyWithoutWorkspaceNestedInput
+  borrowerVerificationRisks?: Prisma.BorrowerVerificationRiskUpdateManyWithoutWorkspaceNestedInput
 }
 
 export type WorkspaceUncheckedUpdateInput = {
@@ -314,6 +356,13 @@ export type WorkspaceUncheckedUpdateInput = {
   legacyDeals?: Prisma.DealUncheckedUpdateManyWithoutWorkspaceNestedInput
   legacyBorrowers?: Prisma.BorrowerUncheckedUpdateManyWithoutWorkspaceNestedInput
   legacyCollaterals?: Prisma.CollateralUncheckedUpdateManyWithoutWorkspaceNestedInput
+  identityVersions?: Prisma.PartyIdentityVersionUncheckedUpdateManyWithoutWorkspaceNestedInput
+  borrowerVerifications?: Prisma.BorrowerVerificationUncheckedUpdateManyWithoutWorkspaceNestedInput
+  borrowerVerificationItems?: Prisma.BorrowerVerificationItemUncheckedUpdateManyWithoutWorkspaceNestedInput
+  borrowerCheckRuns?: Prisma.BorrowerCheckRunUncheckedUpdateManyWithoutWorkspaceNestedInput
+  borrowerCheckFindings?: Prisma.BorrowerCheckFindingUncheckedUpdateManyWithoutWorkspaceNestedInput
+  borrowerVerificationEvidence?: Prisma.BorrowerVerificationEvidenceUncheckedUpdateManyWithoutWorkspaceNestedInput
+  borrowerVerificationRisks?: Prisma.BorrowerVerificationRiskUncheckedUpdateManyWithoutWorkspaceNestedInput
 }
 
 export type WorkspaceCreateManyInput = {
@@ -523,6 +572,104 @@ export type WorkspaceUpdateOneRequiredWithoutAuditEntriesNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.WorkspaceUpdateToOneWithWhereWithoutAuditEntriesInput, Prisma.WorkspaceUpdateWithoutAuditEntriesInput>, Prisma.WorkspaceUncheckedUpdateWithoutAuditEntriesInput>
 }
 
+export type WorkspaceCreateNestedOneWithoutIdentityVersionsInput = {
+  create?: Prisma.XOR<Prisma.WorkspaceCreateWithoutIdentityVersionsInput, Prisma.WorkspaceUncheckedCreateWithoutIdentityVersionsInput>
+  connectOrCreate?: Prisma.WorkspaceCreateOrConnectWithoutIdentityVersionsInput
+  connect?: Prisma.WorkspaceWhereUniqueInput
+}
+
+export type WorkspaceUpdateOneRequiredWithoutIdentityVersionsNestedInput = {
+  create?: Prisma.XOR<Prisma.WorkspaceCreateWithoutIdentityVersionsInput, Prisma.WorkspaceUncheckedCreateWithoutIdentityVersionsInput>
+  connectOrCreate?: Prisma.WorkspaceCreateOrConnectWithoutIdentityVersionsInput
+  upsert?: Prisma.WorkspaceUpsertWithoutIdentityVersionsInput
+  connect?: Prisma.WorkspaceWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.WorkspaceUpdateToOneWithWhereWithoutIdentityVersionsInput, Prisma.WorkspaceUpdateWithoutIdentityVersionsInput>, Prisma.WorkspaceUncheckedUpdateWithoutIdentityVersionsInput>
+}
+
+export type WorkspaceCreateNestedOneWithoutBorrowerVerificationsInput = {
+  create?: Prisma.XOR<Prisma.WorkspaceCreateWithoutBorrowerVerificationsInput, Prisma.WorkspaceUncheckedCreateWithoutBorrowerVerificationsInput>
+  connectOrCreate?: Prisma.WorkspaceCreateOrConnectWithoutBorrowerVerificationsInput
+  connect?: Prisma.WorkspaceWhereUniqueInput
+}
+
+export type WorkspaceUpdateOneRequiredWithoutBorrowerVerificationsNestedInput = {
+  create?: Prisma.XOR<Prisma.WorkspaceCreateWithoutBorrowerVerificationsInput, Prisma.WorkspaceUncheckedCreateWithoutBorrowerVerificationsInput>
+  connectOrCreate?: Prisma.WorkspaceCreateOrConnectWithoutBorrowerVerificationsInput
+  upsert?: Prisma.WorkspaceUpsertWithoutBorrowerVerificationsInput
+  connect?: Prisma.WorkspaceWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.WorkspaceUpdateToOneWithWhereWithoutBorrowerVerificationsInput, Prisma.WorkspaceUpdateWithoutBorrowerVerificationsInput>, Prisma.WorkspaceUncheckedUpdateWithoutBorrowerVerificationsInput>
+}
+
+export type WorkspaceCreateNestedOneWithoutBorrowerVerificationItemsInput = {
+  create?: Prisma.XOR<Prisma.WorkspaceCreateWithoutBorrowerVerificationItemsInput, Prisma.WorkspaceUncheckedCreateWithoutBorrowerVerificationItemsInput>
+  connectOrCreate?: Prisma.WorkspaceCreateOrConnectWithoutBorrowerVerificationItemsInput
+  connect?: Prisma.WorkspaceWhereUniqueInput
+}
+
+export type WorkspaceUpdateOneRequiredWithoutBorrowerVerificationItemsNestedInput = {
+  create?: Prisma.XOR<Prisma.WorkspaceCreateWithoutBorrowerVerificationItemsInput, Prisma.WorkspaceUncheckedCreateWithoutBorrowerVerificationItemsInput>
+  connectOrCreate?: Prisma.WorkspaceCreateOrConnectWithoutBorrowerVerificationItemsInput
+  upsert?: Prisma.WorkspaceUpsertWithoutBorrowerVerificationItemsInput
+  connect?: Prisma.WorkspaceWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.WorkspaceUpdateToOneWithWhereWithoutBorrowerVerificationItemsInput, Prisma.WorkspaceUpdateWithoutBorrowerVerificationItemsInput>, Prisma.WorkspaceUncheckedUpdateWithoutBorrowerVerificationItemsInput>
+}
+
+export type WorkspaceCreateNestedOneWithoutBorrowerCheckRunsInput = {
+  create?: Prisma.XOR<Prisma.WorkspaceCreateWithoutBorrowerCheckRunsInput, Prisma.WorkspaceUncheckedCreateWithoutBorrowerCheckRunsInput>
+  connectOrCreate?: Prisma.WorkspaceCreateOrConnectWithoutBorrowerCheckRunsInput
+  connect?: Prisma.WorkspaceWhereUniqueInput
+}
+
+export type WorkspaceUpdateOneRequiredWithoutBorrowerCheckRunsNestedInput = {
+  create?: Prisma.XOR<Prisma.WorkspaceCreateWithoutBorrowerCheckRunsInput, Prisma.WorkspaceUncheckedCreateWithoutBorrowerCheckRunsInput>
+  connectOrCreate?: Prisma.WorkspaceCreateOrConnectWithoutBorrowerCheckRunsInput
+  upsert?: Prisma.WorkspaceUpsertWithoutBorrowerCheckRunsInput
+  connect?: Prisma.WorkspaceWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.WorkspaceUpdateToOneWithWhereWithoutBorrowerCheckRunsInput, Prisma.WorkspaceUpdateWithoutBorrowerCheckRunsInput>, Prisma.WorkspaceUncheckedUpdateWithoutBorrowerCheckRunsInput>
+}
+
+export type WorkspaceCreateNestedOneWithoutBorrowerCheckFindingsInput = {
+  create?: Prisma.XOR<Prisma.WorkspaceCreateWithoutBorrowerCheckFindingsInput, Prisma.WorkspaceUncheckedCreateWithoutBorrowerCheckFindingsInput>
+  connectOrCreate?: Prisma.WorkspaceCreateOrConnectWithoutBorrowerCheckFindingsInput
+  connect?: Prisma.WorkspaceWhereUniqueInput
+}
+
+export type WorkspaceUpdateOneRequiredWithoutBorrowerCheckFindingsNestedInput = {
+  create?: Prisma.XOR<Prisma.WorkspaceCreateWithoutBorrowerCheckFindingsInput, Prisma.WorkspaceUncheckedCreateWithoutBorrowerCheckFindingsInput>
+  connectOrCreate?: Prisma.WorkspaceCreateOrConnectWithoutBorrowerCheckFindingsInput
+  upsert?: Prisma.WorkspaceUpsertWithoutBorrowerCheckFindingsInput
+  connect?: Prisma.WorkspaceWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.WorkspaceUpdateToOneWithWhereWithoutBorrowerCheckFindingsInput, Prisma.WorkspaceUpdateWithoutBorrowerCheckFindingsInput>, Prisma.WorkspaceUncheckedUpdateWithoutBorrowerCheckFindingsInput>
+}
+
+export type WorkspaceCreateNestedOneWithoutBorrowerVerificationEvidenceInput = {
+  create?: Prisma.XOR<Prisma.WorkspaceCreateWithoutBorrowerVerificationEvidenceInput, Prisma.WorkspaceUncheckedCreateWithoutBorrowerVerificationEvidenceInput>
+  connectOrCreate?: Prisma.WorkspaceCreateOrConnectWithoutBorrowerVerificationEvidenceInput
+  connect?: Prisma.WorkspaceWhereUniqueInput
+}
+
+export type WorkspaceUpdateOneRequiredWithoutBorrowerVerificationEvidenceNestedInput = {
+  create?: Prisma.XOR<Prisma.WorkspaceCreateWithoutBorrowerVerificationEvidenceInput, Prisma.WorkspaceUncheckedCreateWithoutBorrowerVerificationEvidenceInput>
+  connectOrCreate?: Prisma.WorkspaceCreateOrConnectWithoutBorrowerVerificationEvidenceInput
+  upsert?: Prisma.WorkspaceUpsertWithoutBorrowerVerificationEvidenceInput
+  connect?: Prisma.WorkspaceWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.WorkspaceUpdateToOneWithWhereWithoutBorrowerVerificationEvidenceInput, Prisma.WorkspaceUpdateWithoutBorrowerVerificationEvidenceInput>, Prisma.WorkspaceUncheckedUpdateWithoutBorrowerVerificationEvidenceInput>
+}
+
+export type WorkspaceCreateNestedOneWithoutBorrowerVerificationRisksInput = {
+  create?: Prisma.XOR<Prisma.WorkspaceCreateWithoutBorrowerVerificationRisksInput, Prisma.WorkspaceUncheckedCreateWithoutBorrowerVerificationRisksInput>
+  connectOrCreate?: Prisma.WorkspaceCreateOrConnectWithoutBorrowerVerificationRisksInput
+  connect?: Prisma.WorkspaceWhereUniqueInput
+}
+
+export type WorkspaceUpdateOneRequiredWithoutBorrowerVerificationRisksNestedInput = {
+  create?: Prisma.XOR<Prisma.WorkspaceCreateWithoutBorrowerVerificationRisksInput, Prisma.WorkspaceUncheckedCreateWithoutBorrowerVerificationRisksInput>
+  connectOrCreate?: Prisma.WorkspaceCreateOrConnectWithoutBorrowerVerificationRisksInput
+  upsert?: Prisma.WorkspaceUpsertWithoutBorrowerVerificationRisksInput
+  connect?: Prisma.WorkspaceWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.WorkspaceUpdateToOneWithWhereWithoutBorrowerVerificationRisksInput, Prisma.WorkspaceUpdateWithoutBorrowerVerificationRisksInput>, Prisma.WorkspaceUncheckedUpdateWithoutBorrowerVerificationRisksInput>
+}
+
 export type WorkspaceCreateWithoutPersonalOwnerInput = {
   id?: string
   name: string
@@ -536,6 +683,13 @@ export type WorkspaceCreateWithoutPersonalOwnerInput = {
   legacyDeals?: Prisma.DealCreateNestedManyWithoutWorkspaceInput
   legacyBorrowers?: Prisma.BorrowerCreateNestedManyWithoutWorkspaceInput
   legacyCollaterals?: Prisma.CollateralCreateNestedManyWithoutWorkspaceInput
+  identityVersions?: Prisma.PartyIdentityVersionCreateNestedManyWithoutWorkspaceInput
+  borrowerVerifications?: Prisma.BorrowerVerificationCreateNestedManyWithoutWorkspaceInput
+  borrowerVerificationItems?: Prisma.BorrowerVerificationItemCreateNestedManyWithoutWorkspaceInput
+  borrowerCheckRuns?: Prisma.BorrowerCheckRunCreateNestedManyWithoutWorkspaceInput
+  borrowerCheckFindings?: Prisma.BorrowerCheckFindingCreateNestedManyWithoutWorkspaceInput
+  borrowerVerificationEvidence?: Prisma.BorrowerVerificationEvidenceCreateNestedManyWithoutWorkspaceInput
+  borrowerVerificationRisks?: Prisma.BorrowerVerificationRiskCreateNestedManyWithoutWorkspaceInput
 }
 
 export type WorkspaceUncheckedCreateWithoutPersonalOwnerInput = {
@@ -551,6 +705,13 @@ export type WorkspaceUncheckedCreateWithoutPersonalOwnerInput = {
   legacyDeals?: Prisma.DealUncheckedCreateNestedManyWithoutWorkspaceInput
   legacyBorrowers?: Prisma.BorrowerUncheckedCreateNestedManyWithoutWorkspaceInput
   legacyCollaterals?: Prisma.CollateralUncheckedCreateNestedManyWithoutWorkspaceInput
+  identityVersions?: Prisma.PartyIdentityVersionUncheckedCreateNestedManyWithoutWorkspaceInput
+  borrowerVerifications?: Prisma.BorrowerVerificationUncheckedCreateNestedManyWithoutWorkspaceInput
+  borrowerVerificationItems?: Prisma.BorrowerVerificationItemUncheckedCreateNestedManyWithoutWorkspaceInput
+  borrowerCheckRuns?: Prisma.BorrowerCheckRunUncheckedCreateNestedManyWithoutWorkspaceInput
+  borrowerCheckFindings?: Prisma.BorrowerCheckFindingUncheckedCreateNestedManyWithoutWorkspaceInput
+  borrowerVerificationEvidence?: Prisma.BorrowerVerificationEvidenceUncheckedCreateNestedManyWithoutWorkspaceInput
+  borrowerVerificationRisks?: Prisma.BorrowerVerificationRiskUncheckedCreateNestedManyWithoutWorkspaceInput
 }
 
 export type WorkspaceCreateOrConnectWithoutPersonalOwnerInput = {
@@ -582,6 +743,13 @@ export type WorkspaceUpdateWithoutPersonalOwnerInput = {
   legacyDeals?: Prisma.DealUpdateManyWithoutWorkspaceNestedInput
   legacyBorrowers?: Prisma.BorrowerUpdateManyWithoutWorkspaceNestedInput
   legacyCollaterals?: Prisma.CollateralUpdateManyWithoutWorkspaceNestedInput
+  identityVersions?: Prisma.PartyIdentityVersionUpdateManyWithoutWorkspaceNestedInput
+  borrowerVerifications?: Prisma.BorrowerVerificationUpdateManyWithoutWorkspaceNestedInput
+  borrowerVerificationItems?: Prisma.BorrowerVerificationItemUpdateManyWithoutWorkspaceNestedInput
+  borrowerCheckRuns?: Prisma.BorrowerCheckRunUpdateManyWithoutWorkspaceNestedInput
+  borrowerCheckFindings?: Prisma.BorrowerCheckFindingUpdateManyWithoutWorkspaceNestedInput
+  borrowerVerificationEvidence?: Prisma.BorrowerVerificationEvidenceUpdateManyWithoutWorkspaceNestedInput
+  borrowerVerificationRisks?: Prisma.BorrowerVerificationRiskUpdateManyWithoutWorkspaceNestedInput
 }
 
 export type WorkspaceUncheckedUpdateWithoutPersonalOwnerInput = {
@@ -597,6 +765,13 @@ export type WorkspaceUncheckedUpdateWithoutPersonalOwnerInput = {
   legacyDeals?: Prisma.DealUncheckedUpdateManyWithoutWorkspaceNestedInput
   legacyBorrowers?: Prisma.BorrowerUncheckedUpdateManyWithoutWorkspaceNestedInput
   legacyCollaterals?: Prisma.CollateralUncheckedUpdateManyWithoutWorkspaceNestedInput
+  identityVersions?: Prisma.PartyIdentityVersionUncheckedUpdateManyWithoutWorkspaceNestedInput
+  borrowerVerifications?: Prisma.BorrowerVerificationUncheckedUpdateManyWithoutWorkspaceNestedInput
+  borrowerVerificationItems?: Prisma.BorrowerVerificationItemUncheckedUpdateManyWithoutWorkspaceNestedInput
+  borrowerCheckRuns?: Prisma.BorrowerCheckRunUncheckedUpdateManyWithoutWorkspaceNestedInput
+  borrowerCheckFindings?: Prisma.BorrowerCheckFindingUncheckedUpdateManyWithoutWorkspaceNestedInput
+  borrowerVerificationEvidence?: Prisma.BorrowerVerificationEvidenceUncheckedUpdateManyWithoutWorkspaceNestedInput
+  borrowerVerificationRisks?: Prisma.BorrowerVerificationRiskUncheckedUpdateManyWithoutWorkspaceNestedInput
 }
 
 export type WorkspaceCreateWithoutLegacyBorrowersInput = {
@@ -612,6 +787,13 @@ export type WorkspaceCreateWithoutLegacyBorrowersInput = {
   auditEntries?: Prisma.AuditEntryCreateNestedManyWithoutWorkspaceInput
   legacyDeals?: Prisma.DealCreateNestedManyWithoutWorkspaceInput
   legacyCollaterals?: Prisma.CollateralCreateNestedManyWithoutWorkspaceInput
+  identityVersions?: Prisma.PartyIdentityVersionCreateNestedManyWithoutWorkspaceInput
+  borrowerVerifications?: Prisma.BorrowerVerificationCreateNestedManyWithoutWorkspaceInput
+  borrowerVerificationItems?: Prisma.BorrowerVerificationItemCreateNestedManyWithoutWorkspaceInput
+  borrowerCheckRuns?: Prisma.BorrowerCheckRunCreateNestedManyWithoutWorkspaceInput
+  borrowerCheckFindings?: Prisma.BorrowerCheckFindingCreateNestedManyWithoutWorkspaceInput
+  borrowerVerificationEvidence?: Prisma.BorrowerVerificationEvidenceCreateNestedManyWithoutWorkspaceInput
+  borrowerVerificationRisks?: Prisma.BorrowerVerificationRiskCreateNestedManyWithoutWorkspaceInput
 }
 
 export type WorkspaceUncheckedCreateWithoutLegacyBorrowersInput = {
@@ -627,6 +809,13 @@ export type WorkspaceUncheckedCreateWithoutLegacyBorrowersInput = {
   auditEntries?: Prisma.AuditEntryUncheckedCreateNestedManyWithoutWorkspaceInput
   legacyDeals?: Prisma.DealUncheckedCreateNestedManyWithoutWorkspaceInput
   legacyCollaterals?: Prisma.CollateralUncheckedCreateNestedManyWithoutWorkspaceInput
+  identityVersions?: Prisma.PartyIdentityVersionUncheckedCreateNestedManyWithoutWorkspaceInput
+  borrowerVerifications?: Prisma.BorrowerVerificationUncheckedCreateNestedManyWithoutWorkspaceInput
+  borrowerVerificationItems?: Prisma.BorrowerVerificationItemUncheckedCreateNestedManyWithoutWorkspaceInput
+  borrowerCheckRuns?: Prisma.BorrowerCheckRunUncheckedCreateNestedManyWithoutWorkspaceInput
+  borrowerCheckFindings?: Prisma.BorrowerCheckFindingUncheckedCreateNestedManyWithoutWorkspaceInput
+  borrowerVerificationEvidence?: Prisma.BorrowerVerificationEvidenceUncheckedCreateNestedManyWithoutWorkspaceInput
+  borrowerVerificationRisks?: Prisma.BorrowerVerificationRiskUncheckedCreateNestedManyWithoutWorkspaceInput
 }
 
 export type WorkspaceCreateOrConnectWithoutLegacyBorrowersInput = {
@@ -658,6 +847,13 @@ export type WorkspaceUpdateWithoutLegacyBorrowersInput = {
   auditEntries?: Prisma.AuditEntryUpdateManyWithoutWorkspaceNestedInput
   legacyDeals?: Prisma.DealUpdateManyWithoutWorkspaceNestedInput
   legacyCollaterals?: Prisma.CollateralUpdateManyWithoutWorkspaceNestedInput
+  identityVersions?: Prisma.PartyIdentityVersionUpdateManyWithoutWorkspaceNestedInput
+  borrowerVerifications?: Prisma.BorrowerVerificationUpdateManyWithoutWorkspaceNestedInput
+  borrowerVerificationItems?: Prisma.BorrowerVerificationItemUpdateManyWithoutWorkspaceNestedInput
+  borrowerCheckRuns?: Prisma.BorrowerCheckRunUpdateManyWithoutWorkspaceNestedInput
+  borrowerCheckFindings?: Prisma.BorrowerCheckFindingUpdateManyWithoutWorkspaceNestedInput
+  borrowerVerificationEvidence?: Prisma.BorrowerVerificationEvidenceUpdateManyWithoutWorkspaceNestedInput
+  borrowerVerificationRisks?: Prisma.BorrowerVerificationRiskUpdateManyWithoutWorkspaceNestedInput
 }
 
 export type WorkspaceUncheckedUpdateWithoutLegacyBorrowersInput = {
@@ -673,6 +869,13 @@ export type WorkspaceUncheckedUpdateWithoutLegacyBorrowersInput = {
   auditEntries?: Prisma.AuditEntryUncheckedUpdateManyWithoutWorkspaceNestedInput
   legacyDeals?: Prisma.DealUncheckedUpdateManyWithoutWorkspaceNestedInput
   legacyCollaterals?: Prisma.CollateralUncheckedUpdateManyWithoutWorkspaceNestedInput
+  identityVersions?: Prisma.PartyIdentityVersionUncheckedUpdateManyWithoutWorkspaceNestedInput
+  borrowerVerifications?: Prisma.BorrowerVerificationUncheckedUpdateManyWithoutWorkspaceNestedInput
+  borrowerVerificationItems?: Prisma.BorrowerVerificationItemUncheckedUpdateManyWithoutWorkspaceNestedInput
+  borrowerCheckRuns?: Prisma.BorrowerCheckRunUncheckedUpdateManyWithoutWorkspaceNestedInput
+  borrowerCheckFindings?: Prisma.BorrowerCheckFindingUncheckedUpdateManyWithoutWorkspaceNestedInput
+  borrowerVerificationEvidence?: Prisma.BorrowerVerificationEvidenceUncheckedUpdateManyWithoutWorkspaceNestedInput
+  borrowerVerificationRisks?: Prisma.BorrowerVerificationRiskUncheckedUpdateManyWithoutWorkspaceNestedInput
 }
 
 export type WorkspaceCreateWithoutLegacyCollateralsInput = {
@@ -688,6 +891,13 @@ export type WorkspaceCreateWithoutLegacyCollateralsInput = {
   auditEntries?: Prisma.AuditEntryCreateNestedManyWithoutWorkspaceInput
   legacyDeals?: Prisma.DealCreateNestedManyWithoutWorkspaceInput
   legacyBorrowers?: Prisma.BorrowerCreateNestedManyWithoutWorkspaceInput
+  identityVersions?: Prisma.PartyIdentityVersionCreateNestedManyWithoutWorkspaceInput
+  borrowerVerifications?: Prisma.BorrowerVerificationCreateNestedManyWithoutWorkspaceInput
+  borrowerVerificationItems?: Prisma.BorrowerVerificationItemCreateNestedManyWithoutWorkspaceInput
+  borrowerCheckRuns?: Prisma.BorrowerCheckRunCreateNestedManyWithoutWorkspaceInput
+  borrowerCheckFindings?: Prisma.BorrowerCheckFindingCreateNestedManyWithoutWorkspaceInput
+  borrowerVerificationEvidence?: Prisma.BorrowerVerificationEvidenceCreateNestedManyWithoutWorkspaceInput
+  borrowerVerificationRisks?: Prisma.BorrowerVerificationRiskCreateNestedManyWithoutWorkspaceInput
 }
 
 export type WorkspaceUncheckedCreateWithoutLegacyCollateralsInput = {
@@ -703,6 +913,13 @@ export type WorkspaceUncheckedCreateWithoutLegacyCollateralsInput = {
   auditEntries?: Prisma.AuditEntryUncheckedCreateNestedManyWithoutWorkspaceInput
   legacyDeals?: Prisma.DealUncheckedCreateNestedManyWithoutWorkspaceInput
   legacyBorrowers?: Prisma.BorrowerUncheckedCreateNestedManyWithoutWorkspaceInput
+  identityVersions?: Prisma.PartyIdentityVersionUncheckedCreateNestedManyWithoutWorkspaceInput
+  borrowerVerifications?: Prisma.BorrowerVerificationUncheckedCreateNestedManyWithoutWorkspaceInput
+  borrowerVerificationItems?: Prisma.BorrowerVerificationItemUncheckedCreateNestedManyWithoutWorkspaceInput
+  borrowerCheckRuns?: Prisma.BorrowerCheckRunUncheckedCreateNestedManyWithoutWorkspaceInput
+  borrowerCheckFindings?: Prisma.BorrowerCheckFindingUncheckedCreateNestedManyWithoutWorkspaceInput
+  borrowerVerificationEvidence?: Prisma.BorrowerVerificationEvidenceUncheckedCreateNestedManyWithoutWorkspaceInput
+  borrowerVerificationRisks?: Prisma.BorrowerVerificationRiskUncheckedCreateNestedManyWithoutWorkspaceInput
 }
 
 export type WorkspaceCreateOrConnectWithoutLegacyCollateralsInput = {
@@ -734,6 +951,13 @@ export type WorkspaceUpdateWithoutLegacyCollateralsInput = {
   auditEntries?: Prisma.AuditEntryUpdateManyWithoutWorkspaceNestedInput
   legacyDeals?: Prisma.DealUpdateManyWithoutWorkspaceNestedInput
   legacyBorrowers?: Prisma.BorrowerUpdateManyWithoutWorkspaceNestedInput
+  identityVersions?: Prisma.PartyIdentityVersionUpdateManyWithoutWorkspaceNestedInput
+  borrowerVerifications?: Prisma.BorrowerVerificationUpdateManyWithoutWorkspaceNestedInput
+  borrowerVerificationItems?: Prisma.BorrowerVerificationItemUpdateManyWithoutWorkspaceNestedInput
+  borrowerCheckRuns?: Prisma.BorrowerCheckRunUpdateManyWithoutWorkspaceNestedInput
+  borrowerCheckFindings?: Prisma.BorrowerCheckFindingUpdateManyWithoutWorkspaceNestedInput
+  borrowerVerificationEvidence?: Prisma.BorrowerVerificationEvidenceUpdateManyWithoutWorkspaceNestedInput
+  borrowerVerificationRisks?: Prisma.BorrowerVerificationRiskUpdateManyWithoutWorkspaceNestedInput
 }
 
 export type WorkspaceUncheckedUpdateWithoutLegacyCollateralsInput = {
@@ -749,6 +973,13 @@ export type WorkspaceUncheckedUpdateWithoutLegacyCollateralsInput = {
   auditEntries?: Prisma.AuditEntryUncheckedUpdateManyWithoutWorkspaceNestedInput
   legacyDeals?: Prisma.DealUncheckedUpdateManyWithoutWorkspaceNestedInput
   legacyBorrowers?: Prisma.BorrowerUncheckedUpdateManyWithoutWorkspaceNestedInput
+  identityVersions?: Prisma.PartyIdentityVersionUncheckedUpdateManyWithoutWorkspaceNestedInput
+  borrowerVerifications?: Prisma.BorrowerVerificationUncheckedUpdateManyWithoutWorkspaceNestedInput
+  borrowerVerificationItems?: Prisma.BorrowerVerificationItemUncheckedUpdateManyWithoutWorkspaceNestedInput
+  borrowerCheckRuns?: Prisma.BorrowerCheckRunUncheckedUpdateManyWithoutWorkspaceNestedInput
+  borrowerCheckFindings?: Prisma.BorrowerCheckFindingUncheckedUpdateManyWithoutWorkspaceNestedInput
+  borrowerVerificationEvidence?: Prisma.BorrowerVerificationEvidenceUncheckedUpdateManyWithoutWorkspaceNestedInput
+  borrowerVerificationRisks?: Prisma.BorrowerVerificationRiskUncheckedUpdateManyWithoutWorkspaceNestedInput
 }
 
 export type WorkspaceCreateWithoutLegacyDealsInput = {
@@ -764,6 +995,13 @@ export type WorkspaceCreateWithoutLegacyDealsInput = {
   auditEntries?: Prisma.AuditEntryCreateNestedManyWithoutWorkspaceInput
   legacyBorrowers?: Prisma.BorrowerCreateNestedManyWithoutWorkspaceInput
   legacyCollaterals?: Prisma.CollateralCreateNestedManyWithoutWorkspaceInput
+  identityVersions?: Prisma.PartyIdentityVersionCreateNestedManyWithoutWorkspaceInput
+  borrowerVerifications?: Prisma.BorrowerVerificationCreateNestedManyWithoutWorkspaceInput
+  borrowerVerificationItems?: Prisma.BorrowerVerificationItemCreateNestedManyWithoutWorkspaceInput
+  borrowerCheckRuns?: Prisma.BorrowerCheckRunCreateNestedManyWithoutWorkspaceInput
+  borrowerCheckFindings?: Prisma.BorrowerCheckFindingCreateNestedManyWithoutWorkspaceInput
+  borrowerVerificationEvidence?: Prisma.BorrowerVerificationEvidenceCreateNestedManyWithoutWorkspaceInput
+  borrowerVerificationRisks?: Prisma.BorrowerVerificationRiskCreateNestedManyWithoutWorkspaceInput
 }
 
 export type WorkspaceUncheckedCreateWithoutLegacyDealsInput = {
@@ -779,6 +1017,13 @@ export type WorkspaceUncheckedCreateWithoutLegacyDealsInput = {
   auditEntries?: Prisma.AuditEntryUncheckedCreateNestedManyWithoutWorkspaceInput
   legacyBorrowers?: Prisma.BorrowerUncheckedCreateNestedManyWithoutWorkspaceInput
   legacyCollaterals?: Prisma.CollateralUncheckedCreateNestedManyWithoutWorkspaceInput
+  identityVersions?: Prisma.PartyIdentityVersionUncheckedCreateNestedManyWithoutWorkspaceInput
+  borrowerVerifications?: Prisma.BorrowerVerificationUncheckedCreateNestedManyWithoutWorkspaceInput
+  borrowerVerificationItems?: Prisma.BorrowerVerificationItemUncheckedCreateNestedManyWithoutWorkspaceInput
+  borrowerCheckRuns?: Prisma.BorrowerCheckRunUncheckedCreateNestedManyWithoutWorkspaceInput
+  borrowerCheckFindings?: Prisma.BorrowerCheckFindingUncheckedCreateNestedManyWithoutWorkspaceInput
+  borrowerVerificationEvidence?: Prisma.BorrowerVerificationEvidenceUncheckedCreateNestedManyWithoutWorkspaceInput
+  borrowerVerificationRisks?: Prisma.BorrowerVerificationRiskUncheckedCreateNestedManyWithoutWorkspaceInput
 }
 
 export type WorkspaceCreateOrConnectWithoutLegacyDealsInput = {
@@ -810,6 +1055,13 @@ export type WorkspaceUpdateWithoutLegacyDealsInput = {
   auditEntries?: Prisma.AuditEntryUpdateManyWithoutWorkspaceNestedInput
   legacyBorrowers?: Prisma.BorrowerUpdateManyWithoutWorkspaceNestedInput
   legacyCollaterals?: Prisma.CollateralUpdateManyWithoutWorkspaceNestedInput
+  identityVersions?: Prisma.PartyIdentityVersionUpdateManyWithoutWorkspaceNestedInput
+  borrowerVerifications?: Prisma.BorrowerVerificationUpdateManyWithoutWorkspaceNestedInput
+  borrowerVerificationItems?: Prisma.BorrowerVerificationItemUpdateManyWithoutWorkspaceNestedInput
+  borrowerCheckRuns?: Prisma.BorrowerCheckRunUpdateManyWithoutWorkspaceNestedInput
+  borrowerCheckFindings?: Prisma.BorrowerCheckFindingUpdateManyWithoutWorkspaceNestedInput
+  borrowerVerificationEvidence?: Prisma.BorrowerVerificationEvidenceUpdateManyWithoutWorkspaceNestedInput
+  borrowerVerificationRisks?: Prisma.BorrowerVerificationRiskUpdateManyWithoutWorkspaceNestedInput
 }
 
 export type WorkspaceUncheckedUpdateWithoutLegacyDealsInput = {
@@ -825,6 +1077,13 @@ export type WorkspaceUncheckedUpdateWithoutLegacyDealsInput = {
   auditEntries?: Prisma.AuditEntryUncheckedUpdateManyWithoutWorkspaceNestedInput
   legacyBorrowers?: Prisma.BorrowerUncheckedUpdateManyWithoutWorkspaceNestedInput
   legacyCollaterals?: Prisma.CollateralUncheckedUpdateManyWithoutWorkspaceNestedInput
+  identityVersions?: Prisma.PartyIdentityVersionUncheckedUpdateManyWithoutWorkspaceNestedInput
+  borrowerVerifications?: Prisma.BorrowerVerificationUncheckedUpdateManyWithoutWorkspaceNestedInput
+  borrowerVerificationItems?: Prisma.BorrowerVerificationItemUncheckedUpdateManyWithoutWorkspaceNestedInput
+  borrowerCheckRuns?: Prisma.BorrowerCheckRunUncheckedUpdateManyWithoutWorkspaceNestedInput
+  borrowerCheckFindings?: Prisma.BorrowerCheckFindingUncheckedUpdateManyWithoutWorkspaceNestedInput
+  borrowerVerificationEvidence?: Prisma.BorrowerVerificationEvidenceUncheckedUpdateManyWithoutWorkspaceNestedInput
+  borrowerVerificationRisks?: Prisma.BorrowerVerificationRiskUncheckedUpdateManyWithoutWorkspaceNestedInput
 }
 
 export type WorkspaceCreateWithoutWorkspaceMembersInput = {
@@ -840,6 +1099,13 @@ export type WorkspaceCreateWithoutWorkspaceMembersInput = {
   legacyDeals?: Prisma.DealCreateNestedManyWithoutWorkspaceInput
   legacyBorrowers?: Prisma.BorrowerCreateNestedManyWithoutWorkspaceInput
   legacyCollaterals?: Prisma.CollateralCreateNestedManyWithoutWorkspaceInput
+  identityVersions?: Prisma.PartyIdentityVersionCreateNestedManyWithoutWorkspaceInput
+  borrowerVerifications?: Prisma.BorrowerVerificationCreateNestedManyWithoutWorkspaceInput
+  borrowerVerificationItems?: Prisma.BorrowerVerificationItemCreateNestedManyWithoutWorkspaceInput
+  borrowerCheckRuns?: Prisma.BorrowerCheckRunCreateNestedManyWithoutWorkspaceInput
+  borrowerCheckFindings?: Prisma.BorrowerCheckFindingCreateNestedManyWithoutWorkspaceInput
+  borrowerVerificationEvidence?: Prisma.BorrowerVerificationEvidenceCreateNestedManyWithoutWorkspaceInput
+  borrowerVerificationRisks?: Prisma.BorrowerVerificationRiskCreateNestedManyWithoutWorkspaceInput
 }
 
 export type WorkspaceUncheckedCreateWithoutWorkspaceMembersInput = {
@@ -855,6 +1121,13 @@ export type WorkspaceUncheckedCreateWithoutWorkspaceMembersInput = {
   legacyDeals?: Prisma.DealUncheckedCreateNestedManyWithoutWorkspaceInput
   legacyBorrowers?: Prisma.BorrowerUncheckedCreateNestedManyWithoutWorkspaceInput
   legacyCollaterals?: Prisma.CollateralUncheckedCreateNestedManyWithoutWorkspaceInput
+  identityVersions?: Prisma.PartyIdentityVersionUncheckedCreateNestedManyWithoutWorkspaceInput
+  borrowerVerifications?: Prisma.BorrowerVerificationUncheckedCreateNestedManyWithoutWorkspaceInput
+  borrowerVerificationItems?: Prisma.BorrowerVerificationItemUncheckedCreateNestedManyWithoutWorkspaceInput
+  borrowerCheckRuns?: Prisma.BorrowerCheckRunUncheckedCreateNestedManyWithoutWorkspaceInput
+  borrowerCheckFindings?: Prisma.BorrowerCheckFindingUncheckedCreateNestedManyWithoutWorkspaceInput
+  borrowerVerificationEvidence?: Prisma.BorrowerVerificationEvidenceUncheckedCreateNestedManyWithoutWorkspaceInput
+  borrowerVerificationRisks?: Prisma.BorrowerVerificationRiskUncheckedCreateNestedManyWithoutWorkspaceInput
 }
 
 export type WorkspaceCreateOrConnectWithoutWorkspaceMembersInput = {
@@ -886,6 +1159,13 @@ export type WorkspaceUpdateWithoutWorkspaceMembersInput = {
   legacyDeals?: Prisma.DealUpdateManyWithoutWorkspaceNestedInput
   legacyBorrowers?: Prisma.BorrowerUpdateManyWithoutWorkspaceNestedInput
   legacyCollaterals?: Prisma.CollateralUpdateManyWithoutWorkspaceNestedInput
+  identityVersions?: Prisma.PartyIdentityVersionUpdateManyWithoutWorkspaceNestedInput
+  borrowerVerifications?: Prisma.BorrowerVerificationUpdateManyWithoutWorkspaceNestedInput
+  borrowerVerificationItems?: Prisma.BorrowerVerificationItemUpdateManyWithoutWorkspaceNestedInput
+  borrowerCheckRuns?: Prisma.BorrowerCheckRunUpdateManyWithoutWorkspaceNestedInput
+  borrowerCheckFindings?: Prisma.BorrowerCheckFindingUpdateManyWithoutWorkspaceNestedInput
+  borrowerVerificationEvidence?: Prisma.BorrowerVerificationEvidenceUpdateManyWithoutWorkspaceNestedInput
+  borrowerVerificationRisks?: Prisma.BorrowerVerificationRiskUpdateManyWithoutWorkspaceNestedInput
 }
 
 export type WorkspaceUncheckedUpdateWithoutWorkspaceMembersInput = {
@@ -901,6 +1181,13 @@ export type WorkspaceUncheckedUpdateWithoutWorkspaceMembersInput = {
   legacyDeals?: Prisma.DealUncheckedUpdateManyWithoutWorkspaceNestedInput
   legacyBorrowers?: Prisma.BorrowerUncheckedUpdateManyWithoutWorkspaceNestedInput
   legacyCollaterals?: Prisma.CollateralUncheckedUpdateManyWithoutWorkspaceNestedInput
+  identityVersions?: Prisma.PartyIdentityVersionUncheckedUpdateManyWithoutWorkspaceNestedInput
+  borrowerVerifications?: Prisma.BorrowerVerificationUncheckedUpdateManyWithoutWorkspaceNestedInput
+  borrowerVerificationItems?: Prisma.BorrowerVerificationItemUncheckedUpdateManyWithoutWorkspaceNestedInput
+  borrowerCheckRuns?: Prisma.BorrowerCheckRunUncheckedUpdateManyWithoutWorkspaceNestedInput
+  borrowerCheckFindings?: Prisma.BorrowerCheckFindingUncheckedUpdateManyWithoutWorkspaceNestedInput
+  borrowerVerificationEvidence?: Prisma.BorrowerVerificationEvidenceUncheckedUpdateManyWithoutWorkspaceNestedInput
+  borrowerVerificationRisks?: Prisma.BorrowerVerificationRiskUncheckedUpdateManyWithoutWorkspaceNestedInput
 }
 
 export type WorkspaceCreateWithoutPartiesInput = {
@@ -916,6 +1203,13 @@ export type WorkspaceCreateWithoutPartiesInput = {
   legacyDeals?: Prisma.DealCreateNestedManyWithoutWorkspaceInput
   legacyBorrowers?: Prisma.BorrowerCreateNestedManyWithoutWorkspaceInput
   legacyCollaterals?: Prisma.CollateralCreateNestedManyWithoutWorkspaceInput
+  identityVersions?: Prisma.PartyIdentityVersionCreateNestedManyWithoutWorkspaceInput
+  borrowerVerifications?: Prisma.BorrowerVerificationCreateNestedManyWithoutWorkspaceInput
+  borrowerVerificationItems?: Prisma.BorrowerVerificationItemCreateNestedManyWithoutWorkspaceInput
+  borrowerCheckRuns?: Prisma.BorrowerCheckRunCreateNestedManyWithoutWorkspaceInput
+  borrowerCheckFindings?: Prisma.BorrowerCheckFindingCreateNestedManyWithoutWorkspaceInput
+  borrowerVerificationEvidence?: Prisma.BorrowerVerificationEvidenceCreateNestedManyWithoutWorkspaceInput
+  borrowerVerificationRisks?: Prisma.BorrowerVerificationRiskCreateNestedManyWithoutWorkspaceInput
 }
 
 export type WorkspaceUncheckedCreateWithoutPartiesInput = {
@@ -931,6 +1225,13 @@ export type WorkspaceUncheckedCreateWithoutPartiesInput = {
   legacyDeals?: Prisma.DealUncheckedCreateNestedManyWithoutWorkspaceInput
   legacyBorrowers?: Prisma.BorrowerUncheckedCreateNestedManyWithoutWorkspaceInput
   legacyCollaterals?: Prisma.CollateralUncheckedCreateNestedManyWithoutWorkspaceInput
+  identityVersions?: Prisma.PartyIdentityVersionUncheckedCreateNestedManyWithoutWorkspaceInput
+  borrowerVerifications?: Prisma.BorrowerVerificationUncheckedCreateNestedManyWithoutWorkspaceInput
+  borrowerVerificationItems?: Prisma.BorrowerVerificationItemUncheckedCreateNestedManyWithoutWorkspaceInput
+  borrowerCheckRuns?: Prisma.BorrowerCheckRunUncheckedCreateNestedManyWithoutWorkspaceInput
+  borrowerCheckFindings?: Prisma.BorrowerCheckFindingUncheckedCreateNestedManyWithoutWorkspaceInput
+  borrowerVerificationEvidence?: Prisma.BorrowerVerificationEvidenceUncheckedCreateNestedManyWithoutWorkspaceInput
+  borrowerVerificationRisks?: Prisma.BorrowerVerificationRiskUncheckedCreateNestedManyWithoutWorkspaceInput
 }
 
 export type WorkspaceCreateOrConnectWithoutPartiesInput = {
@@ -962,6 +1263,13 @@ export type WorkspaceUpdateWithoutPartiesInput = {
   legacyDeals?: Prisma.DealUpdateManyWithoutWorkspaceNestedInput
   legacyBorrowers?: Prisma.BorrowerUpdateManyWithoutWorkspaceNestedInput
   legacyCollaterals?: Prisma.CollateralUpdateManyWithoutWorkspaceNestedInput
+  identityVersions?: Prisma.PartyIdentityVersionUpdateManyWithoutWorkspaceNestedInput
+  borrowerVerifications?: Prisma.BorrowerVerificationUpdateManyWithoutWorkspaceNestedInput
+  borrowerVerificationItems?: Prisma.BorrowerVerificationItemUpdateManyWithoutWorkspaceNestedInput
+  borrowerCheckRuns?: Prisma.BorrowerCheckRunUpdateManyWithoutWorkspaceNestedInput
+  borrowerCheckFindings?: Prisma.BorrowerCheckFindingUpdateManyWithoutWorkspaceNestedInput
+  borrowerVerificationEvidence?: Prisma.BorrowerVerificationEvidenceUpdateManyWithoutWorkspaceNestedInput
+  borrowerVerificationRisks?: Prisma.BorrowerVerificationRiskUpdateManyWithoutWorkspaceNestedInput
 }
 
 export type WorkspaceUncheckedUpdateWithoutPartiesInput = {
@@ -977,6 +1285,13 @@ export type WorkspaceUncheckedUpdateWithoutPartiesInput = {
   legacyDeals?: Prisma.DealUncheckedUpdateManyWithoutWorkspaceNestedInput
   legacyBorrowers?: Prisma.BorrowerUncheckedUpdateManyWithoutWorkspaceNestedInput
   legacyCollaterals?: Prisma.CollateralUncheckedUpdateManyWithoutWorkspaceNestedInput
+  identityVersions?: Prisma.PartyIdentityVersionUncheckedUpdateManyWithoutWorkspaceNestedInput
+  borrowerVerifications?: Prisma.BorrowerVerificationUncheckedUpdateManyWithoutWorkspaceNestedInput
+  borrowerVerificationItems?: Prisma.BorrowerVerificationItemUncheckedUpdateManyWithoutWorkspaceNestedInput
+  borrowerCheckRuns?: Prisma.BorrowerCheckRunUncheckedUpdateManyWithoutWorkspaceNestedInput
+  borrowerCheckFindings?: Prisma.BorrowerCheckFindingUncheckedUpdateManyWithoutWorkspaceNestedInput
+  borrowerVerificationEvidence?: Prisma.BorrowerVerificationEvidenceUncheckedUpdateManyWithoutWorkspaceNestedInput
+  borrowerVerificationRisks?: Prisma.BorrowerVerificationRiskUncheckedUpdateManyWithoutWorkspaceNestedInput
 }
 
 export type WorkspaceCreateWithoutContractsInput = {
@@ -992,6 +1307,13 @@ export type WorkspaceCreateWithoutContractsInput = {
   legacyDeals?: Prisma.DealCreateNestedManyWithoutWorkspaceInput
   legacyBorrowers?: Prisma.BorrowerCreateNestedManyWithoutWorkspaceInput
   legacyCollaterals?: Prisma.CollateralCreateNestedManyWithoutWorkspaceInput
+  identityVersions?: Prisma.PartyIdentityVersionCreateNestedManyWithoutWorkspaceInput
+  borrowerVerifications?: Prisma.BorrowerVerificationCreateNestedManyWithoutWorkspaceInput
+  borrowerVerificationItems?: Prisma.BorrowerVerificationItemCreateNestedManyWithoutWorkspaceInput
+  borrowerCheckRuns?: Prisma.BorrowerCheckRunCreateNestedManyWithoutWorkspaceInput
+  borrowerCheckFindings?: Prisma.BorrowerCheckFindingCreateNestedManyWithoutWorkspaceInput
+  borrowerVerificationEvidence?: Prisma.BorrowerVerificationEvidenceCreateNestedManyWithoutWorkspaceInput
+  borrowerVerificationRisks?: Prisma.BorrowerVerificationRiskCreateNestedManyWithoutWorkspaceInput
 }
 
 export type WorkspaceUncheckedCreateWithoutContractsInput = {
@@ -1007,6 +1329,13 @@ export type WorkspaceUncheckedCreateWithoutContractsInput = {
   legacyDeals?: Prisma.DealUncheckedCreateNestedManyWithoutWorkspaceInput
   legacyBorrowers?: Prisma.BorrowerUncheckedCreateNestedManyWithoutWorkspaceInput
   legacyCollaterals?: Prisma.CollateralUncheckedCreateNestedManyWithoutWorkspaceInput
+  identityVersions?: Prisma.PartyIdentityVersionUncheckedCreateNestedManyWithoutWorkspaceInput
+  borrowerVerifications?: Prisma.BorrowerVerificationUncheckedCreateNestedManyWithoutWorkspaceInput
+  borrowerVerificationItems?: Prisma.BorrowerVerificationItemUncheckedCreateNestedManyWithoutWorkspaceInput
+  borrowerCheckRuns?: Prisma.BorrowerCheckRunUncheckedCreateNestedManyWithoutWorkspaceInput
+  borrowerCheckFindings?: Prisma.BorrowerCheckFindingUncheckedCreateNestedManyWithoutWorkspaceInput
+  borrowerVerificationEvidence?: Prisma.BorrowerVerificationEvidenceUncheckedCreateNestedManyWithoutWorkspaceInput
+  borrowerVerificationRisks?: Prisma.BorrowerVerificationRiskUncheckedCreateNestedManyWithoutWorkspaceInput
 }
 
 export type WorkspaceCreateOrConnectWithoutContractsInput = {
@@ -1038,6 +1367,13 @@ export type WorkspaceUpdateWithoutContractsInput = {
   legacyDeals?: Prisma.DealUpdateManyWithoutWorkspaceNestedInput
   legacyBorrowers?: Prisma.BorrowerUpdateManyWithoutWorkspaceNestedInput
   legacyCollaterals?: Prisma.CollateralUpdateManyWithoutWorkspaceNestedInput
+  identityVersions?: Prisma.PartyIdentityVersionUpdateManyWithoutWorkspaceNestedInput
+  borrowerVerifications?: Prisma.BorrowerVerificationUpdateManyWithoutWorkspaceNestedInput
+  borrowerVerificationItems?: Prisma.BorrowerVerificationItemUpdateManyWithoutWorkspaceNestedInput
+  borrowerCheckRuns?: Prisma.BorrowerCheckRunUpdateManyWithoutWorkspaceNestedInput
+  borrowerCheckFindings?: Prisma.BorrowerCheckFindingUpdateManyWithoutWorkspaceNestedInput
+  borrowerVerificationEvidence?: Prisma.BorrowerVerificationEvidenceUpdateManyWithoutWorkspaceNestedInput
+  borrowerVerificationRisks?: Prisma.BorrowerVerificationRiskUpdateManyWithoutWorkspaceNestedInput
 }
 
 export type WorkspaceUncheckedUpdateWithoutContractsInput = {
@@ -1053,6 +1389,13 @@ export type WorkspaceUncheckedUpdateWithoutContractsInput = {
   legacyDeals?: Prisma.DealUncheckedUpdateManyWithoutWorkspaceNestedInput
   legacyBorrowers?: Prisma.BorrowerUncheckedUpdateManyWithoutWorkspaceNestedInput
   legacyCollaterals?: Prisma.CollateralUncheckedUpdateManyWithoutWorkspaceNestedInput
+  identityVersions?: Prisma.PartyIdentityVersionUncheckedUpdateManyWithoutWorkspaceNestedInput
+  borrowerVerifications?: Prisma.BorrowerVerificationUncheckedUpdateManyWithoutWorkspaceNestedInput
+  borrowerVerificationItems?: Prisma.BorrowerVerificationItemUncheckedUpdateManyWithoutWorkspaceNestedInput
+  borrowerCheckRuns?: Prisma.BorrowerCheckRunUncheckedUpdateManyWithoutWorkspaceNestedInput
+  borrowerCheckFindings?: Prisma.BorrowerCheckFindingUncheckedUpdateManyWithoutWorkspaceNestedInput
+  borrowerVerificationEvidence?: Prisma.BorrowerVerificationEvidenceUncheckedUpdateManyWithoutWorkspaceNestedInput
+  borrowerVerificationRisks?: Prisma.BorrowerVerificationRiskUncheckedUpdateManyWithoutWorkspaceNestedInput
 }
 
 export type WorkspaceCreateWithoutDocumentsInput = {
@@ -1068,6 +1411,13 @@ export type WorkspaceCreateWithoutDocumentsInput = {
   legacyDeals?: Prisma.DealCreateNestedManyWithoutWorkspaceInput
   legacyBorrowers?: Prisma.BorrowerCreateNestedManyWithoutWorkspaceInput
   legacyCollaterals?: Prisma.CollateralCreateNestedManyWithoutWorkspaceInput
+  identityVersions?: Prisma.PartyIdentityVersionCreateNestedManyWithoutWorkspaceInput
+  borrowerVerifications?: Prisma.BorrowerVerificationCreateNestedManyWithoutWorkspaceInput
+  borrowerVerificationItems?: Prisma.BorrowerVerificationItemCreateNestedManyWithoutWorkspaceInput
+  borrowerCheckRuns?: Prisma.BorrowerCheckRunCreateNestedManyWithoutWorkspaceInput
+  borrowerCheckFindings?: Prisma.BorrowerCheckFindingCreateNestedManyWithoutWorkspaceInput
+  borrowerVerificationEvidence?: Prisma.BorrowerVerificationEvidenceCreateNestedManyWithoutWorkspaceInput
+  borrowerVerificationRisks?: Prisma.BorrowerVerificationRiskCreateNestedManyWithoutWorkspaceInput
 }
 
 export type WorkspaceUncheckedCreateWithoutDocumentsInput = {
@@ -1083,6 +1433,13 @@ export type WorkspaceUncheckedCreateWithoutDocumentsInput = {
   legacyDeals?: Prisma.DealUncheckedCreateNestedManyWithoutWorkspaceInput
   legacyBorrowers?: Prisma.BorrowerUncheckedCreateNestedManyWithoutWorkspaceInput
   legacyCollaterals?: Prisma.CollateralUncheckedCreateNestedManyWithoutWorkspaceInput
+  identityVersions?: Prisma.PartyIdentityVersionUncheckedCreateNestedManyWithoutWorkspaceInput
+  borrowerVerifications?: Prisma.BorrowerVerificationUncheckedCreateNestedManyWithoutWorkspaceInput
+  borrowerVerificationItems?: Prisma.BorrowerVerificationItemUncheckedCreateNestedManyWithoutWorkspaceInput
+  borrowerCheckRuns?: Prisma.BorrowerCheckRunUncheckedCreateNestedManyWithoutWorkspaceInput
+  borrowerCheckFindings?: Prisma.BorrowerCheckFindingUncheckedCreateNestedManyWithoutWorkspaceInput
+  borrowerVerificationEvidence?: Prisma.BorrowerVerificationEvidenceUncheckedCreateNestedManyWithoutWorkspaceInput
+  borrowerVerificationRisks?: Prisma.BorrowerVerificationRiskUncheckedCreateNestedManyWithoutWorkspaceInput
 }
 
 export type WorkspaceCreateOrConnectWithoutDocumentsInput = {
@@ -1114,6 +1471,13 @@ export type WorkspaceUpdateWithoutDocumentsInput = {
   legacyDeals?: Prisma.DealUpdateManyWithoutWorkspaceNestedInput
   legacyBorrowers?: Prisma.BorrowerUpdateManyWithoutWorkspaceNestedInput
   legacyCollaterals?: Prisma.CollateralUpdateManyWithoutWorkspaceNestedInput
+  identityVersions?: Prisma.PartyIdentityVersionUpdateManyWithoutWorkspaceNestedInput
+  borrowerVerifications?: Prisma.BorrowerVerificationUpdateManyWithoutWorkspaceNestedInput
+  borrowerVerificationItems?: Prisma.BorrowerVerificationItemUpdateManyWithoutWorkspaceNestedInput
+  borrowerCheckRuns?: Prisma.BorrowerCheckRunUpdateManyWithoutWorkspaceNestedInput
+  borrowerCheckFindings?: Prisma.BorrowerCheckFindingUpdateManyWithoutWorkspaceNestedInput
+  borrowerVerificationEvidence?: Prisma.BorrowerVerificationEvidenceUpdateManyWithoutWorkspaceNestedInput
+  borrowerVerificationRisks?: Prisma.BorrowerVerificationRiskUpdateManyWithoutWorkspaceNestedInput
 }
 
 export type WorkspaceUncheckedUpdateWithoutDocumentsInput = {
@@ -1129,6 +1493,13 @@ export type WorkspaceUncheckedUpdateWithoutDocumentsInput = {
   legacyDeals?: Prisma.DealUncheckedUpdateManyWithoutWorkspaceNestedInput
   legacyBorrowers?: Prisma.BorrowerUncheckedUpdateManyWithoutWorkspaceNestedInput
   legacyCollaterals?: Prisma.CollateralUncheckedUpdateManyWithoutWorkspaceNestedInput
+  identityVersions?: Prisma.PartyIdentityVersionUncheckedUpdateManyWithoutWorkspaceNestedInput
+  borrowerVerifications?: Prisma.BorrowerVerificationUncheckedUpdateManyWithoutWorkspaceNestedInput
+  borrowerVerificationItems?: Prisma.BorrowerVerificationItemUncheckedUpdateManyWithoutWorkspaceNestedInput
+  borrowerCheckRuns?: Prisma.BorrowerCheckRunUncheckedUpdateManyWithoutWorkspaceNestedInput
+  borrowerCheckFindings?: Prisma.BorrowerCheckFindingUncheckedUpdateManyWithoutWorkspaceNestedInput
+  borrowerVerificationEvidence?: Prisma.BorrowerVerificationEvidenceUncheckedUpdateManyWithoutWorkspaceNestedInput
+  borrowerVerificationRisks?: Prisma.BorrowerVerificationRiskUncheckedUpdateManyWithoutWorkspaceNestedInput
 }
 
 export type WorkspaceCreateWithoutAuditEntriesInput = {
@@ -1144,6 +1515,13 @@ export type WorkspaceCreateWithoutAuditEntriesInput = {
   legacyDeals?: Prisma.DealCreateNestedManyWithoutWorkspaceInput
   legacyBorrowers?: Prisma.BorrowerCreateNestedManyWithoutWorkspaceInput
   legacyCollaterals?: Prisma.CollateralCreateNestedManyWithoutWorkspaceInput
+  identityVersions?: Prisma.PartyIdentityVersionCreateNestedManyWithoutWorkspaceInput
+  borrowerVerifications?: Prisma.BorrowerVerificationCreateNestedManyWithoutWorkspaceInput
+  borrowerVerificationItems?: Prisma.BorrowerVerificationItemCreateNestedManyWithoutWorkspaceInput
+  borrowerCheckRuns?: Prisma.BorrowerCheckRunCreateNestedManyWithoutWorkspaceInput
+  borrowerCheckFindings?: Prisma.BorrowerCheckFindingCreateNestedManyWithoutWorkspaceInput
+  borrowerVerificationEvidence?: Prisma.BorrowerVerificationEvidenceCreateNestedManyWithoutWorkspaceInput
+  borrowerVerificationRisks?: Prisma.BorrowerVerificationRiskCreateNestedManyWithoutWorkspaceInput
 }
 
 export type WorkspaceUncheckedCreateWithoutAuditEntriesInput = {
@@ -1159,6 +1537,13 @@ export type WorkspaceUncheckedCreateWithoutAuditEntriesInput = {
   legacyDeals?: Prisma.DealUncheckedCreateNestedManyWithoutWorkspaceInput
   legacyBorrowers?: Prisma.BorrowerUncheckedCreateNestedManyWithoutWorkspaceInput
   legacyCollaterals?: Prisma.CollateralUncheckedCreateNestedManyWithoutWorkspaceInput
+  identityVersions?: Prisma.PartyIdentityVersionUncheckedCreateNestedManyWithoutWorkspaceInput
+  borrowerVerifications?: Prisma.BorrowerVerificationUncheckedCreateNestedManyWithoutWorkspaceInput
+  borrowerVerificationItems?: Prisma.BorrowerVerificationItemUncheckedCreateNestedManyWithoutWorkspaceInput
+  borrowerCheckRuns?: Prisma.BorrowerCheckRunUncheckedCreateNestedManyWithoutWorkspaceInput
+  borrowerCheckFindings?: Prisma.BorrowerCheckFindingUncheckedCreateNestedManyWithoutWorkspaceInput
+  borrowerVerificationEvidence?: Prisma.BorrowerVerificationEvidenceUncheckedCreateNestedManyWithoutWorkspaceInput
+  borrowerVerificationRisks?: Prisma.BorrowerVerificationRiskUncheckedCreateNestedManyWithoutWorkspaceInput
 }
 
 export type WorkspaceCreateOrConnectWithoutAuditEntriesInput = {
@@ -1190,6 +1575,13 @@ export type WorkspaceUpdateWithoutAuditEntriesInput = {
   legacyDeals?: Prisma.DealUpdateManyWithoutWorkspaceNestedInput
   legacyBorrowers?: Prisma.BorrowerUpdateManyWithoutWorkspaceNestedInput
   legacyCollaterals?: Prisma.CollateralUpdateManyWithoutWorkspaceNestedInput
+  identityVersions?: Prisma.PartyIdentityVersionUpdateManyWithoutWorkspaceNestedInput
+  borrowerVerifications?: Prisma.BorrowerVerificationUpdateManyWithoutWorkspaceNestedInput
+  borrowerVerificationItems?: Prisma.BorrowerVerificationItemUpdateManyWithoutWorkspaceNestedInput
+  borrowerCheckRuns?: Prisma.BorrowerCheckRunUpdateManyWithoutWorkspaceNestedInput
+  borrowerCheckFindings?: Prisma.BorrowerCheckFindingUpdateManyWithoutWorkspaceNestedInput
+  borrowerVerificationEvidence?: Prisma.BorrowerVerificationEvidenceUpdateManyWithoutWorkspaceNestedInput
+  borrowerVerificationRisks?: Prisma.BorrowerVerificationRiskUpdateManyWithoutWorkspaceNestedInput
 }
 
 export type WorkspaceUncheckedUpdateWithoutAuditEntriesInput = {
@@ -1205,6 +1597,741 @@ export type WorkspaceUncheckedUpdateWithoutAuditEntriesInput = {
   legacyDeals?: Prisma.DealUncheckedUpdateManyWithoutWorkspaceNestedInput
   legacyBorrowers?: Prisma.BorrowerUncheckedUpdateManyWithoutWorkspaceNestedInput
   legacyCollaterals?: Prisma.CollateralUncheckedUpdateManyWithoutWorkspaceNestedInput
+  identityVersions?: Prisma.PartyIdentityVersionUncheckedUpdateManyWithoutWorkspaceNestedInput
+  borrowerVerifications?: Prisma.BorrowerVerificationUncheckedUpdateManyWithoutWorkspaceNestedInput
+  borrowerVerificationItems?: Prisma.BorrowerVerificationItemUncheckedUpdateManyWithoutWorkspaceNestedInput
+  borrowerCheckRuns?: Prisma.BorrowerCheckRunUncheckedUpdateManyWithoutWorkspaceNestedInput
+  borrowerCheckFindings?: Prisma.BorrowerCheckFindingUncheckedUpdateManyWithoutWorkspaceNestedInput
+  borrowerVerificationEvidence?: Prisma.BorrowerVerificationEvidenceUncheckedUpdateManyWithoutWorkspaceNestedInput
+  borrowerVerificationRisks?: Prisma.BorrowerVerificationRiskUncheckedUpdateManyWithoutWorkspaceNestedInput
+}
+
+export type WorkspaceCreateWithoutIdentityVersionsInput = {
+  id?: string
+  name: string
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  personalOwner?: Prisma.UserCreateNestedOneWithoutPersonalWorkspaceInput
+  workspaceMembers?: Prisma.WorkspaceMemberCreateNestedManyWithoutWorkspaceInput
+  parties?: Prisma.PartyCreateNestedManyWithoutWorkspaceInput
+  contracts?: Prisma.ContractCreateNestedManyWithoutWorkspaceInput
+  documents?: Prisma.DocumentCreateNestedManyWithoutWorkspaceInput
+  auditEntries?: Prisma.AuditEntryCreateNestedManyWithoutWorkspaceInput
+  legacyDeals?: Prisma.DealCreateNestedManyWithoutWorkspaceInput
+  legacyBorrowers?: Prisma.BorrowerCreateNestedManyWithoutWorkspaceInput
+  legacyCollaterals?: Prisma.CollateralCreateNestedManyWithoutWorkspaceInput
+  borrowerVerifications?: Prisma.BorrowerVerificationCreateNestedManyWithoutWorkspaceInput
+  borrowerVerificationItems?: Prisma.BorrowerVerificationItemCreateNestedManyWithoutWorkspaceInput
+  borrowerCheckRuns?: Prisma.BorrowerCheckRunCreateNestedManyWithoutWorkspaceInput
+  borrowerCheckFindings?: Prisma.BorrowerCheckFindingCreateNestedManyWithoutWorkspaceInput
+  borrowerVerificationEvidence?: Prisma.BorrowerVerificationEvidenceCreateNestedManyWithoutWorkspaceInput
+  borrowerVerificationRisks?: Prisma.BorrowerVerificationRiskCreateNestedManyWithoutWorkspaceInput
+}
+
+export type WorkspaceUncheckedCreateWithoutIdentityVersionsInput = {
+  id?: string
+  name: string
+  personalOwnerId?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  workspaceMembers?: Prisma.WorkspaceMemberUncheckedCreateNestedManyWithoutWorkspaceInput
+  parties?: Prisma.PartyUncheckedCreateNestedManyWithoutWorkspaceInput
+  contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutWorkspaceInput
+  documents?: Prisma.DocumentUncheckedCreateNestedManyWithoutWorkspaceInput
+  auditEntries?: Prisma.AuditEntryUncheckedCreateNestedManyWithoutWorkspaceInput
+  legacyDeals?: Prisma.DealUncheckedCreateNestedManyWithoutWorkspaceInput
+  legacyBorrowers?: Prisma.BorrowerUncheckedCreateNestedManyWithoutWorkspaceInput
+  legacyCollaterals?: Prisma.CollateralUncheckedCreateNestedManyWithoutWorkspaceInput
+  borrowerVerifications?: Prisma.BorrowerVerificationUncheckedCreateNestedManyWithoutWorkspaceInput
+  borrowerVerificationItems?: Prisma.BorrowerVerificationItemUncheckedCreateNestedManyWithoutWorkspaceInput
+  borrowerCheckRuns?: Prisma.BorrowerCheckRunUncheckedCreateNestedManyWithoutWorkspaceInput
+  borrowerCheckFindings?: Prisma.BorrowerCheckFindingUncheckedCreateNestedManyWithoutWorkspaceInput
+  borrowerVerificationEvidence?: Prisma.BorrowerVerificationEvidenceUncheckedCreateNestedManyWithoutWorkspaceInput
+  borrowerVerificationRisks?: Prisma.BorrowerVerificationRiskUncheckedCreateNestedManyWithoutWorkspaceInput
+}
+
+export type WorkspaceCreateOrConnectWithoutIdentityVersionsInput = {
+  where: Prisma.WorkspaceWhereUniqueInput
+  create: Prisma.XOR<Prisma.WorkspaceCreateWithoutIdentityVersionsInput, Prisma.WorkspaceUncheckedCreateWithoutIdentityVersionsInput>
+}
+
+export type WorkspaceUpsertWithoutIdentityVersionsInput = {
+  update: Prisma.XOR<Prisma.WorkspaceUpdateWithoutIdentityVersionsInput, Prisma.WorkspaceUncheckedUpdateWithoutIdentityVersionsInput>
+  create: Prisma.XOR<Prisma.WorkspaceCreateWithoutIdentityVersionsInput, Prisma.WorkspaceUncheckedCreateWithoutIdentityVersionsInput>
+  where?: Prisma.WorkspaceWhereInput
+}
+
+export type WorkspaceUpdateToOneWithWhereWithoutIdentityVersionsInput = {
+  where?: Prisma.WorkspaceWhereInput
+  data: Prisma.XOR<Prisma.WorkspaceUpdateWithoutIdentityVersionsInput, Prisma.WorkspaceUncheckedUpdateWithoutIdentityVersionsInput>
+}
+
+export type WorkspaceUpdateWithoutIdentityVersionsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  personalOwner?: Prisma.UserUpdateOneWithoutPersonalWorkspaceNestedInput
+  workspaceMembers?: Prisma.WorkspaceMemberUpdateManyWithoutWorkspaceNestedInput
+  parties?: Prisma.PartyUpdateManyWithoutWorkspaceNestedInput
+  contracts?: Prisma.ContractUpdateManyWithoutWorkspaceNestedInput
+  documents?: Prisma.DocumentUpdateManyWithoutWorkspaceNestedInput
+  auditEntries?: Prisma.AuditEntryUpdateManyWithoutWorkspaceNestedInput
+  legacyDeals?: Prisma.DealUpdateManyWithoutWorkspaceNestedInput
+  legacyBorrowers?: Prisma.BorrowerUpdateManyWithoutWorkspaceNestedInput
+  legacyCollaterals?: Prisma.CollateralUpdateManyWithoutWorkspaceNestedInput
+  borrowerVerifications?: Prisma.BorrowerVerificationUpdateManyWithoutWorkspaceNestedInput
+  borrowerVerificationItems?: Prisma.BorrowerVerificationItemUpdateManyWithoutWorkspaceNestedInput
+  borrowerCheckRuns?: Prisma.BorrowerCheckRunUpdateManyWithoutWorkspaceNestedInput
+  borrowerCheckFindings?: Prisma.BorrowerCheckFindingUpdateManyWithoutWorkspaceNestedInput
+  borrowerVerificationEvidence?: Prisma.BorrowerVerificationEvidenceUpdateManyWithoutWorkspaceNestedInput
+  borrowerVerificationRisks?: Prisma.BorrowerVerificationRiskUpdateManyWithoutWorkspaceNestedInput
+}
+
+export type WorkspaceUncheckedUpdateWithoutIdentityVersionsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  personalOwnerId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  workspaceMembers?: Prisma.WorkspaceMemberUncheckedUpdateManyWithoutWorkspaceNestedInput
+  parties?: Prisma.PartyUncheckedUpdateManyWithoutWorkspaceNestedInput
+  contracts?: Prisma.ContractUncheckedUpdateManyWithoutWorkspaceNestedInput
+  documents?: Prisma.DocumentUncheckedUpdateManyWithoutWorkspaceNestedInput
+  auditEntries?: Prisma.AuditEntryUncheckedUpdateManyWithoutWorkspaceNestedInput
+  legacyDeals?: Prisma.DealUncheckedUpdateManyWithoutWorkspaceNestedInput
+  legacyBorrowers?: Prisma.BorrowerUncheckedUpdateManyWithoutWorkspaceNestedInput
+  legacyCollaterals?: Prisma.CollateralUncheckedUpdateManyWithoutWorkspaceNestedInput
+  borrowerVerifications?: Prisma.BorrowerVerificationUncheckedUpdateManyWithoutWorkspaceNestedInput
+  borrowerVerificationItems?: Prisma.BorrowerVerificationItemUncheckedUpdateManyWithoutWorkspaceNestedInput
+  borrowerCheckRuns?: Prisma.BorrowerCheckRunUncheckedUpdateManyWithoutWorkspaceNestedInput
+  borrowerCheckFindings?: Prisma.BorrowerCheckFindingUncheckedUpdateManyWithoutWorkspaceNestedInput
+  borrowerVerificationEvidence?: Prisma.BorrowerVerificationEvidenceUncheckedUpdateManyWithoutWorkspaceNestedInput
+  borrowerVerificationRisks?: Prisma.BorrowerVerificationRiskUncheckedUpdateManyWithoutWorkspaceNestedInput
+}
+
+export type WorkspaceCreateWithoutBorrowerVerificationsInput = {
+  id?: string
+  name: string
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  personalOwner?: Prisma.UserCreateNestedOneWithoutPersonalWorkspaceInput
+  workspaceMembers?: Prisma.WorkspaceMemberCreateNestedManyWithoutWorkspaceInput
+  parties?: Prisma.PartyCreateNestedManyWithoutWorkspaceInput
+  contracts?: Prisma.ContractCreateNestedManyWithoutWorkspaceInput
+  documents?: Prisma.DocumentCreateNestedManyWithoutWorkspaceInput
+  auditEntries?: Prisma.AuditEntryCreateNestedManyWithoutWorkspaceInput
+  legacyDeals?: Prisma.DealCreateNestedManyWithoutWorkspaceInput
+  legacyBorrowers?: Prisma.BorrowerCreateNestedManyWithoutWorkspaceInput
+  legacyCollaterals?: Prisma.CollateralCreateNestedManyWithoutWorkspaceInput
+  identityVersions?: Prisma.PartyIdentityVersionCreateNestedManyWithoutWorkspaceInput
+  borrowerVerificationItems?: Prisma.BorrowerVerificationItemCreateNestedManyWithoutWorkspaceInput
+  borrowerCheckRuns?: Prisma.BorrowerCheckRunCreateNestedManyWithoutWorkspaceInput
+  borrowerCheckFindings?: Prisma.BorrowerCheckFindingCreateNestedManyWithoutWorkspaceInput
+  borrowerVerificationEvidence?: Prisma.BorrowerVerificationEvidenceCreateNestedManyWithoutWorkspaceInput
+  borrowerVerificationRisks?: Prisma.BorrowerVerificationRiskCreateNestedManyWithoutWorkspaceInput
+}
+
+export type WorkspaceUncheckedCreateWithoutBorrowerVerificationsInput = {
+  id?: string
+  name: string
+  personalOwnerId?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  workspaceMembers?: Prisma.WorkspaceMemberUncheckedCreateNestedManyWithoutWorkspaceInput
+  parties?: Prisma.PartyUncheckedCreateNestedManyWithoutWorkspaceInput
+  contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutWorkspaceInput
+  documents?: Prisma.DocumentUncheckedCreateNestedManyWithoutWorkspaceInput
+  auditEntries?: Prisma.AuditEntryUncheckedCreateNestedManyWithoutWorkspaceInput
+  legacyDeals?: Prisma.DealUncheckedCreateNestedManyWithoutWorkspaceInput
+  legacyBorrowers?: Prisma.BorrowerUncheckedCreateNestedManyWithoutWorkspaceInput
+  legacyCollaterals?: Prisma.CollateralUncheckedCreateNestedManyWithoutWorkspaceInput
+  identityVersions?: Prisma.PartyIdentityVersionUncheckedCreateNestedManyWithoutWorkspaceInput
+  borrowerVerificationItems?: Prisma.BorrowerVerificationItemUncheckedCreateNestedManyWithoutWorkspaceInput
+  borrowerCheckRuns?: Prisma.BorrowerCheckRunUncheckedCreateNestedManyWithoutWorkspaceInput
+  borrowerCheckFindings?: Prisma.BorrowerCheckFindingUncheckedCreateNestedManyWithoutWorkspaceInput
+  borrowerVerificationEvidence?: Prisma.BorrowerVerificationEvidenceUncheckedCreateNestedManyWithoutWorkspaceInput
+  borrowerVerificationRisks?: Prisma.BorrowerVerificationRiskUncheckedCreateNestedManyWithoutWorkspaceInput
+}
+
+export type WorkspaceCreateOrConnectWithoutBorrowerVerificationsInput = {
+  where: Prisma.WorkspaceWhereUniqueInput
+  create: Prisma.XOR<Prisma.WorkspaceCreateWithoutBorrowerVerificationsInput, Prisma.WorkspaceUncheckedCreateWithoutBorrowerVerificationsInput>
+}
+
+export type WorkspaceUpsertWithoutBorrowerVerificationsInput = {
+  update: Prisma.XOR<Prisma.WorkspaceUpdateWithoutBorrowerVerificationsInput, Prisma.WorkspaceUncheckedUpdateWithoutBorrowerVerificationsInput>
+  create: Prisma.XOR<Prisma.WorkspaceCreateWithoutBorrowerVerificationsInput, Prisma.WorkspaceUncheckedCreateWithoutBorrowerVerificationsInput>
+  where?: Prisma.WorkspaceWhereInput
+}
+
+export type WorkspaceUpdateToOneWithWhereWithoutBorrowerVerificationsInput = {
+  where?: Prisma.WorkspaceWhereInput
+  data: Prisma.XOR<Prisma.WorkspaceUpdateWithoutBorrowerVerificationsInput, Prisma.WorkspaceUncheckedUpdateWithoutBorrowerVerificationsInput>
+}
+
+export type WorkspaceUpdateWithoutBorrowerVerificationsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  personalOwner?: Prisma.UserUpdateOneWithoutPersonalWorkspaceNestedInput
+  workspaceMembers?: Prisma.WorkspaceMemberUpdateManyWithoutWorkspaceNestedInput
+  parties?: Prisma.PartyUpdateManyWithoutWorkspaceNestedInput
+  contracts?: Prisma.ContractUpdateManyWithoutWorkspaceNestedInput
+  documents?: Prisma.DocumentUpdateManyWithoutWorkspaceNestedInput
+  auditEntries?: Prisma.AuditEntryUpdateManyWithoutWorkspaceNestedInput
+  legacyDeals?: Prisma.DealUpdateManyWithoutWorkspaceNestedInput
+  legacyBorrowers?: Prisma.BorrowerUpdateManyWithoutWorkspaceNestedInput
+  legacyCollaterals?: Prisma.CollateralUpdateManyWithoutWorkspaceNestedInput
+  identityVersions?: Prisma.PartyIdentityVersionUpdateManyWithoutWorkspaceNestedInput
+  borrowerVerificationItems?: Prisma.BorrowerVerificationItemUpdateManyWithoutWorkspaceNestedInput
+  borrowerCheckRuns?: Prisma.BorrowerCheckRunUpdateManyWithoutWorkspaceNestedInput
+  borrowerCheckFindings?: Prisma.BorrowerCheckFindingUpdateManyWithoutWorkspaceNestedInput
+  borrowerVerificationEvidence?: Prisma.BorrowerVerificationEvidenceUpdateManyWithoutWorkspaceNestedInput
+  borrowerVerificationRisks?: Prisma.BorrowerVerificationRiskUpdateManyWithoutWorkspaceNestedInput
+}
+
+export type WorkspaceUncheckedUpdateWithoutBorrowerVerificationsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  personalOwnerId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  workspaceMembers?: Prisma.WorkspaceMemberUncheckedUpdateManyWithoutWorkspaceNestedInput
+  parties?: Prisma.PartyUncheckedUpdateManyWithoutWorkspaceNestedInput
+  contracts?: Prisma.ContractUncheckedUpdateManyWithoutWorkspaceNestedInput
+  documents?: Prisma.DocumentUncheckedUpdateManyWithoutWorkspaceNestedInput
+  auditEntries?: Prisma.AuditEntryUncheckedUpdateManyWithoutWorkspaceNestedInput
+  legacyDeals?: Prisma.DealUncheckedUpdateManyWithoutWorkspaceNestedInput
+  legacyBorrowers?: Prisma.BorrowerUncheckedUpdateManyWithoutWorkspaceNestedInput
+  legacyCollaterals?: Prisma.CollateralUncheckedUpdateManyWithoutWorkspaceNestedInput
+  identityVersions?: Prisma.PartyIdentityVersionUncheckedUpdateManyWithoutWorkspaceNestedInput
+  borrowerVerificationItems?: Prisma.BorrowerVerificationItemUncheckedUpdateManyWithoutWorkspaceNestedInput
+  borrowerCheckRuns?: Prisma.BorrowerCheckRunUncheckedUpdateManyWithoutWorkspaceNestedInput
+  borrowerCheckFindings?: Prisma.BorrowerCheckFindingUncheckedUpdateManyWithoutWorkspaceNestedInput
+  borrowerVerificationEvidence?: Prisma.BorrowerVerificationEvidenceUncheckedUpdateManyWithoutWorkspaceNestedInput
+  borrowerVerificationRisks?: Prisma.BorrowerVerificationRiskUncheckedUpdateManyWithoutWorkspaceNestedInput
+}
+
+export type WorkspaceCreateWithoutBorrowerVerificationItemsInput = {
+  id?: string
+  name: string
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  personalOwner?: Prisma.UserCreateNestedOneWithoutPersonalWorkspaceInput
+  workspaceMembers?: Prisma.WorkspaceMemberCreateNestedManyWithoutWorkspaceInput
+  parties?: Prisma.PartyCreateNestedManyWithoutWorkspaceInput
+  contracts?: Prisma.ContractCreateNestedManyWithoutWorkspaceInput
+  documents?: Prisma.DocumentCreateNestedManyWithoutWorkspaceInput
+  auditEntries?: Prisma.AuditEntryCreateNestedManyWithoutWorkspaceInput
+  legacyDeals?: Prisma.DealCreateNestedManyWithoutWorkspaceInput
+  legacyBorrowers?: Prisma.BorrowerCreateNestedManyWithoutWorkspaceInput
+  legacyCollaterals?: Prisma.CollateralCreateNestedManyWithoutWorkspaceInput
+  identityVersions?: Prisma.PartyIdentityVersionCreateNestedManyWithoutWorkspaceInput
+  borrowerVerifications?: Prisma.BorrowerVerificationCreateNestedManyWithoutWorkspaceInput
+  borrowerCheckRuns?: Prisma.BorrowerCheckRunCreateNestedManyWithoutWorkspaceInput
+  borrowerCheckFindings?: Prisma.BorrowerCheckFindingCreateNestedManyWithoutWorkspaceInput
+  borrowerVerificationEvidence?: Prisma.BorrowerVerificationEvidenceCreateNestedManyWithoutWorkspaceInput
+  borrowerVerificationRisks?: Prisma.BorrowerVerificationRiskCreateNestedManyWithoutWorkspaceInput
+}
+
+export type WorkspaceUncheckedCreateWithoutBorrowerVerificationItemsInput = {
+  id?: string
+  name: string
+  personalOwnerId?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  workspaceMembers?: Prisma.WorkspaceMemberUncheckedCreateNestedManyWithoutWorkspaceInput
+  parties?: Prisma.PartyUncheckedCreateNestedManyWithoutWorkspaceInput
+  contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutWorkspaceInput
+  documents?: Prisma.DocumentUncheckedCreateNestedManyWithoutWorkspaceInput
+  auditEntries?: Prisma.AuditEntryUncheckedCreateNestedManyWithoutWorkspaceInput
+  legacyDeals?: Prisma.DealUncheckedCreateNestedManyWithoutWorkspaceInput
+  legacyBorrowers?: Prisma.BorrowerUncheckedCreateNestedManyWithoutWorkspaceInput
+  legacyCollaterals?: Prisma.CollateralUncheckedCreateNestedManyWithoutWorkspaceInput
+  identityVersions?: Prisma.PartyIdentityVersionUncheckedCreateNestedManyWithoutWorkspaceInput
+  borrowerVerifications?: Prisma.BorrowerVerificationUncheckedCreateNestedManyWithoutWorkspaceInput
+  borrowerCheckRuns?: Prisma.BorrowerCheckRunUncheckedCreateNestedManyWithoutWorkspaceInput
+  borrowerCheckFindings?: Prisma.BorrowerCheckFindingUncheckedCreateNestedManyWithoutWorkspaceInput
+  borrowerVerificationEvidence?: Prisma.BorrowerVerificationEvidenceUncheckedCreateNestedManyWithoutWorkspaceInput
+  borrowerVerificationRisks?: Prisma.BorrowerVerificationRiskUncheckedCreateNestedManyWithoutWorkspaceInput
+}
+
+export type WorkspaceCreateOrConnectWithoutBorrowerVerificationItemsInput = {
+  where: Prisma.WorkspaceWhereUniqueInput
+  create: Prisma.XOR<Prisma.WorkspaceCreateWithoutBorrowerVerificationItemsInput, Prisma.WorkspaceUncheckedCreateWithoutBorrowerVerificationItemsInput>
+}
+
+export type WorkspaceUpsertWithoutBorrowerVerificationItemsInput = {
+  update: Prisma.XOR<Prisma.WorkspaceUpdateWithoutBorrowerVerificationItemsInput, Prisma.WorkspaceUncheckedUpdateWithoutBorrowerVerificationItemsInput>
+  create: Prisma.XOR<Prisma.WorkspaceCreateWithoutBorrowerVerificationItemsInput, Prisma.WorkspaceUncheckedCreateWithoutBorrowerVerificationItemsInput>
+  where?: Prisma.WorkspaceWhereInput
+}
+
+export type WorkspaceUpdateToOneWithWhereWithoutBorrowerVerificationItemsInput = {
+  where?: Prisma.WorkspaceWhereInput
+  data: Prisma.XOR<Prisma.WorkspaceUpdateWithoutBorrowerVerificationItemsInput, Prisma.WorkspaceUncheckedUpdateWithoutBorrowerVerificationItemsInput>
+}
+
+export type WorkspaceUpdateWithoutBorrowerVerificationItemsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  personalOwner?: Prisma.UserUpdateOneWithoutPersonalWorkspaceNestedInput
+  workspaceMembers?: Prisma.WorkspaceMemberUpdateManyWithoutWorkspaceNestedInput
+  parties?: Prisma.PartyUpdateManyWithoutWorkspaceNestedInput
+  contracts?: Prisma.ContractUpdateManyWithoutWorkspaceNestedInput
+  documents?: Prisma.DocumentUpdateManyWithoutWorkspaceNestedInput
+  auditEntries?: Prisma.AuditEntryUpdateManyWithoutWorkspaceNestedInput
+  legacyDeals?: Prisma.DealUpdateManyWithoutWorkspaceNestedInput
+  legacyBorrowers?: Prisma.BorrowerUpdateManyWithoutWorkspaceNestedInput
+  legacyCollaterals?: Prisma.CollateralUpdateManyWithoutWorkspaceNestedInput
+  identityVersions?: Prisma.PartyIdentityVersionUpdateManyWithoutWorkspaceNestedInput
+  borrowerVerifications?: Prisma.BorrowerVerificationUpdateManyWithoutWorkspaceNestedInput
+  borrowerCheckRuns?: Prisma.BorrowerCheckRunUpdateManyWithoutWorkspaceNestedInput
+  borrowerCheckFindings?: Prisma.BorrowerCheckFindingUpdateManyWithoutWorkspaceNestedInput
+  borrowerVerificationEvidence?: Prisma.BorrowerVerificationEvidenceUpdateManyWithoutWorkspaceNestedInput
+  borrowerVerificationRisks?: Prisma.BorrowerVerificationRiskUpdateManyWithoutWorkspaceNestedInput
+}
+
+export type WorkspaceUncheckedUpdateWithoutBorrowerVerificationItemsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  personalOwnerId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  workspaceMembers?: Prisma.WorkspaceMemberUncheckedUpdateManyWithoutWorkspaceNestedInput
+  parties?: Prisma.PartyUncheckedUpdateManyWithoutWorkspaceNestedInput
+  contracts?: Prisma.ContractUncheckedUpdateManyWithoutWorkspaceNestedInput
+  documents?: Prisma.DocumentUncheckedUpdateManyWithoutWorkspaceNestedInput
+  auditEntries?: Prisma.AuditEntryUncheckedUpdateManyWithoutWorkspaceNestedInput
+  legacyDeals?: Prisma.DealUncheckedUpdateManyWithoutWorkspaceNestedInput
+  legacyBorrowers?: Prisma.BorrowerUncheckedUpdateManyWithoutWorkspaceNestedInput
+  legacyCollaterals?: Prisma.CollateralUncheckedUpdateManyWithoutWorkspaceNestedInput
+  identityVersions?: Prisma.PartyIdentityVersionUncheckedUpdateManyWithoutWorkspaceNestedInput
+  borrowerVerifications?: Prisma.BorrowerVerificationUncheckedUpdateManyWithoutWorkspaceNestedInput
+  borrowerCheckRuns?: Prisma.BorrowerCheckRunUncheckedUpdateManyWithoutWorkspaceNestedInput
+  borrowerCheckFindings?: Prisma.BorrowerCheckFindingUncheckedUpdateManyWithoutWorkspaceNestedInput
+  borrowerVerificationEvidence?: Prisma.BorrowerVerificationEvidenceUncheckedUpdateManyWithoutWorkspaceNestedInput
+  borrowerVerificationRisks?: Prisma.BorrowerVerificationRiskUncheckedUpdateManyWithoutWorkspaceNestedInput
+}
+
+export type WorkspaceCreateWithoutBorrowerCheckRunsInput = {
+  id?: string
+  name: string
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  personalOwner?: Prisma.UserCreateNestedOneWithoutPersonalWorkspaceInput
+  workspaceMembers?: Prisma.WorkspaceMemberCreateNestedManyWithoutWorkspaceInput
+  parties?: Prisma.PartyCreateNestedManyWithoutWorkspaceInput
+  contracts?: Prisma.ContractCreateNestedManyWithoutWorkspaceInput
+  documents?: Prisma.DocumentCreateNestedManyWithoutWorkspaceInput
+  auditEntries?: Prisma.AuditEntryCreateNestedManyWithoutWorkspaceInput
+  legacyDeals?: Prisma.DealCreateNestedManyWithoutWorkspaceInput
+  legacyBorrowers?: Prisma.BorrowerCreateNestedManyWithoutWorkspaceInput
+  legacyCollaterals?: Prisma.CollateralCreateNestedManyWithoutWorkspaceInput
+  identityVersions?: Prisma.PartyIdentityVersionCreateNestedManyWithoutWorkspaceInput
+  borrowerVerifications?: Prisma.BorrowerVerificationCreateNestedManyWithoutWorkspaceInput
+  borrowerVerificationItems?: Prisma.BorrowerVerificationItemCreateNestedManyWithoutWorkspaceInput
+  borrowerCheckFindings?: Prisma.BorrowerCheckFindingCreateNestedManyWithoutWorkspaceInput
+  borrowerVerificationEvidence?: Prisma.BorrowerVerificationEvidenceCreateNestedManyWithoutWorkspaceInput
+  borrowerVerificationRisks?: Prisma.BorrowerVerificationRiskCreateNestedManyWithoutWorkspaceInput
+}
+
+export type WorkspaceUncheckedCreateWithoutBorrowerCheckRunsInput = {
+  id?: string
+  name: string
+  personalOwnerId?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  workspaceMembers?: Prisma.WorkspaceMemberUncheckedCreateNestedManyWithoutWorkspaceInput
+  parties?: Prisma.PartyUncheckedCreateNestedManyWithoutWorkspaceInput
+  contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutWorkspaceInput
+  documents?: Prisma.DocumentUncheckedCreateNestedManyWithoutWorkspaceInput
+  auditEntries?: Prisma.AuditEntryUncheckedCreateNestedManyWithoutWorkspaceInput
+  legacyDeals?: Prisma.DealUncheckedCreateNestedManyWithoutWorkspaceInput
+  legacyBorrowers?: Prisma.BorrowerUncheckedCreateNestedManyWithoutWorkspaceInput
+  legacyCollaterals?: Prisma.CollateralUncheckedCreateNestedManyWithoutWorkspaceInput
+  identityVersions?: Prisma.PartyIdentityVersionUncheckedCreateNestedManyWithoutWorkspaceInput
+  borrowerVerifications?: Prisma.BorrowerVerificationUncheckedCreateNestedManyWithoutWorkspaceInput
+  borrowerVerificationItems?: Prisma.BorrowerVerificationItemUncheckedCreateNestedManyWithoutWorkspaceInput
+  borrowerCheckFindings?: Prisma.BorrowerCheckFindingUncheckedCreateNestedManyWithoutWorkspaceInput
+  borrowerVerificationEvidence?: Prisma.BorrowerVerificationEvidenceUncheckedCreateNestedManyWithoutWorkspaceInput
+  borrowerVerificationRisks?: Prisma.BorrowerVerificationRiskUncheckedCreateNestedManyWithoutWorkspaceInput
+}
+
+export type WorkspaceCreateOrConnectWithoutBorrowerCheckRunsInput = {
+  where: Prisma.WorkspaceWhereUniqueInput
+  create: Prisma.XOR<Prisma.WorkspaceCreateWithoutBorrowerCheckRunsInput, Prisma.WorkspaceUncheckedCreateWithoutBorrowerCheckRunsInput>
+}
+
+export type WorkspaceUpsertWithoutBorrowerCheckRunsInput = {
+  update: Prisma.XOR<Prisma.WorkspaceUpdateWithoutBorrowerCheckRunsInput, Prisma.WorkspaceUncheckedUpdateWithoutBorrowerCheckRunsInput>
+  create: Prisma.XOR<Prisma.WorkspaceCreateWithoutBorrowerCheckRunsInput, Prisma.WorkspaceUncheckedCreateWithoutBorrowerCheckRunsInput>
+  where?: Prisma.WorkspaceWhereInput
+}
+
+export type WorkspaceUpdateToOneWithWhereWithoutBorrowerCheckRunsInput = {
+  where?: Prisma.WorkspaceWhereInput
+  data: Prisma.XOR<Prisma.WorkspaceUpdateWithoutBorrowerCheckRunsInput, Prisma.WorkspaceUncheckedUpdateWithoutBorrowerCheckRunsInput>
+}
+
+export type WorkspaceUpdateWithoutBorrowerCheckRunsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  personalOwner?: Prisma.UserUpdateOneWithoutPersonalWorkspaceNestedInput
+  workspaceMembers?: Prisma.WorkspaceMemberUpdateManyWithoutWorkspaceNestedInput
+  parties?: Prisma.PartyUpdateManyWithoutWorkspaceNestedInput
+  contracts?: Prisma.ContractUpdateManyWithoutWorkspaceNestedInput
+  documents?: Prisma.DocumentUpdateManyWithoutWorkspaceNestedInput
+  auditEntries?: Prisma.AuditEntryUpdateManyWithoutWorkspaceNestedInput
+  legacyDeals?: Prisma.DealUpdateManyWithoutWorkspaceNestedInput
+  legacyBorrowers?: Prisma.BorrowerUpdateManyWithoutWorkspaceNestedInput
+  legacyCollaterals?: Prisma.CollateralUpdateManyWithoutWorkspaceNestedInput
+  identityVersions?: Prisma.PartyIdentityVersionUpdateManyWithoutWorkspaceNestedInput
+  borrowerVerifications?: Prisma.BorrowerVerificationUpdateManyWithoutWorkspaceNestedInput
+  borrowerVerificationItems?: Prisma.BorrowerVerificationItemUpdateManyWithoutWorkspaceNestedInput
+  borrowerCheckFindings?: Prisma.BorrowerCheckFindingUpdateManyWithoutWorkspaceNestedInput
+  borrowerVerificationEvidence?: Prisma.BorrowerVerificationEvidenceUpdateManyWithoutWorkspaceNestedInput
+  borrowerVerificationRisks?: Prisma.BorrowerVerificationRiskUpdateManyWithoutWorkspaceNestedInput
+}
+
+export type WorkspaceUncheckedUpdateWithoutBorrowerCheckRunsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  personalOwnerId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  workspaceMembers?: Prisma.WorkspaceMemberUncheckedUpdateManyWithoutWorkspaceNestedInput
+  parties?: Prisma.PartyUncheckedUpdateManyWithoutWorkspaceNestedInput
+  contracts?: Prisma.ContractUncheckedUpdateManyWithoutWorkspaceNestedInput
+  documents?: Prisma.DocumentUncheckedUpdateManyWithoutWorkspaceNestedInput
+  auditEntries?: Prisma.AuditEntryUncheckedUpdateManyWithoutWorkspaceNestedInput
+  legacyDeals?: Prisma.DealUncheckedUpdateManyWithoutWorkspaceNestedInput
+  legacyBorrowers?: Prisma.BorrowerUncheckedUpdateManyWithoutWorkspaceNestedInput
+  legacyCollaterals?: Prisma.CollateralUncheckedUpdateManyWithoutWorkspaceNestedInput
+  identityVersions?: Prisma.PartyIdentityVersionUncheckedUpdateManyWithoutWorkspaceNestedInput
+  borrowerVerifications?: Prisma.BorrowerVerificationUncheckedUpdateManyWithoutWorkspaceNestedInput
+  borrowerVerificationItems?: Prisma.BorrowerVerificationItemUncheckedUpdateManyWithoutWorkspaceNestedInput
+  borrowerCheckFindings?: Prisma.BorrowerCheckFindingUncheckedUpdateManyWithoutWorkspaceNestedInput
+  borrowerVerificationEvidence?: Prisma.BorrowerVerificationEvidenceUncheckedUpdateManyWithoutWorkspaceNestedInput
+  borrowerVerificationRisks?: Prisma.BorrowerVerificationRiskUncheckedUpdateManyWithoutWorkspaceNestedInput
+}
+
+export type WorkspaceCreateWithoutBorrowerCheckFindingsInput = {
+  id?: string
+  name: string
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  personalOwner?: Prisma.UserCreateNestedOneWithoutPersonalWorkspaceInput
+  workspaceMembers?: Prisma.WorkspaceMemberCreateNestedManyWithoutWorkspaceInput
+  parties?: Prisma.PartyCreateNestedManyWithoutWorkspaceInput
+  contracts?: Prisma.ContractCreateNestedManyWithoutWorkspaceInput
+  documents?: Prisma.DocumentCreateNestedManyWithoutWorkspaceInput
+  auditEntries?: Prisma.AuditEntryCreateNestedManyWithoutWorkspaceInput
+  legacyDeals?: Prisma.DealCreateNestedManyWithoutWorkspaceInput
+  legacyBorrowers?: Prisma.BorrowerCreateNestedManyWithoutWorkspaceInput
+  legacyCollaterals?: Prisma.CollateralCreateNestedManyWithoutWorkspaceInput
+  identityVersions?: Prisma.PartyIdentityVersionCreateNestedManyWithoutWorkspaceInput
+  borrowerVerifications?: Prisma.BorrowerVerificationCreateNestedManyWithoutWorkspaceInput
+  borrowerVerificationItems?: Prisma.BorrowerVerificationItemCreateNestedManyWithoutWorkspaceInput
+  borrowerCheckRuns?: Prisma.BorrowerCheckRunCreateNestedManyWithoutWorkspaceInput
+  borrowerVerificationEvidence?: Prisma.BorrowerVerificationEvidenceCreateNestedManyWithoutWorkspaceInput
+  borrowerVerificationRisks?: Prisma.BorrowerVerificationRiskCreateNestedManyWithoutWorkspaceInput
+}
+
+export type WorkspaceUncheckedCreateWithoutBorrowerCheckFindingsInput = {
+  id?: string
+  name: string
+  personalOwnerId?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  workspaceMembers?: Prisma.WorkspaceMemberUncheckedCreateNestedManyWithoutWorkspaceInput
+  parties?: Prisma.PartyUncheckedCreateNestedManyWithoutWorkspaceInput
+  contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutWorkspaceInput
+  documents?: Prisma.DocumentUncheckedCreateNestedManyWithoutWorkspaceInput
+  auditEntries?: Prisma.AuditEntryUncheckedCreateNestedManyWithoutWorkspaceInput
+  legacyDeals?: Prisma.DealUncheckedCreateNestedManyWithoutWorkspaceInput
+  legacyBorrowers?: Prisma.BorrowerUncheckedCreateNestedManyWithoutWorkspaceInput
+  legacyCollaterals?: Prisma.CollateralUncheckedCreateNestedManyWithoutWorkspaceInput
+  identityVersions?: Prisma.PartyIdentityVersionUncheckedCreateNestedManyWithoutWorkspaceInput
+  borrowerVerifications?: Prisma.BorrowerVerificationUncheckedCreateNestedManyWithoutWorkspaceInput
+  borrowerVerificationItems?: Prisma.BorrowerVerificationItemUncheckedCreateNestedManyWithoutWorkspaceInput
+  borrowerCheckRuns?: Prisma.BorrowerCheckRunUncheckedCreateNestedManyWithoutWorkspaceInput
+  borrowerVerificationEvidence?: Prisma.BorrowerVerificationEvidenceUncheckedCreateNestedManyWithoutWorkspaceInput
+  borrowerVerificationRisks?: Prisma.BorrowerVerificationRiskUncheckedCreateNestedManyWithoutWorkspaceInput
+}
+
+export type WorkspaceCreateOrConnectWithoutBorrowerCheckFindingsInput = {
+  where: Prisma.WorkspaceWhereUniqueInput
+  create: Prisma.XOR<Prisma.WorkspaceCreateWithoutBorrowerCheckFindingsInput, Prisma.WorkspaceUncheckedCreateWithoutBorrowerCheckFindingsInput>
+}
+
+export type WorkspaceUpsertWithoutBorrowerCheckFindingsInput = {
+  update: Prisma.XOR<Prisma.WorkspaceUpdateWithoutBorrowerCheckFindingsInput, Prisma.WorkspaceUncheckedUpdateWithoutBorrowerCheckFindingsInput>
+  create: Prisma.XOR<Prisma.WorkspaceCreateWithoutBorrowerCheckFindingsInput, Prisma.WorkspaceUncheckedCreateWithoutBorrowerCheckFindingsInput>
+  where?: Prisma.WorkspaceWhereInput
+}
+
+export type WorkspaceUpdateToOneWithWhereWithoutBorrowerCheckFindingsInput = {
+  where?: Prisma.WorkspaceWhereInput
+  data: Prisma.XOR<Prisma.WorkspaceUpdateWithoutBorrowerCheckFindingsInput, Prisma.WorkspaceUncheckedUpdateWithoutBorrowerCheckFindingsInput>
+}
+
+export type WorkspaceUpdateWithoutBorrowerCheckFindingsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  personalOwner?: Prisma.UserUpdateOneWithoutPersonalWorkspaceNestedInput
+  workspaceMembers?: Prisma.WorkspaceMemberUpdateManyWithoutWorkspaceNestedInput
+  parties?: Prisma.PartyUpdateManyWithoutWorkspaceNestedInput
+  contracts?: Prisma.ContractUpdateManyWithoutWorkspaceNestedInput
+  documents?: Prisma.DocumentUpdateManyWithoutWorkspaceNestedInput
+  auditEntries?: Prisma.AuditEntryUpdateManyWithoutWorkspaceNestedInput
+  legacyDeals?: Prisma.DealUpdateManyWithoutWorkspaceNestedInput
+  legacyBorrowers?: Prisma.BorrowerUpdateManyWithoutWorkspaceNestedInput
+  legacyCollaterals?: Prisma.CollateralUpdateManyWithoutWorkspaceNestedInput
+  identityVersions?: Prisma.PartyIdentityVersionUpdateManyWithoutWorkspaceNestedInput
+  borrowerVerifications?: Prisma.BorrowerVerificationUpdateManyWithoutWorkspaceNestedInput
+  borrowerVerificationItems?: Prisma.BorrowerVerificationItemUpdateManyWithoutWorkspaceNestedInput
+  borrowerCheckRuns?: Prisma.BorrowerCheckRunUpdateManyWithoutWorkspaceNestedInput
+  borrowerVerificationEvidence?: Prisma.BorrowerVerificationEvidenceUpdateManyWithoutWorkspaceNestedInput
+  borrowerVerificationRisks?: Prisma.BorrowerVerificationRiskUpdateManyWithoutWorkspaceNestedInput
+}
+
+export type WorkspaceUncheckedUpdateWithoutBorrowerCheckFindingsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  personalOwnerId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  workspaceMembers?: Prisma.WorkspaceMemberUncheckedUpdateManyWithoutWorkspaceNestedInput
+  parties?: Prisma.PartyUncheckedUpdateManyWithoutWorkspaceNestedInput
+  contracts?: Prisma.ContractUncheckedUpdateManyWithoutWorkspaceNestedInput
+  documents?: Prisma.DocumentUncheckedUpdateManyWithoutWorkspaceNestedInput
+  auditEntries?: Prisma.AuditEntryUncheckedUpdateManyWithoutWorkspaceNestedInput
+  legacyDeals?: Prisma.DealUncheckedUpdateManyWithoutWorkspaceNestedInput
+  legacyBorrowers?: Prisma.BorrowerUncheckedUpdateManyWithoutWorkspaceNestedInput
+  legacyCollaterals?: Prisma.CollateralUncheckedUpdateManyWithoutWorkspaceNestedInput
+  identityVersions?: Prisma.PartyIdentityVersionUncheckedUpdateManyWithoutWorkspaceNestedInput
+  borrowerVerifications?: Prisma.BorrowerVerificationUncheckedUpdateManyWithoutWorkspaceNestedInput
+  borrowerVerificationItems?: Prisma.BorrowerVerificationItemUncheckedUpdateManyWithoutWorkspaceNestedInput
+  borrowerCheckRuns?: Prisma.BorrowerCheckRunUncheckedUpdateManyWithoutWorkspaceNestedInput
+  borrowerVerificationEvidence?: Prisma.BorrowerVerificationEvidenceUncheckedUpdateManyWithoutWorkspaceNestedInput
+  borrowerVerificationRisks?: Prisma.BorrowerVerificationRiskUncheckedUpdateManyWithoutWorkspaceNestedInput
+}
+
+export type WorkspaceCreateWithoutBorrowerVerificationEvidenceInput = {
+  id?: string
+  name: string
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  personalOwner?: Prisma.UserCreateNestedOneWithoutPersonalWorkspaceInput
+  workspaceMembers?: Prisma.WorkspaceMemberCreateNestedManyWithoutWorkspaceInput
+  parties?: Prisma.PartyCreateNestedManyWithoutWorkspaceInput
+  contracts?: Prisma.ContractCreateNestedManyWithoutWorkspaceInput
+  documents?: Prisma.DocumentCreateNestedManyWithoutWorkspaceInput
+  auditEntries?: Prisma.AuditEntryCreateNestedManyWithoutWorkspaceInput
+  legacyDeals?: Prisma.DealCreateNestedManyWithoutWorkspaceInput
+  legacyBorrowers?: Prisma.BorrowerCreateNestedManyWithoutWorkspaceInput
+  legacyCollaterals?: Prisma.CollateralCreateNestedManyWithoutWorkspaceInput
+  identityVersions?: Prisma.PartyIdentityVersionCreateNestedManyWithoutWorkspaceInput
+  borrowerVerifications?: Prisma.BorrowerVerificationCreateNestedManyWithoutWorkspaceInput
+  borrowerVerificationItems?: Prisma.BorrowerVerificationItemCreateNestedManyWithoutWorkspaceInput
+  borrowerCheckRuns?: Prisma.BorrowerCheckRunCreateNestedManyWithoutWorkspaceInput
+  borrowerCheckFindings?: Prisma.BorrowerCheckFindingCreateNestedManyWithoutWorkspaceInput
+  borrowerVerificationRisks?: Prisma.BorrowerVerificationRiskCreateNestedManyWithoutWorkspaceInput
+}
+
+export type WorkspaceUncheckedCreateWithoutBorrowerVerificationEvidenceInput = {
+  id?: string
+  name: string
+  personalOwnerId?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  workspaceMembers?: Prisma.WorkspaceMemberUncheckedCreateNestedManyWithoutWorkspaceInput
+  parties?: Prisma.PartyUncheckedCreateNestedManyWithoutWorkspaceInput
+  contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutWorkspaceInput
+  documents?: Prisma.DocumentUncheckedCreateNestedManyWithoutWorkspaceInput
+  auditEntries?: Prisma.AuditEntryUncheckedCreateNestedManyWithoutWorkspaceInput
+  legacyDeals?: Prisma.DealUncheckedCreateNestedManyWithoutWorkspaceInput
+  legacyBorrowers?: Prisma.BorrowerUncheckedCreateNestedManyWithoutWorkspaceInput
+  legacyCollaterals?: Prisma.CollateralUncheckedCreateNestedManyWithoutWorkspaceInput
+  identityVersions?: Prisma.PartyIdentityVersionUncheckedCreateNestedManyWithoutWorkspaceInput
+  borrowerVerifications?: Prisma.BorrowerVerificationUncheckedCreateNestedManyWithoutWorkspaceInput
+  borrowerVerificationItems?: Prisma.BorrowerVerificationItemUncheckedCreateNestedManyWithoutWorkspaceInput
+  borrowerCheckRuns?: Prisma.BorrowerCheckRunUncheckedCreateNestedManyWithoutWorkspaceInput
+  borrowerCheckFindings?: Prisma.BorrowerCheckFindingUncheckedCreateNestedManyWithoutWorkspaceInput
+  borrowerVerificationRisks?: Prisma.BorrowerVerificationRiskUncheckedCreateNestedManyWithoutWorkspaceInput
+}
+
+export type WorkspaceCreateOrConnectWithoutBorrowerVerificationEvidenceInput = {
+  where: Prisma.WorkspaceWhereUniqueInput
+  create: Prisma.XOR<Prisma.WorkspaceCreateWithoutBorrowerVerificationEvidenceInput, Prisma.WorkspaceUncheckedCreateWithoutBorrowerVerificationEvidenceInput>
+}
+
+export type WorkspaceUpsertWithoutBorrowerVerificationEvidenceInput = {
+  update: Prisma.XOR<Prisma.WorkspaceUpdateWithoutBorrowerVerificationEvidenceInput, Prisma.WorkspaceUncheckedUpdateWithoutBorrowerVerificationEvidenceInput>
+  create: Prisma.XOR<Prisma.WorkspaceCreateWithoutBorrowerVerificationEvidenceInput, Prisma.WorkspaceUncheckedCreateWithoutBorrowerVerificationEvidenceInput>
+  where?: Prisma.WorkspaceWhereInput
+}
+
+export type WorkspaceUpdateToOneWithWhereWithoutBorrowerVerificationEvidenceInput = {
+  where?: Prisma.WorkspaceWhereInput
+  data: Prisma.XOR<Prisma.WorkspaceUpdateWithoutBorrowerVerificationEvidenceInput, Prisma.WorkspaceUncheckedUpdateWithoutBorrowerVerificationEvidenceInput>
+}
+
+export type WorkspaceUpdateWithoutBorrowerVerificationEvidenceInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  personalOwner?: Prisma.UserUpdateOneWithoutPersonalWorkspaceNestedInput
+  workspaceMembers?: Prisma.WorkspaceMemberUpdateManyWithoutWorkspaceNestedInput
+  parties?: Prisma.PartyUpdateManyWithoutWorkspaceNestedInput
+  contracts?: Prisma.ContractUpdateManyWithoutWorkspaceNestedInput
+  documents?: Prisma.DocumentUpdateManyWithoutWorkspaceNestedInput
+  auditEntries?: Prisma.AuditEntryUpdateManyWithoutWorkspaceNestedInput
+  legacyDeals?: Prisma.DealUpdateManyWithoutWorkspaceNestedInput
+  legacyBorrowers?: Prisma.BorrowerUpdateManyWithoutWorkspaceNestedInput
+  legacyCollaterals?: Prisma.CollateralUpdateManyWithoutWorkspaceNestedInput
+  identityVersions?: Prisma.PartyIdentityVersionUpdateManyWithoutWorkspaceNestedInput
+  borrowerVerifications?: Prisma.BorrowerVerificationUpdateManyWithoutWorkspaceNestedInput
+  borrowerVerificationItems?: Prisma.BorrowerVerificationItemUpdateManyWithoutWorkspaceNestedInput
+  borrowerCheckRuns?: Prisma.BorrowerCheckRunUpdateManyWithoutWorkspaceNestedInput
+  borrowerCheckFindings?: Prisma.BorrowerCheckFindingUpdateManyWithoutWorkspaceNestedInput
+  borrowerVerificationRisks?: Prisma.BorrowerVerificationRiskUpdateManyWithoutWorkspaceNestedInput
+}
+
+export type WorkspaceUncheckedUpdateWithoutBorrowerVerificationEvidenceInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  personalOwnerId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  workspaceMembers?: Prisma.WorkspaceMemberUncheckedUpdateManyWithoutWorkspaceNestedInput
+  parties?: Prisma.PartyUncheckedUpdateManyWithoutWorkspaceNestedInput
+  contracts?: Prisma.ContractUncheckedUpdateManyWithoutWorkspaceNestedInput
+  documents?: Prisma.DocumentUncheckedUpdateManyWithoutWorkspaceNestedInput
+  auditEntries?: Prisma.AuditEntryUncheckedUpdateManyWithoutWorkspaceNestedInput
+  legacyDeals?: Prisma.DealUncheckedUpdateManyWithoutWorkspaceNestedInput
+  legacyBorrowers?: Prisma.BorrowerUncheckedUpdateManyWithoutWorkspaceNestedInput
+  legacyCollaterals?: Prisma.CollateralUncheckedUpdateManyWithoutWorkspaceNestedInput
+  identityVersions?: Prisma.PartyIdentityVersionUncheckedUpdateManyWithoutWorkspaceNestedInput
+  borrowerVerifications?: Prisma.BorrowerVerificationUncheckedUpdateManyWithoutWorkspaceNestedInput
+  borrowerVerificationItems?: Prisma.BorrowerVerificationItemUncheckedUpdateManyWithoutWorkspaceNestedInput
+  borrowerCheckRuns?: Prisma.BorrowerCheckRunUncheckedUpdateManyWithoutWorkspaceNestedInput
+  borrowerCheckFindings?: Prisma.BorrowerCheckFindingUncheckedUpdateManyWithoutWorkspaceNestedInput
+  borrowerVerificationRisks?: Prisma.BorrowerVerificationRiskUncheckedUpdateManyWithoutWorkspaceNestedInput
+}
+
+export type WorkspaceCreateWithoutBorrowerVerificationRisksInput = {
+  id?: string
+  name: string
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  personalOwner?: Prisma.UserCreateNestedOneWithoutPersonalWorkspaceInput
+  workspaceMembers?: Prisma.WorkspaceMemberCreateNestedManyWithoutWorkspaceInput
+  parties?: Prisma.PartyCreateNestedManyWithoutWorkspaceInput
+  contracts?: Prisma.ContractCreateNestedManyWithoutWorkspaceInput
+  documents?: Prisma.DocumentCreateNestedManyWithoutWorkspaceInput
+  auditEntries?: Prisma.AuditEntryCreateNestedManyWithoutWorkspaceInput
+  legacyDeals?: Prisma.DealCreateNestedManyWithoutWorkspaceInput
+  legacyBorrowers?: Prisma.BorrowerCreateNestedManyWithoutWorkspaceInput
+  legacyCollaterals?: Prisma.CollateralCreateNestedManyWithoutWorkspaceInput
+  identityVersions?: Prisma.PartyIdentityVersionCreateNestedManyWithoutWorkspaceInput
+  borrowerVerifications?: Prisma.BorrowerVerificationCreateNestedManyWithoutWorkspaceInput
+  borrowerVerificationItems?: Prisma.BorrowerVerificationItemCreateNestedManyWithoutWorkspaceInput
+  borrowerCheckRuns?: Prisma.BorrowerCheckRunCreateNestedManyWithoutWorkspaceInput
+  borrowerCheckFindings?: Prisma.BorrowerCheckFindingCreateNestedManyWithoutWorkspaceInput
+  borrowerVerificationEvidence?: Prisma.BorrowerVerificationEvidenceCreateNestedManyWithoutWorkspaceInput
+}
+
+export type WorkspaceUncheckedCreateWithoutBorrowerVerificationRisksInput = {
+  id?: string
+  name: string
+  personalOwnerId?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  workspaceMembers?: Prisma.WorkspaceMemberUncheckedCreateNestedManyWithoutWorkspaceInput
+  parties?: Prisma.PartyUncheckedCreateNestedManyWithoutWorkspaceInput
+  contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutWorkspaceInput
+  documents?: Prisma.DocumentUncheckedCreateNestedManyWithoutWorkspaceInput
+  auditEntries?: Prisma.AuditEntryUncheckedCreateNestedManyWithoutWorkspaceInput
+  legacyDeals?: Prisma.DealUncheckedCreateNestedManyWithoutWorkspaceInput
+  legacyBorrowers?: Prisma.BorrowerUncheckedCreateNestedManyWithoutWorkspaceInput
+  legacyCollaterals?: Prisma.CollateralUncheckedCreateNestedManyWithoutWorkspaceInput
+  identityVersions?: Prisma.PartyIdentityVersionUncheckedCreateNestedManyWithoutWorkspaceInput
+  borrowerVerifications?: Prisma.BorrowerVerificationUncheckedCreateNestedManyWithoutWorkspaceInput
+  borrowerVerificationItems?: Prisma.BorrowerVerificationItemUncheckedCreateNestedManyWithoutWorkspaceInput
+  borrowerCheckRuns?: Prisma.BorrowerCheckRunUncheckedCreateNestedManyWithoutWorkspaceInput
+  borrowerCheckFindings?: Prisma.BorrowerCheckFindingUncheckedCreateNestedManyWithoutWorkspaceInput
+  borrowerVerificationEvidence?: Prisma.BorrowerVerificationEvidenceUncheckedCreateNestedManyWithoutWorkspaceInput
+}
+
+export type WorkspaceCreateOrConnectWithoutBorrowerVerificationRisksInput = {
+  where: Prisma.WorkspaceWhereUniqueInput
+  create: Prisma.XOR<Prisma.WorkspaceCreateWithoutBorrowerVerificationRisksInput, Prisma.WorkspaceUncheckedCreateWithoutBorrowerVerificationRisksInput>
+}
+
+export type WorkspaceUpsertWithoutBorrowerVerificationRisksInput = {
+  update: Prisma.XOR<Prisma.WorkspaceUpdateWithoutBorrowerVerificationRisksInput, Prisma.WorkspaceUncheckedUpdateWithoutBorrowerVerificationRisksInput>
+  create: Prisma.XOR<Prisma.WorkspaceCreateWithoutBorrowerVerificationRisksInput, Prisma.WorkspaceUncheckedCreateWithoutBorrowerVerificationRisksInput>
+  where?: Prisma.WorkspaceWhereInput
+}
+
+export type WorkspaceUpdateToOneWithWhereWithoutBorrowerVerificationRisksInput = {
+  where?: Prisma.WorkspaceWhereInput
+  data: Prisma.XOR<Prisma.WorkspaceUpdateWithoutBorrowerVerificationRisksInput, Prisma.WorkspaceUncheckedUpdateWithoutBorrowerVerificationRisksInput>
+}
+
+export type WorkspaceUpdateWithoutBorrowerVerificationRisksInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  personalOwner?: Prisma.UserUpdateOneWithoutPersonalWorkspaceNestedInput
+  workspaceMembers?: Prisma.WorkspaceMemberUpdateManyWithoutWorkspaceNestedInput
+  parties?: Prisma.PartyUpdateManyWithoutWorkspaceNestedInput
+  contracts?: Prisma.ContractUpdateManyWithoutWorkspaceNestedInput
+  documents?: Prisma.DocumentUpdateManyWithoutWorkspaceNestedInput
+  auditEntries?: Prisma.AuditEntryUpdateManyWithoutWorkspaceNestedInput
+  legacyDeals?: Prisma.DealUpdateManyWithoutWorkspaceNestedInput
+  legacyBorrowers?: Prisma.BorrowerUpdateManyWithoutWorkspaceNestedInput
+  legacyCollaterals?: Prisma.CollateralUpdateManyWithoutWorkspaceNestedInput
+  identityVersions?: Prisma.PartyIdentityVersionUpdateManyWithoutWorkspaceNestedInput
+  borrowerVerifications?: Prisma.BorrowerVerificationUpdateManyWithoutWorkspaceNestedInput
+  borrowerVerificationItems?: Prisma.BorrowerVerificationItemUpdateManyWithoutWorkspaceNestedInput
+  borrowerCheckRuns?: Prisma.BorrowerCheckRunUpdateManyWithoutWorkspaceNestedInput
+  borrowerCheckFindings?: Prisma.BorrowerCheckFindingUpdateManyWithoutWorkspaceNestedInput
+  borrowerVerificationEvidence?: Prisma.BorrowerVerificationEvidenceUpdateManyWithoutWorkspaceNestedInput
+}
+
+export type WorkspaceUncheckedUpdateWithoutBorrowerVerificationRisksInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  personalOwnerId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  workspaceMembers?: Prisma.WorkspaceMemberUncheckedUpdateManyWithoutWorkspaceNestedInput
+  parties?: Prisma.PartyUncheckedUpdateManyWithoutWorkspaceNestedInput
+  contracts?: Prisma.ContractUncheckedUpdateManyWithoutWorkspaceNestedInput
+  documents?: Prisma.DocumentUncheckedUpdateManyWithoutWorkspaceNestedInput
+  auditEntries?: Prisma.AuditEntryUncheckedUpdateManyWithoutWorkspaceNestedInput
+  legacyDeals?: Prisma.DealUncheckedUpdateManyWithoutWorkspaceNestedInput
+  legacyBorrowers?: Prisma.BorrowerUncheckedUpdateManyWithoutWorkspaceNestedInput
+  legacyCollaterals?: Prisma.CollateralUncheckedUpdateManyWithoutWorkspaceNestedInput
+  identityVersions?: Prisma.PartyIdentityVersionUncheckedUpdateManyWithoutWorkspaceNestedInput
+  borrowerVerifications?: Prisma.BorrowerVerificationUncheckedUpdateManyWithoutWorkspaceNestedInput
+  borrowerVerificationItems?: Prisma.BorrowerVerificationItemUncheckedUpdateManyWithoutWorkspaceNestedInput
+  borrowerCheckRuns?: Prisma.BorrowerCheckRunUncheckedUpdateManyWithoutWorkspaceNestedInput
+  borrowerCheckFindings?: Prisma.BorrowerCheckFindingUncheckedUpdateManyWithoutWorkspaceNestedInput
+  borrowerVerificationEvidence?: Prisma.BorrowerVerificationEvidenceUncheckedUpdateManyWithoutWorkspaceNestedInput
 }
 
 
@@ -1221,6 +2348,13 @@ export type WorkspaceCountOutputType = {
   legacyDeals: number
   legacyBorrowers: number
   legacyCollaterals: number
+  identityVersions: number
+  borrowerVerifications: number
+  borrowerVerificationItems: number
+  borrowerCheckRuns: number
+  borrowerCheckFindings: number
+  borrowerVerificationEvidence: number
+  borrowerVerificationRisks: number
 }
 
 export type WorkspaceCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -1232,6 +2366,13 @@ export type WorkspaceCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensi
   legacyDeals?: boolean | WorkspaceCountOutputTypeCountLegacyDealsArgs
   legacyBorrowers?: boolean | WorkspaceCountOutputTypeCountLegacyBorrowersArgs
   legacyCollaterals?: boolean | WorkspaceCountOutputTypeCountLegacyCollateralsArgs
+  identityVersions?: boolean | WorkspaceCountOutputTypeCountIdentityVersionsArgs
+  borrowerVerifications?: boolean | WorkspaceCountOutputTypeCountBorrowerVerificationsArgs
+  borrowerVerificationItems?: boolean | WorkspaceCountOutputTypeCountBorrowerVerificationItemsArgs
+  borrowerCheckRuns?: boolean | WorkspaceCountOutputTypeCountBorrowerCheckRunsArgs
+  borrowerCheckFindings?: boolean | WorkspaceCountOutputTypeCountBorrowerCheckFindingsArgs
+  borrowerVerificationEvidence?: boolean | WorkspaceCountOutputTypeCountBorrowerVerificationEvidenceArgs
+  borrowerVerificationRisks?: boolean | WorkspaceCountOutputTypeCountBorrowerVerificationRisksArgs
 }
 
 /**
@@ -1300,6 +2441,55 @@ export type WorkspaceCountOutputTypeCountLegacyCollateralsArgs<ExtArgs extends r
   where?: Prisma.CollateralWhereInput
 }
 
+/**
+ * WorkspaceCountOutputType without action
+ */
+export type WorkspaceCountOutputTypeCountIdentityVersionsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.PartyIdentityVersionWhereInput
+}
+
+/**
+ * WorkspaceCountOutputType without action
+ */
+export type WorkspaceCountOutputTypeCountBorrowerVerificationsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.BorrowerVerificationWhereInput
+}
+
+/**
+ * WorkspaceCountOutputType without action
+ */
+export type WorkspaceCountOutputTypeCountBorrowerVerificationItemsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.BorrowerVerificationItemWhereInput
+}
+
+/**
+ * WorkspaceCountOutputType without action
+ */
+export type WorkspaceCountOutputTypeCountBorrowerCheckRunsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.BorrowerCheckRunWhereInput
+}
+
+/**
+ * WorkspaceCountOutputType without action
+ */
+export type WorkspaceCountOutputTypeCountBorrowerCheckFindingsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.BorrowerCheckFindingWhereInput
+}
+
+/**
+ * WorkspaceCountOutputType without action
+ */
+export type WorkspaceCountOutputTypeCountBorrowerVerificationEvidenceArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.BorrowerVerificationEvidenceWhereInput
+}
+
+/**
+ * WorkspaceCountOutputType without action
+ */
+export type WorkspaceCountOutputTypeCountBorrowerVerificationRisksArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.BorrowerVerificationRiskWhereInput
+}
+
 
 export type WorkspaceSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -1316,6 +2506,13 @@ export type WorkspaceSelect<ExtArgs extends runtime.Types.Extensions.InternalArg
   legacyDeals?: boolean | Prisma.Workspace$legacyDealsArgs<ExtArgs>
   legacyBorrowers?: boolean | Prisma.Workspace$legacyBorrowersArgs<ExtArgs>
   legacyCollaterals?: boolean | Prisma.Workspace$legacyCollateralsArgs<ExtArgs>
+  identityVersions?: boolean | Prisma.Workspace$identityVersionsArgs<ExtArgs>
+  borrowerVerifications?: boolean | Prisma.Workspace$borrowerVerificationsArgs<ExtArgs>
+  borrowerVerificationItems?: boolean | Prisma.Workspace$borrowerVerificationItemsArgs<ExtArgs>
+  borrowerCheckRuns?: boolean | Prisma.Workspace$borrowerCheckRunsArgs<ExtArgs>
+  borrowerCheckFindings?: boolean | Prisma.Workspace$borrowerCheckFindingsArgs<ExtArgs>
+  borrowerVerificationEvidence?: boolean | Prisma.Workspace$borrowerVerificationEvidenceArgs<ExtArgs>
+  borrowerVerificationRisks?: boolean | Prisma.Workspace$borrowerVerificationRisksArgs<ExtArgs>
   _count?: boolean | Prisma.WorkspaceCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["workspace"]>
 
@@ -1356,6 +2553,13 @@ export type WorkspaceInclude<ExtArgs extends runtime.Types.Extensions.InternalAr
   legacyDeals?: boolean | Prisma.Workspace$legacyDealsArgs<ExtArgs>
   legacyBorrowers?: boolean | Prisma.Workspace$legacyBorrowersArgs<ExtArgs>
   legacyCollaterals?: boolean | Prisma.Workspace$legacyCollateralsArgs<ExtArgs>
+  identityVersions?: boolean | Prisma.Workspace$identityVersionsArgs<ExtArgs>
+  borrowerVerifications?: boolean | Prisma.Workspace$borrowerVerificationsArgs<ExtArgs>
+  borrowerVerificationItems?: boolean | Prisma.Workspace$borrowerVerificationItemsArgs<ExtArgs>
+  borrowerCheckRuns?: boolean | Prisma.Workspace$borrowerCheckRunsArgs<ExtArgs>
+  borrowerCheckFindings?: boolean | Prisma.Workspace$borrowerCheckFindingsArgs<ExtArgs>
+  borrowerVerificationEvidence?: boolean | Prisma.Workspace$borrowerVerificationEvidenceArgs<ExtArgs>
+  borrowerVerificationRisks?: boolean | Prisma.Workspace$borrowerVerificationRisksArgs<ExtArgs>
   _count?: boolean | Prisma.WorkspaceCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type WorkspaceIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -1377,6 +2581,13 @@ export type $WorkspacePayload<ExtArgs extends runtime.Types.Extensions.InternalA
     legacyDeals: Prisma.$DealPayload<ExtArgs>[]
     legacyBorrowers: Prisma.$BorrowerPayload<ExtArgs>[]
     legacyCollaterals: Prisma.$CollateralPayload<ExtArgs>[]
+    identityVersions: Prisma.$PartyIdentityVersionPayload<ExtArgs>[]
+    borrowerVerifications: Prisma.$BorrowerVerificationPayload<ExtArgs>[]
+    borrowerVerificationItems: Prisma.$BorrowerVerificationItemPayload<ExtArgs>[]
+    borrowerCheckRuns: Prisma.$BorrowerCheckRunPayload<ExtArgs>[]
+    borrowerCheckFindings: Prisma.$BorrowerCheckFindingPayload<ExtArgs>[]
+    borrowerVerificationEvidence: Prisma.$BorrowerVerificationEvidencePayload<ExtArgs>[]
+    borrowerVerificationRisks: Prisma.$BorrowerVerificationRiskPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -1787,6 +2998,13 @@ export interface Prisma__WorkspaceClient<T, Null = never, ExtArgs extends runtim
   legacyDeals<T extends Prisma.Workspace$legacyDealsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Workspace$legacyDealsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$DealPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   legacyBorrowers<T extends Prisma.Workspace$legacyBorrowersArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Workspace$legacyBorrowersArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$BorrowerPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   legacyCollaterals<T extends Prisma.Workspace$legacyCollateralsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Workspace$legacyCollateralsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$CollateralPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  identityVersions<T extends Prisma.Workspace$identityVersionsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Workspace$identityVersionsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$PartyIdentityVersionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  borrowerVerifications<T extends Prisma.Workspace$borrowerVerificationsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Workspace$borrowerVerificationsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$BorrowerVerificationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  borrowerVerificationItems<T extends Prisma.Workspace$borrowerVerificationItemsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Workspace$borrowerVerificationItemsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$BorrowerVerificationItemPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  borrowerCheckRuns<T extends Prisma.Workspace$borrowerCheckRunsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Workspace$borrowerCheckRunsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$BorrowerCheckRunPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  borrowerCheckFindings<T extends Prisma.Workspace$borrowerCheckFindingsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Workspace$borrowerCheckFindingsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$BorrowerCheckFindingPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  borrowerVerificationEvidence<T extends Prisma.Workspace$borrowerVerificationEvidenceArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Workspace$borrowerVerificationEvidenceArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$BorrowerVerificationEvidencePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  borrowerVerificationRisks<T extends Prisma.Workspace$borrowerVerificationRisksArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Workspace$borrowerVerificationRisksArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$BorrowerVerificationRiskPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2430,6 +3648,174 @@ export type Workspace$legacyCollateralsArgs<ExtArgs extends runtime.Types.Extens
   take?: number
   skip?: number
   distinct?: Prisma.CollateralScalarFieldEnum | Prisma.CollateralScalarFieldEnum[]
+}
+
+/**
+ * Workspace.identityVersions
+ */
+export type Workspace$identityVersionsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the PartyIdentityVersion
+   */
+  select?: Prisma.PartyIdentityVersionSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the PartyIdentityVersion
+   */
+  omit?: Prisma.PartyIdentityVersionOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.PartyIdentityVersionInclude<ExtArgs> | null
+  where?: Prisma.PartyIdentityVersionWhereInput
+  orderBy?: Prisma.PartyIdentityVersionOrderByWithRelationInput | Prisma.PartyIdentityVersionOrderByWithRelationInput[]
+  cursor?: Prisma.PartyIdentityVersionWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.PartyIdentityVersionScalarFieldEnum | Prisma.PartyIdentityVersionScalarFieldEnum[]
+}
+
+/**
+ * Workspace.borrowerVerifications
+ */
+export type Workspace$borrowerVerificationsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the BorrowerVerification
+   */
+  select?: Prisma.BorrowerVerificationSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the BorrowerVerification
+   */
+  omit?: Prisma.BorrowerVerificationOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.BorrowerVerificationInclude<ExtArgs> | null
+  where?: Prisma.BorrowerVerificationWhereInput
+  orderBy?: Prisma.BorrowerVerificationOrderByWithRelationInput | Prisma.BorrowerVerificationOrderByWithRelationInput[]
+  cursor?: Prisma.BorrowerVerificationWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.BorrowerVerificationScalarFieldEnum | Prisma.BorrowerVerificationScalarFieldEnum[]
+}
+
+/**
+ * Workspace.borrowerVerificationItems
+ */
+export type Workspace$borrowerVerificationItemsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the BorrowerVerificationItem
+   */
+  select?: Prisma.BorrowerVerificationItemSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the BorrowerVerificationItem
+   */
+  omit?: Prisma.BorrowerVerificationItemOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.BorrowerVerificationItemInclude<ExtArgs> | null
+  where?: Prisma.BorrowerVerificationItemWhereInput
+  orderBy?: Prisma.BorrowerVerificationItemOrderByWithRelationInput | Prisma.BorrowerVerificationItemOrderByWithRelationInput[]
+  cursor?: Prisma.BorrowerVerificationItemWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.BorrowerVerificationItemScalarFieldEnum | Prisma.BorrowerVerificationItemScalarFieldEnum[]
+}
+
+/**
+ * Workspace.borrowerCheckRuns
+ */
+export type Workspace$borrowerCheckRunsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the BorrowerCheckRun
+   */
+  select?: Prisma.BorrowerCheckRunSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the BorrowerCheckRun
+   */
+  omit?: Prisma.BorrowerCheckRunOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.BorrowerCheckRunInclude<ExtArgs> | null
+  where?: Prisma.BorrowerCheckRunWhereInput
+  orderBy?: Prisma.BorrowerCheckRunOrderByWithRelationInput | Prisma.BorrowerCheckRunOrderByWithRelationInput[]
+  cursor?: Prisma.BorrowerCheckRunWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.BorrowerCheckRunScalarFieldEnum | Prisma.BorrowerCheckRunScalarFieldEnum[]
+}
+
+/**
+ * Workspace.borrowerCheckFindings
+ */
+export type Workspace$borrowerCheckFindingsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the BorrowerCheckFinding
+   */
+  select?: Prisma.BorrowerCheckFindingSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the BorrowerCheckFinding
+   */
+  omit?: Prisma.BorrowerCheckFindingOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.BorrowerCheckFindingInclude<ExtArgs> | null
+  where?: Prisma.BorrowerCheckFindingWhereInput
+  orderBy?: Prisma.BorrowerCheckFindingOrderByWithRelationInput | Prisma.BorrowerCheckFindingOrderByWithRelationInput[]
+  cursor?: Prisma.BorrowerCheckFindingWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.BorrowerCheckFindingScalarFieldEnum | Prisma.BorrowerCheckFindingScalarFieldEnum[]
+}
+
+/**
+ * Workspace.borrowerVerificationEvidence
+ */
+export type Workspace$borrowerVerificationEvidenceArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the BorrowerVerificationEvidence
+   */
+  select?: Prisma.BorrowerVerificationEvidenceSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the BorrowerVerificationEvidence
+   */
+  omit?: Prisma.BorrowerVerificationEvidenceOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.BorrowerVerificationEvidenceInclude<ExtArgs> | null
+  where?: Prisma.BorrowerVerificationEvidenceWhereInput
+  orderBy?: Prisma.BorrowerVerificationEvidenceOrderByWithRelationInput | Prisma.BorrowerVerificationEvidenceOrderByWithRelationInput[]
+  cursor?: Prisma.BorrowerVerificationEvidenceWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.BorrowerVerificationEvidenceScalarFieldEnum | Prisma.BorrowerVerificationEvidenceScalarFieldEnum[]
+}
+
+/**
+ * Workspace.borrowerVerificationRisks
+ */
+export type Workspace$borrowerVerificationRisksArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the BorrowerVerificationRisk
+   */
+  select?: Prisma.BorrowerVerificationRiskSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the BorrowerVerificationRisk
+   */
+  omit?: Prisma.BorrowerVerificationRiskOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.BorrowerVerificationRiskInclude<ExtArgs> | null
+  where?: Prisma.BorrowerVerificationRiskWhereInput
+  orderBy?: Prisma.BorrowerVerificationRiskOrderByWithRelationInput | Prisma.BorrowerVerificationRiskOrderByWithRelationInput[]
+  cursor?: Prisma.BorrowerVerificationRiskWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.BorrowerVerificationRiskScalarFieldEnum | Prisma.BorrowerVerificationRiskScalarFieldEnum[]
 }
 
 /**

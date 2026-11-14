@@ -25,6 +25,8 @@
     "db:migrate": "prisma migrate deploy --config prisma7.config.ts",
     "db:status": "prisma migrate status --config prisma7.config.ts",
     "test:db": "node scripts/test-financial-migration.mjs",
+    "test:borrower-verifications:db": "node scripts/test-borrower-verifications-migration.mjs",
+    "test:borrower-verifications:backend": "node scripts/test-borrower-verifications-backend.mjs",
     "test:finance": "vitest run src/finance src/deals",
     "test:finance:db": "node scripts/test-manual-finance.mjs",
     "test:marketplace": "vitest run src/marketplace",

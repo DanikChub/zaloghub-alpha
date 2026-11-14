@@ -1,6 +1,6 @@
 import { useState, type ReactNode } from 'react'
 import { Avatar, Button, Dropdown, Grid, Layout, Menu, Typography } from 'antd'
-import { AppstoreOutlined, FileTextOutlined, LogoutOutlined, MenuFoldOutlined, MenuUnfoldOutlined, UserOutlined } from '@ant-design/icons'
+import { AppstoreOutlined, FileTextOutlined, SafetyCertificateOutlined, LogoutOutlined, MenuFoldOutlined, MenuUnfoldOutlined, UserOutlined } from '@ant-design/icons'
 import { Link, useLocation, useNavigate } from 'react-router'
 import { useAppDispatch } from '../../../app/store/hooks'
 import { useGetMeQuery } from '../../../features/auth/api/authApi'
@@ -9,8 +9,9 @@ import { routePaths } from '../../../shared/config/routes'
 import './app-shell.css'
 
 const navigation = [
-  { key: routePaths.marketplace, icon: <AppstoreOutlined />, label: <Link to={routePaths.marketplace}>Маркетплейс</Link> },
   { key: routePaths.dashboard, icon: <AppstoreOutlined />, label: <Link to={routePaths.dashboard}>Главная</Link> },
+  { key: routePaths.marketplace, icon: <AppstoreOutlined />, label: <Link to={routePaths.marketplace}>Маркетплейс</Link> },
+  { key: routePaths.borrowerVerifications, icon: <SafetyCertificateOutlined />, label: <Link to={routePaths.borrowerVerifications}>Проверка заёмщика</Link> },
   { key: routePaths.deals, icon: <FileTextOutlined />, label: <Link to={routePaths.deals}>Сделки</Link> },
 ]
 
@@ -46,7 +47,7 @@ export function AppShell({ children, title, description }: AppShellProps) {
             {!collapsed && <span>ЗАЛОГ<span className="app-brand-highlight">ХАБ</span></span>}
           </Link>
           <div className="app-nav-caption">{!collapsed && 'НАВИГАЦИЯ'}</div>
-          <Menu mode="inline" inlineCollapsed={collapsed} selectedKeys={[location.pathname]} items={navigation} className="app-navigation" />
+          <Menu mode="inline" inlineCollapsed={collapsed} selectedKeys={[navigation.find(item => location.pathname === item.key || location.pathname.startsWith(`${item.key}/`))?.key ?? location.pathname]} items={navigation} className="app-navigation" />
           <div className="app-sidebar-bottom">{!collapsed && 'ЗалогХаб 2.0'}</div>
         </Layout.Sider>
       )}
@@ -75,7 +76,7 @@ export function AppShell({ children, title, description }: AppShellProps) {
             </Button>
           </Dropdown>
         </Layout.Header>
-        {isMobile && <div className="app-mobile-nav"><Menu mode="horizontal" selectedKeys={[location.pathname]} items={navigation} /></div>}
+        {isMobile && <div className="app-mobile-nav"><Menu mode="horizontal" selectedKeys={[navigation.find(item => location.pathname === item.key || location.pathname.startsWith(`${item.key}/`))?.key ?? location.pathname]} items={navigation} /></div>}
         <Layout.Content className="app-content">
           <div className="app-page-heading">
             <Typography.Title level={4}>{title}</Typography.Title>

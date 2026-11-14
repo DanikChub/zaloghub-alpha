@@ -430,7 +430,14 @@ export const ModelName = {
   MarketplaceSource: 'MarketplaceSource',
   MarketplaceOffer: 'MarketplaceOffer',
   MarketplacePhoto: 'MarketplacePhoto',
-  MarketplaceMark: 'MarketplaceMark'
+  MarketplaceMark: 'MarketplaceMark',
+  PartyIdentityVersion: 'PartyIdentityVersion',
+  BorrowerVerification: 'BorrowerVerification',
+  BorrowerVerificationItem: 'BorrowerVerificationItem',
+  BorrowerCheckRun: 'BorrowerCheckRun',
+  BorrowerCheckFinding: 'BorrowerCheckFinding',
+  BorrowerVerificationEvidence: 'BorrowerVerificationEvidence',
+  BorrowerVerificationRisk: 'BorrowerVerificationRisk'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -446,7 +453,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "authChallenge" | "borrower" | "collateral" | "deal" | "disbursement" | "payment" | "financeInstruction" | "workspace" | "workspaceMember" | "party" | "contract" | "contractParty" | "document" | "contractDocument" | "contractCollateral" | "loanAccount" | "calendarVersion" | "calendarDay" | "termsVersion" | "termRule" | "financialEvent" | "calculationRun" | "calculationInput" | "obligation" | "accrualLine" | "paymentAllocation" | "loanSnapshot" | "auditEntry" | "dealFinanceJournalVersion" | "marketplaceSource" | "marketplaceOffer" | "marketplacePhoto" | "marketplaceMark"
+    modelProps: "user" | "authChallenge" | "borrower" | "collateral" | "deal" | "disbursement" | "payment" | "financeInstruction" | "workspace" | "workspaceMember" | "party" | "contract" | "contractParty" | "document" | "contractDocument" | "contractCollateral" | "loanAccount" | "calendarVersion" | "calendarDay" | "termsVersion" | "termRule" | "financialEvent" | "calculationRun" | "calculationInput" | "obligation" | "accrualLine" | "paymentAllocation" | "loanSnapshot" | "auditEntry" | "dealFinanceJournalVersion" | "marketplaceSource" | "marketplaceOffer" | "marketplacePhoto" | "marketplaceMark" | "partyIdentityVersion" | "borrowerVerification" | "borrowerVerificationItem" | "borrowerCheckRun" | "borrowerCheckFinding" | "borrowerVerificationEvidence" | "borrowerVerificationRisk"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -2966,6 +2973,524 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    PartyIdentityVersion: {
+      payload: Prisma.$PartyIdentityVersionPayload<ExtArgs>
+      fields: Prisma.PartyIdentityVersionFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.PartyIdentityVersionFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PartyIdentityVersionPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.PartyIdentityVersionFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PartyIdentityVersionPayload>
+        }
+        findFirst: {
+          args: Prisma.PartyIdentityVersionFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PartyIdentityVersionPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.PartyIdentityVersionFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PartyIdentityVersionPayload>
+        }
+        findMany: {
+          args: Prisma.PartyIdentityVersionFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PartyIdentityVersionPayload>[]
+        }
+        create: {
+          args: Prisma.PartyIdentityVersionCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PartyIdentityVersionPayload>
+        }
+        createMany: {
+          args: Prisma.PartyIdentityVersionCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.PartyIdentityVersionCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PartyIdentityVersionPayload>[]
+        }
+        delete: {
+          args: Prisma.PartyIdentityVersionDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PartyIdentityVersionPayload>
+        }
+        update: {
+          args: Prisma.PartyIdentityVersionUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PartyIdentityVersionPayload>
+        }
+        deleteMany: {
+          args: Prisma.PartyIdentityVersionDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.PartyIdentityVersionUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.PartyIdentityVersionUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PartyIdentityVersionPayload>[]
+        }
+        upsert: {
+          args: Prisma.PartyIdentityVersionUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PartyIdentityVersionPayload>
+        }
+        aggregate: {
+          args: Prisma.PartyIdentityVersionAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregatePartyIdentityVersion>
+        }
+        groupBy: {
+          args: Prisma.PartyIdentityVersionGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.PartyIdentityVersionGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.PartyIdentityVersionCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.PartyIdentityVersionCountAggregateOutputType> | number
+        }
+      }
+    }
+    BorrowerVerification: {
+      payload: Prisma.$BorrowerVerificationPayload<ExtArgs>
+      fields: Prisma.BorrowerVerificationFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.BorrowerVerificationFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BorrowerVerificationPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.BorrowerVerificationFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BorrowerVerificationPayload>
+        }
+        findFirst: {
+          args: Prisma.BorrowerVerificationFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BorrowerVerificationPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.BorrowerVerificationFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BorrowerVerificationPayload>
+        }
+        findMany: {
+          args: Prisma.BorrowerVerificationFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BorrowerVerificationPayload>[]
+        }
+        create: {
+          args: Prisma.BorrowerVerificationCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BorrowerVerificationPayload>
+        }
+        createMany: {
+          args: Prisma.BorrowerVerificationCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.BorrowerVerificationCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BorrowerVerificationPayload>[]
+        }
+        delete: {
+          args: Prisma.BorrowerVerificationDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BorrowerVerificationPayload>
+        }
+        update: {
+          args: Prisma.BorrowerVerificationUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BorrowerVerificationPayload>
+        }
+        deleteMany: {
+          args: Prisma.BorrowerVerificationDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.BorrowerVerificationUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.BorrowerVerificationUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BorrowerVerificationPayload>[]
+        }
+        upsert: {
+          args: Prisma.BorrowerVerificationUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BorrowerVerificationPayload>
+        }
+        aggregate: {
+          args: Prisma.BorrowerVerificationAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateBorrowerVerification>
+        }
+        groupBy: {
+          args: Prisma.BorrowerVerificationGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.BorrowerVerificationGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.BorrowerVerificationCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.BorrowerVerificationCountAggregateOutputType> | number
+        }
+      }
+    }
+    BorrowerVerificationItem: {
+      payload: Prisma.$BorrowerVerificationItemPayload<ExtArgs>
+      fields: Prisma.BorrowerVerificationItemFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.BorrowerVerificationItemFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BorrowerVerificationItemPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.BorrowerVerificationItemFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BorrowerVerificationItemPayload>
+        }
+        findFirst: {
+          args: Prisma.BorrowerVerificationItemFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BorrowerVerificationItemPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.BorrowerVerificationItemFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BorrowerVerificationItemPayload>
+        }
+        findMany: {
+          args: Prisma.BorrowerVerificationItemFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BorrowerVerificationItemPayload>[]
+        }
+        create: {
+          args: Prisma.BorrowerVerificationItemCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BorrowerVerificationItemPayload>
+        }
+        createMany: {
+          args: Prisma.BorrowerVerificationItemCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.BorrowerVerificationItemCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BorrowerVerificationItemPayload>[]
+        }
+        delete: {
+          args: Prisma.BorrowerVerificationItemDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BorrowerVerificationItemPayload>
+        }
+        update: {
+          args: Prisma.BorrowerVerificationItemUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BorrowerVerificationItemPayload>
+        }
+        deleteMany: {
+          args: Prisma.BorrowerVerificationItemDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.BorrowerVerificationItemUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.BorrowerVerificationItemUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BorrowerVerificationItemPayload>[]
+        }
+        upsert: {
+          args: Prisma.BorrowerVerificationItemUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BorrowerVerificationItemPayload>
+        }
+        aggregate: {
+          args: Prisma.BorrowerVerificationItemAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateBorrowerVerificationItem>
+        }
+        groupBy: {
+          args: Prisma.BorrowerVerificationItemGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.BorrowerVerificationItemGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.BorrowerVerificationItemCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.BorrowerVerificationItemCountAggregateOutputType> | number
+        }
+      }
+    }
+    BorrowerCheckRun: {
+      payload: Prisma.$BorrowerCheckRunPayload<ExtArgs>
+      fields: Prisma.BorrowerCheckRunFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.BorrowerCheckRunFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BorrowerCheckRunPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.BorrowerCheckRunFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BorrowerCheckRunPayload>
+        }
+        findFirst: {
+          args: Prisma.BorrowerCheckRunFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BorrowerCheckRunPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.BorrowerCheckRunFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BorrowerCheckRunPayload>
+        }
+        findMany: {
+          args: Prisma.BorrowerCheckRunFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BorrowerCheckRunPayload>[]
+        }
+        create: {
+          args: Prisma.BorrowerCheckRunCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BorrowerCheckRunPayload>
+        }
+        createMany: {
+          args: Prisma.BorrowerCheckRunCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.BorrowerCheckRunCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BorrowerCheckRunPayload>[]
+        }
+        delete: {
+          args: Prisma.BorrowerCheckRunDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BorrowerCheckRunPayload>
+        }
+        update: {
+          args: Prisma.BorrowerCheckRunUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BorrowerCheckRunPayload>
+        }
+        deleteMany: {
+          args: Prisma.BorrowerCheckRunDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.BorrowerCheckRunUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.BorrowerCheckRunUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BorrowerCheckRunPayload>[]
+        }
+        upsert: {
+          args: Prisma.BorrowerCheckRunUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BorrowerCheckRunPayload>
+        }
+        aggregate: {
+          args: Prisma.BorrowerCheckRunAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateBorrowerCheckRun>
+        }
+        groupBy: {
+          args: Prisma.BorrowerCheckRunGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.BorrowerCheckRunGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.BorrowerCheckRunCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.BorrowerCheckRunCountAggregateOutputType> | number
+        }
+      }
+    }
+    BorrowerCheckFinding: {
+      payload: Prisma.$BorrowerCheckFindingPayload<ExtArgs>
+      fields: Prisma.BorrowerCheckFindingFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.BorrowerCheckFindingFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BorrowerCheckFindingPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.BorrowerCheckFindingFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BorrowerCheckFindingPayload>
+        }
+        findFirst: {
+          args: Prisma.BorrowerCheckFindingFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BorrowerCheckFindingPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.BorrowerCheckFindingFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BorrowerCheckFindingPayload>
+        }
+        findMany: {
+          args: Prisma.BorrowerCheckFindingFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BorrowerCheckFindingPayload>[]
+        }
+        create: {
+          args: Prisma.BorrowerCheckFindingCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BorrowerCheckFindingPayload>
+        }
+        createMany: {
+          args: Prisma.BorrowerCheckFindingCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.BorrowerCheckFindingCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BorrowerCheckFindingPayload>[]
+        }
+        delete: {
+          args: Prisma.BorrowerCheckFindingDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BorrowerCheckFindingPayload>
+        }
+        update: {
+          args: Prisma.BorrowerCheckFindingUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BorrowerCheckFindingPayload>
+        }
+        deleteMany: {
+          args: Prisma.BorrowerCheckFindingDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.BorrowerCheckFindingUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.BorrowerCheckFindingUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BorrowerCheckFindingPayload>[]
+        }
+        upsert: {
+          args: Prisma.BorrowerCheckFindingUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BorrowerCheckFindingPayload>
+        }
+        aggregate: {
+          args: Prisma.BorrowerCheckFindingAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateBorrowerCheckFinding>
+        }
+        groupBy: {
+          args: Prisma.BorrowerCheckFindingGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.BorrowerCheckFindingGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.BorrowerCheckFindingCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.BorrowerCheckFindingCountAggregateOutputType> | number
+        }
+      }
+    }
+    BorrowerVerificationEvidence: {
+      payload: Prisma.$BorrowerVerificationEvidencePayload<ExtArgs>
+      fields: Prisma.BorrowerVerificationEvidenceFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.BorrowerVerificationEvidenceFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BorrowerVerificationEvidencePayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.BorrowerVerificationEvidenceFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BorrowerVerificationEvidencePayload>
+        }
+        findFirst: {
+          args: Prisma.BorrowerVerificationEvidenceFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BorrowerVerificationEvidencePayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.BorrowerVerificationEvidenceFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BorrowerVerificationEvidencePayload>
+        }
+        findMany: {
+          args: Prisma.BorrowerVerificationEvidenceFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BorrowerVerificationEvidencePayload>[]
+        }
+        create: {
+          args: Prisma.BorrowerVerificationEvidenceCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BorrowerVerificationEvidencePayload>
+        }
+        createMany: {
+          args: Prisma.BorrowerVerificationEvidenceCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.BorrowerVerificationEvidenceCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BorrowerVerificationEvidencePayload>[]
+        }
+        delete: {
+          args: Prisma.BorrowerVerificationEvidenceDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BorrowerVerificationEvidencePayload>
+        }
+        update: {
+          args: Prisma.BorrowerVerificationEvidenceUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BorrowerVerificationEvidencePayload>
+        }
+        deleteMany: {
+          args: Prisma.BorrowerVerificationEvidenceDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.BorrowerVerificationEvidenceUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.BorrowerVerificationEvidenceUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BorrowerVerificationEvidencePayload>[]
+        }
+        upsert: {
+          args: Prisma.BorrowerVerificationEvidenceUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BorrowerVerificationEvidencePayload>
+        }
+        aggregate: {
+          args: Prisma.BorrowerVerificationEvidenceAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateBorrowerVerificationEvidence>
+        }
+        groupBy: {
+          args: Prisma.BorrowerVerificationEvidenceGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.BorrowerVerificationEvidenceGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.BorrowerVerificationEvidenceCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.BorrowerVerificationEvidenceCountAggregateOutputType> | number
+        }
+      }
+    }
+    BorrowerVerificationRisk: {
+      payload: Prisma.$BorrowerVerificationRiskPayload<ExtArgs>
+      fields: Prisma.BorrowerVerificationRiskFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.BorrowerVerificationRiskFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BorrowerVerificationRiskPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.BorrowerVerificationRiskFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BorrowerVerificationRiskPayload>
+        }
+        findFirst: {
+          args: Prisma.BorrowerVerificationRiskFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BorrowerVerificationRiskPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.BorrowerVerificationRiskFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BorrowerVerificationRiskPayload>
+        }
+        findMany: {
+          args: Prisma.BorrowerVerificationRiskFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BorrowerVerificationRiskPayload>[]
+        }
+        create: {
+          args: Prisma.BorrowerVerificationRiskCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BorrowerVerificationRiskPayload>
+        }
+        createMany: {
+          args: Prisma.BorrowerVerificationRiskCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.BorrowerVerificationRiskCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BorrowerVerificationRiskPayload>[]
+        }
+        delete: {
+          args: Prisma.BorrowerVerificationRiskDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BorrowerVerificationRiskPayload>
+        }
+        update: {
+          args: Prisma.BorrowerVerificationRiskUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BorrowerVerificationRiskPayload>
+        }
+        deleteMany: {
+          args: Prisma.BorrowerVerificationRiskDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.BorrowerVerificationRiskUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.BorrowerVerificationRiskUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BorrowerVerificationRiskPayload>[]
+        }
+        upsert: {
+          args: Prisma.BorrowerVerificationRiskUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BorrowerVerificationRiskPayload>
+        }
+        aggregate: {
+          args: Prisma.BorrowerVerificationRiskAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateBorrowerVerificationRisk>
+        }
+        groupBy: {
+          args: Prisma.BorrowerVerificationRiskGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.BorrowerVerificationRiskGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.BorrowerVerificationRiskCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.BorrowerVerificationRiskCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -3201,7 +3726,10 @@ export const DocumentScalarFieldEnum = {
   workspaceId: 'workspaceId',
   storageKey: 'storageKey',
   sha256: 'sha256',
-  mimeType: 'mimeType'
+  mimeType: 'mimeType',
+  originalFilename: 'originalFilename',
+  sizeBytes: 'sizeBytes',
+  createdAt: 'createdAt'
 } as const
 
 export type DocumentScalarFieldEnum = (typeof DocumentScalarFieldEnum)[keyof typeof DocumentScalarFieldEnum]
@@ -3527,6 +4055,223 @@ export const MarketplaceMarkScalarFieldEnum = {
 export type MarketplaceMarkScalarFieldEnum = (typeof MarketplaceMarkScalarFieldEnum)[keyof typeof MarketplaceMarkScalarFieldEnum]
 
 
+export const PartyIdentityVersionScalarFieldEnum = {
+  id: 'id',
+  workspaceId: 'workspaceId',
+  partyId: 'partyId',
+  versionNo: 'versionNo',
+  supersedesId: 'supersedesId',
+  lastName: 'lastName',
+  firstName: 'firstName',
+  middleName: 'middleName',
+  hasNoMiddleName: 'hasNoMiddleName',
+  birthDate: 'birthDate',
+  birthPlace: 'birthPlace',
+  passportSeries: 'passportSeries',
+  passportNumber: 'passportNumber',
+  passportIssuedOn: 'passportIssuedOn',
+  passportIssuedBy: 'passportIssuedBy',
+  passportDepartmentCode: 'passportDepartmentCode',
+  registrationAddress: 'registrationAddress',
+  residentialAddress: 'residentialAddress',
+  previousNames: 'previousNames',
+  previousRegions: 'previousRegions',
+  inn: 'inn',
+  snils: 'snils',
+  ogrnip: 'ogrnip',
+  sourceDocumentId: 'sourceDocumentId',
+  confirmedById: 'confirmedById',
+  confirmedAt: 'confirmedAt'
+} as const
+
+export type PartyIdentityVersionScalarFieldEnum = (typeof PartyIdentityVersionScalarFieldEnum)[keyof typeof PartyIdentityVersionScalarFieldEnum]
+
+
+export const BorrowerVerificationScalarFieldEnum = {
+  id: 'id',
+  workspaceId: 'workspaceId',
+  partyId: 'partyId',
+  identityVersionId: 'identityVersionId',
+  dealId: 'dealId',
+  previousVerificationId: 'previousVerificationId',
+  checklistVersion: 'checklistVersion',
+  riskRulesVersion: 'riskRulesVersion',
+  status: 'status',
+  overallRisk: 'overallRisk',
+  decision: 'decision',
+  decisionComment: 'decisionComment',
+  decisionConditions: 'decisionConditions',
+  assignedToId: 'assignedToId',
+  createdById: 'createdById',
+  decidedById: 'decidedById',
+  decidedAt: 'decidedAt',
+  completedAt: 'completedAt',
+  validUntil: 'validUntil',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type BorrowerVerificationScalarFieldEnum = (typeof BorrowerVerificationScalarFieldEnum)[keyof typeof BorrowerVerificationScalarFieldEnum]
+
+
+export const BorrowerVerificationItemScalarFieldEnum = {
+  id: 'id',
+  workspaceId: 'workspaceId',
+  verificationId: 'verificationId',
+  checkCode: 'checkCode',
+  definitionVersion: 'definitionVersion',
+  title: 'title',
+  sortOrder: 'sortOrder',
+  isRequired: 'isRequired',
+  resultType: 'resultType',
+  inputSchema: 'inputSchema',
+  resultSchema: 'resultSchema',
+  sourceCode: 'sourceCode',
+  sourceUrl: 'sourceUrl',
+  instructions: 'instructions',
+  executionMode: 'executionMode',
+  status: 'status',
+  acceptedRunId: 'acceptedRunId',
+  notApplicableReason: 'notApplicableReason',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type BorrowerVerificationItemScalarFieldEnum = (typeof BorrowerVerificationItemScalarFieldEnum)[keyof typeof BorrowerVerificationItemScalarFieldEnum]
+
+
+export const BorrowerCheckRunScalarFieldEnum = {
+  id: 'id',
+  workspaceId: 'workspaceId',
+  verificationId: 'verificationId',
+  itemId: 'itemId',
+  attemptNo: 'attemptNo',
+  mode: 'mode',
+  providerCode: 'providerCode',
+  providerRequestId: 'providerRequestId',
+  idempotencyKey: 'idempotencyKey',
+  inputSnapshot: 'inputSnapshot',
+  inputHash: 'inputHash',
+  adapterVersion: 'adapterVersion',
+  status: 'status',
+  resultBoolean: 'resultBoolean',
+  resultCode: 'resultCode',
+  resultAmount: 'resultAmount',
+  currency: 'currency',
+  resultData: 'resultData',
+  summary: 'summary',
+  riskAssessment: 'riskAssessment',
+  assessmentRulesVersion: 'assessmentRulesVersion',
+  coverage: 'coverage',
+  sourceAsOfAt: 'sourceAsOfAt',
+  validUntil: 'validUntil',
+  errorCode: 'errorCode',
+  errorMessage: 'errorMessage',
+  performedById: 'performedById',
+  reviewedById: 'reviewedById',
+  reviewedAt: 'reviewedAt',
+  createdAt: 'createdAt',
+  startedAt: 'startedAt',
+  finishedAt: 'finishedAt',
+  availableAt: 'availableAt',
+  leaseOwner: 'leaseOwner',
+  leaseExpiresAt: 'leaseExpiresAt',
+  heartbeatAt: 'heartbeatAt',
+  identityVersionId: 'identityVersionId'
+} as const
+
+export type BorrowerCheckRunScalarFieldEnum = (typeof BorrowerCheckRunScalarFieldEnum)[keyof typeof BorrowerCheckRunScalarFieldEnum]
+
+
+export const BorrowerCheckFindingScalarFieldEnum = {
+  id: 'id',
+  workspaceId: 'workspaceId',
+  verificationId: 'verificationId',
+  runId: 'runId',
+  findingType: 'findingType',
+  externalId: 'externalId',
+  recordKey: 'recordKey',
+  referenceNumber: 'referenceNumber',
+  title: 'title',
+  categoryCode: 'categoryCode',
+  personRole: 'personRole',
+  recordStatus: 'recordStatus',
+  openedOn: 'openedOn',
+  closedOn: 'closedOn',
+  claimAmount: 'claimAmount',
+  outstandingAmount: 'outstandingAmount',
+  currency: 'currency',
+  authorityName: 'authorityName',
+  sourceUrl: 'sourceUrl',
+  identityMatch: 'identityMatch',
+  matchBasis: 'matchBasis',
+  matchComment: 'matchComment',
+  matchReviewedById: 'matchReviewedById',
+  matchReviewedAt: 'matchReviewedAt',
+  details: 'details',
+  createdAt: 'createdAt'
+} as const
+
+export type BorrowerCheckFindingScalarFieldEnum = (typeof BorrowerCheckFindingScalarFieldEnum)[keyof typeof BorrowerCheckFindingScalarFieldEnum]
+
+
+export const BorrowerVerificationEvidenceScalarFieldEnum = {
+  id: 'id',
+  workspaceId: 'workspaceId',
+  verificationId: 'verificationId',
+  itemId: 'itemId',
+  runId: 'runId',
+  findingId: 'findingId',
+  documentId: 'documentId',
+  kind: 'kind',
+  title: 'title',
+  sourceUrl: 'sourceUrl',
+  issuedOn: 'issuedOn',
+  capturedAt: 'capturedAt',
+  validUntil: 'validUntil',
+  authenticityStatus: 'authenticityStatus',
+  ocrStatus: 'ocrStatus',
+  ocrEngineVersion: 'ocrEngineVersion',
+  ocrResult: 'ocrResult',
+  ocrError: 'ocrError',
+  reviewComment: 'reviewComment',
+  reviewedById: 'reviewedById',
+  reviewedAt: 'reviewedAt',
+  uploadedById: 'uploadedById',
+  createdAt: 'createdAt'
+} as const
+
+export type BorrowerVerificationEvidenceScalarFieldEnum = (typeof BorrowerVerificationEvidenceScalarFieldEnum)[keyof typeof BorrowerVerificationEvidenceScalarFieldEnum]
+
+
+export const BorrowerVerificationRiskScalarFieldEnum = {
+  id: 'id',
+  workspaceId: 'workspaceId',
+  verificationId: 'verificationId',
+  itemId: 'itemId',
+  runId: 'runId',
+  findingId: 'findingId',
+  riskCode: 'riskCode',
+  ruleVersion: 'ruleVersion',
+  title: 'title',
+  description: 'description',
+  severity: 'severity',
+  remediability: 'remediability',
+  status: 'status',
+  requiredAction: 'requiredAction',
+  assignedToId: 'assignedToId',
+  dueAt: 'dueAt',
+  resolutionComment: 'resolutionComment',
+  resolutionEvidenceId: 'resolutionEvidenceId',
+  resolvedById: 'resolvedById',
+  resolvedAt: 'resolvedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type BorrowerVerificationRiskScalarFieldEnum = (typeof BorrowerVerificationRiskScalarFieldEnum)[keyof typeof BorrowerVerificationRiskScalarFieldEnum]
+
+
 export const SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -3785,6 +4530,20 @@ export type ListEnumContractPartyRoleFieldRefInput<$PrismaModel> = FieldRefInput
 
 
 /**
+ * Reference to a field of type 'BigInt'
+ */
+export type BigIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'BigInt'>
+    
+
+
+/**
+ * Reference to a field of type 'BigInt[]'
+ */
+export type ListBigIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'BigInt[]'>
+    
+
+
+/**
  * Reference to a field of type 'DocumentRole'
  */
 export type EnumDocumentRoleFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DocumentRole'>
@@ -3855,20 +4614,6 @@ export type ListEnumFinancialEventKindFieldRefInput<$PrismaModel> = FieldRefInpu
 
 
 /**
- * Reference to a field of type 'BigInt'
- */
-export type BigIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'BigInt'>
-    
-
-
-/**
- * Reference to a field of type 'BigInt[]'
- */
-export type ListBigIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'BigInt[]'>
-    
-
-
-/**
  * Reference to a field of type 'CalculationStatus'
  */
 export type EnumCalculationStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'CalculationStatus'>
@@ -3935,6 +4680,230 @@ export type BytesFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, '
  * Reference to a field of type 'Bytes[]'
  */
 export type ListBytesFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Bytes[]'>
+    
+
+
+/**
+ * Reference to a field of type 'BorrowerVerificationStatus'
+ */
+export type EnumBorrowerVerificationStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'BorrowerVerificationStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'BorrowerVerificationStatus[]'
+ */
+export type ListEnumBorrowerVerificationStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'BorrowerVerificationStatus[]'>
+    
+
+
+/**
+ * Reference to a field of type 'BorrowerRiskAssessment'
+ */
+export type EnumBorrowerRiskAssessmentFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'BorrowerRiskAssessment'>
+    
+
+
+/**
+ * Reference to a field of type 'BorrowerRiskAssessment[]'
+ */
+export type ListEnumBorrowerRiskAssessmentFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'BorrowerRiskAssessment[]'>
+    
+
+
+/**
+ * Reference to a field of type 'BorrowerVerificationDecision'
+ */
+export type EnumBorrowerVerificationDecisionFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'BorrowerVerificationDecision'>
+    
+
+
+/**
+ * Reference to a field of type 'BorrowerVerificationDecision[]'
+ */
+export type ListEnumBorrowerVerificationDecisionFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'BorrowerVerificationDecision[]'>
+    
+
+
+/**
+ * Reference to a field of type 'BorrowerCheckResultType'
+ */
+export type EnumBorrowerCheckResultTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'BorrowerCheckResultType'>
+    
+
+
+/**
+ * Reference to a field of type 'BorrowerCheckResultType[]'
+ */
+export type ListEnumBorrowerCheckResultTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'BorrowerCheckResultType[]'>
+    
+
+
+/**
+ * Reference to a field of type 'BorrowerCheckExecutionMode'
+ */
+export type EnumBorrowerCheckExecutionModeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'BorrowerCheckExecutionMode'>
+    
+
+
+/**
+ * Reference to a field of type 'BorrowerCheckExecutionMode[]'
+ */
+export type ListEnumBorrowerCheckExecutionModeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'BorrowerCheckExecutionMode[]'>
+    
+
+
+/**
+ * Reference to a field of type 'BorrowerCheckItemStatus'
+ */
+export type EnumBorrowerCheckItemStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'BorrowerCheckItemStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'BorrowerCheckItemStatus[]'
+ */
+export type ListEnumBorrowerCheckItemStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'BorrowerCheckItemStatus[]'>
+    
+
+
+/**
+ * Reference to a field of type 'BorrowerCheckRunMode'
+ */
+export type EnumBorrowerCheckRunModeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'BorrowerCheckRunMode'>
+    
+
+
+/**
+ * Reference to a field of type 'BorrowerCheckRunMode[]'
+ */
+export type ListEnumBorrowerCheckRunModeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'BorrowerCheckRunMode[]'>
+    
+
+
+/**
+ * Reference to a field of type 'BorrowerCheckRunStatus'
+ */
+export type EnumBorrowerCheckRunStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'BorrowerCheckRunStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'BorrowerCheckRunStatus[]'
+ */
+export type ListEnumBorrowerCheckRunStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'BorrowerCheckRunStatus[]'>
+    
+
+
+/**
+ * Reference to a field of type 'BorrowerFindingType'
+ */
+export type EnumBorrowerFindingTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'BorrowerFindingType'>
+    
+
+
+/**
+ * Reference to a field of type 'BorrowerFindingType[]'
+ */
+export type ListEnumBorrowerFindingTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'BorrowerFindingType[]'>
+    
+
+
+/**
+ * Reference to a field of type 'BorrowerIdentityMatch'
+ */
+export type EnumBorrowerIdentityMatchFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'BorrowerIdentityMatch'>
+    
+
+
+/**
+ * Reference to a field of type 'BorrowerIdentityMatch[]'
+ */
+export type ListEnumBorrowerIdentityMatchFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'BorrowerIdentityMatch[]'>
+    
+
+
+/**
+ * Reference to a field of type 'BorrowerEvidenceKind'
+ */
+export type EnumBorrowerEvidenceKindFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'BorrowerEvidenceKind'>
+    
+
+
+/**
+ * Reference to a field of type 'BorrowerEvidenceKind[]'
+ */
+export type ListEnumBorrowerEvidenceKindFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'BorrowerEvidenceKind[]'>
+    
+
+
+/**
+ * Reference to a field of type 'BorrowerEvidenceAuthenticity'
+ */
+export type EnumBorrowerEvidenceAuthenticityFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'BorrowerEvidenceAuthenticity'>
+    
+
+
+/**
+ * Reference to a field of type 'BorrowerEvidenceAuthenticity[]'
+ */
+export type ListEnumBorrowerEvidenceAuthenticityFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'BorrowerEvidenceAuthenticity[]'>
+    
+
+
+/**
+ * Reference to a field of type 'BorrowerOcrStatus'
+ */
+export type EnumBorrowerOcrStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'BorrowerOcrStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'BorrowerOcrStatus[]'
+ */
+export type ListEnumBorrowerOcrStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'BorrowerOcrStatus[]'>
+    
+
+
+/**
+ * Reference to a field of type 'BorrowerRiskSeverity'
+ */
+export type EnumBorrowerRiskSeverityFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'BorrowerRiskSeverity'>
+    
+
+
+/**
+ * Reference to a field of type 'BorrowerRiskSeverity[]'
+ */
+export type ListEnumBorrowerRiskSeverityFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'BorrowerRiskSeverity[]'>
+    
+
+
+/**
+ * Reference to a field of type 'BorrowerRiskRemediability'
+ */
+export type EnumBorrowerRiskRemediabilityFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'BorrowerRiskRemediability'>
+    
+
+
+/**
+ * Reference to a field of type 'BorrowerRiskRemediability[]'
+ */
+export type ListEnumBorrowerRiskRemediabilityFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'BorrowerRiskRemediability[]'>
+    
+
+
+/**
+ * Reference to a field of type 'BorrowerRiskStatus'
+ */
+export type EnumBorrowerRiskStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'BorrowerRiskStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'BorrowerRiskStatus[]'
+ */
+export type ListEnumBorrowerRiskStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'BorrowerRiskStatus[]'>
     
 
 
@@ -4136,6 +5105,13 @@ export type GlobalOmitConfig = {
   marketplaceOffer?: Prisma.MarketplaceOfferOmit
   marketplacePhoto?: Prisma.MarketplacePhotoOmit
   marketplaceMark?: Prisma.MarketplaceMarkOmit
+  partyIdentityVersion?: Prisma.PartyIdentityVersionOmit
+  borrowerVerification?: Prisma.BorrowerVerificationOmit
+  borrowerVerificationItem?: Prisma.BorrowerVerificationItemOmit
+  borrowerCheckRun?: Prisma.BorrowerCheckRunOmit
+  borrowerCheckFinding?: Prisma.BorrowerCheckFindingOmit
+  borrowerVerificationEvidence?: Prisma.BorrowerVerificationEvidenceOmit
+  borrowerVerificationRisk?: Prisma.BorrowerVerificationRiskOmit
 }
 
 /* Types for Logging */

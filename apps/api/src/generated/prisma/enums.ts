@@ -187,3 +187,174 @@ export const RateUnit = {
 } as const
 
 export type RateUnit = (typeof RateUnit)[keyof typeof RateUnit]
+
+
+export const BorrowerVerificationStatus = {
+  DRAFT: 'DRAFT',
+  IN_PROGRESS: 'IN_PROGRESS',
+  AWAITING_DOCUMENTS: 'AWAITING_DOCUMENTS',
+  READY_FOR_REVIEW: 'READY_FOR_REVIEW',
+  COMPLETED: 'COMPLETED',
+  CANCELLED: 'CANCELLED'
+} as const
+
+export type BorrowerVerificationStatus = (typeof BorrowerVerificationStatus)[keyof typeof BorrowerVerificationStatus]
+
+
+export const BorrowerRiskAssessment = {
+  NOT_ASSESSED: 'NOT_ASSESSED',
+  NOT_IDENTIFIED: 'NOT_IDENTIFIED',
+  NEEDS_REVIEW: 'NEEDS_REVIEW',
+  IDENTIFIED: 'IDENTIFIED'
+} as const
+
+export type BorrowerRiskAssessment = (typeof BorrowerRiskAssessment)[keyof typeof BorrowerRiskAssessment]
+
+
+export const BorrowerVerificationDecision = {
+  PENDING: 'PENDING',
+  APPROVED: 'APPROVED',
+  APPROVED_WITH_CONDITIONS: 'APPROVED_WITH_CONDITIONS',
+  REJECTED: 'REJECTED'
+} as const
+
+export type BorrowerVerificationDecision = (typeof BorrowerVerificationDecision)[keyof typeof BorrowerVerificationDecision]
+
+
+export const BorrowerCheckResultType = {
+  BOOLEAN: 'BOOLEAN',
+  CATEGORY: 'CATEGORY',
+  MONEY: 'MONEY',
+  DOCUMENT: 'DOCUMENT',
+  RECORD_LIST: 'RECORD_LIST'
+} as const
+
+export type BorrowerCheckResultType = (typeof BorrowerCheckResultType)[keyof typeof BorrowerCheckResultType]
+
+
+export const BorrowerCheckExecutionMode = {
+  MANUAL: 'MANUAL',
+  AUTOMATIC: 'AUTOMATIC',
+  HYBRID: 'HYBRID'
+} as const
+
+export type BorrowerCheckExecutionMode = (typeof BorrowerCheckExecutionMode)[keyof typeof BorrowerCheckExecutionMode]
+
+
+export const BorrowerCheckRunMode = {
+  MANUAL: 'MANUAL',
+  AUTOMATIC: 'AUTOMATIC'
+} as const
+
+export type BorrowerCheckRunMode = (typeof BorrowerCheckRunMode)[keyof typeof BorrowerCheckRunMode]
+
+
+export const BorrowerCheckItemStatus = {
+  NOT_STARTED: 'NOT_STARTED',
+  MISSING_DATA: 'MISSING_DATA',
+  QUEUED: 'QUEUED',
+  RUNNING: 'RUNNING',
+  COMPLETED: 'COMPLETED',
+  ERROR: 'ERROR',
+  UNAVAILABLE: 'UNAVAILABLE',
+  NOT_APPLICABLE: 'NOT_APPLICABLE',
+  AWAITING_REVIEW: 'AWAITING_REVIEW',
+  STALE: 'STALE'
+} as const
+
+export type BorrowerCheckItemStatus = (typeof BorrowerCheckItemStatus)[keyof typeof BorrowerCheckItemStatus]
+
+
+export const BorrowerCheckRunStatus = {
+  QUEUED: 'QUEUED',
+  RUNNING: 'RUNNING',
+  SUCCEEDED: 'SUCCEEDED',
+  FAILED: 'FAILED',
+  CANCELLED: 'CANCELLED'
+} as const
+
+export type BorrowerCheckRunStatus = (typeof BorrowerCheckRunStatus)[keyof typeof BorrowerCheckRunStatus]
+
+
+export const BorrowerFindingType = {
+  COURT_CASE: 'COURT_CASE',
+  ENFORCEMENT: 'ENFORCEMENT',
+  BANKRUPTCY: 'BANKRUPTCY',
+  LIST_MATCH: 'LIST_MATCH',
+  OTHER: 'OTHER'
+} as const
+
+export type BorrowerFindingType = (typeof BorrowerFindingType)[keyof typeof BorrowerFindingType]
+
+
+export const BorrowerIdentityMatch = {
+  CONFIRMED: 'CONFIRMED',
+  POSSIBLE: 'POSSIBLE',
+  REJECTED: 'REJECTED',
+  UNKNOWN: 'UNKNOWN'
+} as const
+
+export type BorrowerIdentityMatch = (typeof BorrowerIdentityMatch)[keyof typeof BorrowerIdentityMatch]
+
+
+export const BorrowerEvidenceKind = {
+  PASSPORT: 'PASSPORT',
+  SNILS: 'SNILS',
+  CERTIFICATE: 'CERTIFICATE',
+  EXTRACT: 'EXTRACT',
+  SCREENSHOT: 'SCREENSHOT',
+  PROVIDER_RESPONSE: 'PROVIDER_RESPONSE',
+  OTHER: 'OTHER'
+} as const
+
+export type BorrowerEvidenceKind = (typeof BorrowerEvidenceKind)[keyof typeof BorrowerEvidenceKind]
+
+
+export const BorrowerEvidenceAuthenticity = {
+  NOT_CHECKED: 'NOT_CHECKED',
+  CONFIRMED: 'CONFIRMED',
+  DOUBTFUL: 'DOUBTFUL',
+  REJECTED: 'REJECTED'
+} as const
+
+export type BorrowerEvidenceAuthenticity = (typeof BorrowerEvidenceAuthenticity)[keyof typeof BorrowerEvidenceAuthenticity]
+
+
+export const BorrowerOcrStatus = {
+  NOT_REQUIRED: 'NOT_REQUIRED',
+  PENDING: 'PENDING',
+  RUNNING: 'RUNNING',
+  SUCCEEDED: 'SUCCEEDED',
+  FAILED: 'FAILED'
+} as const
+
+export type BorrowerOcrStatus = (typeof BorrowerOcrStatus)[keyof typeof BorrowerOcrStatus]
+
+
+export const BorrowerRiskSeverity = {
+  LOW: 'LOW',
+  MEDIUM: 'MEDIUM',
+  HIGH: 'HIGH',
+  CRITICAL: 'CRITICAL'
+} as const
+
+export type BorrowerRiskSeverity = (typeof BorrowerRiskSeverity)[keyof typeof BorrowerRiskSeverity]
+
+
+export const BorrowerRiskRemediability = {
+  REMEDIABLE: 'REMEDIABLE',
+  NON_REMEDIABLE: 'NON_REMEDIABLE',
+  UNKNOWN: 'UNKNOWN'
+} as const
+
+export type BorrowerRiskRemediability = (typeof BorrowerRiskRemediability)[keyof typeof BorrowerRiskRemediability]
+
+
+export const BorrowerRiskStatus = {
+  OPEN: 'OPEN',
+  IN_PROGRESS: 'IN_PROGRESS',
+  RESOLVED: 'RESOLVED',
+  DISMISSED: 'DISMISSED'
+} as const
+
+export type BorrowerRiskStatus = (typeof BorrowerRiskStatus)[keyof typeof BorrowerRiskStatus]

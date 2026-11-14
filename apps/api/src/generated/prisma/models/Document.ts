@@ -20,8 +20,18 @@ export type DocumentModel = runtime.Types.Result.DefaultSelection<Prisma.$Docume
 
 export type AggregateDocument = {
   _count: DocumentCountAggregateOutputType | null
+  _avg: DocumentAvgAggregateOutputType | null
+  _sum: DocumentSumAggregateOutputType | null
   _min: DocumentMinAggregateOutputType | null
   _max: DocumentMaxAggregateOutputType | null
+}
+
+export type DocumentAvgAggregateOutputType = {
+  sizeBytes: number | null
+}
+
+export type DocumentSumAggregateOutputType = {
+  sizeBytes: bigint | null
 }
 
 export type DocumentMinAggregateOutputType = {
@@ -30,6 +40,9 @@ export type DocumentMinAggregateOutputType = {
   storageKey: string | null
   sha256: string | null
   mimeType: string | null
+  originalFilename: string | null
+  sizeBytes: bigint | null
+  createdAt: Date | null
 }
 
 export type DocumentMaxAggregateOutputType = {
@@ -38,6 +51,9 @@ export type DocumentMaxAggregateOutputType = {
   storageKey: string | null
   sha256: string | null
   mimeType: string | null
+  originalFilename: string | null
+  sizeBytes: bigint | null
+  createdAt: Date | null
 }
 
 export type DocumentCountAggregateOutputType = {
@@ -46,9 +62,20 @@ export type DocumentCountAggregateOutputType = {
   storageKey: number
   sha256: number
   mimeType: number
+  originalFilename: number
+  sizeBytes: number
+  createdAt: number
   _all: number
 }
 
+
+export type DocumentAvgAggregateInputType = {
+  sizeBytes?: true
+}
+
+export type DocumentSumAggregateInputType = {
+  sizeBytes?: true
+}
 
 export type DocumentMinAggregateInputType = {
   id?: true
@@ -56,6 +83,9 @@ export type DocumentMinAggregateInputType = {
   storageKey?: true
   sha256?: true
   mimeType?: true
+  originalFilename?: true
+  sizeBytes?: true
+  createdAt?: true
 }
 
 export type DocumentMaxAggregateInputType = {
@@ -64,6 +94,9 @@ export type DocumentMaxAggregateInputType = {
   storageKey?: true
   sha256?: true
   mimeType?: true
+  originalFilename?: true
+  sizeBytes?: true
+  createdAt?: true
 }
 
 export type DocumentCountAggregateInputType = {
@@ -72,6 +105,9 @@ export type DocumentCountAggregateInputType = {
   storageKey?: true
   sha256?: true
   mimeType?: true
+  originalFilename?: true
+  sizeBytes?: true
+  createdAt?: true
   _all?: true
 }
 
@@ -113,6 +149,18 @@ export type DocumentAggregateArgs<ExtArgs extends runtime.Types.Extensions.Inter
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
    * 
+   * Select which fields to average
+  **/
+  _avg?: DocumentAvgAggregateInputType
+  /**
+   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+   * 
+   * Select which fields to sum
+  **/
+  _sum?: DocumentSumAggregateInputType
+  /**
+   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+   * 
    * Select which fields to find the minimum value
   **/
   _min?: DocumentMinAggregateInputType
@@ -143,6 +191,8 @@ export type DocumentGroupByArgs<ExtArgs extends runtime.Types.Extensions.Interna
   take?: number
   skip?: number
   _count?: DocumentCountAggregateInputType | true
+  _avg?: DocumentAvgAggregateInputType
+  _sum?: DocumentSumAggregateInputType
   _min?: DocumentMinAggregateInputType
   _max?: DocumentMaxAggregateInputType
 }
@@ -153,7 +203,12 @@ export type DocumentGroupByOutputType = {
   storageKey: string
   sha256: string
   mimeType: string
+  originalFilename: string | null
+  sizeBytes: bigint | null
+  createdAt: Date
   _count: DocumentCountAggregateOutputType | null
+  _avg: DocumentAvgAggregateOutputType | null
+  _sum: DocumentSumAggregateOutputType | null
   _min: DocumentMinAggregateOutputType | null
   _max: DocumentMaxAggregateOutputType | null
 }
@@ -182,9 +237,14 @@ export type DocumentWhereInput = {
   storageKey?: Prisma.StringFilter<"Document"> | string
   sha256?: Prisma.StringFilter<"Document"> | string
   mimeType?: Prisma.StringFilter<"Document"> | string
+  originalFilename?: Prisma.StringNullableFilter<"Document"> | string | null
+  sizeBytes?: Prisma.BigIntNullableFilter<"Document"> | bigint | number | null
+  createdAt?: Prisma.DateTimeFilter<"Document"> | Date | string
   workspace?: Prisma.XOR<Prisma.WorkspaceScalarRelationFilter, Prisma.WorkspaceWhereInput>
   contractDocuments?: Prisma.ContractDocumentListRelationFilter
   termsVersions?: Prisma.TermsVersionListRelationFilter
+  identityVersions?: Prisma.PartyIdentityVersionListRelationFilter
+  verificationEvidence?: Prisma.BorrowerVerificationEvidenceListRelationFilter
 }
 
 export type DocumentOrderByWithRelationInput = {
@@ -193,9 +253,14 @@ export type DocumentOrderByWithRelationInput = {
   storageKey?: Prisma.SortOrder
   sha256?: Prisma.SortOrder
   mimeType?: Prisma.SortOrder
+  originalFilename?: Prisma.SortOrderInput | Prisma.SortOrder
+  sizeBytes?: Prisma.SortOrderInput | Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
   workspace?: Prisma.WorkspaceOrderByWithRelationInput
   contractDocuments?: Prisma.ContractDocumentOrderByRelationAggregateInput
   termsVersions?: Prisma.TermsVersionOrderByRelationAggregateInput
+  identityVersions?: Prisma.PartyIdentityVersionOrderByRelationAggregateInput
+  verificationEvidence?: Prisma.BorrowerVerificationEvidenceOrderByRelationAggregateInput
 }
 
 export type DocumentWhereUniqueInput = Prisma.AtLeast<{
@@ -208,9 +273,14 @@ export type DocumentWhereUniqueInput = Prisma.AtLeast<{
   storageKey?: Prisma.StringFilter<"Document"> | string
   sha256?: Prisma.StringFilter<"Document"> | string
   mimeType?: Prisma.StringFilter<"Document"> | string
+  originalFilename?: Prisma.StringNullableFilter<"Document"> | string | null
+  sizeBytes?: Prisma.BigIntNullableFilter<"Document"> | bigint | number | null
+  createdAt?: Prisma.DateTimeFilter<"Document"> | Date | string
   workspace?: Prisma.XOR<Prisma.WorkspaceScalarRelationFilter, Prisma.WorkspaceWhereInput>
   contractDocuments?: Prisma.ContractDocumentListRelationFilter
   termsVersions?: Prisma.TermsVersionListRelationFilter
+  identityVersions?: Prisma.PartyIdentityVersionListRelationFilter
+  verificationEvidence?: Prisma.BorrowerVerificationEvidenceListRelationFilter
 }, "id" | "id_workspaceId">
 
 export type DocumentOrderByWithAggregationInput = {
@@ -219,9 +289,14 @@ export type DocumentOrderByWithAggregationInput = {
   storageKey?: Prisma.SortOrder
   sha256?: Prisma.SortOrder
   mimeType?: Prisma.SortOrder
+  originalFilename?: Prisma.SortOrderInput | Prisma.SortOrder
+  sizeBytes?: Prisma.SortOrderInput | Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
   _count?: Prisma.DocumentCountOrderByAggregateInput
+  _avg?: Prisma.DocumentAvgOrderByAggregateInput
   _max?: Prisma.DocumentMaxOrderByAggregateInput
   _min?: Prisma.DocumentMinOrderByAggregateInput
+  _sum?: Prisma.DocumentSumOrderByAggregateInput
 }
 
 export type DocumentScalarWhereWithAggregatesInput = {
@@ -233,6 +308,9 @@ export type DocumentScalarWhereWithAggregatesInput = {
   storageKey?: Prisma.StringWithAggregatesFilter<"Document"> | string
   sha256?: Prisma.StringWithAggregatesFilter<"Document"> | string
   mimeType?: Prisma.StringWithAggregatesFilter<"Document"> | string
+  originalFilename?: Prisma.StringNullableWithAggregatesFilter<"Document"> | string | null
+  sizeBytes?: Prisma.BigIntNullableWithAggregatesFilter<"Document"> | bigint | number | null
+  createdAt?: Prisma.DateTimeWithAggregatesFilter<"Document"> | Date | string
 }
 
 export type DocumentCreateInput = {
@@ -240,9 +318,14 @@ export type DocumentCreateInput = {
   storageKey: string
   sha256: string
   mimeType: string
+  originalFilename?: string | null
+  sizeBytes?: bigint | number | null
+  createdAt?: Date | string
   workspace: Prisma.WorkspaceCreateNestedOneWithoutDocumentsInput
   contractDocuments?: Prisma.ContractDocumentCreateNestedManyWithoutDocumentInput
   termsVersions?: Prisma.TermsVersionCreateNestedManyWithoutSourceDocumentInput
+  identityVersions?: Prisma.PartyIdentityVersionCreateNestedManyWithoutSourceDocumentInput
+  verificationEvidence?: Prisma.BorrowerVerificationEvidenceCreateNestedManyWithoutDocumentInput
 }
 
 export type DocumentUncheckedCreateInput = {
@@ -251,8 +334,13 @@ export type DocumentUncheckedCreateInput = {
   storageKey: string
   sha256: string
   mimeType: string
+  originalFilename?: string | null
+  sizeBytes?: bigint | number | null
+  createdAt?: Date | string
   contractDocuments?: Prisma.ContractDocumentUncheckedCreateNestedManyWithoutDocumentInput
   termsVersions?: Prisma.TermsVersionUncheckedCreateNestedManyWithoutSourceDocumentInput
+  identityVersions?: Prisma.PartyIdentityVersionUncheckedCreateNestedManyWithoutSourceDocumentInput
+  verificationEvidence?: Prisma.BorrowerVerificationEvidenceUncheckedCreateNestedManyWithoutDocumentInput
 }
 
 export type DocumentUpdateInput = {
@@ -260,9 +348,14 @@ export type DocumentUpdateInput = {
   storageKey?: Prisma.StringFieldUpdateOperationsInput | string
   sha256?: Prisma.StringFieldUpdateOperationsInput | string
   mimeType?: Prisma.StringFieldUpdateOperationsInput | string
+  originalFilename?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  sizeBytes?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   workspace?: Prisma.WorkspaceUpdateOneRequiredWithoutDocumentsNestedInput
   contractDocuments?: Prisma.ContractDocumentUpdateManyWithoutDocumentNestedInput
   termsVersions?: Prisma.TermsVersionUpdateManyWithoutSourceDocumentNestedInput
+  identityVersions?: Prisma.PartyIdentityVersionUpdateManyWithoutSourceDocumentNestedInput
+  verificationEvidence?: Prisma.BorrowerVerificationEvidenceUpdateManyWithoutDocumentNestedInput
 }
 
 export type DocumentUncheckedUpdateInput = {
@@ -271,8 +364,13 @@ export type DocumentUncheckedUpdateInput = {
   storageKey?: Prisma.StringFieldUpdateOperationsInput | string
   sha256?: Prisma.StringFieldUpdateOperationsInput | string
   mimeType?: Prisma.StringFieldUpdateOperationsInput | string
+  originalFilename?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  sizeBytes?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   contractDocuments?: Prisma.ContractDocumentUncheckedUpdateManyWithoutDocumentNestedInput
   termsVersions?: Prisma.TermsVersionUncheckedUpdateManyWithoutSourceDocumentNestedInput
+  identityVersions?: Prisma.PartyIdentityVersionUncheckedUpdateManyWithoutSourceDocumentNestedInput
+  verificationEvidence?: Prisma.BorrowerVerificationEvidenceUncheckedUpdateManyWithoutDocumentNestedInput
 }
 
 export type DocumentCreateManyInput = {
@@ -281,6 +379,9 @@ export type DocumentCreateManyInput = {
   storageKey: string
   sha256: string
   mimeType: string
+  originalFilename?: string | null
+  sizeBytes?: bigint | number | null
+  createdAt?: Date | string
 }
 
 export type DocumentUpdateManyMutationInput = {
@@ -288,6 +389,9 @@ export type DocumentUpdateManyMutationInput = {
   storageKey?: Prisma.StringFieldUpdateOperationsInput | string
   sha256?: Prisma.StringFieldUpdateOperationsInput | string
   mimeType?: Prisma.StringFieldUpdateOperationsInput | string
+  originalFilename?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  sizeBytes?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type DocumentUncheckedUpdateManyInput = {
@@ -296,6 +400,9 @@ export type DocumentUncheckedUpdateManyInput = {
   storageKey?: Prisma.StringFieldUpdateOperationsInput | string
   sha256?: Prisma.StringFieldUpdateOperationsInput | string
   mimeType?: Prisma.StringFieldUpdateOperationsInput | string
+  originalFilename?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  sizeBytes?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type DocumentListRelationFilter = {
@@ -319,6 +426,13 @@ export type DocumentCountOrderByAggregateInput = {
   storageKey?: Prisma.SortOrder
   sha256?: Prisma.SortOrder
   mimeType?: Prisma.SortOrder
+  originalFilename?: Prisma.SortOrder
+  sizeBytes?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+}
+
+export type DocumentAvgOrderByAggregateInput = {
+  sizeBytes?: Prisma.SortOrder
 }
 
 export type DocumentMaxOrderByAggregateInput = {
@@ -327,6 +441,9 @@ export type DocumentMaxOrderByAggregateInput = {
   storageKey?: Prisma.SortOrder
   sha256?: Prisma.SortOrder
   mimeType?: Prisma.SortOrder
+  originalFilename?: Prisma.SortOrder
+  sizeBytes?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
 }
 
 export type DocumentMinOrderByAggregateInput = {
@@ -335,6 +452,13 @@ export type DocumentMinOrderByAggregateInput = {
   storageKey?: Prisma.SortOrder
   sha256?: Prisma.SortOrder
   mimeType?: Prisma.SortOrder
+  originalFilename?: Prisma.SortOrder
+  sizeBytes?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+}
+
+export type DocumentSumOrderByAggregateInput = {
+  sizeBytes?: Prisma.SortOrder
 }
 
 export type DocumentScalarRelationFilter = {
@@ -389,6 +513,14 @@ export type DocumentUncheckedUpdateManyWithoutWorkspaceNestedInput = {
   deleteMany?: Prisma.DocumentScalarWhereInput | Prisma.DocumentScalarWhereInput[]
 }
 
+export type NullableBigIntFieldUpdateOperationsInput = {
+  set?: bigint | number | null
+  increment?: bigint | number
+  decrement?: bigint | number
+  multiply?: bigint | number
+  divide?: bigint | number
+}
+
 export type DocumentCreateNestedOneWithoutContractDocumentsInput = {
   create?: Prisma.XOR<Prisma.DocumentCreateWithoutContractDocumentsInput, Prisma.DocumentUncheckedCreateWithoutContractDocumentsInput>
   connectOrCreate?: Prisma.DocumentCreateOrConnectWithoutContractDocumentsInput
@@ -419,13 +551,50 @@ export type DocumentUpdateOneWithoutTermsVersionsNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.DocumentUpdateToOneWithWhereWithoutTermsVersionsInput, Prisma.DocumentUpdateWithoutTermsVersionsInput>, Prisma.DocumentUncheckedUpdateWithoutTermsVersionsInput>
 }
 
+export type DocumentCreateNestedOneWithoutIdentityVersionsInput = {
+  create?: Prisma.XOR<Prisma.DocumentCreateWithoutIdentityVersionsInput, Prisma.DocumentUncheckedCreateWithoutIdentityVersionsInput>
+  connectOrCreate?: Prisma.DocumentCreateOrConnectWithoutIdentityVersionsInput
+  connect?: Prisma.DocumentWhereUniqueInput
+}
+
+export type DocumentUpdateOneWithoutIdentityVersionsNestedInput = {
+  create?: Prisma.XOR<Prisma.DocumentCreateWithoutIdentityVersionsInput, Prisma.DocumentUncheckedCreateWithoutIdentityVersionsInput>
+  connectOrCreate?: Prisma.DocumentCreateOrConnectWithoutIdentityVersionsInput
+  upsert?: Prisma.DocumentUpsertWithoutIdentityVersionsInput
+  disconnect?: Prisma.DocumentWhereInput | boolean
+  delete?: Prisma.DocumentWhereInput | boolean
+  connect?: Prisma.DocumentWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.DocumentUpdateToOneWithWhereWithoutIdentityVersionsInput, Prisma.DocumentUpdateWithoutIdentityVersionsInput>, Prisma.DocumentUncheckedUpdateWithoutIdentityVersionsInput>
+}
+
+export type DocumentCreateNestedOneWithoutVerificationEvidenceInput = {
+  create?: Prisma.XOR<Prisma.DocumentCreateWithoutVerificationEvidenceInput, Prisma.DocumentUncheckedCreateWithoutVerificationEvidenceInput>
+  connectOrCreate?: Prisma.DocumentCreateOrConnectWithoutVerificationEvidenceInput
+  connect?: Prisma.DocumentWhereUniqueInput
+}
+
+export type DocumentUpdateOneWithoutVerificationEvidenceNestedInput = {
+  create?: Prisma.XOR<Prisma.DocumentCreateWithoutVerificationEvidenceInput, Prisma.DocumentUncheckedCreateWithoutVerificationEvidenceInput>
+  connectOrCreate?: Prisma.DocumentCreateOrConnectWithoutVerificationEvidenceInput
+  upsert?: Prisma.DocumentUpsertWithoutVerificationEvidenceInput
+  disconnect?: Prisma.DocumentWhereInput | boolean
+  delete?: Prisma.DocumentWhereInput | boolean
+  connect?: Prisma.DocumentWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.DocumentUpdateToOneWithWhereWithoutVerificationEvidenceInput, Prisma.DocumentUpdateWithoutVerificationEvidenceInput>, Prisma.DocumentUncheckedUpdateWithoutVerificationEvidenceInput>
+}
+
 export type DocumentCreateWithoutWorkspaceInput = {
   id?: string
   storageKey: string
   sha256: string
   mimeType: string
+  originalFilename?: string | null
+  sizeBytes?: bigint | number | null
+  createdAt?: Date | string
   contractDocuments?: Prisma.ContractDocumentCreateNestedManyWithoutDocumentInput
   termsVersions?: Prisma.TermsVersionCreateNestedManyWithoutSourceDocumentInput
+  identityVersions?: Prisma.PartyIdentityVersionCreateNestedManyWithoutSourceDocumentInput
+  verificationEvidence?: Prisma.BorrowerVerificationEvidenceCreateNestedManyWithoutDocumentInput
 }
 
 export type DocumentUncheckedCreateWithoutWorkspaceInput = {
@@ -433,8 +602,13 @@ export type DocumentUncheckedCreateWithoutWorkspaceInput = {
   storageKey: string
   sha256: string
   mimeType: string
+  originalFilename?: string | null
+  sizeBytes?: bigint | number | null
+  createdAt?: Date | string
   contractDocuments?: Prisma.ContractDocumentUncheckedCreateNestedManyWithoutDocumentInput
   termsVersions?: Prisma.TermsVersionUncheckedCreateNestedManyWithoutSourceDocumentInput
+  identityVersions?: Prisma.PartyIdentityVersionUncheckedCreateNestedManyWithoutSourceDocumentInput
+  verificationEvidence?: Prisma.BorrowerVerificationEvidenceUncheckedCreateNestedManyWithoutDocumentInput
 }
 
 export type DocumentCreateOrConnectWithoutWorkspaceInput = {
@@ -472,6 +646,9 @@ export type DocumentScalarWhereInput = {
   storageKey?: Prisma.StringFilter<"Document"> | string
   sha256?: Prisma.StringFilter<"Document"> | string
   mimeType?: Prisma.StringFilter<"Document"> | string
+  originalFilename?: Prisma.StringNullableFilter<"Document"> | string | null
+  sizeBytes?: Prisma.BigIntNullableFilter<"Document"> | bigint | number | null
+  createdAt?: Prisma.DateTimeFilter<"Document"> | Date | string
 }
 
 export type DocumentCreateWithoutContractDocumentsInput = {
@@ -479,8 +656,13 @@ export type DocumentCreateWithoutContractDocumentsInput = {
   storageKey: string
   sha256: string
   mimeType: string
+  originalFilename?: string | null
+  sizeBytes?: bigint | number | null
+  createdAt?: Date | string
   workspace: Prisma.WorkspaceCreateNestedOneWithoutDocumentsInput
   termsVersions?: Prisma.TermsVersionCreateNestedManyWithoutSourceDocumentInput
+  identityVersions?: Prisma.PartyIdentityVersionCreateNestedManyWithoutSourceDocumentInput
+  verificationEvidence?: Prisma.BorrowerVerificationEvidenceCreateNestedManyWithoutDocumentInput
 }
 
 export type DocumentUncheckedCreateWithoutContractDocumentsInput = {
@@ -489,7 +671,12 @@ export type DocumentUncheckedCreateWithoutContractDocumentsInput = {
   storageKey: string
   sha256: string
   mimeType: string
+  originalFilename?: string | null
+  sizeBytes?: bigint | number | null
+  createdAt?: Date | string
   termsVersions?: Prisma.TermsVersionUncheckedCreateNestedManyWithoutSourceDocumentInput
+  identityVersions?: Prisma.PartyIdentityVersionUncheckedCreateNestedManyWithoutSourceDocumentInput
+  verificationEvidence?: Prisma.BorrowerVerificationEvidenceUncheckedCreateNestedManyWithoutDocumentInput
 }
 
 export type DocumentCreateOrConnectWithoutContractDocumentsInput = {
@@ -513,8 +700,13 @@ export type DocumentUpdateWithoutContractDocumentsInput = {
   storageKey?: Prisma.StringFieldUpdateOperationsInput | string
   sha256?: Prisma.StringFieldUpdateOperationsInput | string
   mimeType?: Prisma.StringFieldUpdateOperationsInput | string
+  originalFilename?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  sizeBytes?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   workspace?: Prisma.WorkspaceUpdateOneRequiredWithoutDocumentsNestedInput
   termsVersions?: Prisma.TermsVersionUpdateManyWithoutSourceDocumentNestedInput
+  identityVersions?: Prisma.PartyIdentityVersionUpdateManyWithoutSourceDocumentNestedInput
+  verificationEvidence?: Prisma.BorrowerVerificationEvidenceUpdateManyWithoutDocumentNestedInput
 }
 
 export type DocumentUncheckedUpdateWithoutContractDocumentsInput = {
@@ -523,7 +715,12 @@ export type DocumentUncheckedUpdateWithoutContractDocumentsInput = {
   storageKey?: Prisma.StringFieldUpdateOperationsInput | string
   sha256?: Prisma.StringFieldUpdateOperationsInput | string
   mimeType?: Prisma.StringFieldUpdateOperationsInput | string
+  originalFilename?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  sizeBytes?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   termsVersions?: Prisma.TermsVersionUncheckedUpdateManyWithoutSourceDocumentNestedInput
+  identityVersions?: Prisma.PartyIdentityVersionUncheckedUpdateManyWithoutSourceDocumentNestedInput
+  verificationEvidence?: Prisma.BorrowerVerificationEvidenceUncheckedUpdateManyWithoutDocumentNestedInput
 }
 
 export type DocumentCreateWithoutTermsVersionsInput = {
@@ -531,8 +728,13 @@ export type DocumentCreateWithoutTermsVersionsInput = {
   storageKey: string
   sha256: string
   mimeType: string
+  originalFilename?: string | null
+  sizeBytes?: bigint | number | null
+  createdAt?: Date | string
   workspace: Prisma.WorkspaceCreateNestedOneWithoutDocumentsInput
   contractDocuments?: Prisma.ContractDocumentCreateNestedManyWithoutDocumentInput
+  identityVersions?: Prisma.PartyIdentityVersionCreateNestedManyWithoutSourceDocumentInput
+  verificationEvidence?: Prisma.BorrowerVerificationEvidenceCreateNestedManyWithoutDocumentInput
 }
 
 export type DocumentUncheckedCreateWithoutTermsVersionsInput = {
@@ -541,7 +743,12 @@ export type DocumentUncheckedCreateWithoutTermsVersionsInput = {
   storageKey: string
   sha256: string
   mimeType: string
+  originalFilename?: string | null
+  sizeBytes?: bigint | number | null
+  createdAt?: Date | string
   contractDocuments?: Prisma.ContractDocumentUncheckedCreateNestedManyWithoutDocumentInput
+  identityVersions?: Prisma.PartyIdentityVersionUncheckedCreateNestedManyWithoutSourceDocumentInput
+  verificationEvidence?: Prisma.BorrowerVerificationEvidenceUncheckedCreateNestedManyWithoutDocumentInput
 }
 
 export type DocumentCreateOrConnectWithoutTermsVersionsInput = {
@@ -565,8 +772,13 @@ export type DocumentUpdateWithoutTermsVersionsInput = {
   storageKey?: Prisma.StringFieldUpdateOperationsInput | string
   sha256?: Prisma.StringFieldUpdateOperationsInput | string
   mimeType?: Prisma.StringFieldUpdateOperationsInput | string
+  originalFilename?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  sizeBytes?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   workspace?: Prisma.WorkspaceUpdateOneRequiredWithoutDocumentsNestedInput
   contractDocuments?: Prisma.ContractDocumentUpdateManyWithoutDocumentNestedInput
+  identityVersions?: Prisma.PartyIdentityVersionUpdateManyWithoutSourceDocumentNestedInput
+  verificationEvidence?: Prisma.BorrowerVerificationEvidenceUpdateManyWithoutDocumentNestedInput
 }
 
 export type DocumentUncheckedUpdateWithoutTermsVersionsInput = {
@@ -575,7 +787,156 @@ export type DocumentUncheckedUpdateWithoutTermsVersionsInput = {
   storageKey?: Prisma.StringFieldUpdateOperationsInput | string
   sha256?: Prisma.StringFieldUpdateOperationsInput | string
   mimeType?: Prisma.StringFieldUpdateOperationsInput | string
+  originalFilename?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  sizeBytes?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   contractDocuments?: Prisma.ContractDocumentUncheckedUpdateManyWithoutDocumentNestedInput
+  identityVersions?: Prisma.PartyIdentityVersionUncheckedUpdateManyWithoutSourceDocumentNestedInput
+  verificationEvidence?: Prisma.BorrowerVerificationEvidenceUncheckedUpdateManyWithoutDocumentNestedInput
+}
+
+export type DocumentCreateWithoutIdentityVersionsInput = {
+  id?: string
+  storageKey: string
+  sha256: string
+  mimeType: string
+  originalFilename?: string | null
+  sizeBytes?: bigint | number | null
+  createdAt?: Date | string
+  workspace: Prisma.WorkspaceCreateNestedOneWithoutDocumentsInput
+  contractDocuments?: Prisma.ContractDocumentCreateNestedManyWithoutDocumentInput
+  termsVersions?: Prisma.TermsVersionCreateNestedManyWithoutSourceDocumentInput
+  verificationEvidence?: Prisma.BorrowerVerificationEvidenceCreateNestedManyWithoutDocumentInput
+}
+
+export type DocumentUncheckedCreateWithoutIdentityVersionsInput = {
+  id?: string
+  workspaceId: string
+  storageKey: string
+  sha256: string
+  mimeType: string
+  originalFilename?: string | null
+  sizeBytes?: bigint | number | null
+  createdAt?: Date | string
+  contractDocuments?: Prisma.ContractDocumentUncheckedCreateNestedManyWithoutDocumentInput
+  termsVersions?: Prisma.TermsVersionUncheckedCreateNestedManyWithoutSourceDocumentInput
+  verificationEvidence?: Prisma.BorrowerVerificationEvidenceUncheckedCreateNestedManyWithoutDocumentInput
+}
+
+export type DocumentCreateOrConnectWithoutIdentityVersionsInput = {
+  where: Prisma.DocumentWhereUniqueInput
+  create: Prisma.XOR<Prisma.DocumentCreateWithoutIdentityVersionsInput, Prisma.DocumentUncheckedCreateWithoutIdentityVersionsInput>
+}
+
+export type DocumentUpsertWithoutIdentityVersionsInput = {
+  update: Prisma.XOR<Prisma.DocumentUpdateWithoutIdentityVersionsInput, Prisma.DocumentUncheckedUpdateWithoutIdentityVersionsInput>
+  create: Prisma.XOR<Prisma.DocumentCreateWithoutIdentityVersionsInput, Prisma.DocumentUncheckedCreateWithoutIdentityVersionsInput>
+  where?: Prisma.DocumentWhereInput
+}
+
+export type DocumentUpdateToOneWithWhereWithoutIdentityVersionsInput = {
+  where?: Prisma.DocumentWhereInput
+  data: Prisma.XOR<Prisma.DocumentUpdateWithoutIdentityVersionsInput, Prisma.DocumentUncheckedUpdateWithoutIdentityVersionsInput>
+}
+
+export type DocumentUpdateWithoutIdentityVersionsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  storageKey?: Prisma.StringFieldUpdateOperationsInput | string
+  sha256?: Prisma.StringFieldUpdateOperationsInput | string
+  mimeType?: Prisma.StringFieldUpdateOperationsInput | string
+  originalFilename?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  sizeBytes?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  workspace?: Prisma.WorkspaceUpdateOneRequiredWithoutDocumentsNestedInput
+  contractDocuments?: Prisma.ContractDocumentUpdateManyWithoutDocumentNestedInput
+  termsVersions?: Prisma.TermsVersionUpdateManyWithoutSourceDocumentNestedInput
+  verificationEvidence?: Prisma.BorrowerVerificationEvidenceUpdateManyWithoutDocumentNestedInput
+}
+
+export type DocumentUncheckedUpdateWithoutIdentityVersionsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  workspaceId?: Prisma.StringFieldUpdateOperationsInput | string
+  storageKey?: Prisma.StringFieldUpdateOperationsInput | string
+  sha256?: Prisma.StringFieldUpdateOperationsInput | string
+  mimeType?: Prisma.StringFieldUpdateOperationsInput | string
+  originalFilename?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  sizeBytes?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  contractDocuments?: Prisma.ContractDocumentUncheckedUpdateManyWithoutDocumentNestedInput
+  termsVersions?: Prisma.TermsVersionUncheckedUpdateManyWithoutSourceDocumentNestedInput
+  verificationEvidence?: Prisma.BorrowerVerificationEvidenceUncheckedUpdateManyWithoutDocumentNestedInput
+}
+
+export type DocumentCreateWithoutVerificationEvidenceInput = {
+  id?: string
+  storageKey: string
+  sha256: string
+  mimeType: string
+  originalFilename?: string | null
+  sizeBytes?: bigint | number | null
+  createdAt?: Date | string
+  workspace: Prisma.WorkspaceCreateNestedOneWithoutDocumentsInput
+  contractDocuments?: Prisma.ContractDocumentCreateNestedManyWithoutDocumentInput
+  termsVersions?: Prisma.TermsVersionCreateNestedManyWithoutSourceDocumentInput
+  identityVersions?: Prisma.PartyIdentityVersionCreateNestedManyWithoutSourceDocumentInput
+}
+
+export type DocumentUncheckedCreateWithoutVerificationEvidenceInput = {
+  id?: string
+  workspaceId: string
+  storageKey: string
+  sha256: string
+  mimeType: string
+  originalFilename?: string | null
+  sizeBytes?: bigint | number | null
+  createdAt?: Date | string
+  contractDocuments?: Prisma.ContractDocumentUncheckedCreateNestedManyWithoutDocumentInput
+  termsVersions?: Prisma.TermsVersionUncheckedCreateNestedManyWithoutSourceDocumentInput
+  identityVersions?: Prisma.PartyIdentityVersionUncheckedCreateNestedManyWithoutSourceDocumentInput
+}
+
+export type DocumentCreateOrConnectWithoutVerificationEvidenceInput = {
+  where: Prisma.DocumentWhereUniqueInput
+  create: Prisma.XOR<Prisma.DocumentCreateWithoutVerificationEvidenceInput, Prisma.DocumentUncheckedCreateWithoutVerificationEvidenceInput>
+}
+
+export type DocumentUpsertWithoutVerificationEvidenceInput = {
+  update: Prisma.XOR<Prisma.DocumentUpdateWithoutVerificationEvidenceInput, Prisma.DocumentUncheckedUpdateWithoutVerificationEvidenceInput>
+  create: Prisma.XOR<Prisma.DocumentCreateWithoutVerificationEvidenceInput, Prisma.DocumentUncheckedCreateWithoutVerificationEvidenceInput>
+  where?: Prisma.DocumentWhereInput
+}
+
+export type DocumentUpdateToOneWithWhereWithoutVerificationEvidenceInput = {
+  where?: Prisma.DocumentWhereInput
+  data: Prisma.XOR<Prisma.DocumentUpdateWithoutVerificationEvidenceInput, Prisma.DocumentUncheckedUpdateWithoutVerificationEvidenceInput>
+}
+
+export type DocumentUpdateWithoutVerificationEvidenceInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  storageKey?: Prisma.StringFieldUpdateOperationsInput | string
+  sha256?: Prisma.StringFieldUpdateOperationsInput | string
+  mimeType?: Prisma.StringFieldUpdateOperationsInput | string
+  originalFilename?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  sizeBytes?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  workspace?: Prisma.WorkspaceUpdateOneRequiredWithoutDocumentsNestedInput
+  contractDocuments?: Prisma.ContractDocumentUpdateManyWithoutDocumentNestedInput
+  termsVersions?: Prisma.TermsVersionUpdateManyWithoutSourceDocumentNestedInput
+  identityVersions?: Prisma.PartyIdentityVersionUpdateManyWithoutSourceDocumentNestedInput
+}
+
+export type DocumentUncheckedUpdateWithoutVerificationEvidenceInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  workspaceId?: Prisma.StringFieldUpdateOperationsInput | string
+  storageKey?: Prisma.StringFieldUpdateOperationsInput | string
+  sha256?: Prisma.StringFieldUpdateOperationsInput | string
+  mimeType?: Prisma.StringFieldUpdateOperationsInput | string
+  originalFilename?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  sizeBytes?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  contractDocuments?: Prisma.ContractDocumentUncheckedUpdateManyWithoutDocumentNestedInput
+  termsVersions?: Prisma.TermsVersionUncheckedUpdateManyWithoutSourceDocumentNestedInput
+  identityVersions?: Prisma.PartyIdentityVersionUncheckedUpdateManyWithoutSourceDocumentNestedInput
 }
 
 export type DocumentCreateManyWorkspaceInput = {
@@ -583,6 +944,9 @@ export type DocumentCreateManyWorkspaceInput = {
   storageKey: string
   sha256: string
   mimeType: string
+  originalFilename?: string | null
+  sizeBytes?: bigint | number | null
+  createdAt?: Date | string
 }
 
 export type DocumentUpdateWithoutWorkspaceInput = {
@@ -590,8 +954,13 @@ export type DocumentUpdateWithoutWorkspaceInput = {
   storageKey?: Prisma.StringFieldUpdateOperationsInput | string
   sha256?: Prisma.StringFieldUpdateOperationsInput | string
   mimeType?: Prisma.StringFieldUpdateOperationsInput | string
+  originalFilename?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  sizeBytes?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   contractDocuments?: Prisma.ContractDocumentUpdateManyWithoutDocumentNestedInput
   termsVersions?: Prisma.TermsVersionUpdateManyWithoutSourceDocumentNestedInput
+  identityVersions?: Prisma.PartyIdentityVersionUpdateManyWithoutSourceDocumentNestedInput
+  verificationEvidence?: Prisma.BorrowerVerificationEvidenceUpdateManyWithoutDocumentNestedInput
 }
 
 export type DocumentUncheckedUpdateWithoutWorkspaceInput = {
@@ -599,8 +968,13 @@ export type DocumentUncheckedUpdateWithoutWorkspaceInput = {
   storageKey?: Prisma.StringFieldUpdateOperationsInput | string
   sha256?: Prisma.StringFieldUpdateOperationsInput | string
   mimeType?: Prisma.StringFieldUpdateOperationsInput | string
+  originalFilename?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  sizeBytes?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   contractDocuments?: Prisma.ContractDocumentUncheckedUpdateManyWithoutDocumentNestedInput
   termsVersions?: Prisma.TermsVersionUncheckedUpdateManyWithoutSourceDocumentNestedInput
+  identityVersions?: Prisma.PartyIdentityVersionUncheckedUpdateManyWithoutSourceDocumentNestedInput
+  verificationEvidence?: Prisma.BorrowerVerificationEvidenceUncheckedUpdateManyWithoutDocumentNestedInput
 }
 
 export type DocumentUncheckedUpdateManyWithoutWorkspaceInput = {
@@ -608,6 +982,9 @@ export type DocumentUncheckedUpdateManyWithoutWorkspaceInput = {
   storageKey?: Prisma.StringFieldUpdateOperationsInput | string
   sha256?: Prisma.StringFieldUpdateOperationsInput | string
   mimeType?: Prisma.StringFieldUpdateOperationsInput | string
+  originalFilename?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  sizeBytes?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 
@@ -618,11 +995,15 @@ export type DocumentUncheckedUpdateManyWithoutWorkspaceInput = {
 export type DocumentCountOutputType = {
   contractDocuments: number
   termsVersions: number
+  identityVersions: number
+  verificationEvidence: number
 }
 
 export type DocumentCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   contractDocuments?: boolean | DocumentCountOutputTypeCountContractDocumentsArgs
   termsVersions?: boolean | DocumentCountOutputTypeCountTermsVersionsArgs
+  identityVersions?: boolean | DocumentCountOutputTypeCountIdentityVersionsArgs
+  verificationEvidence?: boolean | DocumentCountOutputTypeCountVerificationEvidenceArgs
 }
 
 /**
@@ -649,6 +1030,20 @@ export type DocumentCountOutputTypeCountTermsVersionsArgs<ExtArgs extends runtim
   where?: Prisma.TermsVersionWhereInput
 }
 
+/**
+ * DocumentCountOutputType without action
+ */
+export type DocumentCountOutputTypeCountIdentityVersionsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.PartyIdentityVersionWhereInput
+}
+
+/**
+ * DocumentCountOutputType without action
+ */
+export type DocumentCountOutputTypeCountVerificationEvidenceArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.BorrowerVerificationEvidenceWhereInput
+}
+
 
 export type DocumentSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -656,9 +1051,14 @@ export type DocumentSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs
   storageKey?: boolean
   sha256?: boolean
   mimeType?: boolean
+  originalFilename?: boolean
+  sizeBytes?: boolean
+  createdAt?: boolean
   workspace?: boolean | Prisma.WorkspaceDefaultArgs<ExtArgs>
   contractDocuments?: boolean | Prisma.Document$contractDocumentsArgs<ExtArgs>
   termsVersions?: boolean | Prisma.Document$termsVersionsArgs<ExtArgs>
+  identityVersions?: boolean | Prisma.Document$identityVersionsArgs<ExtArgs>
+  verificationEvidence?: boolean | Prisma.Document$verificationEvidenceArgs<ExtArgs>
   _count?: boolean | Prisma.DocumentCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["document"]>
 
@@ -668,6 +1068,9 @@ export type DocumentSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Exte
   storageKey?: boolean
   sha256?: boolean
   mimeType?: boolean
+  originalFilename?: boolean
+  sizeBytes?: boolean
+  createdAt?: boolean
   workspace?: boolean | Prisma.WorkspaceDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["document"]>
 
@@ -677,6 +1080,9 @@ export type DocumentSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Exte
   storageKey?: boolean
   sha256?: boolean
   mimeType?: boolean
+  originalFilename?: boolean
+  sizeBytes?: boolean
+  createdAt?: boolean
   workspace?: boolean | Prisma.WorkspaceDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["document"]>
 
@@ -686,13 +1092,18 @@ export type DocumentSelectScalar = {
   storageKey?: boolean
   sha256?: boolean
   mimeType?: boolean
+  originalFilename?: boolean
+  sizeBytes?: boolean
+  createdAt?: boolean
 }
 
-export type DocumentOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "workspaceId" | "storageKey" | "sha256" | "mimeType", ExtArgs["result"]["document"]>
+export type DocumentOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "workspaceId" | "storageKey" | "sha256" | "mimeType" | "originalFilename" | "sizeBytes" | "createdAt", ExtArgs["result"]["document"]>
 export type DocumentInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   workspace?: boolean | Prisma.WorkspaceDefaultArgs<ExtArgs>
   contractDocuments?: boolean | Prisma.Document$contractDocumentsArgs<ExtArgs>
   termsVersions?: boolean | Prisma.Document$termsVersionsArgs<ExtArgs>
+  identityVersions?: boolean | Prisma.Document$identityVersionsArgs<ExtArgs>
+  verificationEvidence?: boolean | Prisma.Document$verificationEvidenceArgs<ExtArgs>
   _count?: boolean | Prisma.DocumentCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type DocumentIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -708,6 +1119,8 @@ export type $DocumentPayload<ExtArgs extends runtime.Types.Extensions.InternalAr
     workspace: Prisma.$WorkspacePayload<ExtArgs>
     contractDocuments: Prisma.$ContractDocumentPayload<ExtArgs>[]
     termsVersions: Prisma.$TermsVersionPayload<ExtArgs>[]
+    identityVersions: Prisma.$PartyIdentityVersionPayload<ExtArgs>[]
+    verificationEvidence: Prisma.$BorrowerVerificationEvidencePayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -715,6 +1128,9 @@ export type $DocumentPayload<ExtArgs extends runtime.Types.Extensions.InternalAr
     storageKey: string
     sha256: string
     mimeType: string
+    originalFilename: string | null
+    sizeBytes: bigint | null
+    createdAt: Date
   }, ExtArgs["result"]["document"]>
   composites: {}
 }
@@ -1112,6 +1528,8 @@ export interface Prisma__DocumentClient<T, Null = never, ExtArgs extends runtime
   workspace<T extends Prisma.WorkspaceDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.WorkspaceDefaultArgs<ExtArgs>>): Prisma.Prisma__WorkspaceClient<runtime.Types.Result.GetResult<Prisma.$WorkspacePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   contractDocuments<T extends Prisma.Document$contractDocumentsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Document$contractDocumentsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ContractDocumentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   termsVersions<T extends Prisma.Document$termsVersionsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Document$termsVersionsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$TermsVersionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  identityVersions<T extends Prisma.Document$identityVersionsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Document$identityVersionsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$PartyIdentityVersionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  verificationEvidence<T extends Prisma.Document$verificationEvidenceArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Document$verificationEvidenceArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$BorrowerVerificationEvidencePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1146,6 +1564,9 @@ export interface DocumentFieldRefs {
   readonly storageKey: Prisma.FieldRef<"Document", 'String'>
   readonly sha256: Prisma.FieldRef<"Document", 'String'>
   readonly mimeType: Prisma.FieldRef<"Document", 'String'>
+  readonly originalFilename: Prisma.FieldRef<"Document", 'String'>
+  readonly sizeBytes: Prisma.FieldRef<"Document", 'BigInt'>
+  readonly createdAt: Prisma.FieldRef<"Document", 'DateTime'>
 }
     
 
@@ -1592,6 +2013,54 @@ export type Document$termsVersionsArgs<ExtArgs extends runtime.Types.Extensions.
   take?: number
   skip?: number
   distinct?: Prisma.TermsVersionScalarFieldEnum | Prisma.TermsVersionScalarFieldEnum[]
+}
+
+/**
+ * Document.identityVersions
+ */
+export type Document$identityVersionsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the PartyIdentityVersion
+   */
+  select?: Prisma.PartyIdentityVersionSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the PartyIdentityVersion
+   */
+  omit?: Prisma.PartyIdentityVersionOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.PartyIdentityVersionInclude<ExtArgs> | null
+  where?: Prisma.PartyIdentityVersionWhereInput
+  orderBy?: Prisma.PartyIdentityVersionOrderByWithRelationInput | Prisma.PartyIdentityVersionOrderByWithRelationInput[]
+  cursor?: Prisma.PartyIdentityVersionWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.PartyIdentityVersionScalarFieldEnum | Prisma.PartyIdentityVersionScalarFieldEnum[]
+}
+
+/**
+ * Document.verificationEvidence
+ */
+export type Document$verificationEvidenceArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the BorrowerVerificationEvidence
+   */
+  select?: Prisma.BorrowerVerificationEvidenceSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the BorrowerVerificationEvidence
+   */
+  omit?: Prisma.BorrowerVerificationEvidenceOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.BorrowerVerificationEvidenceInclude<ExtArgs> | null
+  where?: Prisma.BorrowerVerificationEvidenceWhereInput
+  orderBy?: Prisma.BorrowerVerificationEvidenceOrderByWithRelationInput | Prisma.BorrowerVerificationEvidenceOrderByWithRelationInput[]
+  cursor?: Prisma.BorrowerVerificationEvidenceWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.BorrowerVerificationEvidenceScalarFieldEnum | Prisma.BorrowerVerificationEvidenceScalarFieldEnum[]
 }
 
 /**

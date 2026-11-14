@@ -484,6 +484,33 @@ export type EnumContractPartyRoleWithAggregatesFilter<$PrismaModel = never> = {
   _max?: Prisma.NestedEnumContractPartyRoleFilter<$PrismaModel>
 }
 
+export type BigIntNullableFilter<$PrismaModel = never> = {
+  equals?: bigint | number | Prisma.BigIntFieldRefInput<$PrismaModel> | null
+  in?: bigint[] | number[] | Prisma.ListBigIntFieldRefInput<$PrismaModel> | null
+  notIn?: bigint[] | number[] | Prisma.ListBigIntFieldRefInput<$PrismaModel> | null
+  lt?: bigint | number | Prisma.BigIntFieldRefInput<$PrismaModel>
+  lte?: bigint | number | Prisma.BigIntFieldRefInput<$PrismaModel>
+  gt?: bigint | number | Prisma.BigIntFieldRefInput<$PrismaModel>
+  gte?: bigint | number | Prisma.BigIntFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedBigIntNullableFilter<$PrismaModel> | bigint | number | null
+}
+
+export type BigIntNullableWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: bigint | number | Prisma.BigIntFieldRefInput<$PrismaModel> | null
+  in?: bigint[] | number[] | Prisma.ListBigIntFieldRefInput<$PrismaModel> | null
+  notIn?: bigint[] | number[] | Prisma.ListBigIntFieldRefInput<$PrismaModel> | null
+  lt?: bigint | number | Prisma.BigIntFieldRefInput<$PrismaModel>
+  lte?: bigint | number | Prisma.BigIntFieldRefInput<$PrismaModel>
+  gt?: bigint | number | Prisma.BigIntFieldRefInput<$PrismaModel>
+  gte?: bigint | number | Prisma.BigIntFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedBigIntNullableWithAggregatesFilter<$PrismaModel> | bigint | number | null
+  _count?: Prisma.NestedIntNullableFilter<$PrismaModel>
+  _avg?: Prisma.NestedFloatNullableFilter<$PrismaModel>
+  _sum?: Prisma.NestedBigIntNullableFilter<$PrismaModel>
+  _min?: Prisma.NestedBigIntNullableFilter<$PrismaModel>
+  _max?: Prisma.NestedBigIntNullableFilter<$PrismaModel>
+}
+
 export type EnumDocumentRoleFilter<$PrismaModel = never> = {
   equals?: $Enums.DocumentRole | Prisma.EnumDocumentRoleFieldRefInput<$PrismaModel>
   in?: $Enums.DocumentRole[] | Prisma.ListEnumDocumentRoleFieldRefInput<$PrismaModel>
@@ -706,6 +733,291 @@ export type BytesWithAggregatesFilter<$PrismaModel = never> = {
   _count?: Prisma.NestedIntFilter<$PrismaModel>
   _min?: Prisma.NestedBytesFilter<$PrismaModel>
   _max?: Prisma.NestedBytesFilter<$PrismaModel>
+}
+
+export type EnumBorrowerVerificationStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.BorrowerVerificationStatus | Prisma.EnumBorrowerVerificationStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.BorrowerVerificationStatus[] | Prisma.ListEnumBorrowerVerificationStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.BorrowerVerificationStatus[] | Prisma.ListEnumBorrowerVerificationStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumBorrowerVerificationStatusFilter<$PrismaModel> | $Enums.BorrowerVerificationStatus
+}
+
+export type EnumBorrowerRiskAssessmentFilter<$PrismaModel = never> = {
+  equals?: $Enums.BorrowerRiskAssessment | Prisma.EnumBorrowerRiskAssessmentFieldRefInput<$PrismaModel>
+  in?: $Enums.BorrowerRiskAssessment[] | Prisma.ListEnumBorrowerRiskAssessmentFieldRefInput<$PrismaModel>
+  notIn?: $Enums.BorrowerRiskAssessment[] | Prisma.ListEnumBorrowerRiskAssessmentFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumBorrowerRiskAssessmentFilter<$PrismaModel> | $Enums.BorrowerRiskAssessment
+}
+
+export type EnumBorrowerVerificationDecisionFilter<$PrismaModel = never> = {
+  equals?: $Enums.BorrowerVerificationDecision | Prisma.EnumBorrowerVerificationDecisionFieldRefInput<$PrismaModel>
+  in?: $Enums.BorrowerVerificationDecision[] | Prisma.ListEnumBorrowerVerificationDecisionFieldRefInput<$PrismaModel>
+  notIn?: $Enums.BorrowerVerificationDecision[] | Prisma.ListEnumBorrowerVerificationDecisionFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumBorrowerVerificationDecisionFilter<$PrismaModel> | $Enums.BorrowerVerificationDecision
+}
+
+export type EnumBorrowerVerificationStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.BorrowerVerificationStatus | Prisma.EnumBorrowerVerificationStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.BorrowerVerificationStatus[] | Prisma.ListEnumBorrowerVerificationStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.BorrowerVerificationStatus[] | Prisma.ListEnumBorrowerVerificationStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumBorrowerVerificationStatusWithAggregatesFilter<$PrismaModel> | $Enums.BorrowerVerificationStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumBorrowerVerificationStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumBorrowerVerificationStatusFilter<$PrismaModel>
+}
+
+export type EnumBorrowerRiskAssessmentWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.BorrowerRiskAssessment | Prisma.EnumBorrowerRiskAssessmentFieldRefInput<$PrismaModel>
+  in?: $Enums.BorrowerRiskAssessment[] | Prisma.ListEnumBorrowerRiskAssessmentFieldRefInput<$PrismaModel>
+  notIn?: $Enums.BorrowerRiskAssessment[] | Prisma.ListEnumBorrowerRiskAssessmentFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumBorrowerRiskAssessmentWithAggregatesFilter<$PrismaModel> | $Enums.BorrowerRiskAssessment
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumBorrowerRiskAssessmentFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumBorrowerRiskAssessmentFilter<$PrismaModel>
+}
+
+export type EnumBorrowerVerificationDecisionWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.BorrowerVerificationDecision | Prisma.EnumBorrowerVerificationDecisionFieldRefInput<$PrismaModel>
+  in?: $Enums.BorrowerVerificationDecision[] | Prisma.ListEnumBorrowerVerificationDecisionFieldRefInput<$PrismaModel>
+  notIn?: $Enums.BorrowerVerificationDecision[] | Prisma.ListEnumBorrowerVerificationDecisionFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumBorrowerVerificationDecisionWithAggregatesFilter<$PrismaModel> | $Enums.BorrowerVerificationDecision
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumBorrowerVerificationDecisionFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumBorrowerVerificationDecisionFilter<$PrismaModel>
+}
+
+export type EnumBorrowerCheckResultTypeFilter<$PrismaModel = never> = {
+  equals?: $Enums.BorrowerCheckResultType | Prisma.EnumBorrowerCheckResultTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.BorrowerCheckResultType[] | Prisma.ListEnumBorrowerCheckResultTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.BorrowerCheckResultType[] | Prisma.ListEnumBorrowerCheckResultTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumBorrowerCheckResultTypeFilter<$PrismaModel> | $Enums.BorrowerCheckResultType
+}
+
+export type EnumBorrowerCheckExecutionModeFilter<$PrismaModel = never> = {
+  equals?: $Enums.BorrowerCheckExecutionMode | Prisma.EnumBorrowerCheckExecutionModeFieldRefInput<$PrismaModel>
+  in?: $Enums.BorrowerCheckExecutionMode[] | Prisma.ListEnumBorrowerCheckExecutionModeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.BorrowerCheckExecutionMode[] | Prisma.ListEnumBorrowerCheckExecutionModeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumBorrowerCheckExecutionModeFilter<$PrismaModel> | $Enums.BorrowerCheckExecutionMode
+}
+
+export type EnumBorrowerCheckItemStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.BorrowerCheckItemStatus | Prisma.EnumBorrowerCheckItemStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.BorrowerCheckItemStatus[] | Prisma.ListEnumBorrowerCheckItemStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.BorrowerCheckItemStatus[] | Prisma.ListEnumBorrowerCheckItemStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumBorrowerCheckItemStatusFilter<$PrismaModel> | $Enums.BorrowerCheckItemStatus
+}
+
+export type EnumBorrowerCheckResultTypeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.BorrowerCheckResultType | Prisma.EnumBorrowerCheckResultTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.BorrowerCheckResultType[] | Prisma.ListEnumBorrowerCheckResultTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.BorrowerCheckResultType[] | Prisma.ListEnumBorrowerCheckResultTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumBorrowerCheckResultTypeWithAggregatesFilter<$PrismaModel> | $Enums.BorrowerCheckResultType
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumBorrowerCheckResultTypeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumBorrowerCheckResultTypeFilter<$PrismaModel>
+}
+
+export type EnumBorrowerCheckExecutionModeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.BorrowerCheckExecutionMode | Prisma.EnumBorrowerCheckExecutionModeFieldRefInput<$PrismaModel>
+  in?: $Enums.BorrowerCheckExecutionMode[] | Prisma.ListEnumBorrowerCheckExecutionModeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.BorrowerCheckExecutionMode[] | Prisma.ListEnumBorrowerCheckExecutionModeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumBorrowerCheckExecutionModeWithAggregatesFilter<$PrismaModel> | $Enums.BorrowerCheckExecutionMode
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumBorrowerCheckExecutionModeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumBorrowerCheckExecutionModeFilter<$PrismaModel>
+}
+
+export type EnumBorrowerCheckItemStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.BorrowerCheckItemStatus | Prisma.EnumBorrowerCheckItemStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.BorrowerCheckItemStatus[] | Prisma.ListEnumBorrowerCheckItemStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.BorrowerCheckItemStatus[] | Prisma.ListEnumBorrowerCheckItemStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumBorrowerCheckItemStatusWithAggregatesFilter<$PrismaModel> | $Enums.BorrowerCheckItemStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumBorrowerCheckItemStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumBorrowerCheckItemStatusFilter<$PrismaModel>
+}
+
+export type EnumBorrowerCheckRunModeFilter<$PrismaModel = never> = {
+  equals?: $Enums.BorrowerCheckRunMode | Prisma.EnumBorrowerCheckRunModeFieldRefInput<$PrismaModel>
+  in?: $Enums.BorrowerCheckRunMode[] | Prisma.ListEnumBorrowerCheckRunModeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.BorrowerCheckRunMode[] | Prisma.ListEnumBorrowerCheckRunModeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumBorrowerCheckRunModeFilter<$PrismaModel> | $Enums.BorrowerCheckRunMode
+}
+
+export type EnumBorrowerCheckRunStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.BorrowerCheckRunStatus | Prisma.EnumBorrowerCheckRunStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.BorrowerCheckRunStatus[] | Prisma.ListEnumBorrowerCheckRunStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.BorrowerCheckRunStatus[] | Prisma.ListEnumBorrowerCheckRunStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumBorrowerCheckRunStatusFilter<$PrismaModel> | $Enums.BorrowerCheckRunStatus
+}
+
+export type BoolNullableFilter<$PrismaModel = never> = {
+  equals?: boolean | Prisma.BooleanFieldRefInput<$PrismaModel> | null
+  not?: Prisma.NestedBoolNullableFilter<$PrismaModel> | boolean | null
+}
+
+export type EnumBorrowerCheckRunModeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.BorrowerCheckRunMode | Prisma.EnumBorrowerCheckRunModeFieldRefInput<$PrismaModel>
+  in?: $Enums.BorrowerCheckRunMode[] | Prisma.ListEnumBorrowerCheckRunModeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.BorrowerCheckRunMode[] | Prisma.ListEnumBorrowerCheckRunModeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumBorrowerCheckRunModeWithAggregatesFilter<$PrismaModel> | $Enums.BorrowerCheckRunMode
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumBorrowerCheckRunModeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumBorrowerCheckRunModeFilter<$PrismaModel>
+}
+
+export type EnumBorrowerCheckRunStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.BorrowerCheckRunStatus | Prisma.EnumBorrowerCheckRunStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.BorrowerCheckRunStatus[] | Prisma.ListEnumBorrowerCheckRunStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.BorrowerCheckRunStatus[] | Prisma.ListEnumBorrowerCheckRunStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumBorrowerCheckRunStatusWithAggregatesFilter<$PrismaModel> | $Enums.BorrowerCheckRunStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumBorrowerCheckRunStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumBorrowerCheckRunStatusFilter<$PrismaModel>
+}
+
+export type BoolNullableWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: boolean | Prisma.BooleanFieldRefInput<$PrismaModel> | null
+  not?: Prisma.NestedBoolNullableWithAggregatesFilter<$PrismaModel> | boolean | null
+  _count?: Prisma.NestedIntNullableFilter<$PrismaModel>
+  _min?: Prisma.NestedBoolNullableFilter<$PrismaModel>
+  _max?: Prisma.NestedBoolNullableFilter<$PrismaModel>
+}
+
+export type EnumBorrowerFindingTypeFilter<$PrismaModel = never> = {
+  equals?: $Enums.BorrowerFindingType | Prisma.EnumBorrowerFindingTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.BorrowerFindingType[] | Prisma.ListEnumBorrowerFindingTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.BorrowerFindingType[] | Prisma.ListEnumBorrowerFindingTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumBorrowerFindingTypeFilter<$PrismaModel> | $Enums.BorrowerFindingType
+}
+
+export type EnumBorrowerIdentityMatchFilter<$PrismaModel = never> = {
+  equals?: $Enums.BorrowerIdentityMatch | Prisma.EnumBorrowerIdentityMatchFieldRefInput<$PrismaModel>
+  in?: $Enums.BorrowerIdentityMatch[] | Prisma.ListEnumBorrowerIdentityMatchFieldRefInput<$PrismaModel>
+  notIn?: $Enums.BorrowerIdentityMatch[] | Prisma.ListEnumBorrowerIdentityMatchFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumBorrowerIdentityMatchFilter<$PrismaModel> | $Enums.BorrowerIdentityMatch
+}
+
+export type EnumBorrowerFindingTypeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.BorrowerFindingType | Prisma.EnumBorrowerFindingTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.BorrowerFindingType[] | Prisma.ListEnumBorrowerFindingTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.BorrowerFindingType[] | Prisma.ListEnumBorrowerFindingTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumBorrowerFindingTypeWithAggregatesFilter<$PrismaModel> | $Enums.BorrowerFindingType
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumBorrowerFindingTypeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumBorrowerFindingTypeFilter<$PrismaModel>
+}
+
+export type EnumBorrowerIdentityMatchWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.BorrowerIdentityMatch | Prisma.EnumBorrowerIdentityMatchFieldRefInput<$PrismaModel>
+  in?: $Enums.BorrowerIdentityMatch[] | Prisma.ListEnumBorrowerIdentityMatchFieldRefInput<$PrismaModel>
+  notIn?: $Enums.BorrowerIdentityMatch[] | Prisma.ListEnumBorrowerIdentityMatchFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumBorrowerIdentityMatchWithAggregatesFilter<$PrismaModel> | $Enums.BorrowerIdentityMatch
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumBorrowerIdentityMatchFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumBorrowerIdentityMatchFilter<$PrismaModel>
+}
+
+export type EnumBorrowerEvidenceKindFilter<$PrismaModel = never> = {
+  equals?: $Enums.BorrowerEvidenceKind | Prisma.EnumBorrowerEvidenceKindFieldRefInput<$PrismaModel>
+  in?: $Enums.BorrowerEvidenceKind[] | Prisma.ListEnumBorrowerEvidenceKindFieldRefInput<$PrismaModel>
+  notIn?: $Enums.BorrowerEvidenceKind[] | Prisma.ListEnumBorrowerEvidenceKindFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumBorrowerEvidenceKindFilter<$PrismaModel> | $Enums.BorrowerEvidenceKind
+}
+
+export type EnumBorrowerEvidenceAuthenticityFilter<$PrismaModel = never> = {
+  equals?: $Enums.BorrowerEvidenceAuthenticity | Prisma.EnumBorrowerEvidenceAuthenticityFieldRefInput<$PrismaModel>
+  in?: $Enums.BorrowerEvidenceAuthenticity[] | Prisma.ListEnumBorrowerEvidenceAuthenticityFieldRefInput<$PrismaModel>
+  notIn?: $Enums.BorrowerEvidenceAuthenticity[] | Prisma.ListEnumBorrowerEvidenceAuthenticityFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumBorrowerEvidenceAuthenticityFilter<$PrismaModel> | $Enums.BorrowerEvidenceAuthenticity
+}
+
+export type EnumBorrowerOcrStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.BorrowerOcrStatus | Prisma.EnumBorrowerOcrStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.BorrowerOcrStatus[] | Prisma.ListEnumBorrowerOcrStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.BorrowerOcrStatus[] | Prisma.ListEnumBorrowerOcrStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumBorrowerOcrStatusFilter<$PrismaModel> | $Enums.BorrowerOcrStatus
+}
+
+export type EnumBorrowerEvidenceKindWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.BorrowerEvidenceKind | Prisma.EnumBorrowerEvidenceKindFieldRefInput<$PrismaModel>
+  in?: $Enums.BorrowerEvidenceKind[] | Prisma.ListEnumBorrowerEvidenceKindFieldRefInput<$PrismaModel>
+  notIn?: $Enums.BorrowerEvidenceKind[] | Prisma.ListEnumBorrowerEvidenceKindFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumBorrowerEvidenceKindWithAggregatesFilter<$PrismaModel> | $Enums.BorrowerEvidenceKind
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumBorrowerEvidenceKindFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumBorrowerEvidenceKindFilter<$PrismaModel>
+}
+
+export type EnumBorrowerEvidenceAuthenticityWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.BorrowerEvidenceAuthenticity | Prisma.EnumBorrowerEvidenceAuthenticityFieldRefInput<$PrismaModel>
+  in?: $Enums.BorrowerEvidenceAuthenticity[] | Prisma.ListEnumBorrowerEvidenceAuthenticityFieldRefInput<$PrismaModel>
+  notIn?: $Enums.BorrowerEvidenceAuthenticity[] | Prisma.ListEnumBorrowerEvidenceAuthenticityFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumBorrowerEvidenceAuthenticityWithAggregatesFilter<$PrismaModel> | $Enums.BorrowerEvidenceAuthenticity
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumBorrowerEvidenceAuthenticityFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumBorrowerEvidenceAuthenticityFilter<$PrismaModel>
+}
+
+export type EnumBorrowerOcrStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.BorrowerOcrStatus | Prisma.EnumBorrowerOcrStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.BorrowerOcrStatus[] | Prisma.ListEnumBorrowerOcrStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.BorrowerOcrStatus[] | Prisma.ListEnumBorrowerOcrStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumBorrowerOcrStatusWithAggregatesFilter<$PrismaModel> | $Enums.BorrowerOcrStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumBorrowerOcrStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumBorrowerOcrStatusFilter<$PrismaModel>
+}
+
+export type EnumBorrowerRiskSeverityFilter<$PrismaModel = never> = {
+  equals?: $Enums.BorrowerRiskSeverity | Prisma.EnumBorrowerRiskSeverityFieldRefInput<$PrismaModel>
+  in?: $Enums.BorrowerRiskSeverity[] | Prisma.ListEnumBorrowerRiskSeverityFieldRefInput<$PrismaModel>
+  notIn?: $Enums.BorrowerRiskSeverity[] | Prisma.ListEnumBorrowerRiskSeverityFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumBorrowerRiskSeverityFilter<$PrismaModel> | $Enums.BorrowerRiskSeverity
+}
+
+export type EnumBorrowerRiskRemediabilityFilter<$PrismaModel = never> = {
+  equals?: $Enums.BorrowerRiskRemediability | Prisma.EnumBorrowerRiskRemediabilityFieldRefInput<$PrismaModel>
+  in?: $Enums.BorrowerRiskRemediability[] | Prisma.ListEnumBorrowerRiskRemediabilityFieldRefInput<$PrismaModel>
+  notIn?: $Enums.BorrowerRiskRemediability[] | Prisma.ListEnumBorrowerRiskRemediabilityFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumBorrowerRiskRemediabilityFilter<$PrismaModel> | $Enums.BorrowerRiskRemediability
+}
+
+export type EnumBorrowerRiskStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.BorrowerRiskStatus | Prisma.EnumBorrowerRiskStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.BorrowerRiskStatus[] | Prisma.ListEnumBorrowerRiskStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.BorrowerRiskStatus[] | Prisma.ListEnumBorrowerRiskStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumBorrowerRiskStatusFilter<$PrismaModel> | $Enums.BorrowerRiskStatus
+}
+
+export type EnumBorrowerRiskSeverityWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.BorrowerRiskSeverity | Prisma.EnumBorrowerRiskSeverityFieldRefInput<$PrismaModel>
+  in?: $Enums.BorrowerRiskSeverity[] | Prisma.ListEnumBorrowerRiskSeverityFieldRefInput<$PrismaModel>
+  notIn?: $Enums.BorrowerRiskSeverity[] | Prisma.ListEnumBorrowerRiskSeverityFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumBorrowerRiskSeverityWithAggregatesFilter<$PrismaModel> | $Enums.BorrowerRiskSeverity
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumBorrowerRiskSeverityFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumBorrowerRiskSeverityFilter<$PrismaModel>
+}
+
+export type EnumBorrowerRiskRemediabilityWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.BorrowerRiskRemediability | Prisma.EnumBorrowerRiskRemediabilityFieldRefInput<$PrismaModel>
+  in?: $Enums.BorrowerRiskRemediability[] | Prisma.ListEnumBorrowerRiskRemediabilityFieldRefInput<$PrismaModel>
+  notIn?: $Enums.BorrowerRiskRemediability[] | Prisma.ListEnumBorrowerRiskRemediabilityFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumBorrowerRiskRemediabilityWithAggregatesFilter<$PrismaModel> | $Enums.BorrowerRiskRemediability
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumBorrowerRiskRemediabilityFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumBorrowerRiskRemediabilityFilter<$PrismaModel>
+}
+
+export type EnumBorrowerRiskStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.BorrowerRiskStatus | Prisma.EnumBorrowerRiskStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.BorrowerRiskStatus[] | Prisma.ListEnumBorrowerRiskStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.BorrowerRiskStatus[] | Prisma.ListEnumBorrowerRiskStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumBorrowerRiskStatusWithAggregatesFilter<$PrismaModel> | $Enums.BorrowerRiskStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumBorrowerRiskStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumBorrowerRiskStatusFilter<$PrismaModel>
 }
 
 export type NestedStringFilter<$PrismaModel = never> = {
@@ -1137,6 +1449,44 @@ export type NestedEnumContractPartyRoleWithAggregatesFilter<$PrismaModel = never
   _max?: Prisma.NestedEnumContractPartyRoleFilter<$PrismaModel>
 }
 
+export type NestedBigIntNullableFilter<$PrismaModel = never> = {
+  equals?: bigint | number | Prisma.BigIntFieldRefInput<$PrismaModel> | null
+  in?: bigint[] | number[] | Prisma.ListBigIntFieldRefInput<$PrismaModel> | null
+  notIn?: bigint[] | number[] | Prisma.ListBigIntFieldRefInput<$PrismaModel> | null
+  lt?: bigint | number | Prisma.BigIntFieldRefInput<$PrismaModel>
+  lte?: bigint | number | Prisma.BigIntFieldRefInput<$PrismaModel>
+  gt?: bigint | number | Prisma.BigIntFieldRefInput<$PrismaModel>
+  gte?: bigint | number | Prisma.BigIntFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedBigIntNullableFilter<$PrismaModel> | bigint | number | null
+}
+
+export type NestedBigIntNullableWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: bigint | number | Prisma.BigIntFieldRefInput<$PrismaModel> | null
+  in?: bigint[] | number[] | Prisma.ListBigIntFieldRefInput<$PrismaModel> | null
+  notIn?: bigint[] | number[] | Prisma.ListBigIntFieldRefInput<$PrismaModel> | null
+  lt?: bigint | number | Prisma.BigIntFieldRefInput<$PrismaModel>
+  lte?: bigint | number | Prisma.BigIntFieldRefInput<$PrismaModel>
+  gt?: bigint | number | Prisma.BigIntFieldRefInput<$PrismaModel>
+  gte?: bigint | number | Prisma.BigIntFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedBigIntNullableWithAggregatesFilter<$PrismaModel> | bigint | number | null
+  _count?: Prisma.NestedIntNullableFilter<$PrismaModel>
+  _avg?: Prisma.NestedFloatNullableFilter<$PrismaModel>
+  _sum?: Prisma.NestedBigIntNullableFilter<$PrismaModel>
+  _min?: Prisma.NestedBigIntNullableFilter<$PrismaModel>
+  _max?: Prisma.NestedBigIntNullableFilter<$PrismaModel>
+}
+
+export type NestedFloatNullableFilter<$PrismaModel = never> = {
+  equals?: number | Prisma.FloatFieldRefInput<$PrismaModel> | null
+  in?: number[] | Prisma.ListFloatFieldRefInput<$PrismaModel> | null
+  notIn?: number[] | Prisma.ListFloatFieldRefInput<$PrismaModel> | null
+  lt?: number | Prisma.FloatFieldRefInput<$PrismaModel>
+  lte?: number | Prisma.FloatFieldRefInput<$PrismaModel>
+  gt?: number | Prisma.FloatFieldRefInput<$PrismaModel>
+  gte?: number | Prisma.FloatFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedFloatNullableFilter<$PrismaModel> | number | null
+}
+
 export type NestedEnumDocumentRoleFilter<$PrismaModel = never> = {
   equals?: $Enums.DocumentRole | Prisma.EnumDocumentRoleFieldRefInput<$PrismaModel>
   in?: $Enums.DocumentRole[] | Prisma.ListEnumDocumentRoleFieldRefInput<$PrismaModel>
@@ -1202,17 +1552,6 @@ export type NestedIntNullableWithAggregatesFilter<$PrismaModel = never> = {
   _sum?: Prisma.NestedIntNullableFilter<$PrismaModel>
   _min?: Prisma.NestedIntNullableFilter<$PrismaModel>
   _max?: Prisma.NestedIntNullableFilter<$PrismaModel>
-}
-
-export type NestedFloatNullableFilter<$PrismaModel = never> = {
-  equals?: number | Prisma.FloatFieldRefInput<$PrismaModel> | null
-  in?: number[] | Prisma.ListFloatFieldRefInput<$PrismaModel> | null
-  notIn?: number[] | Prisma.ListFloatFieldRefInput<$PrismaModel> | null
-  lt?: number | Prisma.FloatFieldRefInput<$PrismaModel>
-  lte?: number | Prisma.FloatFieldRefInput<$PrismaModel>
-  gt?: number | Prisma.FloatFieldRefInput<$PrismaModel>
-  gte?: number | Prisma.FloatFieldRefInput<$PrismaModel>
-  not?: Prisma.NestedFloatNullableFilter<$PrismaModel> | number | null
 }
 
 export type NestedEnumTermRuleKindFilter<$PrismaModel = never> = {
@@ -1359,6 +1698,291 @@ export type NestedBytesWithAggregatesFilter<$PrismaModel = never> = {
   _count?: Prisma.NestedIntFilter<$PrismaModel>
   _min?: Prisma.NestedBytesFilter<$PrismaModel>
   _max?: Prisma.NestedBytesFilter<$PrismaModel>
+}
+
+export type NestedEnumBorrowerVerificationStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.BorrowerVerificationStatus | Prisma.EnumBorrowerVerificationStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.BorrowerVerificationStatus[] | Prisma.ListEnumBorrowerVerificationStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.BorrowerVerificationStatus[] | Prisma.ListEnumBorrowerVerificationStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumBorrowerVerificationStatusFilter<$PrismaModel> | $Enums.BorrowerVerificationStatus
+}
+
+export type NestedEnumBorrowerRiskAssessmentFilter<$PrismaModel = never> = {
+  equals?: $Enums.BorrowerRiskAssessment | Prisma.EnumBorrowerRiskAssessmentFieldRefInput<$PrismaModel>
+  in?: $Enums.BorrowerRiskAssessment[] | Prisma.ListEnumBorrowerRiskAssessmentFieldRefInput<$PrismaModel>
+  notIn?: $Enums.BorrowerRiskAssessment[] | Prisma.ListEnumBorrowerRiskAssessmentFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumBorrowerRiskAssessmentFilter<$PrismaModel> | $Enums.BorrowerRiskAssessment
+}
+
+export type NestedEnumBorrowerVerificationDecisionFilter<$PrismaModel = never> = {
+  equals?: $Enums.BorrowerVerificationDecision | Prisma.EnumBorrowerVerificationDecisionFieldRefInput<$PrismaModel>
+  in?: $Enums.BorrowerVerificationDecision[] | Prisma.ListEnumBorrowerVerificationDecisionFieldRefInput<$PrismaModel>
+  notIn?: $Enums.BorrowerVerificationDecision[] | Prisma.ListEnumBorrowerVerificationDecisionFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumBorrowerVerificationDecisionFilter<$PrismaModel> | $Enums.BorrowerVerificationDecision
+}
+
+export type NestedEnumBorrowerVerificationStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.BorrowerVerificationStatus | Prisma.EnumBorrowerVerificationStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.BorrowerVerificationStatus[] | Prisma.ListEnumBorrowerVerificationStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.BorrowerVerificationStatus[] | Prisma.ListEnumBorrowerVerificationStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumBorrowerVerificationStatusWithAggregatesFilter<$PrismaModel> | $Enums.BorrowerVerificationStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumBorrowerVerificationStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumBorrowerVerificationStatusFilter<$PrismaModel>
+}
+
+export type NestedEnumBorrowerRiskAssessmentWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.BorrowerRiskAssessment | Prisma.EnumBorrowerRiskAssessmentFieldRefInput<$PrismaModel>
+  in?: $Enums.BorrowerRiskAssessment[] | Prisma.ListEnumBorrowerRiskAssessmentFieldRefInput<$PrismaModel>
+  notIn?: $Enums.BorrowerRiskAssessment[] | Prisma.ListEnumBorrowerRiskAssessmentFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumBorrowerRiskAssessmentWithAggregatesFilter<$PrismaModel> | $Enums.BorrowerRiskAssessment
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumBorrowerRiskAssessmentFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumBorrowerRiskAssessmentFilter<$PrismaModel>
+}
+
+export type NestedEnumBorrowerVerificationDecisionWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.BorrowerVerificationDecision | Prisma.EnumBorrowerVerificationDecisionFieldRefInput<$PrismaModel>
+  in?: $Enums.BorrowerVerificationDecision[] | Prisma.ListEnumBorrowerVerificationDecisionFieldRefInput<$PrismaModel>
+  notIn?: $Enums.BorrowerVerificationDecision[] | Prisma.ListEnumBorrowerVerificationDecisionFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumBorrowerVerificationDecisionWithAggregatesFilter<$PrismaModel> | $Enums.BorrowerVerificationDecision
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumBorrowerVerificationDecisionFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumBorrowerVerificationDecisionFilter<$PrismaModel>
+}
+
+export type NestedEnumBorrowerCheckResultTypeFilter<$PrismaModel = never> = {
+  equals?: $Enums.BorrowerCheckResultType | Prisma.EnumBorrowerCheckResultTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.BorrowerCheckResultType[] | Prisma.ListEnumBorrowerCheckResultTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.BorrowerCheckResultType[] | Prisma.ListEnumBorrowerCheckResultTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumBorrowerCheckResultTypeFilter<$PrismaModel> | $Enums.BorrowerCheckResultType
+}
+
+export type NestedEnumBorrowerCheckExecutionModeFilter<$PrismaModel = never> = {
+  equals?: $Enums.BorrowerCheckExecutionMode | Prisma.EnumBorrowerCheckExecutionModeFieldRefInput<$PrismaModel>
+  in?: $Enums.BorrowerCheckExecutionMode[] | Prisma.ListEnumBorrowerCheckExecutionModeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.BorrowerCheckExecutionMode[] | Prisma.ListEnumBorrowerCheckExecutionModeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumBorrowerCheckExecutionModeFilter<$PrismaModel> | $Enums.BorrowerCheckExecutionMode
+}
+
+export type NestedEnumBorrowerCheckItemStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.BorrowerCheckItemStatus | Prisma.EnumBorrowerCheckItemStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.BorrowerCheckItemStatus[] | Prisma.ListEnumBorrowerCheckItemStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.BorrowerCheckItemStatus[] | Prisma.ListEnumBorrowerCheckItemStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumBorrowerCheckItemStatusFilter<$PrismaModel> | $Enums.BorrowerCheckItemStatus
+}
+
+export type NestedEnumBorrowerCheckResultTypeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.BorrowerCheckResultType | Prisma.EnumBorrowerCheckResultTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.BorrowerCheckResultType[] | Prisma.ListEnumBorrowerCheckResultTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.BorrowerCheckResultType[] | Prisma.ListEnumBorrowerCheckResultTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumBorrowerCheckResultTypeWithAggregatesFilter<$PrismaModel> | $Enums.BorrowerCheckResultType
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumBorrowerCheckResultTypeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumBorrowerCheckResultTypeFilter<$PrismaModel>
+}
+
+export type NestedEnumBorrowerCheckExecutionModeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.BorrowerCheckExecutionMode | Prisma.EnumBorrowerCheckExecutionModeFieldRefInput<$PrismaModel>
+  in?: $Enums.BorrowerCheckExecutionMode[] | Prisma.ListEnumBorrowerCheckExecutionModeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.BorrowerCheckExecutionMode[] | Prisma.ListEnumBorrowerCheckExecutionModeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumBorrowerCheckExecutionModeWithAggregatesFilter<$PrismaModel> | $Enums.BorrowerCheckExecutionMode
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumBorrowerCheckExecutionModeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumBorrowerCheckExecutionModeFilter<$PrismaModel>
+}
+
+export type NestedEnumBorrowerCheckItemStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.BorrowerCheckItemStatus | Prisma.EnumBorrowerCheckItemStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.BorrowerCheckItemStatus[] | Prisma.ListEnumBorrowerCheckItemStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.BorrowerCheckItemStatus[] | Prisma.ListEnumBorrowerCheckItemStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumBorrowerCheckItemStatusWithAggregatesFilter<$PrismaModel> | $Enums.BorrowerCheckItemStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumBorrowerCheckItemStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumBorrowerCheckItemStatusFilter<$PrismaModel>
+}
+
+export type NestedEnumBorrowerCheckRunModeFilter<$PrismaModel = never> = {
+  equals?: $Enums.BorrowerCheckRunMode | Prisma.EnumBorrowerCheckRunModeFieldRefInput<$PrismaModel>
+  in?: $Enums.BorrowerCheckRunMode[] | Prisma.ListEnumBorrowerCheckRunModeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.BorrowerCheckRunMode[] | Prisma.ListEnumBorrowerCheckRunModeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumBorrowerCheckRunModeFilter<$PrismaModel> | $Enums.BorrowerCheckRunMode
+}
+
+export type NestedEnumBorrowerCheckRunStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.BorrowerCheckRunStatus | Prisma.EnumBorrowerCheckRunStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.BorrowerCheckRunStatus[] | Prisma.ListEnumBorrowerCheckRunStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.BorrowerCheckRunStatus[] | Prisma.ListEnumBorrowerCheckRunStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumBorrowerCheckRunStatusFilter<$PrismaModel> | $Enums.BorrowerCheckRunStatus
+}
+
+export type NestedBoolNullableFilter<$PrismaModel = never> = {
+  equals?: boolean | Prisma.BooleanFieldRefInput<$PrismaModel> | null
+  not?: Prisma.NestedBoolNullableFilter<$PrismaModel> | boolean | null
+}
+
+export type NestedEnumBorrowerCheckRunModeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.BorrowerCheckRunMode | Prisma.EnumBorrowerCheckRunModeFieldRefInput<$PrismaModel>
+  in?: $Enums.BorrowerCheckRunMode[] | Prisma.ListEnumBorrowerCheckRunModeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.BorrowerCheckRunMode[] | Prisma.ListEnumBorrowerCheckRunModeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumBorrowerCheckRunModeWithAggregatesFilter<$PrismaModel> | $Enums.BorrowerCheckRunMode
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumBorrowerCheckRunModeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumBorrowerCheckRunModeFilter<$PrismaModel>
+}
+
+export type NestedEnumBorrowerCheckRunStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.BorrowerCheckRunStatus | Prisma.EnumBorrowerCheckRunStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.BorrowerCheckRunStatus[] | Prisma.ListEnumBorrowerCheckRunStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.BorrowerCheckRunStatus[] | Prisma.ListEnumBorrowerCheckRunStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumBorrowerCheckRunStatusWithAggregatesFilter<$PrismaModel> | $Enums.BorrowerCheckRunStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumBorrowerCheckRunStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumBorrowerCheckRunStatusFilter<$PrismaModel>
+}
+
+export type NestedBoolNullableWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: boolean | Prisma.BooleanFieldRefInput<$PrismaModel> | null
+  not?: Prisma.NestedBoolNullableWithAggregatesFilter<$PrismaModel> | boolean | null
+  _count?: Prisma.NestedIntNullableFilter<$PrismaModel>
+  _min?: Prisma.NestedBoolNullableFilter<$PrismaModel>
+  _max?: Prisma.NestedBoolNullableFilter<$PrismaModel>
+}
+
+export type NestedEnumBorrowerFindingTypeFilter<$PrismaModel = never> = {
+  equals?: $Enums.BorrowerFindingType | Prisma.EnumBorrowerFindingTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.BorrowerFindingType[] | Prisma.ListEnumBorrowerFindingTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.BorrowerFindingType[] | Prisma.ListEnumBorrowerFindingTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumBorrowerFindingTypeFilter<$PrismaModel> | $Enums.BorrowerFindingType
+}
+
+export type NestedEnumBorrowerIdentityMatchFilter<$PrismaModel = never> = {
+  equals?: $Enums.BorrowerIdentityMatch | Prisma.EnumBorrowerIdentityMatchFieldRefInput<$PrismaModel>
+  in?: $Enums.BorrowerIdentityMatch[] | Prisma.ListEnumBorrowerIdentityMatchFieldRefInput<$PrismaModel>
+  notIn?: $Enums.BorrowerIdentityMatch[] | Prisma.ListEnumBorrowerIdentityMatchFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumBorrowerIdentityMatchFilter<$PrismaModel> | $Enums.BorrowerIdentityMatch
+}
+
+export type NestedEnumBorrowerFindingTypeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.BorrowerFindingType | Prisma.EnumBorrowerFindingTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.BorrowerFindingType[] | Prisma.ListEnumBorrowerFindingTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.BorrowerFindingType[] | Prisma.ListEnumBorrowerFindingTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumBorrowerFindingTypeWithAggregatesFilter<$PrismaModel> | $Enums.BorrowerFindingType
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumBorrowerFindingTypeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumBorrowerFindingTypeFilter<$PrismaModel>
+}
+
+export type NestedEnumBorrowerIdentityMatchWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.BorrowerIdentityMatch | Prisma.EnumBorrowerIdentityMatchFieldRefInput<$PrismaModel>
+  in?: $Enums.BorrowerIdentityMatch[] | Prisma.ListEnumBorrowerIdentityMatchFieldRefInput<$PrismaModel>
+  notIn?: $Enums.BorrowerIdentityMatch[] | Prisma.ListEnumBorrowerIdentityMatchFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumBorrowerIdentityMatchWithAggregatesFilter<$PrismaModel> | $Enums.BorrowerIdentityMatch
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumBorrowerIdentityMatchFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumBorrowerIdentityMatchFilter<$PrismaModel>
+}
+
+export type NestedEnumBorrowerEvidenceKindFilter<$PrismaModel = never> = {
+  equals?: $Enums.BorrowerEvidenceKind | Prisma.EnumBorrowerEvidenceKindFieldRefInput<$PrismaModel>
+  in?: $Enums.BorrowerEvidenceKind[] | Prisma.ListEnumBorrowerEvidenceKindFieldRefInput<$PrismaModel>
+  notIn?: $Enums.BorrowerEvidenceKind[] | Prisma.ListEnumBorrowerEvidenceKindFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumBorrowerEvidenceKindFilter<$PrismaModel> | $Enums.BorrowerEvidenceKind
+}
+
+export type NestedEnumBorrowerEvidenceAuthenticityFilter<$PrismaModel = never> = {
+  equals?: $Enums.BorrowerEvidenceAuthenticity | Prisma.EnumBorrowerEvidenceAuthenticityFieldRefInput<$PrismaModel>
+  in?: $Enums.BorrowerEvidenceAuthenticity[] | Prisma.ListEnumBorrowerEvidenceAuthenticityFieldRefInput<$PrismaModel>
+  notIn?: $Enums.BorrowerEvidenceAuthenticity[] | Prisma.ListEnumBorrowerEvidenceAuthenticityFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumBorrowerEvidenceAuthenticityFilter<$PrismaModel> | $Enums.BorrowerEvidenceAuthenticity
+}
+
+export type NestedEnumBorrowerOcrStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.BorrowerOcrStatus | Prisma.EnumBorrowerOcrStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.BorrowerOcrStatus[] | Prisma.ListEnumBorrowerOcrStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.BorrowerOcrStatus[] | Prisma.ListEnumBorrowerOcrStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumBorrowerOcrStatusFilter<$PrismaModel> | $Enums.BorrowerOcrStatus
+}
+
+export type NestedEnumBorrowerEvidenceKindWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.BorrowerEvidenceKind | Prisma.EnumBorrowerEvidenceKindFieldRefInput<$PrismaModel>
+  in?: $Enums.BorrowerEvidenceKind[] | Prisma.ListEnumBorrowerEvidenceKindFieldRefInput<$PrismaModel>
+  notIn?: $Enums.BorrowerEvidenceKind[] | Prisma.ListEnumBorrowerEvidenceKindFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumBorrowerEvidenceKindWithAggregatesFilter<$PrismaModel> | $Enums.BorrowerEvidenceKind
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumBorrowerEvidenceKindFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumBorrowerEvidenceKindFilter<$PrismaModel>
+}
+
+export type NestedEnumBorrowerEvidenceAuthenticityWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.BorrowerEvidenceAuthenticity | Prisma.EnumBorrowerEvidenceAuthenticityFieldRefInput<$PrismaModel>
+  in?: $Enums.BorrowerEvidenceAuthenticity[] | Prisma.ListEnumBorrowerEvidenceAuthenticityFieldRefInput<$PrismaModel>
+  notIn?: $Enums.BorrowerEvidenceAuthenticity[] | Prisma.ListEnumBorrowerEvidenceAuthenticityFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumBorrowerEvidenceAuthenticityWithAggregatesFilter<$PrismaModel> | $Enums.BorrowerEvidenceAuthenticity
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumBorrowerEvidenceAuthenticityFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumBorrowerEvidenceAuthenticityFilter<$PrismaModel>
+}
+
+export type NestedEnumBorrowerOcrStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.BorrowerOcrStatus | Prisma.EnumBorrowerOcrStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.BorrowerOcrStatus[] | Prisma.ListEnumBorrowerOcrStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.BorrowerOcrStatus[] | Prisma.ListEnumBorrowerOcrStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumBorrowerOcrStatusWithAggregatesFilter<$PrismaModel> | $Enums.BorrowerOcrStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumBorrowerOcrStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumBorrowerOcrStatusFilter<$PrismaModel>
+}
+
+export type NestedEnumBorrowerRiskSeverityFilter<$PrismaModel = never> = {
+  equals?: $Enums.BorrowerRiskSeverity | Prisma.EnumBorrowerRiskSeverityFieldRefInput<$PrismaModel>
+  in?: $Enums.BorrowerRiskSeverity[] | Prisma.ListEnumBorrowerRiskSeverityFieldRefInput<$PrismaModel>
+  notIn?: $Enums.BorrowerRiskSeverity[] | Prisma.ListEnumBorrowerRiskSeverityFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumBorrowerRiskSeverityFilter<$PrismaModel> | $Enums.BorrowerRiskSeverity
+}
+
+export type NestedEnumBorrowerRiskRemediabilityFilter<$PrismaModel = never> = {
+  equals?: $Enums.BorrowerRiskRemediability | Prisma.EnumBorrowerRiskRemediabilityFieldRefInput<$PrismaModel>
+  in?: $Enums.BorrowerRiskRemediability[] | Prisma.ListEnumBorrowerRiskRemediabilityFieldRefInput<$PrismaModel>
+  notIn?: $Enums.BorrowerRiskRemediability[] | Prisma.ListEnumBorrowerRiskRemediabilityFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumBorrowerRiskRemediabilityFilter<$PrismaModel> | $Enums.BorrowerRiskRemediability
+}
+
+export type NestedEnumBorrowerRiskStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.BorrowerRiskStatus | Prisma.EnumBorrowerRiskStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.BorrowerRiskStatus[] | Prisma.ListEnumBorrowerRiskStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.BorrowerRiskStatus[] | Prisma.ListEnumBorrowerRiskStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumBorrowerRiskStatusFilter<$PrismaModel> | $Enums.BorrowerRiskStatus
+}
+
+export type NestedEnumBorrowerRiskSeverityWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.BorrowerRiskSeverity | Prisma.EnumBorrowerRiskSeverityFieldRefInput<$PrismaModel>
+  in?: $Enums.BorrowerRiskSeverity[] | Prisma.ListEnumBorrowerRiskSeverityFieldRefInput<$PrismaModel>
+  notIn?: $Enums.BorrowerRiskSeverity[] | Prisma.ListEnumBorrowerRiskSeverityFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumBorrowerRiskSeverityWithAggregatesFilter<$PrismaModel> | $Enums.BorrowerRiskSeverity
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumBorrowerRiskSeverityFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumBorrowerRiskSeverityFilter<$PrismaModel>
+}
+
+export type NestedEnumBorrowerRiskRemediabilityWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.BorrowerRiskRemediability | Prisma.EnumBorrowerRiskRemediabilityFieldRefInput<$PrismaModel>
+  in?: $Enums.BorrowerRiskRemediability[] | Prisma.ListEnumBorrowerRiskRemediabilityFieldRefInput<$PrismaModel>
+  notIn?: $Enums.BorrowerRiskRemediability[] | Prisma.ListEnumBorrowerRiskRemediabilityFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumBorrowerRiskRemediabilityWithAggregatesFilter<$PrismaModel> | $Enums.BorrowerRiskRemediability
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumBorrowerRiskRemediabilityFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumBorrowerRiskRemediabilityFilter<$PrismaModel>
+}
+
+export type NestedEnumBorrowerRiskStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.BorrowerRiskStatus | Prisma.EnumBorrowerRiskStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.BorrowerRiskStatus[] | Prisma.ListEnumBorrowerRiskStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.BorrowerRiskStatus[] | Prisma.ListEnumBorrowerRiskStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumBorrowerRiskStatusWithAggregatesFilter<$PrismaModel> | $Enums.BorrowerRiskStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumBorrowerRiskStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumBorrowerRiskStatusFilter<$PrismaModel>
 }
 
 

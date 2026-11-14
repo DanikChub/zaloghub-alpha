@@ -9,4 +9,7 @@ export const routePaths = {
   marketplace: '/marketplace',
   marketplaceDetail: '/marketplace/:id',
   profile: '/profile',
+  borrowerVerifications: '/borrower-verifications',
+  borrowerVerification: (id: string) => `/borrower-verifications/${id}`,
+  borrowerVerificationDetail: '/borrower-verifications/:id',
 } as const

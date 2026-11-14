@@ -1,3 +1,4 @@
+import { BorrowerVerificationsModule } from './borrower-verifications/borrower-verifications.module.js';
 import { MarketplaceModule } from './marketplace/marketplace.module.js';
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
@@ -18,6 +19,7 @@ import { DealsModule } from './deals/deals.module.js';
     FinanceModule,
     DealsModule,
     MarketplaceModule,
+    BorrowerVerificationsModule,
   ],
   controllers: [AppController],
   providers: [AppService],

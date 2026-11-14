@@ -377,6 +377,7 @@ export type DealWhereInput = {
   financeInstructions?: Prisma.FinanceInstructionListRelationFilter
   contracts?: Prisma.ContractListRelationFilter
   financeJournalVersions?: Prisma.DealFinanceJournalVersionListRelationFilter
+  borrowerVerifications?: Prisma.BorrowerVerificationListRelationFilter
 }
 
 export type DealOrderByWithRelationInput = {
@@ -410,6 +411,7 @@ export type DealOrderByWithRelationInput = {
   financeInstructions?: Prisma.FinanceInstructionOrderByRelationAggregateInput
   contracts?: Prisma.ContractOrderByRelationAggregateInput
   financeJournalVersions?: Prisma.DealFinanceJournalVersionOrderByRelationAggregateInput
+  borrowerVerifications?: Prisma.BorrowerVerificationOrderByRelationAggregateInput
 }
 
 export type DealWhereUniqueInput = Prisma.AtLeast<{
@@ -447,6 +449,7 @@ export type DealWhereUniqueInput = Prisma.AtLeast<{
   financeInstructions?: Prisma.FinanceInstructionListRelationFilter
   contracts?: Prisma.ContractListRelationFilter
   financeJournalVersions?: Prisma.DealFinanceJournalVersionListRelationFilter
+  borrowerVerifications?: Prisma.BorrowerVerificationListRelationFilter
 }, "id" | "id_workspaceId">
 
 export type DealOrderByWithAggregationInput = {
@@ -532,6 +535,7 @@ export type DealCreateInput = {
   financeInstructions?: Prisma.FinanceInstructionCreateNestedManyWithoutDealInput
   contracts?: Prisma.ContractCreateNestedManyWithoutDealInput
   financeJournalVersions?: Prisma.DealFinanceJournalVersionCreateNestedManyWithoutDealInput
+  borrowerVerifications?: Prisma.BorrowerVerificationCreateNestedManyWithoutDealInput
 }
 
 export type DealUncheckedCreateInput = {
@@ -561,6 +565,7 @@ export type DealUncheckedCreateInput = {
   financeInstructions?: Prisma.FinanceInstructionUncheckedCreateNestedManyWithoutDealInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutDealInput
   financeJournalVersions?: Prisma.DealFinanceJournalVersionUncheckedCreateNestedManyWithoutDealInput
+  borrowerVerifications?: Prisma.BorrowerVerificationUncheckedCreateNestedManyWithoutDealInput
 }
 
 export type DealUpdateInput = {
@@ -590,6 +595,7 @@ export type DealUpdateInput = {
   financeInstructions?: Prisma.FinanceInstructionUpdateManyWithoutDealNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutDealNestedInput
   financeJournalVersions?: Prisma.DealFinanceJournalVersionUpdateManyWithoutDealNestedInput
+  borrowerVerifications?: Prisma.BorrowerVerificationUpdateManyWithoutDealNestedInput
 }
 
 export type DealUncheckedUpdateInput = {
@@ -619,6 +625,7 @@ export type DealUncheckedUpdateInput = {
   financeInstructions?: Prisma.FinanceInstructionUncheckedUpdateManyWithoutDealNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutDealNestedInput
   financeJournalVersions?: Prisma.DealFinanceJournalVersionUncheckedUpdateManyWithoutDealNestedInput
+  borrowerVerifications?: Prisma.BorrowerVerificationUncheckedUpdateManyWithoutDealNestedInput
 }
 
 export type DealCreateManyInput = {
@@ -799,6 +806,11 @@ export type DealSumOrderByAggregateInput = {
 export type DealScalarRelationFilter = {
   is?: Prisma.DealWhereInput
   isNot?: Prisma.DealWhereInput
+}
+
+export type DealNullableScalarRelationFilter = {
+  is?: Prisma.DealWhereInput | null
+  isNot?: Prisma.DealWhereInput | null
 }
 
 export type DealCreateNestedManyWithoutUserInput = {
@@ -1051,6 +1063,22 @@ export type DealUpdateOneRequiredWithoutFinanceJournalVersionsNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.DealUpdateToOneWithWhereWithoutFinanceJournalVersionsInput, Prisma.DealUpdateWithoutFinanceJournalVersionsInput>, Prisma.DealUncheckedUpdateWithoutFinanceJournalVersionsInput>
 }
 
+export type DealCreateNestedOneWithoutBorrowerVerificationsInput = {
+  create?: Prisma.XOR<Prisma.DealCreateWithoutBorrowerVerificationsInput, Prisma.DealUncheckedCreateWithoutBorrowerVerificationsInput>
+  connectOrCreate?: Prisma.DealCreateOrConnectWithoutBorrowerVerificationsInput
+  connect?: Prisma.DealWhereUniqueInput
+}
+
+export type DealUpdateOneWithoutBorrowerVerificationsNestedInput = {
+  create?: Prisma.XOR<Prisma.DealCreateWithoutBorrowerVerificationsInput, Prisma.DealUncheckedCreateWithoutBorrowerVerificationsInput>
+  connectOrCreate?: Prisma.DealCreateOrConnectWithoutBorrowerVerificationsInput
+  upsert?: Prisma.DealUpsertWithoutBorrowerVerificationsInput
+  disconnect?: Prisma.DealWhereInput | boolean
+  delete?: Prisma.DealWhereInput | boolean
+  connect?: Prisma.DealWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.DealUpdateToOneWithWhereWithoutBorrowerVerificationsInput, Prisma.DealUpdateWithoutBorrowerVerificationsInput>, Prisma.DealUncheckedUpdateWithoutBorrowerVerificationsInput>
+}
+
 export type DealCreateWithoutUserInput = {
   id?: string
   contractNumber?: string | null
@@ -1077,6 +1105,7 @@ export type DealCreateWithoutUserInput = {
   financeInstructions?: Prisma.FinanceInstructionCreateNestedManyWithoutDealInput
   contracts?: Prisma.ContractCreateNestedManyWithoutDealInput
   financeJournalVersions?: Prisma.DealFinanceJournalVersionCreateNestedManyWithoutDealInput
+  borrowerVerifications?: Prisma.BorrowerVerificationCreateNestedManyWithoutDealInput
 }
 
 export type DealUncheckedCreateWithoutUserInput = {
@@ -1105,6 +1134,7 @@ export type DealUncheckedCreateWithoutUserInput = {
   financeInstructions?: Prisma.FinanceInstructionUncheckedCreateNestedManyWithoutDealInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutDealInput
   financeJournalVersions?: Prisma.DealFinanceJournalVersionUncheckedCreateNestedManyWithoutDealInput
+  borrowerVerifications?: Prisma.BorrowerVerificationUncheckedCreateNestedManyWithoutDealInput
 }
 
 export type DealCreateOrConnectWithoutUserInput = {
@@ -1186,6 +1216,7 @@ export type DealCreateWithoutBorrowerInput = {
   financeInstructions?: Prisma.FinanceInstructionCreateNestedManyWithoutDealInput
   contracts?: Prisma.ContractCreateNestedManyWithoutDealInput
   financeJournalVersions?: Prisma.DealFinanceJournalVersionCreateNestedManyWithoutDealInput
+  borrowerVerifications?: Prisma.BorrowerVerificationCreateNestedManyWithoutDealInput
 }
 
 export type DealUncheckedCreateWithoutBorrowerInput = {
@@ -1214,6 +1245,7 @@ export type DealUncheckedCreateWithoutBorrowerInput = {
   financeInstructions?: Prisma.FinanceInstructionUncheckedCreateNestedManyWithoutDealInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutDealInput
   financeJournalVersions?: Prisma.DealFinanceJournalVersionUncheckedCreateNestedManyWithoutDealInput
+  borrowerVerifications?: Prisma.BorrowerVerificationUncheckedCreateNestedManyWithoutDealInput
 }
 
 export type DealCreateOrConnectWithoutBorrowerInput = {
@@ -1268,6 +1300,7 @@ export type DealCreateWithoutCollateralInput = {
   financeInstructions?: Prisma.FinanceInstructionCreateNestedManyWithoutDealInput
   contracts?: Prisma.ContractCreateNestedManyWithoutDealInput
   financeJournalVersions?: Prisma.DealFinanceJournalVersionCreateNestedManyWithoutDealInput
+  borrowerVerifications?: Prisma.BorrowerVerificationCreateNestedManyWithoutDealInput
 }
 
 export type DealUncheckedCreateWithoutCollateralInput = {
@@ -1296,6 +1329,7 @@ export type DealUncheckedCreateWithoutCollateralInput = {
   financeInstructions?: Prisma.FinanceInstructionUncheckedCreateNestedManyWithoutDealInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutDealInput
   financeJournalVersions?: Prisma.DealFinanceJournalVersionUncheckedCreateNestedManyWithoutDealInput
+  borrowerVerifications?: Prisma.BorrowerVerificationUncheckedCreateNestedManyWithoutDealInput
 }
 
 export type DealCreateOrConnectWithoutCollateralInput = {
@@ -1350,6 +1384,7 @@ export type DealCreateWithoutDisbursementsInput = {
   financeInstructions?: Prisma.FinanceInstructionCreateNestedManyWithoutDealInput
   contracts?: Prisma.ContractCreateNestedManyWithoutDealInput
   financeJournalVersions?: Prisma.DealFinanceJournalVersionCreateNestedManyWithoutDealInput
+  borrowerVerifications?: Prisma.BorrowerVerificationCreateNestedManyWithoutDealInput
 }
 
 export type DealUncheckedCreateWithoutDisbursementsInput = {
@@ -1378,6 +1413,7 @@ export type DealUncheckedCreateWithoutDisbursementsInput = {
   financeInstructions?: Prisma.FinanceInstructionUncheckedCreateNestedManyWithoutDealInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutDealInput
   financeJournalVersions?: Prisma.DealFinanceJournalVersionUncheckedCreateNestedManyWithoutDealInput
+  borrowerVerifications?: Prisma.BorrowerVerificationUncheckedCreateNestedManyWithoutDealInput
 }
 
 export type DealCreateOrConnectWithoutDisbursementsInput = {
@@ -1422,6 +1458,7 @@ export type DealUpdateWithoutDisbursementsInput = {
   financeInstructions?: Prisma.FinanceInstructionUpdateManyWithoutDealNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutDealNestedInput
   financeJournalVersions?: Prisma.DealFinanceJournalVersionUpdateManyWithoutDealNestedInput
+  borrowerVerifications?: Prisma.BorrowerVerificationUpdateManyWithoutDealNestedInput
 }
 
 export type DealUncheckedUpdateWithoutDisbursementsInput = {
@@ -1450,6 +1487,7 @@ export type DealUncheckedUpdateWithoutDisbursementsInput = {
   financeInstructions?: Prisma.FinanceInstructionUncheckedUpdateManyWithoutDealNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutDealNestedInput
   financeJournalVersions?: Prisma.DealFinanceJournalVersionUncheckedUpdateManyWithoutDealNestedInput
+  borrowerVerifications?: Prisma.BorrowerVerificationUncheckedUpdateManyWithoutDealNestedInput
 }
 
 export type DealCreateWithoutPaymentsInput = {
@@ -1478,6 +1516,7 @@ export type DealCreateWithoutPaymentsInput = {
   financeInstructions?: Prisma.FinanceInstructionCreateNestedManyWithoutDealInput
   contracts?: Prisma.ContractCreateNestedManyWithoutDealInput
   financeJournalVersions?: Prisma.DealFinanceJournalVersionCreateNestedManyWithoutDealInput
+  borrowerVerifications?: Prisma.BorrowerVerificationCreateNestedManyWithoutDealInput
 }
 
 export type DealUncheckedCreateWithoutPaymentsInput = {
@@ -1506,6 +1545,7 @@ export type DealUncheckedCreateWithoutPaymentsInput = {
   financeInstructions?: Prisma.FinanceInstructionUncheckedCreateNestedManyWithoutDealInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutDealInput
   financeJournalVersions?: Prisma.DealFinanceJournalVersionUncheckedCreateNestedManyWithoutDealInput
+  borrowerVerifications?: Prisma.BorrowerVerificationUncheckedCreateNestedManyWithoutDealInput
 }
 
 export type DealCreateOrConnectWithoutPaymentsInput = {
@@ -1550,6 +1590,7 @@ export type DealUpdateWithoutPaymentsInput = {
   financeInstructions?: Prisma.FinanceInstructionUpdateManyWithoutDealNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutDealNestedInput
   financeJournalVersions?: Prisma.DealFinanceJournalVersionUpdateManyWithoutDealNestedInput
+  borrowerVerifications?: Prisma.BorrowerVerificationUpdateManyWithoutDealNestedInput
 }
 
 export type DealUncheckedUpdateWithoutPaymentsInput = {
@@ -1578,6 +1619,7 @@ export type DealUncheckedUpdateWithoutPaymentsInput = {
   financeInstructions?: Prisma.FinanceInstructionUncheckedUpdateManyWithoutDealNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutDealNestedInput
   financeJournalVersions?: Prisma.DealFinanceJournalVersionUncheckedUpdateManyWithoutDealNestedInput
+  borrowerVerifications?: Prisma.BorrowerVerificationUncheckedUpdateManyWithoutDealNestedInput
 }
 
 export type DealCreateWithoutFinanceInstructionsInput = {
@@ -1606,6 +1648,7 @@ export type DealCreateWithoutFinanceInstructionsInput = {
   payments?: Prisma.PaymentCreateNestedManyWithoutDealInput
   contracts?: Prisma.ContractCreateNestedManyWithoutDealInput
   financeJournalVersions?: Prisma.DealFinanceJournalVersionCreateNestedManyWithoutDealInput
+  borrowerVerifications?: Prisma.BorrowerVerificationCreateNestedManyWithoutDealInput
 }
 
 export type DealUncheckedCreateWithoutFinanceInstructionsInput = {
@@ -1634,6 +1677,7 @@ export type DealUncheckedCreateWithoutFinanceInstructionsInput = {
   payments?: Prisma.PaymentUncheckedCreateNestedManyWithoutDealInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutDealInput
   financeJournalVersions?: Prisma.DealFinanceJournalVersionUncheckedCreateNestedManyWithoutDealInput
+  borrowerVerifications?: Prisma.BorrowerVerificationUncheckedCreateNestedManyWithoutDealInput
 }
 
 export type DealCreateOrConnectWithoutFinanceInstructionsInput = {
@@ -1678,6 +1722,7 @@ export type DealUpdateWithoutFinanceInstructionsInput = {
   payments?: Prisma.PaymentUpdateManyWithoutDealNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutDealNestedInput
   financeJournalVersions?: Prisma.DealFinanceJournalVersionUpdateManyWithoutDealNestedInput
+  borrowerVerifications?: Prisma.BorrowerVerificationUpdateManyWithoutDealNestedInput
 }
 
 export type DealUncheckedUpdateWithoutFinanceInstructionsInput = {
@@ -1706,6 +1751,7 @@ export type DealUncheckedUpdateWithoutFinanceInstructionsInput = {
   payments?: Prisma.PaymentUncheckedUpdateManyWithoutDealNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutDealNestedInput
   financeJournalVersions?: Prisma.DealFinanceJournalVersionUncheckedUpdateManyWithoutDealNestedInput
+  borrowerVerifications?: Prisma.BorrowerVerificationUncheckedUpdateManyWithoutDealNestedInput
 }
 
 export type DealCreateWithoutWorkspaceInput = {
@@ -1734,6 +1780,7 @@ export type DealCreateWithoutWorkspaceInput = {
   financeInstructions?: Prisma.FinanceInstructionCreateNestedManyWithoutDealInput
   contracts?: Prisma.ContractCreateNestedManyWithoutDealInput
   financeJournalVersions?: Prisma.DealFinanceJournalVersionCreateNestedManyWithoutDealInput
+  borrowerVerifications?: Prisma.BorrowerVerificationCreateNestedManyWithoutDealInput
 }
 
 export type DealUncheckedCreateWithoutWorkspaceInput = {
@@ -1762,6 +1809,7 @@ export type DealUncheckedCreateWithoutWorkspaceInput = {
   financeInstructions?: Prisma.FinanceInstructionUncheckedCreateNestedManyWithoutDealInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutDealInput
   financeJournalVersions?: Prisma.DealFinanceJournalVersionUncheckedCreateNestedManyWithoutDealInput
+  borrowerVerifications?: Prisma.BorrowerVerificationUncheckedCreateNestedManyWithoutDealInput
 }
 
 export type DealCreateOrConnectWithoutWorkspaceInput = {
@@ -1816,6 +1864,7 @@ export type DealCreateWithoutContractsInput = {
   payments?: Prisma.PaymentCreateNestedManyWithoutDealInput
   financeInstructions?: Prisma.FinanceInstructionCreateNestedManyWithoutDealInput
   financeJournalVersions?: Prisma.DealFinanceJournalVersionCreateNestedManyWithoutDealInput
+  borrowerVerifications?: Prisma.BorrowerVerificationCreateNestedManyWithoutDealInput
 }
 
 export type DealUncheckedCreateWithoutContractsInput = {
@@ -1844,6 +1893,7 @@ export type DealUncheckedCreateWithoutContractsInput = {
   payments?: Prisma.PaymentUncheckedCreateNestedManyWithoutDealInput
   financeInstructions?: Prisma.FinanceInstructionUncheckedCreateNestedManyWithoutDealInput
   financeJournalVersions?: Prisma.DealFinanceJournalVersionUncheckedCreateNestedManyWithoutDealInput
+  borrowerVerifications?: Prisma.BorrowerVerificationUncheckedCreateNestedManyWithoutDealInput
 }
 
 export type DealCreateOrConnectWithoutContractsInput = {
@@ -1888,6 +1938,7 @@ export type DealUpdateWithoutContractsInput = {
   payments?: Prisma.PaymentUpdateManyWithoutDealNestedInput
   financeInstructions?: Prisma.FinanceInstructionUpdateManyWithoutDealNestedInput
   financeJournalVersions?: Prisma.DealFinanceJournalVersionUpdateManyWithoutDealNestedInput
+  borrowerVerifications?: Prisma.BorrowerVerificationUpdateManyWithoutDealNestedInput
 }
 
 export type DealUncheckedUpdateWithoutContractsInput = {
@@ -1916,6 +1967,7 @@ export type DealUncheckedUpdateWithoutContractsInput = {
   payments?: Prisma.PaymentUncheckedUpdateManyWithoutDealNestedInput
   financeInstructions?: Prisma.FinanceInstructionUncheckedUpdateManyWithoutDealNestedInput
   financeJournalVersions?: Prisma.DealFinanceJournalVersionUncheckedUpdateManyWithoutDealNestedInput
+  borrowerVerifications?: Prisma.BorrowerVerificationUncheckedUpdateManyWithoutDealNestedInput
 }
 
 export type DealCreateWithoutFinanceJournalVersionsInput = {
@@ -1944,6 +1996,7 @@ export type DealCreateWithoutFinanceJournalVersionsInput = {
   payments?: Prisma.PaymentCreateNestedManyWithoutDealInput
   financeInstructions?: Prisma.FinanceInstructionCreateNestedManyWithoutDealInput
   contracts?: Prisma.ContractCreateNestedManyWithoutDealInput
+  borrowerVerifications?: Prisma.BorrowerVerificationCreateNestedManyWithoutDealInput
 }
 
 export type DealUncheckedCreateWithoutFinanceJournalVersionsInput = {
@@ -1972,6 +2025,7 @@ export type DealUncheckedCreateWithoutFinanceJournalVersionsInput = {
   payments?: Prisma.PaymentUncheckedCreateNestedManyWithoutDealInput
   financeInstructions?: Prisma.FinanceInstructionUncheckedCreateNestedManyWithoutDealInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutDealInput
+  borrowerVerifications?: Prisma.BorrowerVerificationUncheckedCreateNestedManyWithoutDealInput
 }
 
 export type DealCreateOrConnectWithoutFinanceJournalVersionsInput = {
@@ -2016,6 +2070,7 @@ export type DealUpdateWithoutFinanceJournalVersionsInput = {
   payments?: Prisma.PaymentUpdateManyWithoutDealNestedInput
   financeInstructions?: Prisma.FinanceInstructionUpdateManyWithoutDealNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutDealNestedInput
+  borrowerVerifications?: Prisma.BorrowerVerificationUpdateManyWithoutDealNestedInput
 }
 
 export type DealUncheckedUpdateWithoutFinanceJournalVersionsInput = {
@@ -2044,6 +2099,139 @@ export type DealUncheckedUpdateWithoutFinanceJournalVersionsInput = {
   payments?: Prisma.PaymentUncheckedUpdateManyWithoutDealNestedInput
   financeInstructions?: Prisma.FinanceInstructionUncheckedUpdateManyWithoutDealNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutDealNestedInput
+  borrowerVerifications?: Prisma.BorrowerVerificationUncheckedUpdateManyWithoutDealNestedInput
+}
+
+export type DealCreateWithoutBorrowerVerificationsInput = {
+  id?: string
+  contractNumber?: string | null
+  signedAt?: Date | string | null
+  contractCity?: string | null
+  principalAmount: runtime.Decimal | runtime.DecimalJsLike | number | string
+  preferentialRate: runtime.Decimal | runtime.DecimalJsLike | number | string
+  standardRate: runtime.Decimal | runtime.DecimalJsLike | number | string
+  moratoriumMonths: number
+  termMonths: number
+  penaltyRate: runtime.Decimal | runtime.DecimalJsLike | number | string
+  increasedPenaltyRate: runtime.Decimal | runtime.DecimalJsLike | number | string
+  paymentDay: number
+  financeTerms?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  status?: $Enums.DealStatus
+  deletedAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  workspace?: Prisma.WorkspaceCreateNestedOneWithoutLegacyDealsInput
+  user: Prisma.UserCreateNestedOneWithoutDealsInput
+  borrower?: Prisma.BorrowerCreateNestedOneWithoutDealsInput
+  collateral?: Prisma.CollateralCreateNestedOneWithoutDealsInput
+  disbursements?: Prisma.DisbursementCreateNestedManyWithoutDealInput
+  payments?: Prisma.PaymentCreateNestedManyWithoutDealInput
+  financeInstructions?: Prisma.FinanceInstructionCreateNestedManyWithoutDealInput
+  contracts?: Prisma.ContractCreateNestedManyWithoutDealInput
+  financeJournalVersions?: Prisma.DealFinanceJournalVersionCreateNestedManyWithoutDealInput
+}
+
+export type DealUncheckedCreateWithoutBorrowerVerificationsInput = {
+  id?: string
+  workspaceId?: string | null
+  userId: string
+  borrowerId?: string | null
+  collateralId?: string | null
+  contractNumber?: string | null
+  signedAt?: Date | string | null
+  contractCity?: string | null
+  principalAmount: runtime.Decimal | runtime.DecimalJsLike | number | string
+  preferentialRate: runtime.Decimal | runtime.DecimalJsLike | number | string
+  standardRate: runtime.Decimal | runtime.DecimalJsLike | number | string
+  moratoriumMonths: number
+  termMonths: number
+  penaltyRate: runtime.Decimal | runtime.DecimalJsLike | number | string
+  increasedPenaltyRate: runtime.Decimal | runtime.DecimalJsLike | number | string
+  paymentDay: number
+  financeTerms?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  status?: $Enums.DealStatus
+  deletedAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  disbursements?: Prisma.DisbursementUncheckedCreateNestedManyWithoutDealInput
+  payments?: Prisma.PaymentUncheckedCreateNestedManyWithoutDealInput
+  financeInstructions?: Prisma.FinanceInstructionUncheckedCreateNestedManyWithoutDealInput
+  contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutDealInput
+  financeJournalVersions?: Prisma.DealFinanceJournalVersionUncheckedCreateNestedManyWithoutDealInput
+}
+
+export type DealCreateOrConnectWithoutBorrowerVerificationsInput = {
+  where: Prisma.DealWhereUniqueInput
+  create: Prisma.XOR<Prisma.DealCreateWithoutBorrowerVerificationsInput, Prisma.DealUncheckedCreateWithoutBorrowerVerificationsInput>
+}
+
+export type DealUpsertWithoutBorrowerVerificationsInput = {
+  update: Prisma.XOR<Prisma.DealUpdateWithoutBorrowerVerificationsInput, Prisma.DealUncheckedUpdateWithoutBorrowerVerificationsInput>
+  create: Prisma.XOR<Prisma.DealCreateWithoutBorrowerVerificationsInput, Prisma.DealUncheckedCreateWithoutBorrowerVerificationsInput>
+  where?: Prisma.DealWhereInput
+}
+
+export type DealUpdateToOneWithWhereWithoutBorrowerVerificationsInput = {
+  where?: Prisma.DealWhereInput
+  data: Prisma.XOR<Prisma.DealUpdateWithoutBorrowerVerificationsInput, Prisma.DealUncheckedUpdateWithoutBorrowerVerificationsInput>
+}
+
+export type DealUpdateWithoutBorrowerVerificationsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  contractNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  signedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  contractCity?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  principalAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  preferentialRate?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  standardRate?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  moratoriumMonths?: Prisma.IntFieldUpdateOperationsInput | number
+  termMonths?: Prisma.IntFieldUpdateOperationsInput | number
+  penaltyRate?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  increasedPenaltyRate?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  paymentDay?: Prisma.IntFieldUpdateOperationsInput | number
+  financeTerms?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  status?: Prisma.EnumDealStatusFieldUpdateOperationsInput | $Enums.DealStatus
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  workspace?: Prisma.WorkspaceUpdateOneWithoutLegacyDealsNestedInput
+  user?: Prisma.UserUpdateOneRequiredWithoutDealsNestedInput
+  borrower?: Prisma.BorrowerUpdateOneWithoutDealsNestedInput
+  collateral?: Prisma.CollateralUpdateOneWithoutDealsNestedInput
+  disbursements?: Prisma.DisbursementUpdateManyWithoutDealNestedInput
+  payments?: Prisma.PaymentUpdateManyWithoutDealNestedInput
+  financeInstructions?: Prisma.FinanceInstructionUpdateManyWithoutDealNestedInput
+  contracts?: Prisma.ContractUpdateManyWithoutDealNestedInput
+  financeJournalVersions?: Prisma.DealFinanceJournalVersionUpdateManyWithoutDealNestedInput
+}
+
+export type DealUncheckedUpdateWithoutBorrowerVerificationsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  workspaceId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  userId?: Prisma.StringFieldUpdateOperationsInput | string
+  borrowerId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  collateralId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  contractNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  signedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  contractCity?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  principalAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  preferentialRate?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  standardRate?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  moratoriumMonths?: Prisma.IntFieldUpdateOperationsInput | number
+  termMonths?: Prisma.IntFieldUpdateOperationsInput | number
+  penaltyRate?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  increasedPenaltyRate?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  paymentDay?: Prisma.IntFieldUpdateOperationsInput | number
+  financeTerms?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  status?: Prisma.EnumDealStatusFieldUpdateOperationsInput | $Enums.DealStatus
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  disbursements?: Prisma.DisbursementUncheckedUpdateManyWithoutDealNestedInput
+  payments?: Prisma.PaymentUncheckedUpdateManyWithoutDealNestedInput
+  financeInstructions?: Prisma.FinanceInstructionUncheckedUpdateManyWithoutDealNestedInput
+  contracts?: Prisma.ContractUncheckedUpdateManyWithoutDealNestedInput
+  financeJournalVersions?: Prisma.DealFinanceJournalVersionUncheckedUpdateManyWithoutDealNestedInput
 }
 
 export type DealCreateManyUserInput = {
@@ -2095,6 +2283,7 @@ export type DealUpdateWithoutUserInput = {
   financeInstructions?: Prisma.FinanceInstructionUpdateManyWithoutDealNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutDealNestedInput
   financeJournalVersions?: Prisma.DealFinanceJournalVersionUpdateManyWithoutDealNestedInput
+  borrowerVerifications?: Prisma.BorrowerVerificationUpdateManyWithoutDealNestedInput
 }
 
 export type DealUncheckedUpdateWithoutUserInput = {
@@ -2123,6 +2312,7 @@ export type DealUncheckedUpdateWithoutUserInput = {
   financeInstructions?: Prisma.FinanceInstructionUncheckedUpdateManyWithoutDealNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutDealNestedInput
   financeJournalVersions?: Prisma.DealFinanceJournalVersionUncheckedUpdateManyWithoutDealNestedInput
+  borrowerVerifications?: Prisma.BorrowerVerificationUncheckedUpdateManyWithoutDealNestedInput
 }
 
 export type DealUncheckedUpdateManyWithoutUserInput = {
@@ -2197,6 +2387,7 @@ export type DealUpdateWithoutBorrowerInput = {
   financeInstructions?: Prisma.FinanceInstructionUpdateManyWithoutDealNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutDealNestedInput
   financeJournalVersions?: Prisma.DealFinanceJournalVersionUpdateManyWithoutDealNestedInput
+  borrowerVerifications?: Prisma.BorrowerVerificationUpdateManyWithoutDealNestedInput
 }
 
 export type DealUncheckedUpdateWithoutBorrowerInput = {
@@ -2225,6 +2416,7 @@ export type DealUncheckedUpdateWithoutBorrowerInput = {
   financeInstructions?: Prisma.FinanceInstructionUncheckedUpdateManyWithoutDealNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutDealNestedInput
   financeJournalVersions?: Prisma.DealFinanceJournalVersionUncheckedUpdateManyWithoutDealNestedInput
+  borrowerVerifications?: Prisma.BorrowerVerificationUncheckedUpdateManyWithoutDealNestedInput
 }
 
 export type DealUncheckedUpdateManyWithoutBorrowerInput = {
@@ -2299,6 +2491,7 @@ export type DealUpdateWithoutCollateralInput = {
   financeInstructions?: Prisma.FinanceInstructionUpdateManyWithoutDealNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutDealNestedInput
   financeJournalVersions?: Prisma.DealFinanceJournalVersionUpdateManyWithoutDealNestedInput
+  borrowerVerifications?: Prisma.BorrowerVerificationUpdateManyWithoutDealNestedInput
 }
 
 export type DealUncheckedUpdateWithoutCollateralInput = {
@@ -2327,6 +2520,7 @@ export type DealUncheckedUpdateWithoutCollateralInput = {
   financeInstructions?: Prisma.FinanceInstructionUncheckedUpdateManyWithoutDealNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutDealNestedInput
   financeJournalVersions?: Prisma.DealFinanceJournalVersionUncheckedUpdateManyWithoutDealNestedInput
+  borrowerVerifications?: Prisma.BorrowerVerificationUncheckedUpdateManyWithoutDealNestedInput
 }
 
 export type DealUncheckedUpdateManyWithoutCollateralInput = {
@@ -2401,6 +2595,7 @@ export type DealUpdateWithoutWorkspaceInput = {
   financeInstructions?: Prisma.FinanceInstructionUpdateManyWithoutDealNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutDealNestedInput
   financeJournalVersions?: Prisma.DealFinanceJournalVersionUpdateManyWithoutDealNestedInput
+  borrowerVerifications?: Prisma.BorrowerVerificationUpdateManyWithoutDealNestedInput
 }
 
 export type DealUncheckedUpdateWithoutWorkspaceInput = {
@@ -2429,6 +2624,7 @@ export type DealUncheckedUpdateWithoutWorkspaceInput = {
   financeInstructions?: Prisma.FinanceInstructionUncheckedUpdateManyWithoutDealNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutDealNestedInput
   financeJournalVersions?: Prisma.DealFinanceJournalVersionUncheckedUpdateManyWithoutDealNestedInput
+  borrowerVerifications?: Prisma.BorrowerVerificationUncheckedUpdateManyWithoutDealNestedInput
 }
 
 export type DealUncheckedUpdateManyWithoutWorkspaceInput = {
@@ -2465,6 +2661,7 @@ export type DealCountOutputType = {
   financeInstructions: number
   contracts: number
   financeJournalVersions: number
+  borrowerVerifications: number
 }
 
 export type DealCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -2473,6 +2670,7 @@ export type DealCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.I
   financeInstructions?: boolean | DealCountOutputTypeCountFinanceInstructionsArgs
   contracts?: boolean | DealCountOutputTypeCountContractsArgs
   financeJournalVersions?: boolean | DealCountOutputTypeCountFinanceJournalVersionsArgs
+  borrowerVerifications?: boolean | DealCountOutputTypeCountBorrowerVerificationsArgs
 }
 
 /**
@@ -2520,6 +2718,13 @@ export type DealCountOutputTypeCountFinanceJournalVersionsArgs<ExtArgs extends r
   where?: Prisma.DealFinanceJournalVersionWhereInput
 }
 
+/**
+ * DealCountOutputType without action
+ */
+export type DealCountOutputTypeCountBorrowerVerificationsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.BorrowerVerificationWhereInput
+}
+
 
 export type DealSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -2552,6 +2757,7 @@ export type DealSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
   financeInstructions?: boolean | Prisma.Deal$financeInstructionsArgs<ExtArgs>
   contracts?: boolean | Prisma.Deal$contractsArgs<ExtArgs>
   financeJournalVersions?: boolean | Prisma.Deal$financeJournalVersionsArgs<ExtArgs>
+  borrowerVerifications?: boolean | Prisma.Deal$borrowerVerificationsArgs<ExtArgs>
   _count?: boolean | Prisma.DealCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["deal"]>
 
@@ -2646,6 +2852,7 @@ export type DealInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = 
   financeInstructions?: boolean | Prisma.Deal$financeInstructionsArgs<ExtArgs>
   contracts?: boolean | Prisma.Deal$contractsArgs<ExtArgs>
   financeJournalVersions?: boolean | Prisma.Deal$financeJournalVersionsArgs<ExtArgs>
+  borrowerVerifications?: boolean | Prisma.Deal$borrowerVerificationsArgs<ExtArgs>
   _count?: boolean | Prisma.DealCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type DealIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -2673,6 +2880,7 @@ export type $DealPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
     financeInstructions: Prisma.$FinanceInstructionPayload<ExtArgs>[]
     contracts: Prisma.$ContractPayload<ExtArgs>[]
     financeJournalVersions: Prisma.$DealFinanceJournalVersionPayload<ExtArgs>[]
+    borrowerVerifications: Prisma.$BorrowerVerificationPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -3102,6 +3310,7 @@ export interface Prisma__DealClient<T, Null = never, ExtArgs extends runtime.Typ
   financeInstructions<T extends Prisma.Deal$financeInstructionsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Deal$financeInstructionsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$FinanceInstructionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   contracts<T extends Prisma.Deal$contractsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Deal$contractsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ContractPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   financeJournalVersions<T extends Prisma.Deal$financeJournalVersionsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Deal$financeJournalVersionsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$DealFinanceJournalVersionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  borrowerVerifications<T extends Prisma.Deal$borrowerVerificationsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Deal$borrowerVerificationsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$BorrowerVerificationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -3727,6 +3936,30 @@ export type Deal$financeJournalVersionsArgs<ExtArgs extends runtime.Types.Extens
   take?: number
   skip?: number
   distinct?: Prisma.DealFinanceJournalVersionScalarFieldEnum | Prisma.DealFinanceJournalVersionScalarFieldEnum[]
+}
+
+/**
+ * Deal.borrowerVerifications
+ */
+export type Deal$borrowerVerificationsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the BorrowerVerification
+   */
+  select?: Prisma.BorrowerVerificationSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the BorrowerVerification
+   */
+  omit?: Prisma.BorrowerVerificationOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.BorrowerVerificationInclude<ExtArgs> | null
+  where?: Prisma.BorrowerVerificationWhereInput
+  orderBy?: Prisma.BorrowerVerificationOrderByWithRelationInput | Prisma.BorrowerVerificationOrderByWithRelationInput[]
+  cursor?: Prisma.BorrowerVerificationWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.BorrowerVerificationScalarFieldEnum | Prisma.BorrowerVerificationScalarFieldEnum[]
 }
 
 /**

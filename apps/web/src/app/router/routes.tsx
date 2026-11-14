@@ -1,3 +1,5 @@
+import { BorrowerVerificationsPage } from '../../pages/borrower-verifications/BorrowerVerificationsPage'
+import { BorrowerVerificationDetailPage } from '../../pages/borrower-verifications/BorrowerVerificationDetailPage'
 import { MarketplacePage } from '../../pages/marketplace'
 import { MarketplaceOfferPage } from '../../pages/marketplace-offer'
 import type { ReactNode } from 'react'
@@ -19,6 +21,8 @@ interface AppRoute {
 }
 
 export const appRoutes: AppRoute[] = [
+  { path: routePaths.borrowerVerifications, element: <BorrowerVerificationsPage />, access: 'private' },
+  { path: routePaths.borrowerVerificationDetail, element: <BorrowerVerificationDetailPage />, access: 'private' },
   { path: routePaths.marketplace, element: <MarketplacePage />, access: 'private' },
   { path: routePaths.marketplaceDetail, element: <MarketplaceOfferPage />, access: 'private' },
   { path: routePaths.login, element: <LoginPage />, access: 'public' },

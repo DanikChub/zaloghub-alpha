@@ -203,6 +203,8 @@ export type PartyWhereInput = {
   legacyBorrower?: Prisma.XOR<Prisma.BorrowerNullableScalarRelationFilter, Prisma.BorrowerWhereInput> | null
   contractParties?: Prisma.ContractPartyListRelationFilter
   financialEvents?: Prisma.FinancialEventListRelationFilter
+  identityVersions?: Prisma.PartyIdentityVersionListRelationFilter
+  borrowerVerifications?: Prisma.BorrowerVerificationListRelationFilter
 }
 
 export type PartyOrderByWithRelationInput = {
@@ -218,6 +220,8 @@ export type PartyOrderByWithRelationInput = {
   legacyBorrower?: Prisma.BorrowerOrderByWithRelationInput
   contractParties?: Prisma.ContractPartyOrderByRelationAggregateInput
   financialEvents?: Prisma.FinancialEventOrderByRelationAggregateInput
+  identityVersions?: Prisma.PartyIdentityVersionOrderByRelationAggregateInput
+  borrowerVerifications?: Prisma.BorrowerVerificationOrderByRelationAggregateInput
 }
 
 export type PartyWhereUniqueInput = Prisma.AtLeast<{
@@ -239,6 +243,8 @@ export type PartyWhereUniqueInput = Prisma.AtLeast<{
   legacyBorrower?: Prisma.XOR<Prisma.BorrowerNullableScalarRelationFilter, Prisma.BorrowerWhereInput> | null
   contractParties?: Prisma.ContractPartyListRelationFilter
   financialEvents?: Prisma.FinancialEventListRelationFilter
+  identityVersions?: Prisma.PartyIdentityVersionListRelationFilter
+  borrowerVerifications?: Prisma.BorrowerVerificationListRelationFilter
 }, "id" | "id_workspaceId" | "workspaceId_userId" | "legacyBorrowerId" | "legacyBorrowerId_workspaceId">
 
 export type PartyOrderByWithAggregationInput = {
@@ -277,6 +283,8 @@ export type PartyCreateInput = {
   legacyBorrower?: Prisma.BorrowerCreateNestedOneWithoutPartyInput
   contractParties?: Prisma.ContractPartyCreateNestedManyWithoutPartyInput
   financialEvents?: Prisma.FinancialEventCreateNestedManyWithoutCounterpartyInput
+  identityVersions?: Prisma.PartyIdentityVersionCreateNestedManyWithoutPartyInput
+  borrowerVerifications?: Prisma.BorrowerVerificationCreateNestedManyWithoutPartyInput
 }
 
 export type PartyUncheckedCreateInput = {
@@ -289,6 +297,8 @@ export type PartyUncheckedCreateInput = {
   legacyBorrowerId?: string | null
   contractParties?: Prisma.ContractPartyUncheckedCreateNestedManyWithoutPartyInput
   financialEvents?: Prisma.FinancialEventUncheckedCreateNestedManyWithoutCounterpartyInput
+  identityVersions?: Prisma.PartyIdentityVersionUncheckedCreateNestedManyWithoutPartyInput
+  borrowerVerifications?: Prisma.BorrowerVerificationUncheckedCreateNestedManyWithoutPartyInput
 }
 
 export type PartyUpdateInput = {
@@ -301,6 +311,8 @@ export type PartyUpdateInput = {
   legacyBorrower?: Prisma.BorrowerUpdateOneWithoutPartyNestedInput
   contractParties?: Prisma.ContractPartyUpdateManyWithoutPartyNestedInput
   financialEvents?: Prisma.FinancialEventUpdateManyWithoutCounterpartyNestedInput
+  identityVersions?: Prisma.PartyIdentityVersionUpdateManyWithoutPartyNestedInput
+  borrowerVerifications?: Prisma.BorrowerVerificationUpdateManyWithoutPartyNestedInput
 }
 
 export type PartyUncheckedUpdateInput = {
@@ -313,6 +325,8 @@ export type PartyUncheckedUpdateInput = {
   legacyBorrowerId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   contractParties?: Prisma.ContractPartyUncheckedUpdateManyWithoutPartyNestedInput
   financialEvents?: Prisma.FinancialEventUncheckedUpdateManyWithoutCounterpartyNestedInput
+  identityVersions?: Prisma.PartyIdentityVersionUncheckedUpdateManyWithoutPartyNestedInput
+  borrowerVerifications?: Prisma.BorrowerVerificationUncheckedUpdateManyWithoutPartyNestedInput
 }
 
 export type PartyCreateManyInput = {
@@ -557,6 +571,34 @@ export type PartyUpdateOneWithoutFinancialEventsNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.PartyUpdateToOneWithWhereWithoutFinancialEventsInput, Prisma.PartyUpdateWithoutFinancialEventsInput>, Prisma.PartyUncheckedUpdateWithoutFinancialEventsInput>
 }
 
+export type PartyCreateNestedOneWithoutIdentityVersionsInput = {
+  create?: Prisma.XOR<Prisma.PartyCreateWithoutIdentityVersionsInput, Prisma.PartyUncheckedCreateWithoutIdentityVersionsInput>
+  connectOrCreate?: Prisma.PartyCreateOrConnectWithoutIdentityVersionsInput
+  connect?: Prisma.PartyWhereUniqueInput
+}
+
+export type PartyUpdateOneRequiredWithoutIdentityVersionsNestedInput = {
+  create?: Prisma.XOR<Prisma.PartyCreateWithoutIdentityVersionsInput, Prisma.PartyUncheckedCreateWithoutIdentityVersionsInput>
+  connectOrCreate?: Prisma.PartyCreateOrConnectWithoutIdentityVersionsInput
+  upsert?: Prisma.PartyUpsertWithoutIdentityVersionsInput
+  connect?: Prisma.PartyWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.PartyUpdateToOneWithWhereWithoutIdentityVersionsInput, Prisma.PartyUpdateWithoutIdentityVersionsInput>, Prisma.PartyUncheckedUpdateWithoutIdentityVersionsInput>
+}
+
+export type PartyCreateNestedOneWithoutBorrowerVerificationsInput = {
+  create?: Prisma.XOR<Prisma.PartyCreateWithoutBorrowerVerificationsInput, Prisma.PartyUncheckedCreateWithoutBorrowerVerificationsInput>
+  connectOrCreate?: Prisma.PartyCreateOrConnectWithoutBorrowerVerificationsInput
+  connect?: Prisma.PartyWhereUniqueInput
+}
+
+export type PartyUpdateOneRequiredWithoutBorrowerVerificationsNestedInput = {
+  create?: Prisma.XOR<Prisma.PartyCreateWithoutBorrowerVerificationsInput, Prisma.PartyUncheckedCreateWithoutBorrowerVerificationsInput>
+  connectOrCreate?: Prisma.PartyCreateOrConnectWithoutBorrowerVerificationsInput
+  upsert?: Prisma.PartyUpsertWithoutBorrowerVerificationsInput
+  connect?: Prisma.PartyWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.PartyUpdateToOneWithWhereWithoutBorrowerVerificationsInput, Prisma.PartyUpdateWithoutBorrowerVerificationsInput>, Prisma.PartyUncheckedUpdateWithoutBorrowerVerificationsInput>
+}
+
 export type PartyCreateWithoutUserInput = {
   id?: string
   kind: $Enums.PartyKind
@@ -566,6 +608,8 @@ export type PartyCreateWithoutUserInput = {
   legacyBorrower?: Prisma.BorrowerCreateNestedOneWithoutPartyInput
   contractParties?: Prisma.ContractPartyCreateNestedManyWithoutPartyInput
   financialEvents?: Prisma.FinancialEventCreateNestedManyWithoutCounterpartyInput
+  identityVersions?: Prisma.PartyIdentityVersionCreateNestedManyWithoutPartyInput
+  borrowerVerifications?: Prisma.BorrowerVerificationCreateNestedManyWithoutPartyInput
 }
 
 export type PartyUncheckedCreateWithoutUserInput = {
@@ -577,6 +621,8 @@ export type PartyUncheckedCreateWithoutUserInput = {
   legacyBorrowerId?: string | null
   contractParties?: Prisma.ContractPartyUncheckedCreateNestedManyWithoutPartyInput
   financialEvents?: Prisma.FinancialEventUncheckedCreateNestedManyWithoutCounterpartyInput
+  identityVersions?: Prisma.PartyIdentityVersionUncheckedCreateNestedManyWithoutPartyInput
+  borrowerVerifications?: Prisma.BorrowerVerificationUncheckedCreateNestedManyWithoutPartyInput
 }
 
 export type PartyCreateOrConnectWithoutUserInput = {
@@ -627,6 +673,8 @@ export type PartyCreateWithoutLegacyBorrowerInput = {
   user?: Prisma.UserCreateNestedOneWithoutPartiesInput
   contractParties?: Prisma.ContractPartyCreateNestedManyWithoutPartyInput
   financialEvents?: Prisma.FinancialEventCreateNestedManyWithoutCounterpartyInput
+  identityVersions?: Prisma.PartyIdentityVersionCreateNestedManyWithoutPartyInput
+  borrowerVerifications?: Prisma.BorrowerVerificationCreateNestedManyWithoutPartyInput
 }
 
 export type PartyUncheckedCreateWithoutLegacyBorrowerInput = {
@@ -637,6 +685,8 @@ export type PartyUncheckedCreateWithoutLegacyBorrowerInput = {
   userId?: string | null
   contractParties?: Prisma.ContractPartyUncheckedCreateNestedManyWithoutPartyInput
   financialEvents?: Prisma.FinancialEventUncheckedCreateNestedManyWithoutCounterpartyInput
+  identityVersions?: Prisma.PartyIdentityVersionUncheckedCreateNestedManyWithoutPartyInput
+  borrowerVerifications?: Prisma.BorrowerVerificationUncheckedCreateNestedManyWithoutPartyInput
 }
 
 export type PartyCreateOrConnectWithoutLegacyBorrowerInput = {
@@ -664,6 +714,8 @@ export type PartyUpdateWithoutLegacyBorrowerInput = {
   user?: Prisma.UserUpdateOneWithoutPartiesNestedInput
   contractParties?: Prisma.ContractPartyUpdateManyWithoutPartyNestedInput
   financialEvents?: Prisma.FinancialEventUpdateManyWithoutCounterpartyNestedInput
+  identityVersions?: Prisma.PartyIdentityVersionUpdateManyWithoutPartyNestedInput
+  borrowerVerifications?: Prisma.BorrowerVerificationUpdateManyWithoutPartyNestedInput
 }
 
 export type PartyUncheckedUpdateWithoutLegacyBorrowerInput = {
@@ -674,6 +726,8 @@ export type PartyUncheckedUpdateWithoutLegacyBorrowerInput = {
   userId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   contractParties?: Prisma.ContractPartyUncheckedUpdateManyWithoutPartyNestedInput
   financialEvents?: Prisma.FinancialEventUncheckedUpdateManyWithoutCounterpartyNestedInput
+  identityVersions?: Prisma.PartyIdentityVersionUncheckedUpdateManyWithoutPartyNestedInput
+  borrowerVerifications?: Prisma.BorrowerVerificationUncheckedUpdateManyWithoutPartyNestedInput
 }
 
 export type PartyCreateWithoutWorkspaceInput = {
@@ -685,6 +739,8 @@ export type PartyCreateWithoutWorkspaceInput = {
   legacyBorrower?: Prisma.BorrowerCreateNestedOneWithoutPartyInput
   contractParties?: Prisma.ContractPartyCreateNestedManyWithoutPartyInput
   financialEvents?: Prisma.FinancialEventCreateNestedManyWithoutCounterpartyInput
+  identityVersions?: Prisma.PartyIdentityVersionCreateNestedManyWithoutPartyInput
+  borrowerVerifications?: Prisma.BorrowerVerificationCreateNestedManyWithoutPartyInput
 }
 
 export type PartyUncheckedCreateWithoutWorkspaceInput = {
@@ -696,6 +752,8 @@ export type PartyUncheckedCreateWithoutWorkspaceInput = {
   legacyBorrowerId?: string | null
   contractParties?: Prisma.ContractPartyUncheckedCreateNestedManyWithoutPartyInput
   financialEvents?: Prisma.FinancialEventUncheckedCreateNestedManyWithoutCounterpartyInput
+  identityVersions?: Prisma.PartyIdentityVersionUncheckedCreateNestedManyWithoutPartyInput
+  borrowerVerifications?: Prisma.BorrowerVerificationUncheckedCreateNestedManyWithoutPartyInput
 }
 
 export type PartyCreateOrConnectWithoutWorkspaceInput = {
@@ -733,6 +791,8 @@ export type PartyCreateWithoutContractPartiesInput = {
   user?: Prisma.UserCreateNestedOneWithoutPartiesInput
   legacyBorrower?: Prisma.BorrowerCreateNestedOneWithoutPartyInput
   financialEvents?: Prisma.FinancialEventCreateNestedManyWithoutCounterpartyInput
+  identityVersions?: Prisma.PartyIdentityVersionCreateNestedManyWithoutPartyInput
+  borrowerVerifications?: Prisma.BorrowerVerificationCreateNestedManyWithoutPartyInput
 }
 
 export type PartyUncheckedCreateWithoutContractPartiesInput = {
@@ -744,6 +804,8 @@ export type PartyUncheckedCreateWithoutContractPartiesInput = {
   userId?: string | null
   legacyBorrowerId?: string | null
   financialEvents?: Prisma.FinancialEventUncheckedCreateNestedManyWithoutCounterpartyInput
+  identityVersions?: Prisma.PartyIdentityVersionUncheckedCreateNestedManyWithoutPartyInput
+  borrowerVerifications?: Prisma.BorrowerVerificationUncheckedCreateNestedManyWithoutPartyInput
 }
 
 export type PartyCreateOrConnectWithoutContractPartiesInput = {
@@ -771,6 +833,8 @@ export type PartyUpdateWithoutContractPartiesInput = {
   user?: Prisma.UserUpdateOneWithoutPartiesNestedInput
   legacyBorrower?: Prisma.BorrowerUpdateOneWithoutPartyNestedInput
   financialEvents?: Prisma.FinancialEventUpdateManyWithoutCounterpartyNestedInput
+  identityVersions?: Prisma.PartyIdentityVersionUpdateManyWithoutPartyNestedInput
+  borrowerVerifications?: Prisma.BorrowerVerificationUpdateManyWithoutPartyNestedInput
 }
 
 export type PartyUncheckedUpdateWithoutContractPartiesInput = {
@@ -782,6 +846,8 @@ export type PartyUncheckedUpdateWithoutContractPartiesInput = {
   userId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   legacyBorrowerId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   financialEvents?: Prisma.FinancialEventUncheckedUpdateManyWithoutCounterpartyNestedInput
+  identityVersions?: Prisma.PartyIdentityVersionUncheckedUpdateManyWithoutPartyNestedInput
+  borrowerVerifications?: Prisma.BorrowerVerificationUncheckedUpdateManyWithoutPartyNestedInput
 }
 
 export type PartyCreateWithoutFinancialEventsInput = {
@@ -793,6 +859,8 @@ export type PartyCreateWithoutFinancialEventsInput = {
   user?: Prisma.UserCreateNestedOneWithoutPartiesInput
   legacyBorrower?: Prisma.BorrowerCreateNestedOneWithoutPartyInput
   contractParties?: Prisma.ContractPartyCreateNestedManyWithoutPartyInput
+  identityVersions?: Prisma.PartyIdentityVersionCreateNestedManyWithoutPartyInput
+  borrowerVerifications?: Prisma.BorrowerVerificationCreateNestedManyWithoutPartyInput
 }
 
 export type PartyUncheckedCreateWithoutFinancialEventsInput = {
@@ -804,6 +872,8 @@ export type PartyUncheckedCreateWithoutFinancialEventsInput = {
   userId?: string | null
   legacyBorrowerId?: string | null
   contractParties?: Prisma.ContractPartyUncheckedCreateNestedManyWithoutPartyInput
+  identityVersions?: Prisma.PartyIdentityVersionUncheckedCreateNestedManyWithoutPartyInput
+  borrowerVerifications?: Prisma.BorrowerVerificationUncheckedCreateNestedManyWithoutPartyInput
 }
 
 export type PartyCreateOrConnectWithoutFinancialEventsInput = {
@@ -831,6 +901,8 @@ export type PartyUpdateWithoutFinancialEventsInput = {
   user?: Prisma.UserUpdateOneWithoutPartiesNestedInput
   legacyBorrower?: Prisma.BorrowerUpdateOneWithoutPartyNestedInput
   contractParties?: Prisma.ContractPartyUpdateManyWithoutPartyNestedInput
+  identityVersions?: Prisma.PartyIdentityVersionUpdateManyWithoutPartyNestedInput
+  borrowerVerifications?: Prisma.BorrowerVerificationUpdateManyWithoutPartyNestedInput
 }
 
 export type PartyUncheckedUpdateWithoutFinancialEventsInput = {
@@ -842,6 +914,144 @@ export type PartyUncheckedUpdateWithoutFinancialEventsInput = {
   userId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   legacyBorrowerId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   contractParties?: Prisma.ContractPartyUncheckedUpdateManyWithoutPartyNestedInput
+  identityVersions?: Prisma.PartyIdentityVersionUncheckedUpdateManyWithoutPartyNestedInput
+  borrowerVerifications?: Prisma.BorrowerVerificationUncheckedUpdateManyWithoutPartyNestedInput
+}
+
+export type PartyCreateWithoutIdentityVersionsInput = {
+  id?: string
+  kind: $Enums.PartyKind
+  displayName: string
+  taxId?: string | null
+  workspace: Prisma.WorkspaceCreateNestedOneWithoutPartiesInput
+  user?: Prisma.UserCreateNestedOneWithoutPartiesInput
+  legacyBorrower?: Prisma.BorrowerCreateNestedOneWithoutPartyInput
+  contractParties?: Prisma.ContractPartyCreateNestedManyWithoutPartyInput
+  financialEvents?: Prisma.FinancialEventCreateNestedManyWithoutCounterpartyInput
+  borrowerVerifications?: Prisma.BorrowerVerificationCreateNestedManyWithoutPartyInput
+}
+
+export type PartyUncheckedCreateWithoutIdentityVersionsInput = {
+  id?: string
+  workspaceId: string
+  kind: $Enums.PartyKind
+  displayName: string
+  taxId?: string | null
+  userId?: string | null
+  legacyBorrowerId?: string | null
+  contractParties?: Prisma.ContractPartyUncheckedCreateNestedManyWithoutPartyInput
+  financialEvents?: Prisma.FinancialEventUncheckedCreateNestedManyWithoutCounterpartyInput
+  borrowerVerifications?: Prisma.BorrowerVerificationUncheckedCreateNestedManyWithoutPartyInput
+}
+
+export type PartyCreateOrConnectWithoutIdentityVersionsInput = {
+  where: Prisma.PartyWhereUniqueInput
+  create: Prisma.XOR<Prisma.PartyCreateWithoutIdentityVersionsInput, Prisma.PartyUncheckedCreateWithoutIdentityVersionsInput>
+}
+
+export type PartyUpsertWithoutIdentityVersionsInput = {
+  update: Prisma.XOR<Prisma.PartyUpdateWithoutIdentityVersionsInput, Prisma.PartyUncheckedUpdateWithoutIdentityVersionsInput>
+  create: Prisma.XOR<Prisma.PartyCreateWithoutIdentityVersionsInput, Prisma.PartyUncheckedCreateWithoutIdentityVersionsInput>
+  where?: Prisma.PartyWhereInput
+}
+
+export type PartyUpdateToOneWithWhereWithoutIdentityVersionsInput = {
+  where?: Prisma.PartyWhereInput
+  data: Prisma.XOR<Prisma.PartyUpdateWithoutIdentityVersionsInput, Prisma.PartyUncheckedUpdateWithoutIdentityVersionsInput>
+}
+
+export type PartyUpdateWithoutIdentityVersionsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  kind?: Prisma.EnumPartyKindFieldUpdateOperationsInput | $Enums.PartyKind
+  displayName?: Prisma.StringFieldUpdateOperationsInput | string
+  taxId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  workspace?: Prisma.WorkspaceUpdateOneRequiredWithoutPartiesNestedInput
+  user?: Prisma.UserUpdateOneWithoutPartiesNestedInput
+  legacyBorrower?: Prisma.BorrowerUpdateOneWithoutPartyNestedInput
+  contractParties?: Prisma.ContractPartyUpdateManyWithoutPartyNestedInput
+  financialEvents?: Prisma.FinancialEventUpdateManyWithoutCounterpartyNestedInput
+  borrowerVerifications?: Prisma.BorrowerVerificationUpdateManyWithoutPartyNestedInput
+}
+
+export type PartyUncheckedUpdateWithoutIdentityVersionsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  workspaceId?: Prisma.StringFieldUpdateOperationsInput | string
+  kind?: Prisma.EnumPartyKindFieldUpdateOperationsInput | $Enums.PartyKind
+  displayName?: Prisma.StringFieldUpdateOperationsInput | string
+  taxId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  userId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  legacyBorrowerId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  contractParties?: Prisma.ContractPartyUncheckedUpdateManyWithoutPartyNestedInput
+  financialEvents?: Prisma.FinancialEventUncheckedUpdateManyWithoutCounterpartyNestedInput
+  borrowerVerifications?: Prisma.BorrowerVerificationUncheckedUpdateManyWithoutPartyNestedInput
+}
+
+export type PartyCreateWithoutBorrowerVerificationsInput = {
+  id?: string
+  kind: $Enums.PartyKind
+  displayName: string
+  taxId?: string | null
+  workspace: Prisma.WorkspaceCreateNestedOneWithoutPartiesInput
+  user?: Prisma.UserCreateNestedOneWithoutPartiesInput
+  legacyBorrower?: Prisma.BorrowerCreateNestedOneWithoutPartyInput
+  contractParties?: Prisma.ContractPartyCreateNestedManyWithoutPartyInput
+  financialEvents?: Prisma.FinancialEventCreateNestedManyWithoutCounterpartyInput
+  identityVersions?: Prisma.PartyIdentityVersionCreateNestedManyWithoutPartyInput
+}
+
+export type PartyUncheckedCreateWithoutBorrowerVerificationsInput = {
+  id?: string
+  workspaceId: string
+  kind: $Enums.PartyKind
+  displayName: string
+  taxId?: string | null
+  userId?: string | null
+  legacyBorrowerId?: string | null
+  contractParties?: Prisma.ContractPartyUncheckedCreateNestedManyWithoutPartyInput
+  financialEvents?: Prisma.FinancialEventUncheckedCreateNestedManyWithoutCounterpartyInput
+  identityVersions?: Prisma.PartyIdentityVersionUncheckedCreateNestedManyWithoutPartyInput
+}
+
+export type PartyCreateOrConnectWithoutBorrowerVerificationsInput = {
+  where: Prisma.PartyWhereUniqueInput
+  create: Prisma.XOR<Prisma.PartyCreateWithoutBorrowerVerificationsInput, Prisma.PartyUncheckedCreateWithoutBorrowerVerificationsInput>
+}
+
+export type PartyUpsertWithoutBorrowerVerificationsInput = {
+  update: Prisma.XOR<Prisma.PartyUpdateWithoutBorrowerVerificationsInput, Prisma.PartyUncheckedUpdateWithoutBorrowerVerificationsInput>
+  create: Prisma.XOR<Prisma.PartyCreateWithoutBorrowerVerificationsInput, Prisma.PartyUncheckedCreateWithoutBorrowerVerificationsInput>
+  where?: Prisma.PartyWhereInput
+}
+
+export type PartyUpdateToOneWithWhereWithoutBorrowerVerificationsInput = {
+  where?: Prisma.PartyWhereInput
+  data: Prisma.XOR<Prisma.PartyUpdateWithoutBorrowerVerificationsInput, Prisma.PartyUncheckedUpdateWithoutBorrowerVerificationsInput>
+}
+
+export type PartyUpdateWithoutBorrowerVerificationsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  kind?: Prisma.EnumPartyKindFieldUpdateOperationsInput | $Enums.PartyKind
+  displayName?: Prisma.StringFieldUpdateOperationsInput | string
+  taxId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  workspace?: Prisma.WorkspaceUpdateOneRequiredWithoutPartiesNestedInput
+  user?: Prisma.UserUpdateOneWithoutPartiesNestedInput
+  legacyBorrower?: Prisma.BorrowerUpdateOneWithoutPartyNestedInput
+  contractParties?: Prisma.ContractPartyUpdateManyWithoutPartyNestedInput
+  financialEvents?: Prisma.FinancialEventUpdateManyWithoutCounterpartyNestedInput
+  identityVersions?: Prisma.PartyIdentityVersionUpdateManyWithoutPartyNestedInput
+}
+
+export type PartyUncheckedUpdateWithoutBorrowerVerificationsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  workspaceId?: Prisma.StringFieldUpdateOperationsInput | string
+  kind?: Prisma.EnumPartyKindFieldUpdateOperationsInput | $Enums.PartyKind
+  displayName?: Prisma.StringFieldUpdateOperationsInput | string
+  taxId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  userId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  legacyBorrowerId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  contractParties?: Prisma.ContractPartyUncheckedUpdateManyWithoutPartyNestedInput
+  financialEvents?: Prisma.FinancialEventUncheckedUpdateManyWithoutCounterpartyNestedInput
+  identityVersions?: Prisma.PartyIdentityVersionUncheckedUpdateManyWithoutPartyNestedInput
 }
 
 export type PartyCreateManyUserInput = {
@@ -862,6 +1072,8 @@ export type PartyUpdateWithoutUserInput = {
   legacyBorrower?: Prisma.BorrowerUpdateOneWithoutPartyNestedInput
   contractParties?: Prisma.ContractPartyUpdateManyWithoutPartyNestedInput
   financialEvents?: Prisma.FinancialEventUpdateManyWithoutCounterpartyNestedInput
+  identityVersions?: Prisma.PartyIdentityVersionUpdateManyWithoutPartyNestedInput
+  borrowerVerifications?: Prisma.BorrowerVerificationUpdateManyWithoutPartyNestedInput
 }
 
 export type PartyUncheckedUpdateWithoutUserInput = {
@@ -873,6 +1085,8 @@ export type PartyUncheckedUpdateWithoutUserInput = {
   legacyBorrowerId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   contractParties?: Prisma.ContractPartyUncheckedUpdateManyWithoutPartyNestedInput
   financialEvents?: Prisma.FinancialEventUncheckedUpdateManyWithoutCounterpartyNestedInput
+  identityVersions?: Prisma.PartyIdentityVersionUncheckedUpdateManyWithoutPartyNestedInput
+  borrowerVerifications?: Prisma.BorrowerVerificationUncheckedUpdateManyWithoutPartyNestedInput
 }
 
 export type PartyUncheckedUpdateManyWithoutUserInput = {
@@ -902,6 +1116,8 @@ export type PartyUpdateWithoutWorkspaceInput = {
   legacyBorrower?: Prisma.BorrowerUpdateOneWithoutPartyNestedInput
   contractParties?: Prisma.ContractPartyUpdateManyWithoutPartyNestedInput
   financialEvents?: Prisma.FinancialEventUpdateManyWithoutCounterpartyNestedInput
+  identityVersions?: Prisma.PartyIdentityVersionUpdateManyWithoutPartyNestedInput
+  borrowerVerifications?: Prisma.BorrowerVerificationUpdateManyWithoutPartyNestedInput
 }
 
 export type PartyUncheckedUpdateWithoutWorkspaceInput = {
@@ -913,6 +1129,8 @@ export type PartyUncheckedUpdateWithoutWorkspaceInput = {
   legacyBorrowerId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   contractParties?: Prisma.ContractPartyUncheckedUpdateManyWithoutPartyNestedInput
   financialEvents?: Prisma.FinancialEventUncheckedUpdateManyWithoutCounterpartyNestedInput
+  identityVersions?: Prisma.PartyIdentityVersionUncheckedUpdateManyWithoutPartyNestedInput
+  borrowerVerifications?: Prisma.BorrowerVerificationUncheckedUpdateManyWithoutPartyNestedInput
 }
 
 export type PartyUncheckedUpdateManyWithoutWorkspaceInput = {
@@ -932,11 +1150,15 @@ export type PartyUncheckedUpdateManyWithoutWorkspaceInput = {
 export type PartyCountOutputType = {
   contractParties: number
   financialEvents: number
+  identityVersions: number
+  borrowerVerifications: number
 }
 
 export type PartyCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   contractParties?: boolean | PartyCountOutputTypeCountContractPartiesArgs
   financialEvents?: boolean | PartyCountOutputTypeCountFinancialEventsArgs
+  identityVersions?: boolean | PartyCountOutputTypeCountIdentityVersionsArgs
+  borrowerVerifications?: boolean | PartyCountOutputTypeCountBorrowerVerificationsArgs
 }
 
 /**
@@ -963,6 +1185,20 @@ export type PartyCountOutputTypeCountFinancialEventsArgs<ExtArgs extends runtime
   where?: Prisma.FinancialEventWhereInput
 }
 
+/**
+ * PartyCountOutputType without action
+ */
+export type PartyCountOutputTypeCountIdentityVersionsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.PartyIdentityVersionWhereInput
+}
+
+/**
+ * PartyCountOutputType without action
+ */
+export type PartyCountOutputTypeCountBorrowerVerificationsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.BorrowerVerificationWhereInput
+}
+
 
 export type PartySelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -977,6 +1213,8 @@ export type PartySelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = 
   legacyBorrower?: boolean | Prisma.Party$legacyBorrowerArgs<ExtArgs>
   contractParties?: boolean | Prisma.Party$contractPartiesArgs<ExtArgs>
   financialEvents?: boolean | Prisma.Party$financialEventsArgs<ExtArgs>
+  identityVersions?: boolean | Prisma.Party$identityVersionsArgs<ExtArgs>
+  borrowerVerifications?: boolean | Prisma.Party$borrowerVerificationsArgs<ExtArgs>
   _count?: boolean | Prisma.PartyCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["party"]>
 
@@ -1023,6 +1261,8 @@ export type PartyInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs =
   legacyBorrower?: boolean | Prisma.Party$legacyBorrowerArgs<ExtArgs>
   contractParties?: boolean | Prisma.Party$contractPartiesArgs<ExtArgs>
   financialEvents?: boolean | Prisma.Party$financialEventsArgs<ExtArgs>
+  identityVersions?: boolean | Prisma.Party$identityVersionsArgs<ExtArgs>
+  borrowerVerifications?: boolean | Prisma.Party$borrowerVerificationsArgs<ExtArgs>
   _count?: boolean | Prisma.PartyCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type PartyIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -1044,6 +1284,8 @@ export type $PartyPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs 
     legacyBorrower: Prisma.$BorrowerPayload<ExtArgs> | null
     contractParties: Prisma.$ContractPartyPayload<ExtArgs>[]
     financialEvents: Prisma.$FinancialEventPayload<ExtArgs>[]
+    identityVersions: Prisma.$PartyIdentityVersionPayload<ExtArgs>[]
+    borrowerVerifications: Prisma.$BorrowerVerificationPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -1452,6 +1694,8 @@ export interface Prisma__PartyClient<T, Null = never, ExtArgs extends runtime.Ty
   legacyBorrower<T extends Prisma.Party$legacyBorrowerArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Party$legacyBorrowerArgs<ExtArgs>>): Prisma.Prisma__BorrowerClient<runtime.Types.Result.GetResult<Prisma.$BorrowerPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   contractParties<T extends Prisma.Party$contractPartiesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Party$contractPartiesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ContractPartyPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   financialEvents<T extends Prisma.Party$financialEventsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Party$financialEventsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$FinancialEventPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  identityVersions<T extends Prisma.Party$identityVersionsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Party$identityVersionsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$PartyIdentityVersionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  borrowerVerifications<T extends Prisma.Party$borrowerVerificationsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Party$borrowerVerificationsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$BorrowerVerificationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1972,6 +2216,54 @@ export type Party$financialEventsArgs<ExtArgs extends runtime.Types.Extensions.I
   take?: number
   skip?: number
   distinct?: Prisma.FinancialEventScalarFieldEnum | Prisma.FinancialEventScalarFieldEnum[]
+}
+
+/**
+ * Party.identityVersions
+ */
+export type Party$identityVersionsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the PartyIdentityVersion
+   */
+  select?: Prisma.PartyIdentityVersionSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the PartyIdentityVersion
+   */
+  omit?: Prisma.PartyIdentityVersionOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.PartyIdentityVersionInclude<ExtArgs> | null
+  where?: Prisma.PartyIdentityVersionWhereInput
+  orderBy?: Prisma.PartyIdentityVersionOrderByWithRelationInput | Prisma.PartyIdentityVersionOrderByWithRelationInput[]
+  cursor?: Prisma.PartyIdentityVersionWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.PartyIdentityVersionScalarFieldEnum | Prisma.PartyIdentityVersionScalarFieldEnum[]
+}
+
+/**
+ * Party.borrowerVerifications
+ */
+export type Party$borrowerVerificationsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the BorrowerVerification
+   */
+  select?: Prisma.BorrowerVerificationSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the BorrowerVerification
+   */
+  omit?: Prisma.BorrowerVerificationOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.BorrowerVerificationInclude<ExtArgs> | null
+  where?: Prisma.BorrowerVerificationWhereInput
+  orderBy?: Prisma.BorrowerVerificationOrderByWithRelationInput | Prisma.BorrowerVerificationOrderByWithRelationInput[]
+  cursor?: Prisma.BorrowerVerificationWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.BorrowerVerificationScalarFieldEnum | Prisma.BorrowerVerificationScalarFieldEnum[]
 }
 
 /**

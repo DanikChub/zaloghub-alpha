@@ -15,7 +15,9 @@ RUN DATABASE_URL=postgresql://build:build@localhost/build pnpm --dir apps/api db
 
 FROM build-api AS api
 ENV NODE_ENV=production PORT=3000 NODE_OPTIONS=--max-old-space-size=192
+ENV VERIFICATION_STORAGE_PATH=/var/lib/zaloghub/verifications
 WORKDIR /app/apps/api
+RUN mkdir -p /var/lib/zaloghub/verifications && chown node:node /var/lib/zaloghub/verifications
 USER node
 EXPOSE 3000
 CMD ["node", "dist/main.js"]

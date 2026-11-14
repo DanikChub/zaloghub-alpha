@@ -84,7 +84,14 @@ export const ModelName = {
   MarketplaceSource: 'MarketplaceSource',
   MarketplaceOffer: 'MarketplaceOffer',
   MarketplacePhoto: 'MarketplacePhoto',
-  MarketplaceMark: 'MarketplaceMark'
+  MarketplaceMark: 'MarketplaceMark',
+  PartyIdentityVersion: 'PartyIdentityVersion',
+  BorrowerVerification: 'BorrowerVerification',
+  BorrowerVerificationItem: 'BorrowerVerificationItem',
+  BorrowerCheckRun: 'BorrowerCheckRun',
+  BorrowerCheckFinding: 'BorrowerCheckFinding',
+  BorrowerVerificationEvidence: 'BorrowerVerificationEvidence',
+  BorrowerVerificationRisk: 'BorrowerVerificationRisk'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -299,7 +306,10 @@ export const DocumentScalarFieldEnum = {
   workspaceId: 'workspaceId',
   storageKey: 'storageKey',
   sha256: 'sha256',
-  mimeType: 'mimeType'
+  mimeType: 'mimeType',
+  originalFilename: 'originalFilename',
+  sizeBytes: 'sizeBytes',
+  createdAt: 'createdAt'
 } as const
 
 export type DocumentScalarFieldEnum = (typeof DocumentScalarFieldEnum)[keyof typeof DocumentScalarFieldEnum]
@@ -623,6 +633,223 @@ export const MarketplaceMarkScalarFieldEnum = {
 } as const
 
 export type MarketplaceMarkScalarFieldEnum = (typeof MarketplaceMarkScalarFieldEnum)[keyof typeof MarketplaceMarkScalarFieldEnum]
+
+
+export const PartyIdentityVersionScalarFieldEnum = {
+  id: 'id',
+  workspaceId: 'workspaceId',
+  partyId: 'partyId',
+  versionNo: 'versionNo',
+  supersedesId: 'supersedesId',
+  lastName: 'lastName',
+  firstName: 'firstName',
+  middleName: 'middleName',
+  hasNoMiddleName: 'hasNoMiddleName',
+  birthDate: 'birthDate',
+  birthPlace: 'birthPlace',
+  passportSeries: 'passportSeries',
+  passportNumber: 'passportNumber',
+  passportIssuedOn: 'passportIssuedOn',
+  passportIssuedBy: 'passportIssuedBy',
+  passportDepartmentCode: 'passportDepartmentCode',
+  registrationAddress: 'registrationAddress',
+  residentialAddress: 'residentialAddress',
+  previousNames: 'previousNames',
+  previousRegions: 'previousRegions',
+  inn: 'inn',
+  snils: 'snils',
+  ogrnip: 'ogrnip',
+  sourceDocumentId: 'sourceDocumentId',
+  confirmedById: 'confirmedById',
+  confirmedAt: 'confirmedAt'
+} as const
+
+export type PartyIdentityVersionScalarFieldEnum = (typeof PartyIdentityVersionScalarFieldEnum)[keyof typeof PartyIdentityVersionScalarFieldEnum]
+
+
+export const BorrowerVerificationScalarFieldEnum = {
+  id: 'id',
+  workspaceId: 'workspaceId',
+  partyId: 'partyId',
+  identityVersionId: 'identityVersionId',
+  dealId: 'dealId',
+  previousVerificationId: 'previousVerificationId',
+  checklistVersion: 'checklistVersion',
+  riskRulesVersion: 'riskRulesVersion',
+  status: 'status',
+  overallRisk: 'overallRisk',
+  decision: 'decision',
+  decisionComment: 'decisionComment',
+  decisionConditions: 'decisionConditions',
+  assignedToId: 'assignedToId',
+  createdById: 'createdById',
+  decidedById: 'decidedById',
+  decidedAt: 'decidedAt',
+  completedAt: 'completedAt',
+  validUntil: 'validUntil',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type BorrowerVerificationScalarFieldEnum = (typeof BorrowerVerificationScalarFieldEnum)[keyof typeof BorrowerVerificationScalarFieldEnum]
+
+
+export const BorrowerVerificationItemScalarFieldEnum = {
+  id: 'id',
+  workspaceId: 'workspaceId',
+  verificationId: 'verificationId',
+  checkCode: 'checkCode',
+  definitionVersion: 'definitionVersion',
+  title: 'title',
+  sortOrder: 'sortOrder',
+  isRequired: 'isRequired',
+  resultType: 'resultType',
+  inputSchema: 'inputSchema',
+  resultSchema: 'resultSchema',
+  sourceCode: 'sourceCode',
+  sourceUrl: 'sourceUrl',
+  instructions: 'instructions',
+  executionMode: 'executionMode',
+  status: 'status',
+  acceptedRunId: 'acceptedRunId',
+  notApplicableReason: 'notApplicableReason',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type BorrowerVerificationItemScalarFieldEnum = (typeof BorrowerVerificationItemScalarFieldEnum)[keyof typeof BorrowerVerificationItemScalarFieldEnum]
+
+
+export const BorrowerCheckRunScalarFieldEnum = {
+  id: 'id',
+  workspaceId: 'workspaceId',
+  verificationId: 'verificationId',
+  itemId: 'itemId',
+  attemptNo: 'attemptNo',
+  mode: 'mode',
+  providerCode: 'providerCode',
+  providerRequestId: 'providerRequestId',
+  idempotencyKey: 'idempotencyKey',
+  inputSnapshot: 'inputSnapshot',
+  inputHash: 'inputHash',
+  adapterVersion: 'adapterVersion',
+  status: 'status',
+  resultBoolean: 'resultBoolean',
+  resultCode: 'resultCode',
+  resultAmount: 'resultAmount',
+  currency: 'currency',
+  resultData: 'resultData',
+  summary: 'summary',
+  riskAssessment: 'riskAssessment',
+  assessmentRulesVersion: 'assessmentRulesVersion',
+  coverage: 'coverage',
+  sourceAsOfAt: 'sourceAsOfAt',
+  validUntil: 'validUntil',
+  errorCode: 'errorCode',
+  errorMessage: 'errorMessage',
+  performedById: 'performedById',
+  reviewedById: 'reviewedById',
+  reviewedAt: 'reviewedAt',
+  createdAt: 'createdAt',
+  startedAt: 'startedAt',
+  finishedAt: 'finishedAt',
+  availableAt: 'availableAt',
+  leaseOwner: 'leaseOwner',
+  leaseExpiresAt: 'leaseExpiresAt',
+  heartbeatAt: 'heartbeatAt',
+  identityVersionId: 'identityVersionId'
+} as const
+
+export type BorrowerCheckRunScalarFieldEnum = (typeof BorrowerCheckRunScalarFieldEnum)[keyof typeof BorrowerCheckRunScalarFieldEnum]
+
+
+export const BorrowerCheckFindingScalarFieldEnum = {
+  id: 'id',
+  workspaceId: 'workspaceId',
+  verificationId: 'verificationId',
+  runId: 'runId',
+  findingType: 'findingType',
+  externalId: 'externalId',
+  recordKey: 'recordKey',
+  referenceNumber: 'referenceNumber',
+  title: 'title',
+  categoryCode: 'categoryCode',
+  personRole: 'personRole',
+  recordStatus: 'recordStatus',
+  openedOn: 'openedOn',
+  closedOn: 'closedOn',
+  claimAmount: 'claimAmount',
+  outstandingAmount: 'outstandingAmount',
+  currency: 'currency',
+  authorityName: 'authorityName',
+  sourceUrl: 'sourceUrl',
+  identityMatch: 'identityMatch',
+  matchBasis: 'matchBasis',
+  matchComment: 'matchComment',
+  matchReviewedById: 'matchReviewedById',
+  matchReviewedAt: 'matchReviewedAt',
+  details: 'details',
+  createdAt: 'createdAt'
+} as const
+
+export type BorrowerCheckFindingScalarFieldEnum = (typeof BorrowerCheckFindingScalarFieldEnum)[keyof typeof BorrowerCheckFindingScalarFieldEnum]
+
+
+export const BorrowerVerificationEvidenceScalarFieldEnum = {
+  id: 'id',
+  workspaceId: 'workspaceId',
+  verificationId: 'verificationId',
+  itemId: 'itemId',
+  runId: 'runId',
+  findingId: 'findingId',
+  documentId: 'documentId',
+  kind: 'kind',
+  title: 'title',
+  sourceUrl: 'sourceUrl',
+  issuedOn: 'issuedOn',
+  capturedAt: 'capturedAt',
+  validUntil: 'validUntil',
+  authenticityStatus: 'authenticityStatus',
+  ocrStatus: 'ocrStatus',
+  ocrEngineVersion: 'ocrEngineVersion',
+  ocrResult: 'ocrResult',
+  ocrError: 'ocrError',
+  reviewComment: 'reviewComment',
+  reviewedById: 'reviewedById',
+  reviewedAt: 'reviewedAt',
+  uploadedById: 'uploadedById',
+  createdAt: 'createdAt'
+} as const
+
+export type BorrowerVerificationEvidenceScalarFieldEnum = (typeof BorrowerVerificationEvidenceScalarFieldEnum)[keyof typeof BorrowerVerificationEvidenceScalarFieldEnum]
+
+
+export const BorrowerVerificationRiskScalarFieldEnum = {
+  id: 'id',
+  workspaceId: 'workspaceId',
+  verificationId: 'verificationId',
+  itemId: 'itemId',
+  runId: 'runId',
+  findingId: 'findingId',
+  riskCode: 'riskCode',
+  ruleVersion: 'ruleVersion',
+  title: 'title',
+  description: 'description',
+  severity: 'severity',
+  remediability: 'remediability',
+  status: 'status',
+  requiredAction: 'requiredAction',
+  assignedToId: 'assignedToId',
+  dueAt: 'dueAt',
+  resolutionComment: 'resolutionComment',
+  resolutionEvidenceId: 'resolutionEvidenceId',
+  resolvedById: 'resolvedById',
+  resolvedAt: 'resolvedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type BorrowerVerificationRiskScalarFieldEnum = (typeof BorrowerVerificationRiskScalarFieldEnum)[keyof typeof BorrowerVerificationRiskScalarFieldEnum]
 
 
 export const SortOrder = {

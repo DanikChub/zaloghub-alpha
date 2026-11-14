@@ -1,3 +1,4 @@
+import ruRU from 'antd/locale/ru_RU'
 import { useEffect, type PropsWithChildren } from 'react'
 import { App as AntdApp, ConfigProvider } from 'antd'
 import { Provider } from 'react-redux'
@@ -21,7 +22,7 @@ function ThemeProviders({ children }: PropsWithChildren) {
   }, [selectedTheme])
 
   return (
-    <ConfigProvider theme={themePresets[selectedTheme]} componentSize="small">
+    <ConfigProvider locale={ruRU} theme={themePresets[selectedTheme]} componentSize="small">
       <AntdApp>
         <BrowserRouter>{children}</BrowserRouter>
       </AntdApp>

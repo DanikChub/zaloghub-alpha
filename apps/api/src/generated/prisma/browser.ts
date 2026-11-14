@@ -188,3 +188,38 @@ export type MarketplacePhoto = Prisma.MarketplacePhotoModel
  * 
  */
 export type MarketplaceMark = Prisma.MarketplaceMarkModel
+/**
+ * Model PartyIdentityVersion
+ * 
+ */
+export type PartyIdentityVersion = Prisma.PartyIdentityVersionModel
+/**
+ * Model BorrowerVerification
+ * 
+ */
+export type BorrowerVerification = Prisma.BorrowerVerificationModel
+/**
+ * Model BorrowerVerificationItem
+ * 
+ */
+export type BorrowerVerificationItem = Prisma.BorrowerVerificationItemModel
+/**
+ * Model BorrowerCheckRun
+ * 
+ */
+export type BorrowerCheckRun = Prisma.BorrowerCheckRunModel
+/**
+ * Model BorrowerCheckFinding
+ * 
+ */
+export type BorrowerCheckFinding = Prisma.BorrowerCheckFindingModel
+/**
+ * Model BorrowerVerificationEvidence
+ * 
+ */
+export type BorrowerVerificationEvidence = Prisma.BorrowerVerificationEvidenceModel
+/**
+ * Model BorrowerVerificationRisk
+ * 
+ */
+export type BorrowerVerificationRisk = Prisma.BorrowerVerificationRiskModel
