@@ -5,6 +5,7 @@ import { Outbox, groupMessages } from "./outbox.mjs";
 import { mkdir, rm, writeFile } from 'node:fs/promises';
 import { resolveChannel } from './channel.mjs';
 import { apiUrl } from './api-url.mjs';
+import { CatchUp } from './catch-up.mjs';
 const url = apiUrl(process.env);
 const token = process.env.MARKETPLACE_COLLECTOR_TOKEN;
 if (!token || token.length < 32)
@@ -177,15 +178,21 @@ if (mode === "retry") {
           await event.resolve(client);
           client.addEventHandler(fn, event);
         }
-        active.set(source.id, { source, handlers });
+        active.set(source.id, { source, handlers, ref });
       }
     await mkdir(resolve(process.env.COLLECTOR_STORAGE ?? '.local/collector'), { recursive: true });
     await writeFile(healthPath, JSON.stringify({ at: Date.now(), connected: client.connected, sources: active.size }));
   }
-  let timer, retryTimer;
+  const catchUp = new CatchUp(
+    resolve(process.env.COLLECTOR_STORAGE ?? '.local/collector', 'cursors'), client, store,
+  );
+  let timer, retryTimer, catchUpTimer;
   async function shutdown() {
     clearInterval(timer);
     clearInterval(retryTimer);
+    clearInterval(catchUpTimer);
+    // Do not disconnect while a scan is still persisting its batch.
+    while (catchUp.running) await new Promise(resolve => setTimeout(resolve, 50));
     for (const key of [...buffers.keys()]) await flush(key);
     await outbox.drain();
     await client.disconnect();
@@ -254,6 +261,12 @@ if (mode === "retry") {
       startupStage = "Подписка на каналы";
       console.log("Telegram подключён. Подписка на каналы…");
       await withDeadline(() => sync(), 60000, startupStage);
+      const recover = () => {
+        if (client.connected) void catchUp.run([...active.values()]).catch(() =>
+          console.warn('Автодобор недоступен; повтор при следующей сверке.'));
+      };
+      recover();
+      catchUpTimer = setInterval(recover, 30000);
       timer = setInterval(
         () =>
           sync().catch(() =>
@@ -283,6 +296,7 @@ if (mode === "retry") {
   } catch (error) {
     clearInterval(timer);
     clearInterval(retryTimer);
+    clearInterval(catchUpTimer);
     for (const entry of buffers.values()) clearTimeout(entry.timer);
     console.error(startupFailure(error, startupStage));
     await withDeadline(() => client.destroy(), 5000, "Остановка Telegram-клиента").catch(() => {});
